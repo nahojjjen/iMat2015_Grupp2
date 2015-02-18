@@ -71,27 +71,128 @@ public class Model {
           * set the username of whoever logs in
           * @param input what the username should be
           */
-         public void setUserName(String input){
+         public static void setUserName(String input){
              user.setUserName(input);
         }
          
          /**
+          * get the username of user
+          * @return String of username
+          */
+         public static String getUsername(){
+             return user.getUserName();
+         }
+         
+         public static User getUser(){
+             return data.getUser();
+         }
+         /**
+          * get the password of user
+          * @return a string of the current password.
+          */
+         public static String getPassword(){
+             return user.getPassword();
+         }
+         /**
           * set the password of the user 
           * @param input the string the username should be
           */
-         public void setPassword(String input){
+         public static void setPassword(String input){
              user.setPassword(input);
          }
          
+         /**
+          * get the creditcard of the user
+          * @return Creditcard
+          */
+         public static CreditCard getCreditcard(){
+            return data.getCreditCard();
+         }
          
+         /**
+          * get the customer from data
+          * @return a Customer
+          */
+         public static Customer getCustomer(){
+             return data.getCustomer();
+         }
          /**
           * search for a string in the database
           * @param input what string to search for
           */
-        public static void doSearch(String input){
+         public static void doSearch(String input){
             List<Product> results = data.findProducts(input);
-           System.out.println(results.toString());
+           //System.out.println(results.toString());
         }
        
-      
+    //  public static void addToShoppingCart(Product product, int amount){
+          
+      //}
+        
+         /**
+          * return a list of all orders that have been made
+          * @return  all previous orders
+          */
+         public static List<Order> getOrders(){
+             return data.getOrders();
+         }
+         
+         /**
+          * get the current shoppingCart
+          * @return Shoppingcart in use
+          */
+         public static ShoppingCart getShoppingcart(){
+             return data.getShoppingCart();
+         }
+         
+        /**
+         * add a product to favorites
+         * @param product what procut to add
+         */
+        public static void addFavorite(Product product){
+            data.addFavorite(product);
+        }
+        
+        /**
+         * remove the product from favorites.
+         * @param product what product to remove
+         */
+        public static void removeFavorite(Product product){
+            data.removeFavorite(product);
+        }
+        /**
+         * see if user is fully registered
+         * @return true if true
+         */
+        public static boolean isCustomerProfileComplete(){
+            return data.isCustomerComplete();
+        }
+        
+        /**
+         * returns whether the product is favorited or not
+         * @param product what product to check
+         * @return true if product is favorited
+         */
+        public static boolean isFavorited(Product product){
+            return data.isFavorite(product);
+        }
+        
+        /**
+         * set the order for food
+         */
+        public static void placeOrder(){
+            data.placeOrder();
+        }
+        
+        /**
+         * shut down the program and save the data
+         */
+        public void shutDown(){
+            data.shutDown();
+        }
+        
+        
+        
+        
 }
+
