@@ -24,6 +24,23 @@ public class IMat {
      //Starts the program
         MainWindow program = new MainWindow();
         program.setVisible(true);  
+        
+        Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
+                public void run() {
+                    
+                    System.out.println("Saving & exiting....... \n \n");
+                    Model.shutDown();
+                }
+            }, "SaveOnShutDown"));
+
+        
+        //test things
+        Product product1 = Model.getProduct(1);
+        Product product2 = Model.getProduct(2);
+        Product product3 = Model.getProduct(3);
+        
+        
+        
     }
     
 }
