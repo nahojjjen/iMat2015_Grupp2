@@ -83,6 +83,10 @@ public class Model {
              return user.getUserName();
          }
          
+         /**
+          * returns the current user
+          * @return User 
+          */
          public static User getUser(){
              return data.getUser();
          }
@@ -125,9 +129,6 @@ public class Model {
            //System.out.println(results.toString());
         }
        
-    //  public static void addToShoppingCart(Product product, int amount){
-          
-      //}
         
          /**
           * return a list of all orders that have been made
@@ -147,10 +148,18 @@ public class Model {
          
         /**
          * add a product to favorites
-         * @param product what procut to add
+         * @param product what produt to add
          */
         public static void addFavorite(Product product){
             data.addFavorite(product);
+        }
+        
+        /**
+         * get all favorites
+         * @return all favorites stored in data
+         */
+        public static List<Product> getAllFavorites(){
+            return data.favorites();
         }
         
         /**
@@ -187,10 +196,12 @@ public class Model {
         /**
          * shut down the program and save the data
          */
-        public void shutDown(){
+        public static void shutDown(){
             data.shutDown();
         }
         
+        
+        //
         
         
         
