@@ -122,10 +122,11 @@ public class Model {
          }
          /**
           * search for a string in the database
+          * @return a List<Product> of searchresults
           * @param input what string to search for
           */
-         public static void doSearch(String input){
-            List<Product> results = data.findProducts(input);
+         public static List<Product> doSearch(String input){
+           return data.findProducts(input);
            //System.out.println(results.toString());
         }
        
