@@ -30,6 +30,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         spacePanel = new javax.swing.JPanel();
+        contentPanel = new javax.swing.JPanel();
         headerPanel = new javax.swing.JPanel();
         logoPanel = new javax.swing.JPanel();
         searchPanel = new javax.swing.JPanel();
@@ -41,37 +42,40 @@ public class MainWindow extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(1000, 700));
 
         spacePanel.setBackground(new java.awt.Color(51, 51, 255));
+        spacePanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 0, 20));
+        spacePanel.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout spacePanelLayout = new javax.swing.GroupLayout(spacePanel);
-        spacePanel.setLayout(spacePanelLayout);
-        spacePanelLayout.setHorizontalGroup(
-            spacePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 909, Short.MAX_VALUE)
+        javax.swing.GroupLayout contentPanelLayout = new javax.swing.GroupLayout(contentPanel);
+        contentPanel.setLayout(contentPanelLayout);
+        contentPanelLayout.setHorizontalGroup(
+            contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 536, Short.MAX_VALUE)
         );
-        spacePanelLayout.setVerticalGroup(
-            spacePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 464, Short.MAX_VALUE)
+        contentPanelLayout.setVerticalGroup(
+            contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 549, Short.MAX_VALUE)
         );
+
+        spacePanel.add(contentPanel, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(spacePanel, java.awt.BorderLayout.CENTER);
 
         headerPanel.setBackground(new java.awt.Color(102, 255, 102));
-        headerPanel.setPreferredSize(new java.awt.Dimension(200, 150));
-        headerPanel.setSize(new java.awt.Dimension(0, 20));
+        headerPanel.setPreferredSize(new java.awt.Dimension(200, 120));
         headerPanel.setLayout(new java.awt.BorderLayout());
 
         logoPanel.setBackground(new java.awt.Color(255, 51, 255));
-        logoPanel.setPreferredSize(new java.awt.Dimension(200, 150));
+        logoPanel.setPreferredSize(new java.awt.Dimension(250, 150));
 
         javax.swing.GroupLayout logoPanelLayout = new javax.swing.GroupLayout(logoPanel);
         logoPanel.setLayout(logoPanelLayout);
         logoPanelLayout.setHorizontalGroup(
             logoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
+            .addGap(0, 250, Short.MAX_VALUE)
         );
         logoPanelLayout.setVerticalGroup(
             logoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 120, Short.MAX_VALUE)
         );
 
         headerPanel.add(logoPanel, java.awt.BorderLayout.WEST);
@@ -82,27 +86,27 @@ public class MainWindow extends javax.swing.JFrame {
         searchPanel.setLayout(searchPanelLayout);
         searchPanelLayout.setHorizontalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 516, Short.MAX_VALUE)
         );
         searchPanelLayout.setVerticalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 120, Short.MAX_VALUE)
         );
 
         headerPanel.add(searchPanel, java.awt.BorderLayout.CENTER);
 
         accountPanel.setBackground(new java.awt.Color(51, 51, 255));
-        accountPanel.setPreferredSize(new java.awt.Dimension(200, 0));
+        accountPanel.setPreferredSize(new java.awt.Dimension(250, 0));
 
         javax.swing.GroupLayout accountPanelLayout = new javax.swing.GroupLayout(accountPanel);
         accountPanel.setLayout(accountPanelLayout);
         accountPanelLayout.setHorizontalGroup(
             accountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 200, Short.MAX_VALUE)
+            .addGap(0, 250, Short.MAX_VALUE)
         );
         accountPanelLayout.setVerticalGroup(
             accountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 120, Short.MAX_VALUE)
         );
 
         headerPanel.add(accountPanel, java.awt.BorderLayout.EAST);
@@ -119,7 +123,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
         cartPanelLayout.setVerticalGroup(
             cartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 464, Short.MAX_VALUE)
+            .addGap(0, 569, Short.MAX_VALUE)
         );
 
         getContentPane().add(cartPanel, java.awt.BorderLayout.EAST);
@@ -134,7 +138,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
         navigationPanelLayout.setVerticalGroup(
             navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 464, Short.MAX_VALUE)
+            .addGap(0, 569, Short.MAX_VALUE)
         );
 
         getContentPane().add(navigationPanel, java.awt.BorderLayout.WEST);
@@ -180,6 +184,7 @@ public class MainWindow extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel accountPanel;
     private javax.swing.JPanel cartPanel;
+    private javax.swing.JPanel contentPanel;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JPanel logoPanel;
     private javax.swing.JPanel navigationPanel;
