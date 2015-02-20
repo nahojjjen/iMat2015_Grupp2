@@ -5,6 +5,12 @@
  */
 package imat.panels;
 
+import imat.IMat;
+import imat.MainWindow;
+import imat.Model;
+import java.util.List;
+import se.chalmers.ait.dat215.project.Product;
+
 /**
  *
  * @author Johan
@@ -57,7 +63,8 @@ public class PanelSearch extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void SearchInputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchInputKeyTyped
-        PanelSearchContoller.doSearch(SearchInput.getText());
+       List<Product> results =  Model.doSearch(SearchInput.getText());
+       IMat.getWindow().showSearch(results);
     }//GEN-LAST:event_SearchInputKeyTyped
 
 
