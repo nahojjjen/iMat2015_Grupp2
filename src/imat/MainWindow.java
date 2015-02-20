@@ -5,6 +5,16 @@
  */
 package imat;
 
+import imat.panels.PanelCart;
+import imat.panels.PanelNavigation;
+import imat.panels.PanelResultTest;
+import imat.panels.PanelSearch;
+import java.awt.BorderLayout;
+import java.awt.LayoutManager;
+import java.util.List;
+import javax.swing.JPanel;
+import se.chalmers.ait.dat215.project.Product;
+
 /**
  *
  * @author Johan
@@ -14,10 +24,28 @@ package imat;
 public class MainWindow extends javax.swing.JFrame {
 
     /**
-     * Creates new form MainWindow
-     */
+     * Creates new form MainWindowdr 
+    */
     public MainWindow() {
         initComponents();
+        navigationPanel.setLayout(new java.awt.BorderLayout());
+        navigationPanel.add(new PanelNavigation());
+        searchPanel.setLayout(new java.awt.BorderLayout());
+        searchPanel.add(new PanelSearch());
+        cartPanel.setLayout(new java.awt.BorderLayout());
+        cartPanel.add(new PanelCart());
+        contentPanel.setLayout(new java.awt.BorderLayout());
+        contentPanel.add(new PanelResultTest());
+    }
+  
+    
+    public void showSearch(List<Product> input){
+       System.out.println("MainWindow trying to showsearch");
+       contentPanel.setLayout(new BorderLayout());
+       contentPanel.removeAll();
+       contentPanel.add(new PanelResultTest(input));
+       this.revalidate();
+       
     }
 
     /**
