@@ -5,6 +5,8 @@
  */
 package imat.panels;
 
+import imat.IMat;
+
 /**
  *
  * @author Johan
@@ -49,7 +51,12 @@ public class PanelNavigation extends javax.swing.JPanel {
         jButton2.setText("Kategorier");
         add(jButton2);
 
-        jButton3.setText("jButton3");
+        jButton3.setText("Profil");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         add(jButton3);
 
         jButton4.setText("jButton4");
@@ -63,8 +70,13 @@ public class PanelNavigation extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.out.println("doing stuff");        // TODO add your handling code here:
+       IMat.getWindow().setContent("Home");
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       IMat.getWindow().setContent("Profile");
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
