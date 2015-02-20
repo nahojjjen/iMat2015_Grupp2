@@ -5,9 +5,12 @@
  */
 package imat.panels;
 
+import imat.Model;
 import java.util.List;
 import javax.swing.DefaultListModel;
+import se.chalmers.ait.dat215.project.CartEvent;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ShoppingCart;
 
 /**
  *
@@ -67,9 +70,8 @@ public class PanelResultTest extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void resultsListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_resultsListValueChanged
-        System.out.println("hello");
-        
-        System.out.println(results.get(evt.getLastIndex()));
+        Model.getShoppingcart().addProduct(results.get(evt.getLastIndex()));
+     
     }//GEN-LAST:event_resultsListValueChanged
 
 
