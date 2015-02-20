@@ -34,15 +34,19 @@ public class PanelSearch extends javax.swing.JPanel {
     private void initComponents() {
 
         SearchInput = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setPreferredSize(new java.awt.Dimension(120, 400));
 
-        SearchInput.setText("jTextField1");
+        SearchInput.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         SearchInput.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                SearchInputKeyTyped(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                SearchInputKeyReleased(evt);
             }
         });
+
+        jLabel1.setForeground(new java.awt.Color(51, 204, 255));
+        jLabel1.setText("Avancerad sökning");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -50,25 +54,32 @@ public class PanelSearch extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(SearchInput, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(SearchInput, javax.swing.GroupLayout.DEFAULT_SIZE, 380, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(jLabel1)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(51, Short.MAX_VALUE)
-                .addComponent(SearchInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(49, 49, 49))
+                .addContainerGap(43, Short.MAX_VALUE)
+                .addComponent(SearchInput, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1)
+                .addGap(9, 9, 9))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void SearchInputKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchInputKeyTyped
+    private void SearchInputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchInputKeyReleased
        List<Product> results =  Model.doSearch(SearchInput.getText());
        IMat.getWindow().showSearch(results);
-    }//GEN-LAST:event_SearchInputKeyTyped
+    }//GEN-LAST:event_SearchInputKeyReleased
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField SearchInput;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }
