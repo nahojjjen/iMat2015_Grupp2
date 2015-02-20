@@ -10,22 +10,29 @@ import imat.panels.PanelNavigation;
 import imat.panels.PanelResultTest;
 import imat.panels.PanelSearch;
 import java.awt.BorderLayout;
+import java.awt.GridLayout;
+import java.awt.Label;
 import java.awt.LayoutManager;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import se.chalmers.ait.dat215.project.Product;
 
 /**
  *
- * @author Johan
- * this is the main window, it should only house other
- * panels that change.
+ * @author Johan this is the main window, it should only house other panels that
+ * change.
  */
 public class MainWindow extends javax.swing.JFrame {
 
     /**
-     * Creates new form MainWindowdr 
-    */
+     * Creates new form MainWindowdr
+     */
     public MainWindow() {
         initComponents();
         navigationPanel.setLayout(new java.awt.BorderLayout());
@@ -36,16 +43,28 @@ public class MainWindow extends javax.swing.JFrame {
         cartPanel.add(new PanelCart());
         contentPanel.setLayout(new java.awt.BorderLayout());
         contentPanel.add(new PanelResultTest());
+        logoPanel.setLayout(new GridLayout());
+
+        //show the logo
+        BufferedImage logo = null;
+        try {
+            logo = ImageIO.read(new File("src/resources/logo.jpg"));
+        } catch (IOException e) {
+            System.out.println("failed to read image");
+            
+        }
+        JLabel imageLabel = new JLabel(new ImageIcon(logo));
+        logoPanel.add(imageLabel);
+        
     }
-  
-    
-    public void showSearch(List<Product> input){
-       System.out.println("MainWindow trying to showsearch");
-       contentPanel.setLayout(new BorderLayout());
-       contentPanel.removeAll();
-       contentPanel.add(new PanelResultTest(input));
-       this.revalidate();
-       
+
+    public void showSearch(List<Product> input) {
+        System.out.println("MainWindow trying to showsearch");
+        contentPanel.setLayout(new BorderLayout());
+        contentPanel.removeAll();
+        contentPanel.add(new PanelResultTest(input));
+        this.revalidate();
+
     }
 
     /**
