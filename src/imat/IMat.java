@@ -16,13 +16,14 @@ import se.chalmers.ait.dat215.project.*;
  */
 public class IMat {
 
+    private static MainWindow program;
     /**
      * @param args unused
      */
     public static void main(String[] args) {
 
      //Starts the program
-        MainWindow program = new MainWindow();
+        program = new MainWindow();
         program.setVisible(true);  
         
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
@@ -32,15 +33,9 @@ public class IMat {
                     Model.shutDown();
                 }
             }, "SaveOnShutDown"));
-
-        
-        //test things
-        Product product1 = Model.getProduct(1);
-        Product product2 = Model.getProduct(2);
-        Product product3 = Model.getProduct(3);
-        
-        
-        
+    }
+    public static MainWindow getWindow(){
+        return program;
     }
     
 }
