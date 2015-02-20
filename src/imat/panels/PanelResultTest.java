@@ -14,13 +14,13 @@ import se.chalmers.ait.dat215.project.Product;
  * @author Johan
  */
 public class PanelResultTest extends javax.swing.JPanel {
-
+    private List<Product> results;
     
      /**
      * Creates new form PanelResultTest
      */
     public PanelResultTest(List<Product> input) {
-        
+        results =input;
         initComponents();
         DefaultListModel model = new DefaultListModel();
         resultsList.setModel(model);
@@ -56,10 +56,21 @@ public class PanelResultTest extends javax.swing.JPanel {
             public int getSize() { return strings.length; }
             public Object getElementAt(int i) { return strings[i]; }
         });
+        resultsList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                resultsListValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(resultsList);
 
         add(jScrollPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void resultsListValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_resultsListValueChanged
+        System.out.println("hello");
+        
+        System.out.println(results.get(evt.getLastIndex()));
+    }//GEN-LAST:event_resultsListValueChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
