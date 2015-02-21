@@ -5,6 +5,9 @@
  */
 package imat.panels;
 
+import imat.contentPanels.PanelSearchResult;
+import imat.contentPanels.PanelHome;
+import imat.contentPanels.PanelAccountInfo;
 import imat.IMat;
 
 /**

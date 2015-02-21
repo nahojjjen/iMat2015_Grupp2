@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package imat.panels;
+package imat.contentPanels;
 
+import imat.panels.PanelNavigation;
 import imat.panels.subItems.GridItem;
 import java.awt.Dimension;
 import java.awt.FlowLayout;

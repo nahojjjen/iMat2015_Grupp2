@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package imat.panels;
+package imat.contentPanels;
 
 import imat.Model;
 import java.util.List;
@@ -54,10 +54,10 @@ public class PanelResultTest extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        resultsList.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
-            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                resultsListValueChanged(evt);
-            }
+        resultsList.setModel(new javax.swing.AbstractListModel() {
+            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
+            public int getSize() { return strings.length; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(resultsList);
 

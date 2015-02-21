@@ -5,14 +5,14 @@
  */
 package imat;
 
-import imat.panels.PanelAccountInfo;
+import imat.contentPanels.PanelAccountInfo;
 import imat.panels.PanelCart;
-import imat.panels.PanelHome;
+import imat.contentPanels.PanelHome;
 import imat.panels.PanelLoggedOff;
 import imat.panels.PanelNavigation;
-import imat.panels.PanelResultTest;
+import imat.contentPanels.PanelResultTest;
 import imat.panels.PanelSearch;
-import imat.panels.PanelSearchResult;
+import imat.contentPanels.PanelSearchResult;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.Label;
