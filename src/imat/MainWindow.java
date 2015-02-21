@@ -112,6 +112,10 @@ public class MainWindow extends javax.swing.JFrame {
 
     }
     
+    /**
+     * show a panel by name
+     * @param input 
+     */
     public void setContent(String input){
         contentPanel.setLayout(new BorderLayout());
         contentPanel.removeAll();
@@ -123,7 +127,17 @@ public class MainWindow extends javax.swing.JFrame {
         }
         this.revalidate();
     }
-
+    /**
+     * set content to a panel
+     * @param panel what panel to show
+     * 
+     */
+    public void setContent(JPanel panel){
+        contentPanel.setLayout(new BorderLayout());
+        contentPanel.removeAll();
+        contentPanel.add(panel); 
+        revalidate();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

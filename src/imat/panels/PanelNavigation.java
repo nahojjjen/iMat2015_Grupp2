@@ -33,6 +33,7 @@ public class PanelNavigation extends javax.swing.JPanel {
         buttonHoldingPanel = new javax.swing.JPanel();
         jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
 
         setMaximumSize(new java.awt.Dimension(400, 400));
@@ -62,6 +63,14 @@ public class PanelNavigation extends javax.swing.JPanel {
         });
         buttonHoldingPanel.add(jButton1);
 
+        jButton2.setText("jButton2");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        buttonHoldingPanel.add(jButton2);
+
         jSplitPane1.setTopComponent(buttonHoldingPanel);
         jSplitPane1.setRightComponent(jPanel2);
 
@@ -69,18 +78,24 @@ public class PanelNavigation extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       IMat.getWindow().setContent("Home");
+       IMat.getWindow().setContent(new PanelHome());
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-       IMat.getWindow().setContent("Profile");
+       IMat.getWindow().setContent(new PanelAccountInfo());
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        IMat.getWindow().setContent(new PanelSearchResult());
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel buttonHoldingPanel;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
