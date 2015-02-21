@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package imat.panels.searchItems;
+package imat.panels.subItems;
 
 import imat.Model;
 import se.chalmers.ait.dat215.project.Product;

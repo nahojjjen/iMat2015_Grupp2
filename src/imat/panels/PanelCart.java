@@ -5,7 +5,14 @@
  */
 package imat.panels;
 
+import imat.IMat;
 import imat.Model;
+import imat.panels.subItems.CartItem;
+import imat.panels.subItems.GridItem;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.util.List;
 import javax.swing.DefaultListModel;
 import se.chalmers.ait.dat215.project.CartEvent;
@@ -18,26 +25,14 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  * @author Johan
  */
 public class PanelCart extends javax.swing.JPanel implements ShoppingCartListener {
-    
-    
 
-    private DefaultListModel model;
     /**
      * Creates new form PanelCart
      */
     public PanelCart() {
         initComponents();
-        
         Model.getShoppingcart().addShoppingCartListener(this);
-        model = new DefaultListModel();
-        
-        cartContent.setModel(model);
-        
-           model.removeAllElements();
-        List<ShoppingItem> cart = Model.getShoppingcart().getItems();
-        for (int i= 0; i < cart.size(); i++){
-              model.addElement(cart.get(i).getProduct().getName());
-        }
+        refreshCartContent();
     }
 
     /**
@@ -52,8 +47,8 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         jLabel1 = new javax.swing.JLabel();
         fireToBuyButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        cartContent = new javax.swing.JList();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        cartContent = new javax.swing.JPanel();
 
         jLabel1.setText("Kundvagn:");
 
@@ -66,12 +61,18 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
 
         jButton1.setText("Detaljer");
 
-        cartContent.setModel(new javax.swing.AbstractListModel() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public Object getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane2.setViewportView(cartContent);
+        javax.swing.GroupLayout cartContentLayout = new javax.swing.GroupLayout(cartContent);
+        cartContent.setLayout(cartContentLayout);
+        cartContentLayout.setHorizontalGroup(
+            cartContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 198, Short.MAX_VALUE)
+        );
+        cartContentLayout.setVerticalGroup(
+            cartContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
+        jScrollPane1.setViewportView(cartContent);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -87,12 +88,11 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane1)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -100,8 +100,8 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 290, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(fireToBuyButton, javax.swing.GroupLayout.DEFAULT_SIZE, 50, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -115,20 +115,33 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList cartContent;
+    private javax.swing.JPanel cartContent;
     private javax.swing.JButton fireToBuyButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 
     @Override
     public void shoppingCartChanged(CartEvent ce) {
-        model.removeAllElements();
+        refreshCartContent();
+    }
+    
+    private void refreshCartContent() {
+        cartContent.removeAll();
         List<ShoppingItem> cart = Model.getShoppingcart().getItems();
-        for (int i= 0; i < cart.size(); i++){
-              model.addElement(cart.get(i).getProduct().getName());
+        GridLayout layout = new GridLayout();
+        layout.setRows(cart.size());
+        layout.setColumns(1);
+        cartContent.setLayout(layout);
+        int height = cart.size()*20;
+        Dimension dimension = new Dimension(200,height);
+        cartContent.setPreferredSize(dimension);
+        for (ShoppingItem item : cart) {
+            CartItem adder = new CartItem(item);
+            cartContent.add(adder);
         }
-      
+        this.revalidate();
+        
     }
 }

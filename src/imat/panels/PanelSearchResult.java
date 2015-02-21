@@ -5,7 +5,7 @@
  */
 package imat.panels;
 
-import imat.panels.searchItems.GridItem;
+import imat.panels.subItems.GridItem;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.util.List;
