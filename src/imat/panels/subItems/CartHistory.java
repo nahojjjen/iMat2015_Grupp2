@@ -29,6 +29,14 @@ public class CartHistory extends javax.swing.JPanel {
         dateLabel.setText(order.getDate().toString());
         orderIDLabel.setText(String.valueOf(order.getOrderNumber()));
         contentLabel.setText(getPartialOrder());
+        double price = 0;
+        
+        //get the total cost of a list of shopping items
+        List<ShoppingItem> items = order.getItems();
+        for (ShoppingItem item : items){
+            price += item.getTotal();
+        }
+        priceLabel.setText(String.valueOf(price));
     }
     private String getPartialOrder() {
         String returner = "";
@@ -54,6 +62,8 @@ public class CartHistory extends javax.swing.JPanel {
         orderIDLabel = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         contentLabel = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        priceLabel = new javax.swing.JLabel();
 
         jLabel1.setText("Datum av köp:");
 
@@ -66,6 +76,10 @@ public class CartHistory extends javax.swing.JPanel {
         jLabel3.setText("Delvis innehåll:");
 
         contentLabel.setText("jLabel4");
+
+        jLabel4.setText("pris:");
+
+        priceLabel.setText("jLabel5");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -82,13 +96,19 @@ public class CartHistory extends javax.swing.JPanel {
                         .addComponent(jLabel3)
                         .addGap(18, 18, 18)
                         .addComponent(contentLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 142, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(dateLabel))
-                    .addComponent(jLabel1))
-                .addGap(32, 32, 32))
+                        .addGap(94, 94, 94)
+                        .addComponent(jLabel4)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(priceLabel)
+                            .addComponent(jLabel1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(dateLabel)
+                        .addGap(32, 32, 32))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -99,10 +119,15 @@ public class CartHistory extends javax.swing.JPanel {
                     .addComponent(orderIDLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dateLabel)
                     .addComponent(jLabel3)
-                    .addComponent(contentLabel))
-                .addGap(0, 22, Short.MAX_VALUE))
+                    .addComponent(contentLabel)
+                    .addComponent(jLabel4))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addComponent(priceLabel))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(dateLabel)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -113,6 +138,8 @@ public class CartHistory extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel orderIDLabel;
+    private javax.swing.JLabel priceLabel;
     // End of variables declaration//GEN-END:variables
 }
