@@ -52,7 +52,7 @@ public class GridItem extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
-        imageLabel.setText("jLabel1");
+        imageLabel.setText("  ");
         add(imageLabel, java.awt.BorderLayout.CENTER);
 
         jPanel1.setLayout(new java.awt.GridLayout(1, 3));
@@ -66,7 +66,7 @@ public class GridItem extends javax.swing.JPanel {
         });
         add(buyButton, java.awt.BorderLayout.PAGE_START);
 
-        priceLabel.setText("jLabel1");
+        priceLabel.setText("  ");
         add(priceLabel, java.awt.BorderLayout.LINE_END);
     }// </editor-fold>//GEN-END:initComponents
 

@@ -6,9 +6,11 @@
 package imat.contentPanels;
 
 import imat.panels.PanelNavigation;
+import imat.panels.subItems.DetailItem;
 import imat.panels.subItems.GridItem;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.util.List;
 import se.chalmers.ait.dat215.project.Product;
 
@@ -18,47 +20,57 @@ import se.chalmers.ait.dat215.project.Product;
  */
 public class PanelSearchResult extends javax.swing.JPanel {
 
-    
-        /**
+    /**
      * Creates new form PanelSearchResult
      */
     public PanelSearchResult(List<Product> products) {
         initComponents();
+        showDetailsResults(products);
         showGridResults(products);
     }
-    
-    
-    private void showGridResults(List<Product> products){
+
+    private void showDetailsResults(List<Product> products) {
+        detailsView.setLayout(new GridLayout(products.size(), 1));
+        detailsView.setPreferredSize(new Dimension(500, 7000));
+
+        for (Product product : products) {
+            detailsView.add(new DetailItem(product));
+        }
+        this.revalidate();
+    }
+
+    private void showGridResults(List<Product> products) {
         gridView.setLayout(new FlowLayout());
-        gridView.setPreferredSize(new Dimension(500,7000));
-        
-        for (Product product : products){
+        gridView.setPreferredSize(new Dimension(500, 7000));
+
+        for (Product product : products) {
             gridView.add(new GridItem(product));
         }
-    this.revalidate();
-        
+        this.revalidate();
+
     }
+
     /**
      * Creates new form PanelSearchResult
      */
     public PanelSearchResult() {
         initComponents();
     }
-    
+
     /**
-     * below code makes a scrollable window with navigation, just to
-     * show how one should make things scroll.
+     * below code makes a scrollable window with navigation, just to show how
+     * one should make things scroll.
      */
-   private void debugg(){
-          
+    private void debugg() {
+
         detailsView.setLayout(new FlowLayout());
-        detailsView.setPreferredSize(new Dimension(500,1000));
-        
-        for (int i = 0; i<10; i++){
+        detailsView.setPreferredSize(new Dimension(500, 1000));
+
+        for (int i = 0; i < 10; i++) {
             detailsView.add(new PanelNavigation());
         }
-    this.revalidate();
-   }
+        this.revalidate();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -85,30 +97,30 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
         jCheckBox2.setText("Gruppera kategorier");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Populäritet", "Alfabetisk", "Pris" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"Populäritet", "Alfabetisk", "Pris"}));
 
         jLabel1.setText("Sortera på");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jCheckBox2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 412, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jCheckBox2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 412, Short.MAX_VALUE)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 81, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(jCheckBox2)))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 81, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel1)
+                                .addComponent(jCheckBox2)))
         );
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
@@ -116,12 +128,12 @@ public class PanelSearchResult extends javax.swing.JPanel {
         javax.swing.GroupLayout detailsViewLayout = new javax.swing.GroupLayout(detailsView);
         detailsView.setLayout(detailsViewLayout);
         detailsViewLayout.setHorizontalGroup(
-            detailsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+                detailsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 670, Short.MAX_VALUE)
         );
         detailsViewLayout.setVerticalGroup(
-            detailsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 526, Short.MAX_VALUE)
+                detailsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 526, Short.MAX_VALUE)
         );
 
         detailsViewWrapper.setViewportView(detailsView);
@@ -131,12 +143,12 @@ public class PanelSearchResult extends javax.swing.JPanel {
         javax.swing.GroupLayout listViewLayout = new javax.swing.GroupLayout(listView);
         listView.setLayout(listViewLayout);
         listViewLayout.setHorizontalGroup(
-            listViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+                listViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 670, Short.MAX_VALUE)
         );
         listViewLayout.setVerticalGroup(
-            listViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 526, Short.MAX_VALUE)
+                listViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 526, Short.MAX_VALUE)
         );
 
         listViewWrapper.setViewportView(listView);
@@ -146,12 +158,12 @@ public class PanelSearchResult extends javax.swing.JPanel {
         javax.swing.GroupLayout gridViewLayout = new javax.swing.GroupLayout(gridView);
         gridView.setLayout(gridViewLayout);
         gridViewLayout.setHorizontalGroup(
-            gridViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+                gridViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 670, Short.MAX_VALUE)
         );
         gridViewLayout.setVerticalGroup(
-            gridViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 526, Short.MAX_VALUE)
+                gridViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(0, 526, Short.MAX_VALUE)
         );
 
         gridViewWrapper.setViewportView(gridView);
@@ -160,7 +172,6 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
         add(jTabbedPane5, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel detailsView;
