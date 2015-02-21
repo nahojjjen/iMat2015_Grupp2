@@ -9,6 +9,7 @@ import imat.contentPanels.PanelSearchResult;
 import imat.contentPanels.PanelHome;
 import imat.contentPanels.PanelAccountInfo;
 import imat.IMat;
+import imat.contentPanels.PanelEarlierCarts;
 
 /**
  *
@@ -32,31 +33,16 @@ public class PanelNavigation extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
-        buttonHoldingPanel = new javax.swing.JPanel();
-        jButton3 = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(400, 400));
         setPreferredSize(new java.awt.Dimension(220, 400));
-        setLayout(new java.awt.GridLayout());
-
-        jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
-
-        buttonHoldingPanel.setMaximumSize(new java.awt.Dimension(220, 400));
-        buttonHoldingPanel.setMinimumSize(new java.awt.Dimension(220, 400));
-        buttonHoldingPanel.setPreferredSize(new java.awt.Dimension(220, 400));
-        buttonHoldingPanel.setLayout(new java.awt.GridLayout(8, 0));
-
-        jButton3.setText("Profil");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
-            }
-        });
-        buttonHoldingPanel.add(jButton3);
+        setLayout(new java.awt.GridLayout(8, 0));
 
         jButton1.setText("Hem");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -64,20 +50,32 @@ public class PanelNavigation extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        buttonHoldingPanel.add(jButton1);
+        add(jButton1);
 
-        jButton2.setText("jButton2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Kategorier");
+        add(jButton2);
+
+        jButton3.setText("Profil");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
-        buttonHoldingPanel.add(jButton2);
+        add(jButton3);
 
-        jSplitPane1.setTopComponent(buttonHoldingPanel);
-        jSplitPane1.setRightComponent(jPanel2);
+        jButton4.setText("Tidigare beställningar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+        add(jButton4);
 
-        add(jSplitPane1);
+        jButton5.setText("empty");
+        add(jButton5);
+
+        jButton6.setText("empty");
+        add(jButton6);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -94,13 +92,18 @@ public class PanelNavigation extends javax.swing.JPanel {
         IMat.getWindow().setContent(new PanelSearchResult());
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        IMat.getWindow().setContent(new PanelEarlierCarts());
+    }//GEN-LAST:event_jButton4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel buttonHoldingPanel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     // End of variables declaration//GEN-END:variables
 }

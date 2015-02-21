@@ -7,14 +7,12 @@ package imat.panels;
 
 import imat.IMat;
 import imat.Model;
+import imat.contentPanels.buyingPanels.PanelConfirm;
 import imat.panels.subItems.CartItem;
-import imat.panels.subItems.GridItem;
-import java.awt.BorderLayout;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.util.ArrayList;
 import java.util.List;
-import javax.swing.DefaultListModel;
 import se.chalmers.ait.dat215.project.CartEvent;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingCartListener;
@@ -50,12 +48,13 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         fireToBuyButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
+        totalLabel = new javax.swing.JLabel();
 
         jLabel1.setText("Kundvagn:");
 
         cartContent.setColumns(20);
         cartContent.setRows(5);
-        cartContent.setMaximumSize(new java.awt.Dimension(220, 500));
+        cartContent.setMaximumSize(new java.awt.Dimension(220, 800));
         jScrollPane1.setViewportView(cartContent);
 
         fireToBuyButton.setText("Gå till kassan");
@@ -66,6 +65,13 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         });
 
         jButton1.setText("Detaljer");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jPanel1.setPreferredSize(new java.awt.Dimension(220, 200));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -75,8 +81,10 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
+            .addGap(0, 94, Short.MAX_VALUE)
         );
+
+        totalLabel.setText("jLabel2");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -91,16 +99,19 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(fireToBuyButton)
-                                .addGap(0, 0, 0))))
+                                .addComponent(fireToBuyButton))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(totalLabel)
+                .addGap(24, 24, 24))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -109,19 +120,31 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(totalLabel)
+                .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fireToBuyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void fireToBuyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fireToBuyButtonActionPerformed
-        // TODO add your handling code here:
+        IMat.getWindow().setContent(new PanelConfirm());
     }//GEN-LAST:event_fireToBuyButtonActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       
+       List<ShoppingItem> cartItems = Model.getShoppingcart().getItems();
+       List cart = new ArrayList<Product>();
+       for(ShoppingItem item:cartItems){
+           cart.add(item.getProduct());
+       }
+        IMat.getWindow().showSearch(cart);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -131,6 +154,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel totalLabel;
     // End of variables declaration//GEN-END:variables
 
     @Override
@@ -152,6 +176,8 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
             CartItem adder = new CartItem(item);
             cartContent.add(adder);
         }
+        
+        totalLabel.setText(String.valueOf(Model.getShoppingcart().getTotal()));
         this.revalidate();
         
     }
