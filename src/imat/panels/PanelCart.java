@@ -131,8 +131,8 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         cartContent.removeAll();
         List<ShoppingItem> cart = Model.getShoppingcart().getItems();
         GridLayout layout = new GridLayout();
-        layout.setRows(cart.size());
         layout.setColumns(1);
+        layout.setRows(cart.size());
         cartContent.setLayout(layout);
         int height = cart.size()*20;
         Dimension dimension = new Dimension(200,height);
