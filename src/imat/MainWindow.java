@@ -56,7 +56,7 @@ public class MainWindow extends javax.swing.JFrame {
              //show the logo
         BufferedImage logo = null;
         try {
-            logo = ImageIO.read(new File("src/resources/logo.jpg"));
+            logo = ImageIO.read(new File("src/resources/logo2.png"));
         } catch (IOException e) {
             System.out.println("failed to read image");
             
