@@ -5,14 +5,20 @@
  */
 package imat;
 
+import imat.panels.PanelAccountInfo;
 import imat.panels.PanelCart;
+import imat.panels.PanelHome;
+import imat.panels.PanelLoggedOff;
 import imat.panels.PanelNavigation;
 import imat.panels.PanelResultTest;
 import imat.panels.PanelSearch;
+import imat.panels.PanelSearchResult;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.Label;
 import java.awt.LayoutManager;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -35,17 +41,19 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public MainWindow() {
         initComponents();
-        navigationPanel.setLayout(new java.awt.BorderLayout());
-        navigationPanel.add(new PanelNavigation());
-        searchPanel.setLayout(new java.awt.BorderLayout());
-        searchPanel.add(new PanelSearch());
-        cartPanel.setLayout(new java.awt.BorderLayout());
-        cartPanel.add(new PanelCart());
-        contentPanel.setLayout(new java.awt.BorderLayout());
-        contentPanel.add(new PanelResultTest());
-        logoPanel.setLayout(new GridLayout());
+        addModules();
+        showLogo();
 
-        //show the logo
+   
+        
+    }
+    
+    /**
+     * adds the logo in the upper left corner, and adds a mouse listener that takes
+     * the user home if he presses the logo
+     */
+    private void showLogo(){
+             //show the logo
         BufferedImage logo = null;
         try {
             logo = ImageIO.read(new File("src/resources/logo.jpg"));
@@ -54,17 +62,61 @@ public class MainWindow extends javax.swing.JFrame {
             
         }
         JLabel imageLabel = new JLabel(new ImageIcon(logo));
+        imageLabel.addMouseListener(new MouseListener() {
+
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                IMat.getWindow().setContent("Home");
+            }
+            @Override
+            public void mousePressed(MouseEvent e) { }
+            @Override
+            public void mouseReleased(MouseEvent e) {}
+            @Override
+            public void mouseEntered(MouseEvent e) {}
+            @Override
+            public void mouseExited(MouseEvent e) {}
+        });
         logoPanel.add(imageLabel);
-        
     }
 
+    private void addModules(){
+        navigationPanel.setLayout(new java.awt.BorderLayout());
+        navigationPanel.add(new PanelNavigation());
+        
+        searchPanel.setLayout(new java.awt.BorderLayout());
+        searchPanel.add(new PanelSearch());
+        
+        cartPanel.setLayout(new java.awt.BorderLayout());
+        cartPanel.add(new PanelCart());
+        
+        contentPanel.setLayout(new java.awt.BorderLayout());
+        contentPanel.add(new PanelResultTest());
+        
+        logoPanel.setLayout(new GridLayout());
+        
+        accountPanel.setLayout(new BorderLayout());
+        accountPanel.add(new PanelLoggedOff());
+        
+    }
     public void showSearch(List<Product> input) {
-        System.out.println("MainWindow trying to showsearch");
         contentPanel.setLayout(new BorderLayout());
         contentPanel.removeAll();
         contentPanel.add(new PanelResultTest(input));
         this.revalidate();
 
+    }
+    
+    public void setContent(String input){
+        contentPanel.setLayout(new BorderLayout());
+        contentPanel.removeAll();
+        switch (input){
+            case("Home"): contentPanel.add(new PanelHome()); break;
+            case("Profile"): contentPanel.add(new PanelAccountInfo());break;
+            case("Debugg"): contentPanel.add(new PanelSearchResult());break;
+          
+        }
+        this.revalidate();
     }
 
     /**
