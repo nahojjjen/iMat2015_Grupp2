@@ -80,6 +80,9 @@ public class MainWindow extends javax.swing.JFrame {
         logoPanel.add(imageLabel);
     }
 
+    /**
+     * add all the default start modules to the window when starting
+     */
     private void addModules(){
         navigationPanel.setLayout(new java.awt.BorderLayout());
         navigationPanel.add(new PanelNavigation());
@@ -98,11 +101,13 @@ public class MainWindow extends javax.swing.JFrame {
         accountPanel.setLayout(new BorderLayout());
         accountPanel.add(new PanelLoggedOff());
         
+        setContent("Home");
+        
     }
     public void showSearch(List<Product> input) {
         contentPanel.setLayout(new BorderLayout());
         contentPanel.removeAll();
-        contentPanel.add(new PanelResultTest(input));
+        contentPanel.add(new PanelSearchResult(input));
         this.revalidate();
 
     }
