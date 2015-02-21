@@ -79,6 +79,11 @@ public class MainWindow extends javax.swing.JFrame {
         });
         logoPanel.add(imageLabel);
     }
+    public void refreshCart(){
+        cartPanel.removeAll();
+        cartPanel.setLayout(new BorderLayout());
+        cartPanel.add(new PanelCart());
+    }
 
     /**
      * add all the default start modules to the window when starting

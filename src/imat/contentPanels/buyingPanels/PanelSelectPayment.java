@@ -5,6 +5,7 @@
  */
 package imat.contentPanels.buyingPanels;
 
+import imat.IMat;
 import imat.Model;
 
 /**
@@ -32,7 +33,7 @@ public class PanelSelectPayment extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        theEjectSeatButton = new javax.swing.JButton();
 
         jLabel1.setText("jLabel1");
 
@@ -40,10 +41,10 @@ public class PanelSelectPayment extends javax.swing.JPanel {
 
         jLabel3.setText("jLabel3");
 
-        jButton1.setText("mörda kundvagn");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        theEjectSeatButton.setText("Bekräfta betalningsuppgifter & lägg beställning");
+        theEjectSeatButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                theEjectSeatButtonActionPerformed(evt);
             }
         });
 
@@ -64,8 +65,8 @@ public class PanelSelectPayment extends javax.swing.JPanel {
                         .addComponent(jLabel3)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 216, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addGap(0, 72, Short.MAX_VALUE)
+                .addComponent(theEjectSeatButton)
                 .addGap(71, 71, 71))
         );
         layout.setVerticalGroup(
@@ -78,21 +79,22 @@ public class PanelSelectPayment extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(theEjectSeatButton)
                 .addGap(56, 56, 56))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void theEjectSeatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_theEjectSeatButtonActionPerformed
         Model.placeOrder();
         Model.getShoppingcart().clear();
-    }//GEN-LAST:event_jButton1ActionPerformed
+        IMat.getWindow().refreshCart();
+    }//GEN-LAST:event_theEjectSeatButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JButton theEjectSeatButton;
     // End of variables declaration//GEN-END:variables
 }
