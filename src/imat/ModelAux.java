@@ -7,6 +7,7 @@ package imat;
 
 import java.util.ArrayList;
 import java.util.List;
+import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingCart;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -15,32 +16,113 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  * @author Johan Swanberg
  */
 public class ModelAux {
-    
-    public static void add(ShoppingItem item){
-        
-        ShoppingCart cart = Model.getShoppingcart();
-        List<ShoppingItem> cartList = cart.getItems();
-        List<Integer> container = new ArrayList<Integer>() ;
-        for (ShoppingItem sci : cartList){
-            container.add(sci.getProduct().getProductId());
-        }
-        if (!container.contains(item.getProduct().getProductId())){
-            cart.addItem(item);
-            
-            
-        } else{
-             for (ShoppingItem sci : cartList){
-                 if (sci.getProduct().getProductId() == item.getProduct().getProductId()){
-                     System.out.println("matching product found in cart");
-                     double currentAmount = sci.getAmount();
-                     double addingAmount = item.getAmount() + currentAmount;
-                     
-                    cart.removeItem(sci);
-                    cart.addItem(new ShoppingItem(sci.getProduct(), addingAmount));
-                 }
-            }
-        }
-        
+
+    /**
+     * add an amount of items to the cart
+     * this method is more intelligent than the backend method
+     * since it does not allow duplicates.
+     * @param product what product to add
+     * @param amount what amount of the product to add
+     */
+    public static void add(Product product, double amount){
+        ShoppingItem temp = new ShoppingItem(product, amount);
+        add(temp);
     }
     
+    /**
+     * add a ShoppingIem (Product with number) to the shoppingcart
+     *
+     * @param item
+     */
+    public static void add(ShoppingItem item) {
+
+        ShoppingCart cart = Model.getShoppingcart();
+        List<ShoppingItem> cartList = cart.getItems();
+        List<Integer> container = getIdList();
+        if (!container.contains(item.getProduct().getProductId())) {
+            cart.addItem(item);
+
+        } else {
+            for (ShoppingItem sci : cartList) {
+                if (sci.getProduct().getProductId() == item.getProduct().getProductId()) {
+                    double currentAmount = sci.getAmount();
+                    double addingAmount = item.getAmount() + currentAmount;
+
+                    cart.removeItem(sci);
+                    cart.addItem(new ShoppingItem(sci.getProduct(), addingAmount));
+                }
+            }
+        }
+    }
+    
+    
+    
+    /**
+     * method used by other methods in this class, gets a list to
+     * cross reference a product to whether its in the cart or not
+     * @return 
+     */
+    public static List<Integer> getIdList(){
+        ShoppingCart cart = Model.getShoppingcart();
+        List<ShoppingItem> cartList = cart.getItems();
+        List<Integer> container = new ArrayList<Integer>();
+        for (ShoppingItem sci : cartList) {
+            container.add(sci.getProduct().getProductId());
+        }
+        return container;
+    }
+    
+    
+    /**
+     * get how many of an item is in the shoppingcart
+     * @param product what product to check for
+     */
+    public static int getAmountInCart(Product product){
+         ShoppingCart cart = Model.getShoppingcart();
+        List<ShoppingItem> cartList = cart.getItems();
+        List<Integer> contents = getIdList();
+        for (ShoppingItem sci : cartList) {
+            if (sci.getProduct().getProductId() == product.getProductId()){
+                return (int)sci.getAmount();
+            }
+        }
+          return 0;
+    }
+    
+    /**
+     * removes all of a specified product from the shoppingcart
+    */
+    public static void removeAllOfProductFromCart(Product product){
+        remove(product, getAmountInCart(product));
+    }
+    /**
+     * remove an amount of items from the cart
+     * @param item
+     * @param removeAmount 
+     */
+    public static void remove(Product item, int removeAmount) {
+
+        //get the current items in the cart as a list
+        ShoppingCart cart = Model.getShoppingcart();
+        List<ShoppingItem> cartList = cart.getItems();
+        
+        //create an index of all items currently in the cart
+        List<Integer> container = getIdList();
+
+        //cycle through all items, and remove the item that fits
+        for (ShoppingItem sci : cartList) {
+            if (sci.getProduct().getProductId() == item.getProductId()) {
+                double currentAmount = sci.getAmount();
+                double resultAmount = currentAmount - removeAmount;
+
+                cart.removeItem(sci);
+                if (resultAmount < 0){
+                    resultAmount = 0;
+                }
+                cart.addItem(new ShoppingItem(item, resultAmount));
+            }
+        }
+
+    }
+
 }
