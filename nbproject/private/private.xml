@@ -3,12 +3,18 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Johan/Documents/NetBeansProjects/iMat/src/imat/MainWindow.java</file>
-            <file>file:/C:/Users/Johan/Documents/NetBeansProjects/iMat/src/imat/panels/PanelDetailsResult.java</file>
-            <file>file:/C:/Users/Johan/Documents/NetBeansProjects/iMat/src/imat/Model.java</file>
-            <file>file:/C:/Users/Johan/Documents/NetBeansProjects/iMat/src/imat/panels/PanelTest.java</file>
-            <file>file:/C:/Users/Johan/Documents/NetBeansProjects/iMat/src/imat/Controller.java</file>
-            <file>file:/C:/Users/Johan/Documents/NetBeansProjects/iMat/src/imat/panels/PanelDetailsSearch.java</file>
+            <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/contentPanels/buyingPanels/PanelDoneShopping.java</file>
+            <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/panels/PanelCart.java</file>
+            <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/resources/logo3.png</file>
+            <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/panels/PanelNavigation.java</file>
+            <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/resources/logo2.png</file>
+            <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/panels/subItems/CartHistory.java</file>
+            <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/contentPanels/buyingPanels/PanelFillInInfo.java</file>
+            <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/contentPanels/PanelEarlierCarts.java</file>
+            <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/MainWindow.java</file>
+            <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/contentPanels/buyingPanels/PanelSelectPayment.java</file>
+            <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/contentPanels/PanelSearchResult.java</file>
+            <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/resources/logo.jpg</file>
         </group>
     </open-files>
 </project-private>

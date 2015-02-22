@@ -42,7 +42,7 @@ public class CartHistory extends javax.swing.JPanel {
         String returner = "";
         List<ShoppingItem> items = order.getItems();
         for (ShoppingItem item : items){
-            returner = returner + ", " + item.getProduct().getName();
+            returner = returner + item.getProduct().getName() + ", " ;
         }
         
         return returner;
@@ -79,7 +79,7 @@ public class CartHistory extends javax.swing.JPanel {
 
         jLabel4.setText("pris:");
 
-        priceLabel.setText("jLabel5");
+        priceLabel.setText("pris");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -100,12 +100,12 @@ public class CartHistory extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(94, 94, 94)
                         .addComponent(jLabel4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(priceLabel)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(priceLabel)
-                            .addComponent(jLabel1))
+                        .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(dateLabel)
                         .addGap(32, 32, 32))))
@@ -121,9 +121,9 @@ public class CartHistory extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(contentLabel)
-                    .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                .addComponent(priceLabel))
+                    .addComponent(jLabel4)
+                    .addComponent(priceLabel))
+                .addGap(0, 22, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(dateLabel)

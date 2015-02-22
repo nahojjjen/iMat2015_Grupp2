@@ -6,7 +6,9 @@
 package imat.panels.subItems;
 
 import imat.Model;
+import imat.ModelAux;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
  *
@@ -144,7 +146,9 @@ public class DetailItem extends javax.swing.JPanel {
         int amount;
         amount = (int)inputField.getValue();
         if (amount > 0){
-            Model.getShoppingcart().addProduct(product, amount);
+            //Model.getShoppingcart().addProduct(product, amount);
+            ShoppingItem item = new ShoppingItem(product, amount);
+            ModelAux.add(item);
         }else{
             warningLabel.setText("t.ex. 1");
         }

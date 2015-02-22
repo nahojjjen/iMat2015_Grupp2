@@ -85,9 +85,15 @@ public class PanelSelectPayment extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void theEjectSeatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_theEjectSeatButtonActionPerformed
-        Model.placeOrder();
-        Model.getShoppingcart().clear();
-        IMat.getWindow().refreshCart();
+        if (Model.getShoppingcart().getItems().size() != 0) {
+            Model.placeOrder();
+            Model.getShoppingcart().clear();
+            IMat.getWindow().refreshCart();
+            IMat.getWindow().setContent(new PanelDoneShopping());
+        } else{
+            System.out.println("theres nothing in the cart to buy!");
+        }
+
     }//GEN-LAST:event_theEjectSeatButtonActionPerformed
 
 

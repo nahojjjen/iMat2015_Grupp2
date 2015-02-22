@@ -7,10 +7,9 @@ package imat.contentPanels;
 
 import imat.Model;
 import imat.panels.subItems.CartHistory;
-import imat.panels.subItems.CartItem;
-import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.util.List;
+import javax.swing.JLabel;
 import se.chalmers.ait.dat215.project.Order;
 
 /**
@@ -30,6 +29,10 @@ public class PanelEarlierCarts extends javax.swing.JPanel {
             System.out.println("asd");
             cartList.add(new CartHistory(order));
 
+        }
+        if (orders.size() == 0 ){
+            cartList.add(new JLabel("Du har inga tidigare beställningar."));
+            
         }
         this.revalidate();
         
