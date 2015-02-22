@@ -6,6 +6,7 @@
 package imat.panels.subItems;
 
 import imat.Model;
+import imat.ModelAux;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
@@ -27,6 +28,7 @@ public class CartItem extends javax.swing.JPanel {
      */
     public CartItem(ShoppingItem item) {
         initComponents();
+        this.item = item;
         amountInput.setText(String.valueOf(item.getAmount()));
         nameLabel.setText(item.getProduct().getName());
         suffixAmount.setText(item.getProduct().getUnitSuffix());
@@ -133,8 +135,8 @@ public class CartItem extends javax.swing.JPanel {
     }//GEN-LAST:event_amountInputActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       Model.getShoppingcart().removeItem(item);
-        System.out.println("trying to remove item, but failing.");
+    //Model.getShoppingcart().removeItem(item);
+         Model.getShoppingcart().removeItem(item);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

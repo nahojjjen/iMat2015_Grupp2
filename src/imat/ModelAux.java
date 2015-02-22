@@ -91,9 +91,13 @@ public class ModelAux {
     
     /**
      * removes all of a specified product from the shoppingcart
+     * the default backend already knows how to do this well, 
+     * only here so that you can call same class for removing 
+     * some items and all items
     */
-    public static void removeAllOfProductFromCart(Product product){
-        remove(product, getAmountInCart(product));
+    public static void removeAllOfProductFromCart(ShoppingItem product){
+        //remove(product.getProduct(), getAmountInCart(product.getProduct()));
+        Model.getShoppingcart().removeItem(product);
     }
     /**
      * remove an amount of items from the cart
@@ -105,10 +109,6 @@ public class ModelAux {
         //get the current items in the cart as a list
         ShoppingCart cart = Model.getShoppingcart();
         List<ShoppingItem> cartList = cart.getItems();
-        
-        //create an index of all items currently in the cart
-        List<Integer> container = getIdList();
-
         //cycle through all items, and remove the item that fits
         for (ShoppingItem sci : cartList) {
             if (sci.getProduct().getProductId() == item.getProductId()) {
@@ -116,10 +116,12 @@ public class ModelAux {
                 double resultAmount = currentAmount - removeAmount;
 
                 cart.removeItem(sci);
-                if (resultAmount < 0){
-                    resultAmount = 0;
+                
+                // only add it back if there are some items left
+                if (resultAmount > 0){
+                    cart.addItem(new ShoppingItem(item, resultAmount));
                 }
-                cart.addItem(new ShoppingItem(item, resultAmount));
+               
             }
         }
 
