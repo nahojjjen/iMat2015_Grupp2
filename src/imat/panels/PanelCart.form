@@ -25,7 +25,7 @@
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jButton1" max="32767" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="fireToBuyButton" min="-2" max="-2" attributes="0"/>
+                              <Component id="buyButton" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -60,7 +60,7 @@
               <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButton1" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
-                  <Component id="fireToBuyButton" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
+                  <Component id="buyButton" alignment="3" min="-2" pref="50" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jPanel1" pref="94" max="32767" attributes="0"/>
@@ -93,12 +93,12 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="fireToBuyButton">
+    <Component class="javax.swing.JButton" name="buyButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="G&#xe5; till kassan"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fireToBuyButtonActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buyButtonActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton1">

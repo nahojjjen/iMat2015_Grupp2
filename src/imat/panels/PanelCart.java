@@ -45,7 +45,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         cartContent = new javax.swing.JTextArea();
-        fireToBuyButton = new javax.swing.JButton();
+        buyButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         totalLabel = new javax.swing.JLabel();
@@ -57,10 +57,10 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         cartContent.setMaximumSize(new java.awt.Dimension(220, 800));
         jScrollPane1.setViewportView(cartContent);
 
-        fireToBuyButton.setText("Gå till kassan");
-        fireToBuyButton.addActionListener(new java.awt.event.ActionListener() {
+        buyButton.setText("Gå till kassan");
+        buyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fireToBuyButtonActionPerformed(evt);
+                buyButtonActionPerformed(evt);
             }
         });
 
@@ -99,7 +99,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(fireToBuyButton))))
+                                .addComponent(buyButton))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1)
@@ -125,16 +125,16 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fireToBuyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(buyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void fireToBuyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fireToBuyButtonActionPerformed
+    private void buyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyButtonActionPerformed
         IMat.getWindow().setContent(new PanelConfirm());
-    }//GEN-LAST:event_fireToBuyButtonActionPerformed
+    }//GEN-LAST:event_buyButtonActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
        
@@ -148,8 +148,8 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton buyButton;
     private javax.swing.JTextArea cartContent;
-    private javax.swing.JButton fireToBuyButton;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
@@ -177,8 +177,22 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
             cartContent.add(adder);
         }
         
-        totalLabel.setText(String.valueOf(Model.getShoppingcart().getTotal()));
+        double price = Model.getShoppingcart().getTotal();
+        totalLabel.setText(String.valueOf(price));
+        
+        if (price == 0){
+            disableBuyButton();
+        }else{
+            enableBuyButton();
+        }
         this.revalidate();
         
+    }
+    
+    public void disableBuyButton(){
+        buyButton.setEnabled(false);
+    }
+    public void enableBuyButton(){
+        buyButton.setEnabled(true);
     }
 }
