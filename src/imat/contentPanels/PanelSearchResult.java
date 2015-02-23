@@ -35,7 +35,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         Dimension dim = new Dimension(500,height);
         
         detailsView.setPreferredSize(dim);
-
+        
         for (Product product : products) {
             detailsView.add(new DetailItem(product));
         }

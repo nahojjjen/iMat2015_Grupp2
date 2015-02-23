@@ -80,7 +80,7 @@ public class ModelAux {
     public static int getAmountInCart(Product product){
          ShoppingCart cart = Model.getShoppingcart();
         List<ShoppingItem> cartList = cart.getItems();
-        List<Integer> contents = getIdList();
+
         for (ShoppingItem sci : cartList) {
             if (sci.getProduct().getProductId() == product.getProductId()){
                 return (int)sci.getAmount();
