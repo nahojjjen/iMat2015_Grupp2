@@ -30,7 +30,7 @@ public class DetailItem extends javax.swing.JPanel {
     private void initiate(){
         imageLabel.setIcon(Model.getImage(product,80,80));
         nameLabel.setText(Model.getName(product));
-        priceLabel.setText(String.valueOf(product.getPrice()));
+        priceLabel.setText(String.valueOf(product.getPrice() +" " +  product.getUnit()));
         
     }
     /**
