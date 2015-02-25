@@ -8,6 +8,7 @@ package imat.contentPanels;
 import imat.panels.PanelNavigation;
 import imat.panels.subItems.DetailItem;
 import imat.panels.subItems.GridItem;
+import imat.panels.subItems.ListItem;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -27,6 +28,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         initComponents();
         showDetailsResults(products);
         showGridResults(products);
+        showListResults(products);
     }
 
     private void showDetailsResults(List<Product> products) {
@@ -52,6 +54,19 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
         this.revalidate();
 
+    }
+    
+    private void showListResults(List<Product> products) {
+        listView.setLayout(new GridLayout(products.size(),1));
+        int height = products.size()* 50;
+        Dimension dim = new Dimension(500, height);
+        
+        listView.setPreferredSize(dim);
+        
+        for (Product product : products){
+            listView.add(new ListItem(product));
+        }
+        this.revalidate();
     }
 
     /**
