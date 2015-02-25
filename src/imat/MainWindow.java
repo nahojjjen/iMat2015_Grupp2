@@ -175,6 +175,13 @@ public class MainWindow extends javax.swing.JFrame {
         }
         this.revalidate();
     }
+    
+    public void setNavPanel(JPanel panel){
+        navigationPanel.setLayout(new BorderLayout());
+        navigationPanel.removeAll();
+        navigationPanel.add(panel);
+        revalidate();
+    }
 
     /**
      * set content to a panel

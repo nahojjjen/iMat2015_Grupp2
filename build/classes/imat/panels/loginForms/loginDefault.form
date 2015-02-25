@@ -84,8 +84,12 @@
       <SubComponents>
         <Component class="javax.swing.JTextField" name="usernameInput">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Anv&#xe4;ndarnamn"/>
+            <Property name="text" type="java.lang.String" value="Email"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="usernameInputFocusGained"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="usernameInputFocusLost"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="filler">
 

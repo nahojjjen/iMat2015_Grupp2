@@ -98,7 +98,15 @@ public class loginDefault extends javax.swing.JPanel {
         formPanel.setPreferredSize(new java.awt.Dimension(300, 80));
         formPanel.setLayout(new java.awt.GridLayout(2, 2, 5, 5));
 
-        usernameInput.setText("Användarnamn");
+        usernameInput.setText("Email");
+        usernameInput.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                usernameInputFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                usernameInputFocusLost(evt);
+            }
+        });
         formPanel.add(usernameInput);
 
         javax.swing.GroupLayout fillerLayout = new javax.swing.GroupLayout(filler);
@@ -163,6 +171,18 @@ public class loginDefault extends javax.swing.JPanel {
            passwordInput.setBackground(errorColor);
        }
     }//GEN-LAST:event_okLoginButtonActionPerformed
+
+    private void usernameInputFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameInputFocusGained
+        if(usernameInput.getText().equals("Email")){
+            usernameInput.setText("");
+        }
+    }//GEN-LAST:event_usernameInputFocusGained
+
+    private void usernameInputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameInputFocusLost
+         if(usernameInput.getText().equals("")){
+            usernameInput.setText("Email");
+        }
+    }//GEN-LAST:event_usernameInputFocusLost
 
     private void toggleTexts(){
         if(IMat.isLoggedin()){

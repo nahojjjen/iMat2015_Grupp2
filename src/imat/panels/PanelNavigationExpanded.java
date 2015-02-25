@@ -16,12 +16,12 @@ import imat.contentPanels.PanelEarlierCarts;
  *
  * @author Johan
  */
-public class PanelNavigation extends javax.swing.JPanel {
+public class PanelNavigationExpanded extends javax.swing.JPanel {
 
     /**
      * Creates new form PanelNavigation
      */
-    public PanelNavigation() {
+    public PanelNavigationExpanded() {
         initComponents();
         this.setBackground(IMat.getAverageColor());
     }
@@ -39,6 +39,8 @@ public class PanelNavigation extends javax.swing.JPanel {
 
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -63,6 +65,12 @@ public class PanelNavigation extends javax.swing.JPanel {
             }
         });
         add(jButton2);
+
+        jButton7.setText("jButton7");
+        add(jButton7);
+
+        jButton8.setText("jButton8");
+        add(jButton8);
 
         jButton3.setText("Profil");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -102,7 +110,8 @@ public class PanelNavigation extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       IMat.getWindow().setNavPanel(new PanelNavigationExpanded());
+        
+        IMat.getWindow().setNavPanel(new PanelNavigation());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -122,5 +131,7 @@ public class PanelNavigation extends javax.swing.JPanel {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     // End of variables declaration//GEN-END:variables
 }
