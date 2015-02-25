@@ -33,18 +33,19 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jProgressBar1" min="-2" pref="640" max="-2" attributes="0"/>
           <Group type="102" attributes="0">
-              <EmptySpace min="180" pref="180" max="-2" attributes="0"/>
-              <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
+              <Component id="jProgressBar1" min="-2" pref="640" max="-2" attributes="0"/>
+              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
           </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="180" pref="180" max="-2" attributes="0"/>
-              <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" attributes="0">
-              <EmptySpace min="393" pref="393" max="-2" attributes="0"/>
+          <Group type="102" alignment="1" attributes="0">
+              <EmptySpace max="32767" attributes="0"/>
               <Component id="buyButton" min="-2" pref="190" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="paymentFillIn" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -52,12 +53,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <Component id="jProgressBar1" min="-2" pref="60" max="-2" attributes="0"/>
-              <EmptySpace min="46" pref="46" max="-2" attributes="0"/>
-              <Component id="jComboBox1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="40" pref="40" max="-2" attributes="0"/>
-              <Component id="jComboBox2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="213" pref="213" max="-2" attributes="0"/>
-              <Component id="buyButton" min="-2" pref="140" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="paymentFillIn" max="32767" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="buyButton" min="-2" pref="103" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -68,26 +68,6 @@
         <Property name="value" type="int" value="80"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox1">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Anv&#xe4;nd registrerat kort"/>
-            <StringItem index="1" value="Registrera  nytt kort"/>
-          </StringArray>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBox2">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="2">
-            <StringItem index="0" value="Anv&#xe4;nd registrerad leveransinfo"/>
-            <StringItem index="1" value="Skriv in ny leveransinfo"/>
-          </StringArray>
-        </Property>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JButton" name="buyButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="Bekr&#xe4;fta k&#xf6;p"/>
@@ -96,5 +76,12 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buyButtonActionPerformed"/>
       </Events>
     </Component>
+    <Container class="javax.swing.JPanel" name="paymentFillIn">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
+        <Property name="columns" type="int" value="2"/>
+        <Property name="rows" type="int" value="1"/>
+      </Layout>
+    </Container>
   </SubComponents>
 </Form>

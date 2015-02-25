@@ -7,7 +7,7 @@ package imat.panels.loginForms;
 
 import imat.CustomerModel;
 import imat.IMat;
-import imat.Model;
+import imat.contentPanels.AccountMixes.MyProfilePanel;
 import imat.contentPanels.AccountMixes.RegisterPanel;
 import java.awt.Color;
 
@@ -24,19 +24,14 @@ public class loginDefault extends javax.swing.JPanel {
      */
     public loginDefault() {
         initComponents();
-        fixLogin();
+        dynamicTextChange();
         toggleVisibleButtons();
         fixColor();
         
     }
 
-    private void fixLogin(){
-        if (IMat.isLoggedin()){
-            toggleTexts();
-        }
-    }
+
     private void fixColor(){
-        System.out.println("sdasda");
         formPanel.setBackground(IMat.getHeaderColor());
         buttonPanel.setBackground(IMat.getHeaderColor());
         filler.setBackground(IMat.getHeaderColor());
@@ -150,23 +145,25 @@ public class loginDefault extends javax.swing.JPanel {
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         if (IMat.isLoggedin()){
             IMat.setLoggedin(false);
-            System.out.println("logged out");
-            toggleTexts();
+            dynamicTextChange();
+            IMat.getWindow().revalidate();
+            IMat.getWindow().repaint();
+        }else{
+           toggleVisibleButtons(); 
         }
-        toggleVisibleButtons();
-        
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void joinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_joinButtonActionPerformed
-        IMat.getWindow().setContent(new RegisterPanel());
+        if(!IMat.isLoggedin()){
+            IMat.getWindow().setContent(new RegisterPanel());
+        }else{
+            IMat.getWindow().setContent(new MyProfilePanel());
+        }
     }//GEN-LAST:event_joinButtonActionPerformed
 
     private void okLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okLoginButtonActionPerformed
-      
-        
-        
+
         if(usernameInput.getText().equals(CustomerModel.getEmail()) && passwordInput.getText().equals(CustomerModel.getPassword())){
-           System.out.println("match, loggin in");
            usernameInput.setBackground(Color.white);
            passwordInput.setBackground(Color.white);
            toggleVisibleButtons();
@@ -175,8 +172,6 @@ public class loginDefault extends javax.swing.JPanel {
            IMat.setLoggedin(true);
            
        }else{
-           System.out.println("username is " + CustomerModel.getEmail());
-           System.out.println("password is " + CustomerModel.getPassword());
            Color errorColor = new Color(255,180,180);
            usernameInput.setBackground(errorColor);
            passwordInput.setBackground(errorColor);
@@ -199,7 +194,7 @@ public class loginDefault extends javax.swing.JPanel {
         passwordInput.setText("");        // TODO add your handling code here:
     }//GEN-LAST:event_passwordInputFocusGained
 
-    private void toggleTexts(){
+    private void dynamicTextChange(){
         if(IMat.isLoggedin()){
             loginButton.setText("Logout");
         joinButton.setText("Profil");
@@ -207,6 +202,8 @@ public class loginDefault extends javax.swing.JPanel {
         loginButton.setText("Logga in");
         joinButton.setText("Gå med");
     }
+        this.revalidate();
+        
         
     }
 

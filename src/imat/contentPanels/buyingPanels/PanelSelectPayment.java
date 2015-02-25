@@ -30,16 +30,9 @@ public class PanelSelectPayment extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         theEjectSeatButton = new javax.swing.JButton();
-
-        jLabel1.setText("jLabel1");
-
-        jLabel2.setText("jLabel2");
-
-        jLabel3.setText("jLabel3");
+        paymentOptions = new javax.swing.JPanel();
+        jTextField1 = new javax.swing.JTextField();
 
         theEjectSeatButton.setText("Bekräfta betalningsuppgifter & lägg beställning");
         theEjectSeatButton.addActionListener(new java.awt.event.ActionListener() {
@@ -48,39 +41,46 @@ public class PanelSelectPayment extends javax.swing.JPanel {
             }
         });
 
+        jTextField1.setText("Du använder dina betalningsinfo och din leveransinfo som är fäst till ditt konto, ändra dem under \"ditt konto\" om du");
+
+        javax.swing.GroupLayout paymentOptionsLayout = new javax.swing.GroupLayout(paymentOptions);
+        paymentOptions.setLayout(paymentOptionsLayout);
+        paymentOptionsLayout.setHorizontalGroup(
+            paymentOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paymentOptionsLayout.createSequentialGroup()
+                .addGap(101, 101, 101)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        paymentOptionsLayout.setVerticalGroup(
+            paymentOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(paymentOptionsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(225, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(57, 57, 57)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(105, 105, 105)
-                        .addComponent(jLabel2))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(97, 97, 97)
-                        .addComponent(jLabel3)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 72, Short.MAX_VALUE)
-                .addComponent(theEjectSeatButton)
+                .addGap(57, 57, 57)
+                .addComponent(theEjectSeatButton, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
                 .addGap(71, 71, 71))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(paymentOptions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(56, 56, 56)
-                .addComponent(jLabel1)
-                .addGap(34, 34, 34)
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
-                .addComponent(theEjectSeatButton)
-                .addGap(56, 56, 56))
+                .addContainerGap()
+                .addComponent(paymentOptions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(theEjectSeatButton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -98,9 +98,8 @@ public class PanelSelectPayment extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPanel paymentOptions;
     private javax.swing.JButton theEjectSeatButton;
     // End of variables declaration//GEN-END:variables
 }
