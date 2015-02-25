@@ -6,6 +6,7 @@
 package imat.contentPanels;
 
 import imat.CustomerModel;
+import java.awt.Color;
 
 
 
@@ -68,9 +69,15 @@ public class PanelAccountInfo extends javax.swing.JPanel {
         lastNameLabel.setText("Efternamn:");
 
         firstNameTextField.setAutoscrolls(false);
-        firstNameTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                firstNameTextFieldActionPerformed(evt);
+        firstNameTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                firstNameTextFieldFocusGained(evt);
+            }
+        });
+
+        lastNameTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                lastNameTextFieldFocusGained(evt);
             }
         });
 
@@ -78,9 +85,21 @@ public class PanelAccountInfo extends javax.swing.JPanel {
 
         careOfLabel.setText("C/O:");
 
+        addressTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                addressTextFieldFocusGained(evt);
+            }
+        });
+
         postCodeLabel.setText("Postnummer:");
 
         postAddressLabel.setText("Postort:");
+
+        postAddressTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                postAddressTextFieldFocusGained(evt);
+            }
+        });
 
         phoneNumberLabel.setText("Telefon:");
 
@@ -88,9 +107,15 @@ public class PanelAccountInfo extends javax.swing.JPanel {
 
         repeatEmailLabel.setText("Repetera e-post:");
 
-        repeatEmailTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                repeatEmailTextFieldActionPerformed(evt);
+        emailTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                emailTextFieldFocusGained(evt);
+            }
+        });
+
+        repeatEmailTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                repeatEmailTextFieldFocusGained(evt);
             }
         });
 
@@ -98,9 +123,15 @@ public class PanelAccountInfo extends javax.swing.JPanel {
 
         repeatPasswordLabel.setText("Repetera lösenord:");
 
-        repeatPasswordTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                repeatPasswordTextFieldActionPerformed(evt);
+        newPasswordTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                newPasswordTextFieldFocusGained(evt);
+            }
+        });
+
+        repeatPasswordTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                repeatPasswordTextFieldFocusGained(evt);
             }
         });
 
@@ -112,6 +143,17 @@ public class PanelAccountInfo extends javax.swing.JPanel {
         });
 
         postCodeTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        postCodeTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                postCodeTextFieldFocusGained(evt);
+            }
+        });
+
+        phoneNumberTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                phoneNumberTextFieldFocusGained(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -207,32 +249,107 @@ public class PanelAccountInfo extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void firstNameTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_firstNameTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_firstNameTextFieldActionPerformed
-
-    private void repeatEmailTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repeatEmailTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_repeatEmailTextFieldActionPerformed
-
     private void saveAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAccountButtonActionPerformed
-        CustomerModel.setFirstName(firstNameTextField.getText());
-        CustomerModel.setLastName(lastNameTextField.getText());
-        CustomerModel.setAddress(addressTextField.getText());
-        CustomerModel.setPostCode(postCodeTextField.getText());
+        int correctlyFilled = 0;
+        if(CustomerModel.firstNameTest(firstNameTextField.getText())){
+             CustomerModel.setFirstName(firstNameTextField.getText());
+             correctlyFilled++;
+        } else {
+            firstNameTextField.setBackground(Color.red);
+        }
+        if(CustomerModel.lastNameTest(lastNameTextField.getText())){
+            CustomerModel.setLastName(lastNameTextField.getText());
+            correctlyFilled++;
+        }else {
+            lastNameTextField.setBackground(Color.red);
+        }
+       if(CustomerModel.addressTest(addressTextField.getText())){
+           CustomerModel.setAddress(addressTextField.getText());
+           correctlyFilled++;
+       } else {
+           addressTextField.setBackground(Color.red);
+       }
+       if(CustomerModel.postCodeTest(postCodeTextField.getText())){
+           CustomerModel.setPostCode(postCodeTextField.getText());
+           correctlyFilled++;
+       }else {
+           postCodeTextField.setBackground(Color.red);
+       }
+       if(CustomerModel.postAddressTest(postAddressTextField.getText())){           
         CustomerModel.setPostAddress(postAddressTextField.getText());
-        CustomerModel.setPhoneNumber(phoneNumberTextField.getText());
-        CustomerModel.setEmail(emailTextField.getText());
-        setPassword();
+        correctlyFilled++;
+       } else {
+           postAddressTextField.setBackground(Color.red);
+       }
+        if(CustomerModel.phoneNumberTest(phoneNumberTextField.getText())){
+            CustomerModel.setPhoneNumber(phoneNumberTextField.getText());
+            correctlyFilled++;
+        } else{
+           phoneNumberTextField.setBackground(Color.red);
+        }
+        if(CustomerModel.emailTest(emailTextField.getText()) &&
+                emailTextField.getText().equals(repeatEmailTextField.getText())){
+            CustomerModel.setEmail(emailTextField.getText());
+            correctlyFilled++;
+        } else {
+            emailTextField.setBackground(Color.red);
+            repeatEmailTextField.setBackground(Color.red);
+        }
+        
+        correctlyFilled = correctlyFilled + setPassword();
+        if(correctlyFilled ==9){
+            //do next shit
+        }
     }//GEN-LAST:event_saveAccountButtonActionPerformed
 
-    private void repeatPasswordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repeatPasswordTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_repeatPasswordTextFieldActionPerformed
+    private void newPasswordTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_newPasswordTextFieldFocusGained
+        newPasswordTextField.setBackground(Color.white);
+    }//GEN-LAST:event_newPasswordTextFieldFocusGained
 
-    private void setPassword(){
+    private void repeatPasswordTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_repeatPasswordTextFieldFocusGained
+        repeatPasswordTextField.setBackground(Color.white);
+    }//GEN-LAST:event_repeatPasswordTextFieldFocusGained
+
+    private void firstNameTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_firstNameTextFieldFocusGained
+        firstNameTextField.setBackground(Color.white);
+    }//GEN-LAST:event_firstNameTextFieldFocusGained
+
+    private void lastNameTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lastNameTextFieldFocusGained
+        lastNameTextField.setBackground(Color.white);
+    }//GEN-LAST:event_lastNameTextFieldFocusGained
+
+    private void addressTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addressTextFieldFocusGained
+        addressTextField.setBackground(Color.white);
+    }//GEN-LAST:event_addressTextFieldFocusGained
+
+    private void postCodeTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_postCodeTextFieldFocusGained
+        postCodeTextField.setBackground(Color.white);
+    }//GEN-LAST:event_postCodeTextFieldFocusGained
+
+    private void postAddressTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_postAddressTextFieldFocusGained
+       postAddressTextField.setBackground(Color.white);
+    }//GEN-LAST:event_postAddressTextFieldFocusGained
+
+    private void phoneNumberTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldFocusGained
+        phoneNumberTextField.setBackground(Color.white);
+    }//GEN-LAST:event_phoneNumberTextFieldFocusGained
+
+    private void emailTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailTextFieldFocusGained
+        emailTextField.setBackground(Color.white);
+    }//GEN-LAST:event_emailTextFieldFocusGained
+
+    private void repeatEmailTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_repeatEmailTextFieldFocusGained
+        repeatEmailTextField.setBackground(Color.white);
+    }//GEN-LAST:event_repeatEmailTextFieldFocusGained
+
+    private int setPassword(){
         if(newPasswordTextField.getText().equals(repeatPasswordTextField.getText())){
             CustomerModel.setPassword(newPasswordTextField.getText());
+            return 1;
+        } else {
+            newPasswordTextField.setBackground(Color.red);
+            repeatPasswordTextField.setBackground(Color.red);
+            return 0;
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
