@@ -5,8 +5,10 @@
  */
 package imat.panels.subItems;
 
+import imat.IMat;
 import imat.Model;
 import imat.ModelAux;
+import java.awt.Color;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
@@ -14,6 +16,8 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  * @author Johan
  */
 public class CartItem extends javax.swing.JPanel {
+    private static boolean zebra = true;
+    
 
     private ShoppingItem item;
     /**
@@ -32,6 +36,21 @@ public class CartItem extends javax.swing.JPanel {
         amountInput.setText(String.valueOf(item.getAmount()));
         nameLabel.setText(item.getProduct().getName());
         suffixAmount.setText(item.getProduct().getUnitSuffix());
+        Color zebra1 = IMat.getAverageColor();
+        Color zebra2 = IMat.getBackgroundColor();
+        if(zebra){
+            
+            
+            removeStuff.setBackground(zebra1);
+            jPanel1.setBackground(zebra1);
+            amountInput.setBackground(zebra1);
+            zebra=false;
+        }else{
+               removeStuff.setBackground(zebra2);
+            jPanel1.setBackground(zebra2);
+            amountInput.setBackground(zebra2);
+            zebra=true;
+        }
     }
 
     
@@ -52,6 +71,7 @@ public class CartItem extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         nameLabel = new javax.swing.JLabel();
 
+        setMaximumSize(new java.awt.Dimension(30, 100));
         setLayout(new java.awt.BorderLayout());
 
         jButton1.setText("x");
@@ -79,6 +99,7 @@ public class CartItem extends javax.swing.JPanel {
 
         add(removeStuff, java.awt.BorderLayout.EAST);
 
+        amountStuff.setMaximumSize(new java.awt.Dimension(30, 100));
         amountStuff.setMinimumSize(new java.awt.Dimension(30, 100));
 
         amountInput.addActionListener(new java.awt.event.ActionListener() {
@@ -130,14 +151,14 @@ public class CartItem extends javax.swing.JPanel {
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void amountInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amountInputActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_amountInputActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
     //Model.getShoppingcart().removeItem(item);
          Model.getShoppingcart().removeItem(item);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void amountInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amountInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_amountInputActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

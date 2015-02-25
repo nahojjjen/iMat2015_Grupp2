@@ -9,6 +9,7 @@ import imat.IMat;
 import imat.Model;
 import imat.contentPanels.buyingPanels.PanelConfirm;
 import imat.panels.subItems.CartItem;
+import imat.panels.subItems.FillerItem;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.ArrayList;
@@ -160,6 +161,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
        for(ShoppingItem item:cartItems){
            cart.add(item.getProduct());
        }
+       cart.add(new FillerItem());
         IMat.getWindow().showSearch(cart);
     }//GEN-LAST:event_jButton1ActionPerformed
 
