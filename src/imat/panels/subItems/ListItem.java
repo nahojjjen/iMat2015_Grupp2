@@ -69,7 +69,6 @@ public class ListItem extends javax.swing.JPanel {
             ShoppingItem item = new ShoppingItem(product, amount);
             ModelAux.add(item);
         } else {
-            System.out.println("Asasdasd");
             //Vi ska inte kunna komma hit, då spinnern endast tar värden 1-99
         }
     }//GEN-LAST:event_buyButtonActionPerformed

@@ -13,9 +13,9 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.util.List;
+import javax.swing.JLabel;
 import se.chalmers.ait.dat215.project.Product;
-
-
+import se.chalmers.ait.dat215.project.ProductCategory;
 
 /**
  *
@@ -23,26 +23,24 @@ import se.chalmers.ait.dat215.project.Product;
  */
 public class PanelSearchResult extends javax.swing.JPanel {
 
-    
     private List<Product> products;
-    
+
     /**
      * Creates new form PanelSearchResult
      */
     public PanelSearchResult(List<Product> list) {
         products = list;
         initComponents();
-      
+
     }
 
     /**
      * create the list of detailitems and put them in the stuff
+     *
      * @param products what products to show
      */
     private void showDetailsResults(List<Product> products) {
-        if(groupCheckbox.isSelected()){
-            System.out.println("is seleced");
-        }
+
         detailsView.setLayout(new GridLayout(products.size(), 1));
         int height = products.size() * 85;
         Dimension dim = new Dimension(500, height);
@@ -56,8 +54,42 @@ public class PanelSearchResult extends javax.swing.JPanel {
     }
 
     /**
+     * create the list of detailitems and put them in the stuff
+     *
+     * @param products what products to show
+     */
+    private void showDetailsResultsGrouped(List<Product> products) {
+
+        int rows = products.size();
+        int height = products.size() * 85;
+        ProductCategory category = null;
+        for (Product product : products) {
+
+            if (category == product.getCategory()) {
+
+                System.out.println(category + "is old");
+            } else {
+                category = product.getCategory();
+                detailsView.add(new JLabel(category.toString()));
+                rows++;
+                height += 20;
+            }
+
+            detailsView.add(new DetailItem(product));
+        }
+
+        detailsView.setLayout(new GridLayout(rows, 1));
+      
+        Dimension dim = new Dimension(500, height);
+
+        detailsView.setPreferredSize(dim);
+        this.revalidate();
+    }
+
+    /**
      * create a list of gridresults and put them in results.
-     * @param products 
+     *
+     * @param products
      */
     private void showGridResults(List<Product> products) {
         gridView.setLayout(new FlowLayout(FlowLayout.CENTER));
@@ -70,18 +102,20 @@ public class PanelSearchResult extends javax.swing.JPanel {
         this.revalidate();
 
     }
+
     /**
      * create a list of listresultitems and put them in resultview
-     * @param products  what products to show
+     *
+     * @param products what products to show
      */
     private void showListResults(List<Product> products) {
-        listView.setLayout(new GridLayout(products.size(),1));
-        int height = products.size()* 50;
+        listView.setLayout(new GridLayout(products.size(), 1));
+        int height = products.size() * 50;
         Dimension dim = new Dimension(500, height);
-        
+
         listView.setPreferredSize(dim);
-        
-        for (Product product : products){
+
+        for (Product product : products) {
             listView.add(new ListItem(product));
         }
         this.revalidate();
@@ -93,8 +127,6 @@ public class PanelSearchResult extends javax.swing.JPanel {
     public PanelSearchResult() {
         initComponents();
     }
-
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -209,12 +241,18 @@ public class PanelSearchResult extends javax.swing.JPanel {
         loadResult(tabPanel.getSelectedIndex());
     }//GEN-LAST:event_tabPanelStateChanged
 
-    private void loadResult(int i){
-        switch (i){
-            case (0):   showDetailsResults(products);break;
-            case (1): showListResults(products); break;
-            case (2): showGridResults(products); break;
-      
+    private void loadResult(int i) {
+        switch (i) {
+            case (0):
+                showDetailsResultsGrouped(products);
+                break;
+            case (1):
+                showListResults(products);
+                break;
+            case (2):
+                showGridResults(products);
+                break;
+
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
