@@ -43,9 +43,25 @@ public class MainWindow extends javax.swing.JFrame {
         initComponents();
         addModules();
         showLogo();
+        fixColors();
 
     }
 
+    
+    private void fixColors(){
+        //header
+        headerPanel.setBackground(IMat.getHeaderColor());
+        logoPanel.setBackground(IMat.getHeaderColor());
+        searchPanel.setBackground(IMat.getHeaderColor());
+        accountPanel.setBackground(IMat.getHeaderColor());
+        
+        //body
+        navigationPanel.setBackground(IMat.getAverageColor());
+        cartPanel.setBackground(IMat.getAverageColor());
+        spacec.setBackground(IMat.getBackgroundColor());
+        contentPanel.setBackground(IMat.getAverageColor());
+        
+    }
     /**
      * adds the logo in the upper left corner, and adds a mouse listener that
      * takes the user home if he presses the logo
@@ -86,6 +102,9 @@ public class MainWindow extends javax.swing.JFrame {
         logoPanel.add(imageLabel);
     }
 
+    /**
+     * show the updated cart content
+     */
     public void refreshCart() {
         cartPanel.removeAll();
         cartPanel.setLayout(new BorderLayout());
@@ -115,10 +134,15 @@ public class MainWindow extends javax.swing.JFrame {
 
         setContent(new PanelHome());
 
+        //maximize window on start
         this.setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
 
     }
 
+    /**
+     * set the contentpanel to show the searchresults
+     * @param input 
+     */
     public void showSearch(List<Product> input) {
         contentPanel.setLayout(new BorderLayout());
         contentPanel.removeAll();
