@@ -123,7 +123,13 @@ public class loginDefault extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        if (IMat.isLoggedin()){
+            IMat.setLoggedin(false);
+            System.out.println("logged out");
+            toggleTexts();
+        }
         toggleVisibleButtons();
+        
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void joinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_joinButtonActionPerformed
@@ -133,6 +139,7 @@ public class loginDefault extends javax.swing.JPanel {
     private void okLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okLoginButtonActionPerformed
       
         
+        
         if(usernameInput.getText().equals(CustomerModel.getEmail()) && passwordInput.getText().equals(CustomerModel.getPassword())){
            System.out.println("match, loggin in");
            usernameInput.setBackground(Color.white);
@@ -140,6 +147,8 @@ public class loginDefault extends javax.swing.JPanel {
            toggleVisibleButtons();
            loginButton.setText("Logout");
            joinButton.setText("Profil");
+           IMat.setLoggedin(true);
+           
        }else{
            System.out.println("username is " + CustomerModel.getEmail());
            System.out.println("password is " + CustomerModel.getPassword());
@@ -149,6 +158,16 @@ public class loginDefault extends javax.swing.JPanel {
        }
     }//GEN-LAST:event_okLoginButtonActionPerformed
 
+    private void toggleTexts(){
+        if(IMat.isLoggedin()){
+            loginButton.setText("Logout");
+        joinButton.setText("Profil");
+        }else{
+        loginButton.setText("Logga in");
+        joinButton.setText("Gå med");
+    }
+        
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel buttonPanel;
