@@ -261,4 +261,33 @@ public class CustomerModel {
             return cardVerification;
         }
     }
+    public static boolean cardNumberTest(String str){
+        if(str.length() > 17 && str.length() < 20){
+            System.out.println("nummer rätt");
+            return true;
+        } else {
+            
+            System.out.println("nummer fel");
+            return false;
+        }        
+    }
+    public static boolean cardHolderNameTest(String str){
+        if (str.matches("[a-zA-Z]+")){
+            System.out.println("namn true");
+            return true;
+        } else {
+            System.out.println("namn false");
+            return false;
+        }
+        
+    }
+    public static boolean cardVerificationTest(String str){
+       if(str.length() == 3){
+           System.out.println("ccv = " + str);
+           return true;
+       } else {
+           System.out.println("ccv = " + str);
+           return false;
+       }
+    }
 }
