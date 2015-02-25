@@ -16,7 +16,7 @@ import java.awt.Color;
  */
 public class loginDefault extends javax.swing.JPanel {
 
-    private boolean visible = false;
+    private boolean visible = true;
 
     /**
      * Creates new form loginDefault
@@ -24,12 +24,18 @@ public class loginDefault extends javax.swing.JPanel {
     public loginDefault() {
         initComponents();
        
+        toggleVisibleButtons();
+        fixColor();
         
-        usernameInput.setVisible(false);
-        passwordInput.setVisible(false);
-        okLoginButton.setVisible(false);
     }
 
+    private void fixColor(){
+        System.out.println("sdasda");
+        formPanel.setBackground(IMat.getHeaderColor());
+        buttonPanel.setBackground(IMat.getHeaderColor());
+        filler.setBackground(IMat.getHeaderColor());
+    
+    }
     private void toggleVisibleButtons() {
 
         if (visible == false) {
@@ -60,7 +66,7 @@ public class loginDefault extends javax.swing.JPanel {
         loginButton = new javax.swing.JButton();
         formPanel = new javax.swing.JPanel();
         usernameInput = new javax.swing.JTextField();
-        jPanel1 = new javax.swing.JPanel();
+        filler = new javax.swing.JPanel();
         passwordInput = new javax.swing.JTextField();
         okLoginButton = new javax.swing.JButton();
 
@@ -88,25 +94,25 @@ public class loginDefault extends javax.swing.JPanel {
 
         add(buttonPanel, java.awt.BorderLayout.NORTH);
 
-        formPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 20, 0, 20));
+        formPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 20, 20, 20));
         formPanel.setPreferredSize(new java.awt.Dimension(300, 80));
         formPanel.setLayout(new java.awt.GridLayout(2, 2, 5, 5));
 
         usernameInput.setText("Användarnamn");
         formPanel.add(usernameInput);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout fillerLayout = new javax.swing.GroupLayout(filler);
+        filler.setLayout(fillerLayout);
+        fillerLayout.setHorizontalGroup(
+            fillerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 127, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 30, Short.MAX_VALUE)
+        fillerLayout.setVerticalGroup(
+            fillerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 20, Short.MAX_VALUE)
         );
 
-        formPanel.add(jPanel1);
+        formPanel.add(filler);
 
         passwordInput.setText("Lösenord");
         formPanel.add(passwordInput);
@@ -171,8 +177,8 @@ public class loginDefault extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel buttonPanel;
+    private javax.swing.JPanel filler;
     private javax.swing.JPanel formPanel;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JButton joinButton;
     private javax.swing.JButton loginButton;
     private javax.swing.JButton okLoginButton;

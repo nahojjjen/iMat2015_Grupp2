@@ -22,6 +22,7 @@ public class PanelSearch extends javax.swing.JPanel {
      */
     public PanelSearch() {
         initComponents();
+        this.setBackground(IMat.getHeaderColor());
     }
 
     /**

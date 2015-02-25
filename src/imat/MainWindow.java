@@ -58,8 +58,10 @@ public class MainWindow extends javax.swing.JFrame {
         //body
         navigationPanel.setBackground(IMat.getAverageColor());
         cartPanel.setBackground(IMat.getAverageColor());
-        spacec.setBackground(IMat.getBackgroundColor());
         contentPanel.setBackground(IMat.getAverageColor());
+        
+        //behind body
+        spacec.setBackground(IMat.getBackgroundColor());
         
     }
     /**
