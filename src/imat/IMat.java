@@ -27,6 +27,9 @@ public class IMat {
     
     private static boolean loggedIn = false;
     private static MainWindow program;
+    
+    private static boolean groupSearchItems = true;
+    private static int sortingType = 0;
     /**
      * @param args unused
      */
@@ -95,5 +98,33 @@ public class IMat {
      */
     public static Color getForegroundColor() {
         return foregroundColor;
+    }
+
+    /**
+     * @return the groupSearchItems
+     */
+    public static boolean isGroupSearchItems() {
+        return groupSearchItems;
+    }
+
+    /**
+     * @param aGroupSearchItems the groupSearchItems to set
+     */
+    public static void setGroupSearchItems(boolean aGroupSearchItems) {
+        groupSearchItems = aGroupSearchItems;
+    }
+
+    /**
+     * @return the sortingType
+     */
+    public static int getSortingType() {
+        return sortingType;
+    }
+
+    /**
+     * @param aSortingType the sortingType to set
+     */
+    public static void setSortingType(int aSortingType) {
+        sortingType = aSortingType;
     }
 }
