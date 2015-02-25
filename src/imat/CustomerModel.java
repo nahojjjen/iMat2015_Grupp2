@@ -45,8 +45,6 @@ public class CustomerModel {
         }
     }
 
-
-
     /**
      * get the first name of the user
      *
@@ -151,58 +149,70 @@ public class CustomerModel {
             return email;
         }
     }
-    
-    public static void setFirstName(String input){
+
+    public static void setFirstName(String input) {
         customer.setFirstName(input);
     }
-    public static void setLastName(String input){
+
+    public static void setLastName(String input) {
         customer.setLastName(input);
     }
-    public static void setAddress(String input){
+
+    public static void setAddress(String input) {
         customer.setAddress(input);
     }
-    public static void setPostCode(String input){
+
+    public static void setPostCode(String input) {
         customer.setPostCode(input);
     }
-    public static void setPostAddress(String input){
+
+    public static void setPostAddress(String input) {
         customer.setPostAddress(input);
     }
-    public static void setPhoneNumber(String input){
+
+    public static void setPhoneNumber(String input) {
         customer.setPhoneNumber(input);
     }
-    public static void setEmail(String input){
+
+    public static void setEmail(String input) {
         customer.setEmail(input);
     }
-    
-        /**
+
+    /**
      * set the password of the user
      *
      * @param input the string the username should be
      */
-    public static void setPassword(String input){
+    public static void setPassword(String input) {
         user.setPassword(input);
     }
-    
-    public static void setCardNumber(String input){
+
+    public static void setCardNumber(String input) {
         creditCard.setCardNumber(input);
     }
-    public static void setCardHolderName(String input){
+
+    public static void setCardHolderName(String input) {
         creditCard.setHoldersName(input);
     }
-    public static void setCardType(String input){
+
+    public static void setCardType(String input) {
         creditCard.setCardType(input);
     }
-    public static void setCardMonth(int input){
+
+    public static void setCardMonth(int input) {
         creditCard.setValidMonth(input);
     }
-    public static void setCardYear(int input){
+
+    public static void setCardYear(int input) {
         creditCard.setValidYear(input);
     }
-    public static void setCardVerification(int input){
+
+    public static void setCardVerification(int input) {
         creditCard.setVerificationCode(input);
     }
-    public static String getCardType (){
-              String cardType = "";
+
+    public static String getCardType() {
+        String cardType = "";
         try {
             cardType = creditCard.getCardType();
         } catch (NullPointerException e) {
@@ -210,8 +220,9 @@ public class CustomerModel {
             return cardType;
         }
     }
-    public static String getCardHolderName (){
-              String cardHolder = "";
+
+    public static String getCardHolderName() {
+        String cardHolder = "";
         try {
             cardHolder = creditCard.getHoldersName();
         } catch (NullPointerException e) {
@@ -219,8 +230,9 @@ public class CustomerModel {
             return cardHolder;
         }
     }
-    public static String getCardNumber (){
-              String cardNumber = "";
+
+    public static String getCardNumber() {
+        String cardNumber = "";
         try {
             cardNumber = creditCard.getCardNumber();
         } catch (NullPointerException e) {
@@ -228,11 +240,12 @@ public class CustomerModel {
             return cardNumber;
         }
     }
-    public static int getCardMonth (){
-              int cardMonth = 0;
+
+    public static int getCardMonth() {
+        int cardMonth = 0;
         try {
             cardMonth = creditCard.getValidMonth();
-            if(cardMonth > 11){
+            if (cardMonth > 11) {
                 cardMonth = 0;
             }
         } catch (NullPointerException e) {
@@ -240,11 +253,12 @@ public class CustomerModel {
             return cardMonth;
         }
     }
-    public static int getCardYear (){
-              int cardYear = 0;
+
+    public static int getCardYear() {
+        int cardYear = 0;
         try {
             cardYear = creditCard.getValidYear();
-            if(cardYear> 8){
+            if (cardYear > 8) {
                 cardYear = 0;
             }
         } catch (NullPointerException e) {
@@ -252,8 +266,9 @@ public class CustomerModel {
             return cardYear;
         }
     }
-    public static int getCardVerification (){
-              int cardVerification = 0;
+
+    public static int getCardVerification() {
+        int cardVerification = 0;
         try {
             cardVerification = creditCard.getVerificationCode();
         } catch (NullPointerException e) {
@@ -261,33 +276,85 @@ public class CustomerModel {
             return cardVerification;
         }
     }
-    public static boolean cardNumberTest(String str){
-        if(str.length() > 17 && str.length() < 20){
-            System.out.println("nummer rätt");
+
+    public static boolean cardNumberTest(String str) {
+        if (str.length() > 17 && str.length() < 20) {
             return true;
         } else {
-            
-            System.out.println("nummer fel");
-            return false;
-        }        
-    }
-    public static boolean cardHolderNameTest(String str){
-        if (str.matches("[a-zA-Z]+")){
-            System.out.println("namn true");
-            return true;
-        } else {
-            System.out.println("namn false");
             return false;
         }
-        
     }
-    public static boolean cardVerificationTest(String str){
-       if(str.length() == 3){
-           System.out.println("ccv = " + str);
-           return true;
-       } else {
-           System.out.println("ccv = " + str);
-           return false;
-       }
+
+    public static boolean cardHolderNameTest(String str) {
+        if (str.matches("[a-zA-Z]+") && str.length() > 3) {
+            return true;
+        } else {
+            return false;
+        }
+
+    }
+
+    public static boolean cardVerificationTest(String str) {
+        if (str.length() == 3) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean firstNameTest(String str) {
+        if (str.matches("[a-zA-Z]+") && str.length() > 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean lastNameTest(String str) {
+        if (str.matches("[a-zA-Z]+") && str.length() > 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean addressTest(String str) {
+        if (str.matches("[a-zA-Z]+") && str.length() > 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean postCodeTest(String str) {
+        if (str.length() == 6) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean postAddressTest(String str) {
+        if (str.matches("[a-zA-Z]+") && str.length() > 1) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean phoneNumberTest(String str) {
+        if (str.length() > 8) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static boolean emailTest(String str) {
+        if (str.matches("[a-zA-Z]+") && str.length() > 5) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }
