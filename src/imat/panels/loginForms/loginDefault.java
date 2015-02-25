@@ -67,7 +67,7 @@ public class loginDefault extends javax.swing.JPanel {
         formPanel = new javax.swing.JPanel();
         usernameInput = new javax.swing.JTextField();
         filler = new javax.swing.JPanel();
-        passwordInput = new javax.swing.JTextField();
+        passwordInput = new javax.swing.JPasswordField();
         okLoginButton = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
@@ -122,13 +122,10 @@ public class loginDefault extends javax.swing.JPanel {
 
         formPanel.add(filler);
 
-        passwordInput.setText("Lösenord");
+        passwordInput.setText("Password");
         passwordInput.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 passwordInputFocusGained(evt);
-            }
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                passwordInputFocusLost(evt);
             }
         });
         formPanel.add(passwordInput);
@@ -193,17 +190,8 @@ public class loginDefault extends javax.swing.JPanel {
     }//GEN-LAST:event_usernameInputFocusLost
 
     private void passwordInputFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordInputFocusGained
-        // TODO add your handling code here:
-        if (passwordInput.getText().equals("Lösenord")){
-            passwordInput.setText("");
-        }
+        passwordInput.setText("");        // TODO add your handling code here:
     }//GEN-LAST:event_passwordInputFocusGained
-
-    private void passwordInputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordInputFocusLost
-        if(passwordInput.getText().equals("")){
-            passwordInput.setText("Lösenord");
-        }
-    }//GEN-LAST:event_passwordInputFocusLost
 
     private void toggleTexts(){
         if(IMat.isLoggedin()){
@@ -223,7 +211,7 @@ public class loginDefault extends javax.swing.JPanel {
     private javax.swing.JButton joinButton;
     private javax.swing.JButton loginButton;
     private javax.swing.JButton okLoginButton;
-    private javax.swing.JTextField passwordInput;
+    private javax.swing.JPasswordField passwordInput;
     private javax.swing.JTextField usernameInput;
     // End of variables declaration//GEN-END:variables
 }
