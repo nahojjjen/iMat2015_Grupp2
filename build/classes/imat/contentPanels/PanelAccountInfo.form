@@ -140,10 +140,13 @@
         <Property name="autoscrolls" type="boolean" value="false"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstNameTextFieldActionPerformed"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="firstNameTextFieldFocusGained"/>
       </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="lastNameTextField">
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="lastNameTextFieldFocusGained"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="addressLabel">
       <Properties>
@@ -156,6 +159,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="addressTextField">
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="addressTextFieldFocusGained"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="careOfTextField">
     </Component>
@@ -170,6 +176,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="postAddressTextField">
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="postAddressTextFieldFocusGained"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="phoneNumberLabel">
       <Properties>
@@ -187,10 +196,13 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="emailTextField">
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="emailTextFieldFocusGained"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="repeatEmailTextField">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="repeatEmailTextFieldActionPerformed"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="repeatEmailTextFieldFocusGained"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="newPasswordLabel">
@@ -204,10 +216,13 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="newPasswordTextField">
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="newPasswordTextFieldFocusGained"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="repeatPasswordTextField">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="repeatPasswordTextFieldActionPerformed"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="repeatPasswordTextFieldFocusGained"/>
       </Events>
     </Component>
     <Component class="javax.swing.JButton" name="saveAccountButton">
@@ -224,8 +239,14 @@
           <Format subtype="1" type="0"/>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="postCodeTextFieldFocusGained"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="phoneNumberTextField">
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="phoneNumberTextFieldFocusGained"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

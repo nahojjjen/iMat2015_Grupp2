@@ -65,10 +65,11 @@ public class ListItem extends javax.swing.JPanel {
     private void buyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyButtonActionPerformed
         int amount;
         amount = (int)ammountSpinner.getValue();
-        if(amount <0){
+        if(amount > 0){
             ShoppingItem item = new ShoppingItem(product, amount);
             ModelAux.add(item);
         } else {
+            System.out.println("Asasdasd");
             //Vi ska inte kunna komma hit, då spinnern endast tar värden 1-99
         }
     }//GEN-LAST:event_buyButtonActionPerformed

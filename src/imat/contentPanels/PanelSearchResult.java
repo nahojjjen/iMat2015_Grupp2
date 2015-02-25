@@ -213,7 +213,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         switch (i){
             case (0):   showDetailsResults(products);break;
             case (1): showListResults(products); break;
-            case (2): showGridResults(products); System.out.println("asdasd");break;
+            case (2): showGridResults(products); break;
       
         }
     }
