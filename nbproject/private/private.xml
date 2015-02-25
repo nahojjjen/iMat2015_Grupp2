@@ -3,15 +3,9 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Johan/Documents/NetBeansProjects/iMat/src/imat/MainWindow.java</file>
-            <file>file:/C:/Users/Johan/Documents/NetBeansProjects/iMat/src/imat/ModelAux.java</file>
-            <file>file:/C:/Users/Johan/Documents/NetBeansProjects/iMat/src/imat/panels/PanelSearch.java</file>
-            <file>file:/C:/Users/Johan/Documents/NetBeansProjects/iMat/.gitignore</file>
-            <file>file:/C:/Users/Johan/Documents/NetBeansProjects/iMat/src/imat/panels/subItems/GridItem.java</file>
-            <file>file:/C:/Users/Johan/Documents/NetBeansProjects/iMat/src/imat/contentPanels/PanelSearchResult.java</file>
-            <file>file:/C:/Users/Johan/Documents/NetBeansProjects/iMat/src/imat/panels/subItems/CartItem.java</file>
-            <file>file:/C:/Users/Johan/Documents/NetBeansProjects/iMat/src/imat/panels/PanelCart.java</file>
-            <file>file:/C:/Users/Johan/Documents/NetBeansProjects/iMat/src/imat/panels/subItems/DetailItem.java</file>
+            <file>file:/C:/Users/Viktor/Desktop/GUI/iMat2015_Grupp2/src/imat/IMat.java</file>
+            <file>file:/C:/Users/Viktor/Desktop/GUI/iMat2015_Grupp2/src/imat/CustomerModel.java</file>
+            <file>file:/C:/Users/Viktor/Desktop/GUI/iMat2015_Grupp2/src/imat/MainWindow.java</file>
         </group>
     </open-files>
 </project-private>

@@ -182,4 +182,85 @@ public class CustomerModel {
     public static void setPassword(String input){
         user.setPassword(input);
     }
+    
+    public static void setCardNumber(String input){
+        creditCard.setCardNumber(input);
+    }
+    public static void setCardHolderName(String input){
+        creditCard.setCardNumber(input);
+    }
+    public static void setCardType(String input){
+        creditCard.setCardType(input);
+    }
+    public static void setCardMonth(int input){
+        creditCard.setValidMonth(input);
+    }
+    public static void setCardYear(int input){
+        creditCard.setValidYear(input);
+    }
+    public static void setCardVerification(int input){
+        creditCard.setVerificationCode(input);
+    }
+    public static String getCardType (){
+              String cardType = "";
+        try {
+            cardType = creditCard.getCardType();
+        } catch (NullPointerException e) {
+        } finally {
+            return cardType;
+        }
+    }
+    public static String getCardHolderName (){
+              String cardHolder = "";
+        try {
+            cardHolder = creditCard.getHoldersName();
+        } catch (NullPointerException e) {
+        } finally {
+            return cardHolder;
+        }
+    }
+    public static String getCardNumber (){
+              String cardNumber = "";
+        try {
+            cardNumber = creditCard.getCardNumber();
+        } catch (NullPointerException e) {
+        } finally {
+            return cardNumber;
+        }
+    }
+    public static int getCardMonth (){
+              int cardMonth = 0;
+        try {
+            cardMonth = creditCard.getValidMonth();
+            if (cardMonth > 0){
+                cardMonth = cardMonth -1;
+            }            
+        } catch (NullPointerException e) {
+        } finally {
+            return cardMonth;
+        }
+    }
+    public static int getCardYear (){
+              int cardYear = 0;
+        try {
+            cardYear = creditCard.getValidYear();
+            if (cardYear > 2014 && cardYear < 2023){
+                cardYear = cardYear - 2015;
+            } else {
+                cardYear = 0;                
+            }
+        } catch (NullPointerException e) {
+        } finally {
+            return cardYear;
+        }
+    }
+    public static int getCardVerification (){
+              int cardVerification = 0;
+        try {
+            cardVerification = creditCard.getVerificationCode();
+        } catch (NullPointerException e) {
+        } finally {
+            return cardVerification;
+        }
+    }
 }
