@@ -278,7 +278,9 @@ public class CustomerModel {
     }
 
     public static boolean cardNumberTest(String str) {
-        if (str.length() > 17 && str.length() < 20) {
+        String cardType = getCardType();
+        if (cardType.equals("American Express") && str.length() == 19 ||
+                    cardType.equals("VISA/MasterCard") && str.length() == 21) {
             return true;
         } else {
             return false;

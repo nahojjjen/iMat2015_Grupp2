@@ -17,88 +17,37 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
                       <Component id="repeatEmailTextField" max="32767" attributes="0"/>
-                      <Group type="102" alignment="0" attributes="0">
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="firstNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="firstNameTextField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="postCodeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="addressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="addressTextField" alignment="0" pref="119" max="32767" attributes="0"/>
-                              <Component id="emailLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="phoneNumberLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="postCodeTextField" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="postAddressLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="lastNameLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="lastNameTextField" max="32767" attributes="0"/>
-                              <Component id="careOfLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="careOfTextField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="postAddressTextField" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
                       <Component id="emailTextField" alignment="0" max="32767" attributes="0"/>
-                      <Component id="repeatEmailLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Group type="102" attributes="0">
-                          <Component id="newPasswordLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                          <Component id="repeatPasswordLabel" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="emailLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="repeatEmailLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Component id="newPasswordLabel" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
+                                  <Component id="repeatPasswordLabel" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace min="-2" pref="59" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="saveAccountButton" alignment="1" min="-2" pref="143" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Component id="newPasswordTextField" min="-2" pref="113" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="54" max="-2" attributes="0"/>
                       <Component id="repeatPasswordTextField" min="-2" pref="142" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="phoneNumberTextField" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="149" max="32767" attributes="0"/>
+              <EmptySpace pref="158" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="firstNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lastNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="firstNameTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="lastNameTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="addressLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="careOfLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="addressTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="careOfTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="postCodeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="postAddressLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="postAddressTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="postCodeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="phoneNumberLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-              <Component id="phoneNumberTextField" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="emailLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
@@ -117,65 +66,12 @@
                   <Component id="newPasswordTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="repeatPasswordTextField" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="40" max="32767" attributes="0"/>
-              <Component id="saveAccountButton" min="-2" pref="52" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+              <EmptySpace pref="35" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JLabel" name="firstNameLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="F&#xf6;rnamn:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="lastNameLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Efternamn:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="firstNameTextField">
-      <Properties>
-        <Property name="autoscrolls" type="boolean" value="false"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="firstNameTextFieldActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JTextField" name="lastNameTextField">
-    </Component>
-    <Component class="javax.swing.JLabel" name="addressLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Gaturadress:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="careOfLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="C/O:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="addressTextField">
-    </Component>
-    <Component class="javax.swing.JTextField" name="careOfTextField">
-    </Component>
-    <Component class="javax.swing.JLabel" name="postCodeLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Postnummer:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="postAddressLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Postort:"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="postAddressTextField">
-    </Component>
-    <Component class="javax.swing.JLabel" name="phoneNumberLabel">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Telefon:"/>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JLabel" name="emailLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="E-post:"/>
@@ -187,10 +83,13 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="emailTextField">
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="emailTextFieldFocusGained"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="repeatEmailTextField">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="repeatEmailTextFieldActionPerformed"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="repeatEmailTextFieldFocusGained"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="newPasswordLabel">
@@ -204,28 +103,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="newPasswordTextField">
+      <Events>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="newPasswordTextFieldFocusGained"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="repeatPasswordTextField">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="repeatPasswordTextFieldActionPerformed"/>
+        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="repeatPasswordTextFieldFocusGained"/>
       </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="saveAccountButton">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Spara uppgifter"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="saveAccountButtonActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JFormattedTextField" name="postCodeTextField">
-      <Properties>
-        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
-          <Format subtype="1" type="0"/>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JFormattedTextField" name="phoneNumberTextField">
     </Component>
   </SubComponents>
 </Form>

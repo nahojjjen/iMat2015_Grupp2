@@ -21,12 +21,6 @@ public class PanelAccountInfo extends javax.swing.JPanel {
      */
     public PanelAccountInfo() {
         initComponents();
-        firstNameTextField.setText(CustomerModel.getFirstName());
-        lastNameTextField.setText(CustomerModel.getLastName());
-        addressTextField.setText(CustomerModel.getAddress());
-        postCodeTextField.setText(CustomerModel.getPostCode());
-        postAddressTextField.setText(CustomerModel.getPostAddress());
-        phoneNumberTextField.setText(CustomerModel.getPhoneNumber());
         emailTextField.setText(CustomerModel.getEmail());
         newPasswordTextField.setText(CustomerModel.getPassword());//Temporär
         }
@@ -40,18 +34,6 @@ public class PanelAccountInfo extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        firstNameLabel = new javax.swing.JLabel();
-        lastNameLabel = new javax.swing.JLabel();
-        firstNameTextField = new javax.swing.JTextField();
-        lastNameTextField = new javax.swing.JTextField();
-        addressLabel = new javax.swing.JLabel();
-        careOfLabel = new javax.swing.JLabel();
-        addressTextField = new javax.swing.JTextField();
-        careOfTextField = new javax.swing.JTextField();
-        postCodeLabel = new javax.swing.JLabel();
-        postAddressLabel = new javax.swing.JLabel();
-        postAddressTextField = new javax.swing.JTextField();
-        phoneNumberLabel = new javax.swing.JLabel();
         emailLabel = new javax.swing.JLabel();
         repeatEmailLabel = new javax.swing.JLabel();
         emailTextField = new javax.swing.JTextField();
@@ -60,48 +42,6 @@ public class PanelAccountInfo extends javax.swing.JPanel {
         repeatPasswordLabel = new javax.swing.JLabel();
         newPasswordTextField = new javax.swing.JTextField();
         repeatPasswordTextField = new javax.swing.JTextField();
-        saveAccountButton = new javax.swing.JButton();
-        postCodeTextField = new javax.swing.JFormattedTextField();
-        phoneNumberTextField = new javax.swing.JFormattedTextField();
-
-        firstNameLabel.setText("Förnamn:");
-
-        lastNameLabel.setText("Efternamn:");
-
-        firstNameTextField.setAutoscrolls(false);
-        firstNameTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                firstNameTextFieldFocusGained(evt);
-            }
-        });
-
-        lastNameTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                lastNameTextFieldFocusGained(evt);
-            }
-        });
-
-        addressLabel.setText("Gaturadress:");
-
-        careOfLabel.setText("C/O:");
-
-        addressTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                addressTextFieldFocusGained(evt);
-            }
-        });
-
-        postCodeLabel.setText("Postnummer:");
-
-        postAddressLabel.setText("Postort:");
-
-        postAddressTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                postAddressTextFieldFocusGained(evt);
-            }
-        });
-
-        phoneNumberLabel.setText("Telefon:");
 
         emailLabel.setText("E-post:");
 
@@ -135,99 +75,35 @@ public class PanelAccountInfo extends javax.swing.JPanel {
             }
         });
 
-        saveAccountButton.setText("Spara uppgifter");
-        saveAccountButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                saveAccountButtonActionPerformed(evt);
-            }
-        });
-
-        postCodeTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
-        postCodeTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                postCodeTextFieldFocusGained(evt);
-            }
-        });
-
-        phoneNumberTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                phoneNumberTextFieldFocusGained(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(repeatEmailTextField)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(firstNameLabel)
-                                .addComponent(firstNameTextField)
-                                .addComponent(postCodeLabel)
-                                .addComponent(addressLabel)
-                                .addComponent(addressTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
-                                .addComponent(emailLabel)
-                                .addComponent(phoneNumberLabel)
-                                .addComponent(postCodeTextField))
-                            .addGap(74, 74, 74)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(postAddressLabel)
-                                .addComponent(lastNameLabel)
-                                .addComponent(lastNameTextField)
-                                .addComponent(careOfLabel)
-                                .addComponent(careOfTextField)
-                                .addComponent(postAddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addComponent(emailTextField)
-                        .addComponent(repeatEmailLabel)
                         .addGroup(layout.createSequentialGroup()
-                            .addComponent(newPasswordLabel)
-                            .addGap(87, 87, 87)
-                            .addComponent(repeatPasswordLabel))
-                        .addComponent(saveAccountButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(emailLabel)
+                                .addComponent(repeatEmailLabel)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(newPasswordLabel)
+                                    .addGap(87, 87, 87)
+                                    .addComponent(repeatPasswordLabel)))
+                            .addGap(59, 59, 59)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(newPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(54, 54, 54)
-                        .addComponent(repeatPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(phoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(149, Short.MAX_VALUE))
+                        .addComponent(repeatPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(158, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(firstNameLabel)
-                    .addComponent(lastNameLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(firstNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addressLabel)
-                    .addComponent(careOfLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(addressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(careOfTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(postCodeLabel)
-                    .addComponent(postAddressLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(postAddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(postCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(phoneNumberLabel)
-                .addGap(13, 13, 13)
-                .addComponent(phoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(emailLabel)
                 .addGap(9, 9, 9)
                 .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -243,64 +119,9 @@ public class PanelAccountInfo extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(newPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(repeatPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addComponent(saveAccountButton, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void saveAccountButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveAccountButtonActionPerformed
-        int correctlyFilled = 0;
-        if(CustomerModel.firstNameTest(firstNameTextField.getText())){
-             CustomerModel.setFirstName(firstNameTextField.getText());
-             correctlyFilled++;
-        } else {
-            firstNameTextField.setBackground(Color.red);
-        }
-        if(CustomerModel.lastNameTest(lastNameTextField.getText())){
-            CustomerModel.setLastName(lastNameTextField.getText());
-            correctlyFilled++;
-        }else {
-            lastNameTextField.setBackground(Color.red);
-        }
-       if(CustomerModel.addressTest(addressTextField.getText())){
-           CustomerModel.setAddress(addressTextField.getText());
-           correctlyFilled++;
-       } else {
-           addressTextField.setBackground(Color.red);
-       }
-       if(CustomerModel.postCodeTest(postCodeTextField.getText())){
-           CustomerModel.setPostCode(postCodeTextField.getText());
-           correctlyFilled++;
-       }else {
-           postCodeTextField.setBackground(Color.red);
-       }
-       if(CustomerModel.postAddressTest(postAddressTextField.getText())){           
-        CustomerModel.setPostAddress(postAddressTextField.getText());
-        correctlyFilled++;
-       } else {
-           postAddressTextField.setBackground(Color.red);
-       }
-        if(CustomerModel.phoneNumberTest(phoneNumberTextField.getText())){
-            CustomerModel.setPhoneNumber(phoneNumberTextField.getText());
-            correctlyFilled++;
-        } else{
-           phoneNumberTextField.setBackground(Color.red);
-        }
-        if(CustomerModel.emailTest(emailTextField.getText()) &&
-                emailTextField.getText().equals(repeatEmailTextField.getText())){
-            CustomerModel.setEmail(emailTextField.getText());
-            correctlyFilled++;
-        } else {
-            emailTextField.setBackground(Color.red);
-            repeatEmailTextField.setBackground(Color.red);
-        }
-        
-        correctlyFilled = correctlyFilled + setPassword();
-        if(correctlyFilled ==9){
-            //do next shit
-        }
-    }//GEN-LAST:event_saveAccountButtonActionPerformed
 
     private void newPasswordTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_newPasswordTextFieldFocusGained
         newPasswordTextField.setBackground(Color.white);
@@ -310,30 +131,6 @@ public class PanelAccountInfo extends javax.swing.JPanel {
         repeatPasswordTextField.setBackground(Color.white);
     }//GEN-LAST:event_repeatPasswordTextFieldFocusGained
 
-    private void firstNameTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_firstNameTextFieldFocusGained
-        firstNameTextField.setBackground(Color.white);
-    }//GEN-LAST:event_firstNameTextFieldFocusGained
-
-    private void lastNameTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lastNameTextFieldFocusGained
-        lastNameTextField.setBackground(Color.white);
-    }//GEN-LAST:event_lastNameTextFieldFocusGained
-
-    private void addressTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addressTextFieldFocusGained
-        addressTextField.setBackground(Color.white);
-    }//GEN-LAST:event_addressTextFieldFocusGained
-
-    private void postCodeTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_postCodeTextFieldFocusGained
-        postCodeTextField.setBackground(Color.white);
-    }//GEN-LAST:event_postCodeTextFieldFocusGained
-
-    private void postAddressTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_postAddressTextFieldFocusGained
-       postAddressTextField.setBackground(Color.white);
-    }//GEN-LAST:event_postAddressTextFieldFocusGained
-
-    private void phoneNumberTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldFocusGained
-        phoneNumberTextField.setBackground(Color.white);
-    }//GEN-LAST:event_phoneNumberTextFieldFocusGained
-
     private void emailTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailTextFieldFocusGained
         emailTextField.setBackground(Color.white);
     }//GEN-LAST:event_emailTextFieldFocusGained
@@ -342,7 +139,21 @@ public class PanelAccountInfo extends javax.swing.JPanel {
         repeatEmailTextField.setBackground(Color.white);
     }//GEN-LAST:event_repeatEmailTextFieldFocusGained
 
-    private int setPassword(){
+    private void save(){
+                int correctlyFilled = 0;
+        
+        if(CustomerModel.emailTest(emailTextField.getText()) &&
+            emailTextField.getText().equals(repeatEmailTextField.getText())){
+            CustomerModel.setEmail(emailTextField.getText());
+            correctlyFilled++;
+        } else {
+            emailTextField.setBackground(Color.red);
+            repeatEmailTextField.setBackground(Color.red);
+        }
+
+        correctlyFilled = correctlyFilled + savePassword();
+    }
+    private int savePassword(){
         if(newPasswordTextField.getText().equals(repeatPasswordTextField.getText())){
             CustomerModel.setPassword(newPasswordTextField.getText());
             return 1;
@@ -353,28 +164,13 @@ public class PanelAccountInfo extends javax.swing.JPanel {
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel addressLabel;
-    private javax.swing.JTextField addressTextField;
-    private javax.swing.JLabel careOfLabel;
-    private javax.swing.JTextField careOfTextField;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTextField;
-    private javax.swing.JLabel firstNameLabel;
-    private javax.swing.JTextField firstNameTextField;
-    private javax.swing.JLabel lastNameLabel;
-    private javax.swing.JTextField lastNameTextField;
     private javax.swing.JLabel newPasswordLabel;
     private javax.swing.JTextField newPasswordTextField;
-    private javax.swing.JLabel phoneNumberLabel;
-    private javax.swing.JFormattedTextField phoneNumberTextField;
-    private javax.swing.JLabel postAddressLabel;
-    private javax.swing.JTextField postAddressTextField;
-    private javax.swing.JLabel postCodeLabel;
-    private javax.swing.JFormattedTextField postCodeTextField;
     private javax.swing.JLabel repeatEmailLabel;
     private javax.swing.JTextField repeatEmailTextField;
     private javax.swing.JLabel repeatPasswordLabel;
     private javax.swing.JTextField repeatPasswordTextField;
-    private javax.swing.JButton saveAccountButton;
     // End of variables declaration//GEN-END:variables
 }
