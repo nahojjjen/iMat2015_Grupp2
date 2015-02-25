@@ -38,6 +38,22 @@ public class PanelSearch extends javax.swing.JPanel {
 
         setPreferredSize(new java.awt.Dimension(120, 400));
 
+        SearchInput.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
+        SearchInput.setForeground(new java.awt.Color(102, 102, 102));
+        SearchInput.setText("Sök...");
+        SearchInput.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SearchInputActionPerformed(evt);
+            }
+        });
+        SearchInput.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                SearchInputFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                SearchInputFocusLost(evt);
+            }
+        });
         SearchInput.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 SearchInputKeyReleased(evt);
@@ -56,9 +72,8 @@ public class PanelSearch extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(81, Short.MAX_VALUE)
-                .addComponent(SearchInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
+                .addGap(0, 77, Short.MAX_VALUE)
+                .addComponent(SearchInput, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -66,6 +81,20 @@ public class PanelSearch extends javax.swing.JPanel {
        List<Product> results =  Model.doSearch(SearchInput.getText());
        IMat.getWindow().showSearch(results);
     }//GEN-LAST:event_SearchInputKeyReleased
+
+    private void SearchInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SearchInputActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_SearchInputActionPerformed
+
+    private void SearchInputFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_SearchInputFocusGained
+        SearchInput.setText(""); 
+    }//GEN-LAST:event_SearchInputFocusGained
+
+    private void SearchInputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_SearchInputFocusLost
+    if(SearchInput.getText().equals("")){
+        SearchInput.setText("Sök...");
+    }
+    }//GEN-LAST:event_SearchInputFocusLost
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
