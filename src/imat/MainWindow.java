@@ -44,10 +44,15 @@ public class MainWindow extends javax.swing.JFrame {
         addModules();
         showLogo();
         fixColors();
+        setIcons();
 
     }
 
     
+    private void setIcons(){
+        ImageIcon icon = new ImageIcon("src/resources/stolenicon.png");
+        this.setIconImage(icon.getImage());
+    }
     private void fixColors(){
         //header
         headerPanel.setBackground(IMat.getHeaderColor());
