@@ -45,6 +45,7 @@ public class MainWindow extends javax.swing.JFrame {
         showLogo();
         fixColors();
         setIcons();
+        this.setTitle("iMat");
 
     }
 
