@@ -61,7 +61,7 @@ public class MainWindow extends javax.swing.JFrame {
         contentPanel.setBackground(IMat.getAverageColor());
         
         //behind body
-        spacec.setBackground(IMat.getBackgroundColor());
+        spacec.setBackground(IMat.getAverageColor());
         
     }
     /**

@@ -23,6 +23,7 @@ public class PanelNavigation extends javax.swing.JPanel {
      */
     public PanelNavigation() {
         initComponents();
+        this.setBackground(IMat.getAverageColor());
     }
 
     /**

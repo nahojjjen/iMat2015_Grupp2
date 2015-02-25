@@ -13,6 +13,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JLabel;
 import se.chalmers.ait.dat215.project.CartEvent;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingCartListener;
@@ -31,8 +32,15 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         initComponents();
         Model.getShoppingcart().addShoppingCartListener(this);
         refreshCartContent();
+        fixColor();
     }
 
+    
+    private void fixColor(){
+        filler.setBackground(IMat.getAverageColor());
+        this.setBackground(IMat.getAverageColor());
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -43,19 +51,14 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        cartContent = new javax.swing.JTextArea();
         buyButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        filler = new javax.swing.JPanel();
         totalLabel = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        cartContent = new javax.swing.JPanel();
 
         jLabel1.setText("Kundvagn:");
-
-        cartContent.setColumns(20);
-        cartContent.setRows(5);
-        cartContent.setMaximumSize(new java.awt.Dimension(220, 800));
-        jScrollPane1.setViewportView(cartContent);
 
         buyButton.setText("Gå till kassan");
         buyButton.addActionListener(new java.awt.event.ActionListener() {
@@ -71,20 +74,33 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
             }
         });
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(220, 200));
+        filler.setPreferredSize(new java.awt.Dimension(220, 200));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout fillerLayout = new javax.swing.GroupLayout(filler);
+        filler.setLayout(fillerLayout);
+        fillerLayout.setHorizontalGroup(
+            fillerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        fillerLayout.setVerticalGroup(
+            fillerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 94, Short.MAX_VALUE)
         );
 
         totalLabel.setText("jLabel2");
+
+        javax.swing.GroupLayout cartContentLayout = new javax.swing.GroupLayout(cartContent);
+        cartContent.setLayout(cartContentLayout);
+        cartContentLayout.setHorizontalGroup(
+            cartContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 170, Short.MAX_VALUE)
+        );
+        cartContentLayout.setVerticalGroup(
+            cartContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 264, Short.MAX_VALUE)
+        );
+
+        jScrollPane2.setViewportView(cartContent);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -94,24 +110,25 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane1)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buyButton))))
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(buyButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)))
+                        .addComponent(filler, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(totalLabel)
                 .addGap(24, 24, 24))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -119,7 +136,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(totalLabel)
                 .addGap(4, 4, 4)
@@ -127,7 +144,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                .addComponent(filler, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -149,11 +166,11 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buyButton;
-    private javax.swing.JTextArea cartContent;
+    private javax.swing.JPanel cartContent;
+    private javax.swing.JPanel filler;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel totalLabel;
     // End of variables declaration//GEN-END:variables
 
@@ -180,8 +197,9 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         double price = Model.getShoppingcart().getTotal();
         totalLabel.setText(String.valueOf(price));
         
-        if (price == 0){
+        if (price <= 0){
             disableBuyButton();
+            cartContent.add(new JLabel());
         }else{
             enableBuyButton();
         }

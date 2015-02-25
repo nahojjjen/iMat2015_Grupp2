@@ -17,13 +17,13 @@ import se.chalmers.ait.dat215.project.*;
  */
 public class IMat {
 
-    private static final Color headerColor = new Color(123,123,240);
+    private static final Color headerColor = new Color(200,200,240);
     private static final Color headerShadowColor = new Color(80,80,160);
     private static final Color highlightButtonColor = new Color(200,200,255);
     
-    private static final Color backgroundColor = new Color(123,123,123);
-    private static final Color averageColor = new Color(230,230,230);
-    private static final Color foregroundColor = new Color(245,245,245);
+    private static final Color backgroundColor = new Color(0,233,0);
+    private static final Color averageColor = new Color(230,0,0);
+    private static final Color foregroundColor = new Color(0,0,245);
     
     private static boolean loggedIn = false;
     private static MainWindow program;
