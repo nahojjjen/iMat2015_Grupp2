@@ -187,7 +187,7 @@ public class CustomerModel {
         creditCard.setCardNumber(input);
     }
     public static void setCardHolderName(String input){
-        creditCard.setCardNumber(input);
+        creditCard.setHoldersName(input);
     }
     public static void setCardType(String input){
         creditCard.setCardType(input);
@@ -232,9 +232,9 @@ public class CustomerModel {
               int cardMonth = 0;
         try {
             cardMonth = creditCard.getValidMonth();
-            if (cardMonth > 0){
-                cardMonth = cardMonth -1;
-            }            
+            if(cardMonth > 11){
+                cardMonth = 0;
+            }
         } catch (NullPointerException e) {
         } finally {
             return cardMonth;
@@ -244,10 +244,8 @@ public class CustomerModel {
               int cardYear = 0;
         try {
             cardYear = creditCard.getValidYear();
-            if (cardYear > 2014 && cardYear < 2023){
-                cardYear = cardYear - 2015;
-            } else {
-                cardYear = 0;                
+            if(cardYear> 8){
+                cardYear = 0;
             }
         } catch (NullPointerException e) {
         } finally {

@@ -9,6 +9,7 @@ import imat.contentPanels.PanelSearchResult;
 import imat.contentPanels.PanelHome;
 import imat.contentPanels.PanelAccountInfo;
 import imat.IMat;
+import imat.contentPanels.PanelCreditCard;
 import imat.contentPanels.PanelEarlierCarts;
 
 /**
@@ -71,7 +72,12 @@ public class PanelNavigation extends javax.swing.JPanel {
         });
         add(jButton4);
 
-        jButton5.setText("empty");
+        jButton5.setText("Kort");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
         add(jButton5);
 
         jButton6.setText("empty");
@@ -96,6 +102,10 @@ public class PanelNavigation extends javax.swing.JPanel {
         // TODO add your handling code here:
         IMat.getWindow().setContent(new PanelEarlierCarts());
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        IMat.getWindow().setContent(new PanelCreditCard());
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
