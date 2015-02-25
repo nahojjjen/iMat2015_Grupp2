@@ -67,6 +67,13 @@ public class MainWindow extends javax.swing.JFrame {
         spacec.setBackground(IMat.getAverageColor());
         
     }
+    
+    public  void refreshLoggedin(){
+        accountPanel.removeAll();
+        accountPanel.setLayout(new BorderLayout());
+        accountPanel.add(new loginDefault());
+        
+    }
     /**
      * adds the logo in the upper left corner, and adds a mouse listener that
      * takes the user home if he presses the logo

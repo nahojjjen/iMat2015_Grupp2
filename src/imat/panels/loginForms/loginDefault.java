@@ -7,7 +7,8 @@ package imat.panels.loginForms;
 
 import imat.CustomerModel;
 import imat.IMat;
-import imat.contentPanels.PanelAccountInfo;
+import imat.Model;
+import imat.contentPanels.AccountMixes.RegisterPanel;
 import java.awt.Color;
 
 /**
@@ -23,12 +24,17 @@ public class loginDefault extends javax.swing.JPanel {
      */
     public loginDefault() {
         initComponents();
-       
+        fixLogin();
         toggleVisibleButtons();
         fixColor();
         
     }
 
+    private void fixLogin(){
+        if (IMat.isLoggedin()){
+            toggleTexts();
+        }
+    }
     private void fixColor(){
         System.out.println("sdasda");
         formPanel.setBackground(IMat.getHeaderColor());
@@ -152,7 +158,7 @@ public class loginDefault extends javax.swing.JPanel {
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private void joinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_joinButtonActionPerformed
-        IMat.getWindow().setContent(new PanelAccountInfo());
+        IMat.getWindow().setContent(new RegisterPanel());
     }//GEN-LAST:event_joinButtonActionPerformed
 
     private void okLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okLoginButtonActionPerformed

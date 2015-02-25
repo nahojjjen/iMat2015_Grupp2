@@ -389,7 +389,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Lucida Grande" size="12" style="0"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Ja du kan enkelt g&#xe5; in och &#xe4;ndra i din best&#xe4;llning s&#xe5; l&#xe4;nge den inte har levererats &#xe4;nnu."/>
+        <Property name="text" type="java.lang.String" value="Ja, du kan enkelt g&#xe5; in och &#xe4;ndra i din best&#xe4;llning s&#xe5; l&#xe4;nge den inte har levererats &#xe4;nnu."/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel25">

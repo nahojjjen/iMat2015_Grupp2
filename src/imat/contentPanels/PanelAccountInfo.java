@@ -7,8 +7,7 @@ package imat.contentPanels;
 
 import imat.CustomerModel;
 import java.awt.Color;
-
-
+import javax.swing.JTextField;
 
 /**
  *
@@ -23,7 +22,7 @@ public class PanelAccountInfo extends javax.swing.JPanel {
         initComponents();
         emailTextField.setText(CustomerModel.getEmail());
         newPasswordTextField.setText(CustomerModel.getPassword());//Temporär
-        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -139,11 +138,14 @@ public class PanelAccountInfo extends javax.swing.JPanel {
         repeatEmailTextField.setBackground(Color.white);
     }//GEN-LAST:event_repeatEmailTextFieldFocusGained
 
-    private void save(){
-                int correctlyFilled = 0;
-        
-        if(CustomerModel.emailTest(emailTextField.getText()) &&
-            emailTextField.getText().equals(repeatEmailTextField.getText())){
+    /**
+     * Working save method, basis for other modules
+     */
+    public void legacySave() {
+        int correctlyFilled = 0; //does nothing as of now
+
+        if (CustomerModel.emailTest(emailTextField.getText())
+                && emailTextField.getText().equals(repeatEmailTextField.getText())) {
             CustomerModel.setEmail(emailTextField.getText());
             correctlyFilled++;
         } else {
@@ -153,8 +155,74 @@ public class PanelAccountInfo extends javax.swing.JPanel {
 
         correctlyFilled = correctlyFilled + savePassword();
     }
-    private int savePassword(){
-        if(newPasswordTextField.getText().equals(repeatPasswordTextField.getText())){
+
+    /**
+     * Saves both fields
+     */
+    public void save() {
+        CustomerModel.setPassword(newPasswordTextField.getText());
+        CustomerModel.setEmail(emailTextField.getText());
+    }
+
+    /**
+     * check if email is filled in correctly
+     *
+     * @return true if both emails are correct
+     */
+    public boolean isEmailCorrect() {
+        if (CustomerModel.emailTest(emailTextField.getText())
+                && emailTextField.getText().equals(repeatEmailTextField.getText())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * check if both passwordfields are correct
+     *
+     * @return true if both are correct and matching
+     */
+    public boolean isPasswordCorrect() {
+        if (newPasswordTextField.getText().equals(repeatPasswordTextField.getText())
+                && CustomerModel.passwordTest(newPasswordTextField.getText())) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * make a textinputbox show red
+     *
+     * @param input what textinputbox to make red.
+     */
+    public void showError(JTextField input) {
+        input.setBackground(new Color(240, 200, 200));
+    }
+
+    /**
+     * make all textinputs show error
+     */
+    public void showAllErrors() {
+        showError(emailTextField);
+        showError(repeatEmailTextField);
+        showError(newPasswordTextField);
+        showError(repeatPasswordTextField);
+    }
+
+    public void showPassError() {
+        showError(newPasswordTextField);
+        showError(repeatPasswordTextField);
+    }
+
+    public void showEmailError() {
+        showError(emailTextField);
+        showError(repeatEmailTextField);
+    }
+
+    public int savePassword() {
+        if (newPasswordTextField.getText().equals(repeatPasswordTextField.getText())) {
             CustomerModel.setPassword(newPasswordTextField.getText());
             return 1;
         } else {

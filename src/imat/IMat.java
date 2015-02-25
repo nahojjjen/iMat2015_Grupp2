@@ -56,6 +56,7 @@ public class IMat {
     }
     public static void setLoggedin(boolean isLoggedin){
         loggedIn = isLoggedin;
+        program.refreshLoggedin();
     }
 
     /**

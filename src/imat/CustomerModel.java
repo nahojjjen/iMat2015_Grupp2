@@ -279,8 +279,8 @@ public class CustomerModel {
 
     public static boolean cardNumberTest(String str) {
         String cardType = getCardType();
-        if (cardType.equals("American Express") && str.length() == 19 ||
-                    cardType.equals("VISA/MasterCard") && str.length() == 21) {
+        if (cardType.equals("American Express") && str.length() == 19
+                || cardType.equals("VISA/MasterCard") && str.length() == 21) {
             return true;
         } else {
             return false;
@@ -328,6 +328,19 @@ public class CustomerModel {
         }
     }
 
+    /**
+     * currently only checks if password is longer than 3 characters
+     *
+     * @param str input text
+     * @return true if str.lenght > 3
+     */
+    public static boolean passwordTest(String str) {
+        if (str.length() > 3) {
+            return true;
+        }
+        return false;
+    }
+
     public static boolean postCodeTest(String str) {
         if (str.length() == 6) {
             return true;
@@ -352,11 +365,28 @@ public class CustomerModel {
         }
     }
 
-    public static boolean emailTest(String str) {
+    /**
+     * I could not get this to work on any of my real emails using new method
+     * meanwhile
+     *
+     * @param str
+     * @return true if something, unknown
+     */
+    public static boolean legacyEmailTest(String str) {
         if (str.matches("[a-zA-Z]+") && str.length() > 5) {
             return true;
         } else {
             return false;
         }
     }
+
+    public static boolean emailTest(String str) {
+        if (str.contains("@") && str.contains(".") && str.length() > 6) {
+                return true;
+        }
+            return false;
+      
+    
+    }
+
 }

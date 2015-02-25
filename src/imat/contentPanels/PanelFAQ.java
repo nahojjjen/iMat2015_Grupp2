@@ -138,7 +138,7 @@ public class PanelFAQ extends javax.swing.JPanel {
         jLabel23.setText("ska levereras.");
 
         jLabel24.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        jLabel24.setText("Ja du kan enkelt gå in och ändra i din beställning så länge den inte har levererats ännu.");
+        jLabel24.setText("Ja, du kan enkelt gå in och ändra i din beställning så länge den inte har levererats ännu.");
 
         jLabel25.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jLabel25.setText("Kan jag ändra min beställning?");
