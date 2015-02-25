@@ -15,6 +15,7 @@ import imat.panels.PanelNavigation;
 import imat.panels.PanelSearch;
 import imat.panels.loginForms.loginDefault;
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -24,6 +25,7 @@ import java.io.IOException;
 import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import se.chalmers.ait.dat215.project.Product;
@@ -34,7 +36,6 @@ import se.chalmers.ait.dat215.project.Product;
  */
 public class MainWindow extends javax.swing.JFrame {
 
-
     /**
      * Creates new form MainWindowdr
      */
@@ -43,22 +44,20 @@ public class MainWindow extends javax.swing.JFrame {
         addModules();
         showLogo();
 
-   
-        
     }
-    
+
     /**
-     * adds the logo in the upper left corner, and adds a mouse listener that takes
-     * the user home if he presses the logo
+     * adds the logo in the upper left corner, and adds a mouse listener that
+     * takes the user home if he presses the logo
      */
-    private void showLogo(){
-             //show the logo
+    private void showLogo() {
+        //show the logo
         BufferedImage logo = null;
         try {
             logo = ImageIO.read(new File("src/resources/logo2.png"));
         } catch (IOException e) {
             System.out.println("failed to read image");
-            
+
         }
         JLabel imageLabel = new JLabel(new ImageIcon(logo));
         imageLabel.addMouseListener(new MouseListener() {
@@ -67,18 +66,27 @@ public class MainWindow extends javax.swing.JFrame {
             public void mouseClicked(MouseEvent e) {
                 IMat.getWindow().setContent("Home");
             }
+
             @Override
-            public void mousePressed(MouseEvent e) { }
+            public void mousePressed(MouseEvent e) {
+            }
+
             @Override
-            public void mouseReleased(MouseEvent e) {}
+            public void mouseReleased(MouseEvent e) {
+            }
+
             @Override
-            public void mouseEntered(MouseEvent e) {}
+            public void mouseEntered(MouseEvent e) {
+            }
+
             @Override
-            public void mouseExited(MouseEvent e) {}
+            public void mouseExited(MouseEvent e) {
+            }
         });
         logoPanel.add(imageLabel);
     }
-    public void refreshCart(){
+
+    public void refreshCart() {
         cartPanel.removeAll();
         cartPanel.setLayout(new BorderLayout());
         cartPanel.add(new PanelCart());
@@ -87,27 +95,30 @@ public class MainWindow extends javax.swing.JFrame {
     /**
      * add all the default start modules to the window when starting
      */
-    private void addModules(){
+    private void addModules() {
         navigationPanel.setLayout(new java.awt.BorderLayout());
         navigationPanel.add(new PanelNavigation());
-        
+
         searchPanel.setLayout(new java.awt.BorderLayout());
         searchPanel.add(new PanelSearch());
-        
+
         cartPanel.setLayout(new java.awt.BorderLayout());
         cartPanel.add(new PanelCart());
-        
+
         contentPanel.setLayout(new java.awt.BorderLayout());
         contentPanel.add(new PanelResultTest());
-        
+
         logoPanel.setLayout(new GridLayout());
-        
+
         accountPanel.setLayout(new BorderLayout());
         accountPanel.add(new loginDefault());
-        
-        setContent("Home");
-        
+
+        setContent(new PanelHome());
+
+        this.setExtendedState(this.getExtendedState() | JFrame.MAXIMIZED_BOTH);
+
     }
+
     public void showSearch(List<Product> input) {
         contentPanel.setLayout(new BorderLayout());
         contentPanel.removeAll();
@@ -115,33 +126,43 @@ public class MainWindow extends javax.swing.JFrame {
         this.revalidate();
 
     }
-    
+
     /**
      * show a panel by name
-     * @param input 
+     *
+     * @param input
      */
-    public void setContent(String input){
+    public void setContent(String input) {
         contentPanel.setLayout(new BorderLayout());
         contentPanel.removeAll();
-        switch (input){
-            case("Home"): contentPanel.add(new PanelHome()); break;
-            case("Profile"): contentPanel.add(new PanelAccountInfo());break;
-            case("Debugg"): contentPanel.add(new PanelSearchResult());break;
-          
+        switch (input) {
+            case ("Home"):
+                contentPanel.add(new PanelHome());
+                break;
+            case ("Profile"):
+                contentPanel.add(new PanelAccountInfo());
+                break;
+            case ("Debugg"):
+                contentPanel.add(new PanelSearchResult());
+                break;
+
         }
         this.revalidate();
     }
+
     /**
      * set content to a panel
+     *
      * @param panel what panel to show
-     * 
+     *
      */
-    public void setContent(JPanel panel){
+    public void setContent(JPanel panel) {
         contentPanel.setLayout(new BorderLayout());
         contentPanel.removeAll();
-        contentPanel.add(panel); 
+        contentPanel.add(panel);
         revalidate();
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -202,7 +223,7 @@ public class MainWindow extends javax.swing.JFrame {
         searchPanel.setLayout(searchPanelLayout);
         searchPanelLayout.setHorizontalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 274, Short.MAX_VALUE)
+            .addGap(0, 898, Short.MAX_VALUE)
         );
         searchPanelLayout.setVerticalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,7 +246,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
         cartPanelLayout.setVerticalGroup(
             cartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 429, Short.MAX_VALUE)
+            .addGap(0, 878, Short.MAX_VALUE)
         );
 
         bodyPanel.add(cartPanel, java.awt.BorderLayout.EAST);
@@ -240,7 +261,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
         navigationPanelLayout.setVerticalGroup(
             navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 429, Short.MAX_VALUE)
+            .addGap(0, 878, Short.MAX_VALUE)
         );
 
         bodyPanel.add(navigationPanel, java.awt.BorderLayout.WEST);
@@ -255,11 +276,11 @@ public class MainWindow extends javax.swing.JFrame {
         contentPanel.setLayout(contentPanelLayout);
         contentPanelLayout.setHorizontalGroup(
             contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 334, Short.MAX_VALUE)
+            .addGap(0, 958, Short.MAX_VALUE)
         );
         contentPanelLayout.setVerticalGroup(
             contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 389, Short.MAX_VALUE)
+            .addGap(0, 838, Short.MAX_VALUE)
         );
 
         spacec.add(contentPanel, java.awt.BorderLayout.CENTER);
@@ -321,4 +342,4 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel searchPanel;
     private javax.swing.JPanel spacec;
     // End of variables declaration//GEN-END:variables
-    }
+}
