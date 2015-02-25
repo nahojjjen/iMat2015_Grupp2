@@ -5,8 +5,9 @@
  */
 package imat.panels.subItems;
 
-import javax.swing.SwingConstants;
+import imat.ModelAux;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
  *
@@ -14,6 +15,7 @@ import se.chalmers.ait.dat215.project.Product;
  */
 public class ListItem extends javax.swing.JPanel {
 
+    private Product product;
     /**
      * Creates new form ListItem
      */
@@ -23,9 +25,9 @@ public class ListItem extends javax.swing.JPanel {
     
     public ListItem(Product product) {
         initComponents();
+        this.product = product;
         productName.setText(product.getName());
-        productPrice.setText(String.valueOf(product.getPrice()));
-        productName.setHorizontalAlignment(SwingConstants.LEFT);
+        productPrice.setText(String.valueOf(product.getPrice())+ " " + product.getUnit());
     }
 
     /**
@@ -36,23 +38,20 @@ public class ListItem extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
         productName = new javax.swing.JLabel();
         productPrice = new javax.swing.JLabel();
         ammountSpinner = new javax.swing.JSpinner();
         buyButton = new javax.swing.JButton();
 
-        setLayout(new java.awt.GridBagLayout());
-
         productName.setText("Produktnamn");
-        add(productName, new java.awt.GridBagConstraints());
+        add(productName);
 
         productPrice.setText("Pris");
-        add(productPrice, new java.awt.GridBagConstraints());
+        add(productPrice);
 
         ammountSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 99, 1));
-        add(ammountSpinner, new java.awt.GridBagConstraints());
+        add(ammountSpinner);
 
         buyButton.setText("Köp");
         buyButton.addActionListener(new java.awt.event.ActionListener() {
@@ -60,14 +59,18 @@ public class ListItem extends javax.swing.JPanel {
                 buyButtonActionPerformed(evt);
             }
         });
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 6;
-        gridBagConstraints.gridy = 0;
-        add(buyButton, gridBagConstraints);
+        add(buyButton);
     }// </editor-fold>//GEN-END:initComponents
 
     private void buyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyButtonActionPerformed
-        // TODO add your handling code here:
+        int amount;
+        amount = (int)ammountSpinner.getValue();
+        if(amount <0){
+            ShoppingItem item = new ShoppingItem(product, amount);
+            ModelAux.add(item);
+        } else {
+            //Vi ska inte kunna komma hit, då spinnern endast tar värden 1-99
+        }
     }//GEN-LAST:event_buyButtonActionPerformed
 
 
