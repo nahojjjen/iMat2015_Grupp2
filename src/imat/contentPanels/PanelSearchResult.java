@@ -15,23 +15,34 @@ import java.awt.GridLayout;
 import java.util.List;
 import se.chalmers.ait.dat215.project.Product;
 
+
+
 /**
  *
  * @author Johan
  */
 public class PanelSearchResult extends javax.swing.JPanel {
 
+    
+    private List<Product> products;
+    
     /**
      * Creates new form PanelSearchResult
      */
-    public PanelSearchResult(List<Product> products) {
+    public PanelSearchResult(List<Product> list) {
+        products = list;
         initComponents();
-        showDetailsResults(products);
-        showGridResults(products);
-        showListResults(products);
+      
     }
 
+    /**
+     * create the list of detailitems and put them in the stuff
+     * @param products what products to show
+     */
     private void showDetailsResults(List<Product> products) {
+        if(groupCheckbox.isSelected()){
+            System.out.println("is seleced");
+        }
         detailsView.setLayout(new GridLayout(products.size(), 1));
         int height = products.size() * 85;
         Dimension dim = new Dimension(500, height);
@@ -44,6 +55,10 @@ public class PanelSearchResult extends javax.swing.JPanel {
         this.revalidate();
     }
 
+    /**
+     * create a list of gridresults and put them in results.
+     * @param products 
+     */
     private void showGridResults(List<Product> products) {
         gridView.setLayout(new FlowLayout(FlowLayout.CENTER));
 
@@ -55,7 +70,10 @@ public class PanelSearchResult extends javax.swing.JPanel {
         this.revalidate();
 
     }
-    
+    /**
+     * create a list of listresultitems and put them in resultview
+     * @param products  what products to show
+     */
     private void showListResults(List<Product> products) {
         listView.setLayout(new GridLayout(products.size(),1));
         int height = products.size()* 50;
@@ -76,20 +94,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         initComponents();
     }
 
-    /**
-     * below code makes a scrollable window with navigation, just to show how
-     * one should make things scroll.
-     */
-    private void debugg() {
 
-        detailsView.setLayout(new FlowLayout());
-        detailsView.setPreferredSize(new Dimension(500, 1000));
-
-        for (int i = 0; i < 10; i++) {
-            detailsView.add(new PanelNavigation());
-        }
-        this.revalidate();
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -101,10 +106,10 @@ public class PanelSearchResult extends javax.swing.JPanel {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jCheckBox2 = new javax.swing.JCheckBox();
+        groupCheckbox = new javax.swing.JCheckBox();
         jComboBox1 = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
-        jTabbedPane5 = new javax.swing.JTabbedPane();
+        tabPanel = new javax.swing.JTabbedPane();
         detailsViewWrapper = new javax.swing.JScrollPane();
         detailsView = new javax.swing.JPanel();
         listViewWrapper = new javax.swing.JScrollPane();
@@ -116,7 +121,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
         jPanel1.setPreferredSize(new java.awt.Dimension(677, 40));
 
-        jCheckBox2.setText("Gruppera kategorier");
+        groupCheckbox.setText("Gruppera kategorier");
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Populäritet", "Alfabetisk", "Pris" }));
 
@@ -127,7 +132,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jCheckBox2)
+                .addComponent(groupCheckbox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 412, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -141,10 +146,16 @@ public class PanelSearchResult extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1)
-                    .addComponent(jCheckBox2)))
+                    .addComponent(groupCheckbox)))
         );
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
+
+        tabPanel.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                tabPanelStateChanged(evt);
+            }
+        });
 
         javax.swing.GroupLayout detailsViewLayout = new javax.swing.GroupLayout(detailsView);
         detailsView.setLayout(detailsViewLayout);
@@ -159,7 +170,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
         detailsViewWrapper.setViewportView(detailsView);
 
-        jTabbedPane5.addTab("Detaljvy", detailsViewWrapper);
+        tabPanel.addTab("Detaljvy", detailsViewWrapper);
 
         javax.swing.GroupLayout listViewLayout = new javax.swing.GroupLayout(listView);
         listView.setLayout(listViewLayout);
@@ -174,7 +185,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
         listViewWrapper.setViewportView(listView);
 
-        jTabbedPane5.addTab("Listvy", listViewWrapper);
+        tabPanel.addTab("Listvy", listViewWrapper);
 
         javax.swing.GroupLayout gridViewLayout = new javax.swing.GroupLayout(gridView);
         gridView.setLayout(gridViewLayout);
@@ -189,22 +200,34 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
         gridViewWrapper.setViewportView(gridView);
 
-        jTabbedPane5.addTab("Gridvy", gridViewWrapper);
+        tabPanel.addTab("Gridvy", gridViewWrapper);
 
-        add(jTabbedPane5, java.awt.BorderLayout.CENTER);
+        add(tabPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void tabPanelStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabPanelStateChanged
+        loadResult(tabPanel.getSelectedIndex());
+    }//GEN-LAST:event_tabPanelStateChanged
+
+    private void loadResult(int i){
+        switch (i){
+            case (0):   showDetailsResults(products);break;
+            case (1): showListResults(products); break;
+            case (2): showGridResults(products); System.out.println("asdasd");break;
+      
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel detailsView;
     private javax.swing.JScrollPane detailsViewWrapper;
     private javax.swing.JPanel gridView;
     private javax.swing.JScrollPane gridViewWrapper;
-    private javax.swing.JCheckBox jCheckBox2;
+    private javax.swing.JCheckBox groupCheckbox;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTabbedPane jTabbedPane5;
     private javax.swing.JPanel listView;
     private javax.swing.JScrollPane listViewWrapper;
+    private javax.swing.JTabbedPane tabPanel;
     // End of variables declaration//GEN-END:variables
 }
