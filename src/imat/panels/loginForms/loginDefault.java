@@ -123,6 +123,14 @@ public class loginDefault extends javax.swing.JPanel {
         formPanel.add(filler);
 
         passwordInput.setText("Lösenord");
+        passwordInput.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                passwordInputFocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                passwordInputFocusLost(evt);
+            }
+        });
         formPanel.add(passwordInput);
 
         okLoginButton.setText("Ok");
@@ -183,6 +191,19 @@ public class loginDefault extends javax.swing.JPanel {
             usernameInput.setText("Email");
         }
     }//GEN-LAST:event_usernameInputFocusLost
+
+    private void passwordInputFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordInputFocusGained
+        // TODO add your handling code here:
+        if (passwordInput.getText().equals("Lösenord")){
+            passwordInput.setText("");
+        }
+    }//GEN-LAST:event_passwordInputFocusGained
+
+    private void passwordInputFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordInputFocusLost
+        if(passwordInput.getText().equals("")){
+            passwordInput.setText("Lösenord");
+        }
+    }//GEN-LAST:event_passwordInputFocusLost
 
     private void toggleTexts(){
         if(IMat.isLoggedin()){

@@ -110,6 +110,10 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="L&#xf6;senord"/>
           </Properties>
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="passwordInputFocusGained"/>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="passwordInputFocusLost"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="okLoginButton">
           <Properties>
