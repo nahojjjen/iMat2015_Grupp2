@@ -13,7 +13,8 @@ import imat.IMat;
  */
 public class loginDefault extends javax.swing.JPanel {
 
-    private boolean visible  = false;
+    private boolean visible = false;
+
     /**
      * Creates new form loginDefault
      */
@@ -23,19 +24,21 @@ public class loginDefault extends javax.swing.JPanel {
         passwordInput.setVisible(false);
         okLoginButton.setVisible(false);
     }
-    
-    private void toggleVisibleButtons(){
-        
-        if (visible = false){
-          usernameInput.setVisible(true);
-         passwordInput.setVisible(true);
-           okLoginButton.setVisible(true);  
-        } else{
-             usernameInput.setVisible(false);
-         passwordInput.setVisible(false);
-           okLoginButton.setVisible(false);  
+
+    private void toggleVisibleButtons() {
+
+        if (visible == false) {
+            usernameInput.setVisible(true);
+            passwordInput.setVisible(true);
+            okLoginButton.setVisible(true);
+            visible = true;
+        } else {
+            usernameInput.setVisible(false);
+            passwordInput.setVisible(false);
+            okLoginButton.setVisible(false);
+            visible=false;
         }
-        
+
     }
 
     /**
@@ -75,7 +78,7 @@ public class loginDefault extends javax.swing.JPanel {
 
         add(buttonPanel, java.awt.BorderLayout.NORTH);
 
-        formPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 0, 0, 0));
+        formPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 20, 0, 20));
         formPanel.setPreferredSize(new java.awt.Dimension(300, 80));
         formPanel.setLayout(new java.awt.GridLayout(2, 2, 5, 5));
 
@@ -86,7 +89,7 @@ public class loginDefault extends javax.swing.JPanel {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 147, Short.MAX_VALUE)
+            .addGap(0, 127, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -105,7 +108,7 @@ public class loginDefault extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        // TODO add your handling code here:
+        toggleVisibleButtons();
     }//GEN-LAST:event_loginButtonActionPerformed
 
 

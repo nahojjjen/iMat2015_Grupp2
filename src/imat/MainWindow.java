@@ -13,6 +13,7 @@ import imat.panels.PanelCart;
 import imat.panels.PanelLoggedOff;
 import imat.panels.PanelNavigation;
 import imat.panels.PanelSearch;
+import imat.panels.loginForms.loginDefault;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
@@ -102,7 +103,7 @@ public class MainWindow extends javax.swing.JFrame {
         logoPanel.setLayout(new GridLayout());
         
         accountPanel.setLayout(new BorderLayout());
-        accountPanel.add(new PanelLoggedOff());
+        accountPanel.add(new loginDefault());
         
         setContent("Home");
         
