@@ -7,6 +7,7 @@ package imat.panels.subItems;
 
 import imat.Model;
 import imat.ModelAux;
+import java.awt.Dimension;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 

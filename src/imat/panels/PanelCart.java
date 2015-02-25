@@ -53,7 +53,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
 
         jLabel1 = new javax.swing.JLabel();
         buyButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        detailButton = new javax.swing.JButton();
         filler = new javax.swing.JPanel();
         totalLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -68,10 +68,10 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
             }
         });
 
-        jButton1.setText("Detaljer");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        detailButton.setText("Detaljer");
+        detailButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                detailButtonActionPerformed(evt);
             }
         });
 
@@ -111,7 +111,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(detailButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buyButton))
                     .addGroup(layout.createSequentialGroup()
@@ -142,7 +142,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
                 .addComponent(totalLabel)
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(detailButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(filler, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
@@ -154,23 +154,22 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         IMat.getWindow().setContent(new PanelConfirm());
     }//GEN-LAST:event_buyButtonActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void detailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailButtonActionPerformed
        
        List<ShoppingItem> cartItems = Model.getShoppingcart().getItems();
        List cart = new ArrayList<Product>();
        for(ShoppingItem item:cartItems){
            cart.add(item.getProduct());
        }
-       cart.add(new FillerItem());
         IMat.getWindow().showSearch(cart);
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_detailButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buyButton;
     private javax.swing.JPanel cartContent;
+    private javax.swing.JButton detailButton;
     private javax.swing.JPanel filler;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel totalLabel;
@@ -211,8 +210,10 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
     
     public void disableBuyButton(){
         buyButton.setEnabled(false);
+        detailButton.setEnabled(false);
     }
     public void enableBuyButton(){
         buyButton.setEnabled(true);
+        detailButton.setEnabled(true);
     }
 }
