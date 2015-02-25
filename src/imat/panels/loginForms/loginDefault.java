@@ -5,7 +5,10 @@
  */
 package imat.panels.loginForms;
 
+import imat.CustomerModel;
 import imat.IMat;
+import imat.contentPanels.PanelAccountInfo;
+import java.awt.Color;
 
 /**
  *
@@ -20,6 +23,8 @@ public class loginDefault extends javax.swing.JPanel {
      */
     public loginDefault() {
         initComponents();
+       
+        
         usernameInput.setVisible(false);
         passwordInput.setVisible(false);
         okLoginButton.setVisible(false);
@@ -66,6 +71,11 @@ public class loginDefault extends javax.swing.JPanel {
         buttonPanel.setLayout(new java.awt.GridLayout(1, 2, 20, 10));
 
         joinButton.setText("Gå med");
+        joinButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                joinButtonActionPerformed(evt);
+            }
+        });
         buttonPanel.add(joinButton);
 
         loginButton.setText("Logga in");
@@ -102,6 +112,11 @@ public class loginDefault extends javax.swing.JPanel {
         formPanel.add(passwordInput);
 
         okLoginButton.setText("Ok");
+        okLoginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                okLoginButtonActionPerformed(evt);
+            }
+        });
         formPanel.add(okLoginButton);
 
         add(formPanel, java.awt.BorderLayout.SOUTH);
@@ -110,6 +125,29 @@ public class loginDefault extends javax.swing.JPanel {
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         toggleVisibleButtons();
     }//GEN-LAST:event_loginButtonActionPerformed
+
+    private void joinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_joinButtonActionPerformed
+        IMat.getWindow().setContent(new PanelAccountInfo());
+    }//GEN-LAST:event_joinButtonActionPerformed
+
+    private void okLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okLoginButtonActionPerformed
+      
+        
+        if(usernameInput.getText().equals(CustomerModel.getEmail()) && passwordInput.getText().equals(CustomerModel.getPassword())){
+           System.out.println("match, loggin in");
+           usernameInput.setBackground(Color.white);
+           passwordInput.setBackground(Color.white);
+           toggleVisibleButtons();
+           loginButton.setText("Logout");
+           joinButton.setText("Profil");
+       }else{
+           System.out.println("username is " + CustomerModel.getEmail());
+           System.out.println("password is " + CustomerModel.getPassword());
+           Color errorColor = new Color(255,180,180);
+           usernameInput.setBackground(errorColor);
+           passwordInput.setBackground(errorColor);
+       }
+    }//GEN-LAST:event_okLoginButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

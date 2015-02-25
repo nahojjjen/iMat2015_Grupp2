@@ -16,6 +16,7 @@ import se.chalmers.ait.dat215.project.*;
  */
 public class IMat {
 
+    private static boolean loggedIn = false;
     private static MainWindow program;
     /**
      * @param args unused
@@ -38,4 +39,10 @@ public class IMat {
         return program;
     }
     
+    public static boolean isLoggedin(){
+        return loggedIn;
+    }
+    public static void setLoggedin(boolean isLoggedin){
+        loggedIn = isLoggedin;
+    }
 }
