@@ -13,6 +13,7 @@ import imat.panels.PanelCart;
 import imat.panels.PanelLoggedOff;
 import imat.panels.PanelNavigation;
 import imat.panels.PanelSearch;
+import imat.panels.loginForms.loginDefault;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
@@ -102,7 +103,7 @@ public class MainWindow extends javax.swing.JFrame {
         logoPanel.setLayout(new GridLayout());
         
         accountPanel.setLayout(new BorderLayout());
-        accountPanel.add(new PanelLoggedOff());
+        accountPanel.add(new loginDefault());
         
         setContent("Home");
         
@@ -154,7 +155,6 @@ public class MainWindow extends javax.swing.JFrame {
         headerPanel = new javax.swing.JPanel();
         accountPanel = new javax.swing.JPanel();
         logoPanel = new javax.swing.JPanel();
-        logoLabel = new javax.swing.JLabel();
         searchPanel = new javax.swing.JPanel();
         bodyPanel = new javax.swing.JPanel();
         cartPanel = new javax.swing.JPanel();
@@ -193,12 +193,6 @@ public class MainWindow extends javax.swing.JFrame {
         logoPanel.setMinimumSize(new java.awt.Dimension(120, 120));
         logoPanel.setPreferredSize(new java.awt.Dimension(300, 120));
         logoPanel.setLayout(new java.awt.BorderLayout());
-
-        logoLabel.setMaximumSize(new java.awt.Dimension(400, 120));
-        logoLabel.setMinimumSize(new java.awt.Dimension(120, 120));
-        logoLabel.setPreferredSize(new java.awt.Dimension(440, 120));
-        logoPanel.add(logoLabel, java.awt.BorderLayout.CENTER);
-
         headerPanel.add(logoPanel, java.awt.BorderLayout.WEST);
 
         searchPanel.setBackground(new java.awt.Color(102, 153, 255));
@@ -322,7 +316,6 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JPanel contentPanel;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JLabel logoLabel;
     private javax.swing.JPanel logoPanel;
     private javax.swing.JPanel navigationPanel;
     private javax.swing.JPanel searchPanel;
