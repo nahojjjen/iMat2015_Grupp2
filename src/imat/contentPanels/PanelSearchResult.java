@@ -31,11 +31,11 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
     private void showDetailsResults(List<Product> products) {
         detailsView.setLayout(new GridLayout(products.size(), 1));
-        int height = products.size()*85;
-        Dimension dim = new Dimension(500,height);
-        
+        int height = products.size() * 85;
+        Dimension dim = new Dimension(500, height);
+
         detailsView.setPreferredSize(dim);
-        
+
         for (Product product : products) {
             detailsView.add(new DetailItem(product));
         }
@@ -43,12 +43,13 @@ public class PanelSearchResult extends javax.swing.JPanel {
     }
 
     private void showGridResults(List<Product> products) {
-        gridView.setLayout(new FlowLayout());
-        gridView.setPreferredSize(new Dimension(500, 7000));
+        gridView.setLayout(new FlowLayout(FlowLayout.CENTER));
 
+        gridView.setPreferredSize(new Dimension(500, 7000));
         for (Product product : products) {
             gridView.add(new GridItem(product));
         }
+
         this.revalidate();
 
     }
@@ -98,32 +99,34 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
+        jPanel1.setPreferredSize(new java.awt.Dimension(677, 40));
+
         jCheckBox2.setText("Gruppera kategorier");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"Populäritet", "Alfabetisk", "Pris"}));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Populäritet", "Alfabetisk", "Pris" }));
 
         jLabel1.setText("Sortera på");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jCheckBox2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 412, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jCheckBox2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 412, Short.MAX_VALUE)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
-                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 81, Short.MAX_VALUE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(jLabel1)
-                                .addComponent(jCheckBox2)))
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(0, 17, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jCheckBox2)))
         );
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
@@ -131,12 +134,12 @@ public class PanelSearchResult extends javax.swing.JPanel {
         javax.swing.GroupLayout detailsViewLayout = new javax.swing.GroupLayout(detailsView);
         detailsView.setLayout(detailsViewLayout);
         detailsViewLayout.setHorizontalGroup(
-                detailsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 670, Short.MAX_VALUE)
+            detailsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 670, Short.MAX_VALUE)
         );
         detailsViewLayout.setVerticalGroup(
-                detailsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 526, Short.MAX_VALUE)
+            detailsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 590, Short.MAX_VALUE)
         );
 
         detailsViewWrapper.setViewportView(detailsView);
@@ -146,12 +149,12 @@ public class PanelSearchResult extends javax.swing.JPanel {
         javax.swing.GroupLayout listViewLayout = new javax.swing.GroupLayout(listView);
         listView.setLayout(listViewLayout);
         listViewLayout.setHorizontalGroup(
-                listViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 670, Short.MAX_VALUE)
+            listViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 670, Short.MAX_VALUE)
         );
         listViewLayout.setVerticalGroup(
-                listViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 526, Short.MAX_VALUE)
+            listViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 590, Short.MAX_VALUE)
         );
 
         listViewWrapper.setViewportView(listView);
@@ -161,12 +164,12 @@ public class PanelSearchResult extends javax.swing.JPanel {
         javax.swing.GroupLayout gridViewLayout = new javax.swing.GroupLayout(gridView);
         gridView.setLayout(gridViewLayout);
         gridViewLayout.setHorizontalGroup(
-                gridViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 670, Short.MAX_VALUE)
+            gridViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 670, Short.MAX_VALUE)
         );
         gridViewLayout.setVerticalGroup(
-                gridViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGap(0, 526, Short.MAX_VALUE)
+            gridViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 590, Short.MAX_VALUE)
         );
 
         gridViewWrapper.setViewportView(gridView);

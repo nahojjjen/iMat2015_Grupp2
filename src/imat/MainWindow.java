@@ -6,17 +6,15 @@
 package imat;
 
 import imat.contentPanels.PanelAccountInfo;
-import imat.panels.PanelCart;
 import imat.contentPanels.PanelHome;
+import imat.contentPanels.PanelResultTest;
+import imat.contentPanels.PanelSearchResult;
+import imat.panels.PanelCart;
 import imat.panels.PanelLoggedOff;
 import imat.panels.PanelNavigation;
-import imat.contentPanels.PanelResultTest;
 import imat.panels.PanelSearch;
-import imat.contentPanels.PanelSearchResult;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
-import java.awt.Label;
-import java.awt.LayoutManager;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
@@ -31,10 +29,10 @@ import se.chalmers.ait.dat215.project.Product;
 
 /**
  *
- * @author Johan this is the main window, it should only house other panels that
- * change.
+ * @author Johan
  */
 public class MainWindow extends javax.swing.JFrame {
+
 
     /**
      * Creates new form MainWindowdr
@@ -152,80 +150,37 @@ public class MainWindow extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        spacePanel = new javax.swing.JPanel();
-        contentPanel = new javax.swing.JPanel();
+        jSplitPane1 = new javax.swing.JSplitPane();
         headerPanel = new javax.swing.JPanel();
-        logoPanel = new javax.swing.JPanel();
-        searchPanel = new javax.swing.JPanel();
         accountPanel = new javax.swing.JPanel();
+        logoPanel = new javax.swing.JPanel();
+        logoLabel = new javax.swing.JLabel();
+        searchPanel = new javax.swing.JPanel();
+        bodyPanel = new javax.swing.JPanel();
         cartPanel = new javax.swing.JPanel();
         navigationPanel = new javax.swing.JPanel();
+        spacec = new javax.swing.JPanel();
+        contentPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setSize(new java.awt.Dimension(1000, 700));
 
-        spacePanel.setBackground(new java.awt.Color(51, 51, 255));
-        spacePanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 20, 0, 20));
-        spacePanel.setLayout(new java.awt.BorderLayout());
+        jSplitPane1.setDividerLocation(120);
+        jSplitPane1.setDividerSize(0);
+        jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        javax.swing.GroupLayout contentPanelLayout = new javax.swing.GroupLayout(contentPanel);
-        contentPanel.setLayout(contentPanelLayout);
-        contentPanelLayout.setHorizontalGroup(
-            contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 536, Short.MAX_VALUE)
-        );
-        contentPanelLayout.setVerticalGroup(
-            contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 549, Short.MAX_VALUE)
-        );
-
-        spacePanel.add(contentPanel, java.awt.BorderLayout.CENTER);
-
-        getContentPane().add(spacePanel, java.awt.BorderLayout.CENTER);
-
-        headerPanel.setBackground(new java.awt.Color(102, 255, 102));
-        headerPanel.setPreferredSize(new java.awt.Dimension(200, 120));
+        headerPanel.setBackground(new java.awt.Color(102, 153, 255));
+        headerPanel.setMinimumSize(new java.awt.Dimension(100, 120));
+        headerPanel.setPreferredSize(new java.awt.Dimension(733, 120));
         headerPanel.setLayout(new java.awt.BorderLayout());
 
-        logoPanel.setBackground(new java.awt.Color(255, 51, 255));
-        logoPanel.setPreferredSize(new java.awt.Dimension(250, 150));
-
-        javax.swing.GroupLayout logoPanelLayout = new javax.swing.GroupLayout(logoPanel);
-        logoPanel.setLayout(logoPanelLayout);
-        logoPanelLayout.setHorizontalGroup(
-            logoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
-        );
-        logoPanelLayout.setVerticalGroup(
-            logoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
-        );
-
-        headerPanel.add(logoPanel, java.awt.BorderLayout.WEST);
-
-        searchPanel.setBackground(new java.awt.Color(255, 102, 102));
-
-        javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
-        searchPanel.setLayout(searchPanelLayout);
-        searchPanelLayout.setHorizontalGroup(
-            searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 516, Short.MAX_VALUE)
-        );
-        searchPanelLayout.setVerticalGroup(
-            searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
-        );
-
-        headerPanel.add(searchPanel, java.awt.BorderLayout.CENTER);
-
-        accountPanel.setBackground(new java.awt.Color(51, 51, 255));
-        accountPanel.setPreferredSize(new java.awt.Dimension(250, 0));
+        accountPanel.setBackground(new java.awt.Color(102, 153, 255));
+        accountPanel.setPreferredSize(new java.awt.Dimension(400, 120));
 
         javax.swing.GroupLayout accountPanelLayout = new javax.swing.GroupLayout(accountPanel);
         accountPanel.setLayout(accountPanelLayout);
         accountPanelLayout.setHorizontalGroup(
             accountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 250, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         accountPanelLayout.setVerticalGroup(
             accountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -234,9 +189,39 @@ public class MainWindow extends javax.swing.JFrame {
 
         headerPanel.add(accountPanel, java.awt.BorderLayout.EAST);
 
-        getContentPane().add(headerPanel, java.awt.BorderLayout.PAGE_START);
+        logoPanel.setBackground(new java.awt.Color(102, 153, 255));
+        logoPanel.setMinimumSize(new java.awt.Dimension(120, 120));
+        logoPanel.setPreferredSize(new java.awt.Dimension(300, 120));
+        logoPanel.setLayout(new java.awt.BorderLayout());
 
-        cartPanel.setPreferredSize(new java.awt.Dimension(220, 464));
+        logoLabel.setMaximumSize(new java.awt.Dimension(400, 120));
+        logoLabel.setMinimumSize(new java.awt.Dimension(120, 120));
+        logoLabel.setPreferredSize(new java.awt.Dimension(440, 120));
+        logoPanel.add(logoLabel, java.awt.BorderLayout.CENTER);
+
+        headerPanel.add(logoPanel, java.awt.BorderLayout.WEST);
+
+        searchPanel.setBackground(new java.awt.Color(102, 153, 255));
+        searchPanel.setPreferredSize(new java.awt.Dimension(254, 120));
+
+        javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
+        searchPanel.setLayout(searchPanelLayout);
+        searchPanelLayout.setHorizontalGroup(
+            searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 274, Short.MAX_VALUE)
+        );
+        searchPanelLayout.setVerticalGroup(
+            searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 120, Short.MAX_VALUE)
+        );
+
+        headerPanel.add(searchPanel, java.awt.BorderLayout.CENTER);
+
+        jSplitPane1.setTopComponent(headerPanel);
+
+        bodyPanel.setLayout(new java.awt.BorderLayout());
+
+        cartPanel.setMinimumSize(new java.awt.Dimension(220, 100));
 
         javax.swing.GroupLayout cartPanelLayout = new javax.swing.GroupLayout(cartPanel);
         cartPanel.setLayout(cartPanelLayout);
@@ -246,12 +231,12 @@ public class MainWindow extends javax.swing.JFrame {
         );
         cartPanelLayout.setVerticalGroup(
             cartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 569, Short.MAX_VALUE)
+            .addGap(0, 429, Short.MAX_VALUE)
         );
 
-        getContentPane().add(cartPanel, java.awt.BorderLayout.EAST);
+        bodyPanel.add(cartPanel, java.awt.BorderLayout.EAST);
 
-        navigationPanel.setPreferredSize(new java.awt.Dimension(220, 464));
+        navigationPanel.setMinimumSize(new java.awt.Dimension(220, 100));
 
         javax.swing.GroupLayout navigationPanelLayout = new javax.swing.GroupLayout(navigationPanel);
         navigationPanel.setLayout(navigationPanelLayout);
@@ -261,10 +246,35 @@ public class MainWindow extends javax.swing.JFrame {
         );
         navigationPanelLayout.setVerticalGroup(
             navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 569, Short.MAX_VALUE)
+            .addGap(0, 429, Short.MAX_VALUE)
         );
 
-        getContentPane().add(navigationPanel, java.awt.BorderLayout.WEST);
+        bodyPanel.add(navigationPanel, java.awt.BorderLayout.WEST);
+
+        spacec.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 50, 0, 50));
+        spacec.setLayout(new java.awt.BorderLayout());
+
+        contentPanel.setBackground(new java.awt.Color(250, 250, 250));
+        contentPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 50, 0, 50));
+
+        javax.swing.GroupLayout contentPanelLayout = new javax.swing.GroupLayout(contentPanel);
+        contentPanel.setLayout(contentPanelLayout);
+        contentPanelLayout.setHorizontalGroup(
+            contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 334, Short.MAX_VALUE)
+        );
+        contentPanelLayout.setVerticalGroup(
+            contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 389, Short.MAX_VALUE)
+        );
+
+        spacec.add(contentPanel, java.awt.BorderLayout.CENTER);
+
+        bodyPanel.add(spacec, java.awt.BorderLayout.CENTER);
+
+        jSplitPane1.setRightComponent(bodyPanel);
+
+        getContentPane().add(jSplitPane1, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -295,6 +305,7 @@ public class MainWindow extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainWindow.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -306,12 +317,15 @@ public class MainWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel accountPanel;
+    private javax.swing.JPanel bodyPanel;
     private javax.swing.JPanel cartPanel;
     private javax.swing.JPanel contentPanel;
     private javax.swing.JPanel headerPanel;
+    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JLabel logoLabel;
     private javax.swing.JPanel logoPanel;
     private javax.swing.JPanel navigationPanel;
     private javax.swing.JPanel searchPanel;
-    private javax.swing.JPanel spacePanel;
+    private javax.swing.JPanel spacec;
     // End of variables declaration//GEN-END:variables
-}
+    }

@@ -31,8 +31,9 @@ public class ModelAux {
     
     /**
      * add a ShoppingIem (Product with number) to the shoppingcart
+     * Author Johan Swanberg / nahojjjen
      *
-     * @param item
+     * @param item what item o add to the shoppingcart (a shoppingitem is a product with a number))
      */
     public static void add(ShoppingItem item) {
 
@@ -60,7 +61,7 @@ public class ModelAux {
     /**
      * method used by other methods in this class, gets a list to
      * cross reference a product to whether its in the cart or not
-     * @return 
+     * @return a list of the ID numbers of the products in the shoppingcart
      */
     public static List<Integer> getIdList(){
         ShoppingCart cart = Model.getShoppingcart();

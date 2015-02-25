@@ -6,6 +6,7 @@
 package imat.panels.subItems;
 
 import imat.Model;
+import imat.ModelAux;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -72,7 +73,7 @@ public class GridItem extends javax.swing.JPanel {
 
     private void buyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyButtonActionPerformed
         ShoppingItem thisItem = new ShoppingItem(product);
-        Model.getShoppingcart().addItem(thisItem);
+        ModelAux.add(thisItem);
     }//GEN-LAST:event_buyButtonActionPerformed
 
 
