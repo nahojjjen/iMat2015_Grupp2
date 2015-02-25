@@ -25,7 +25,7 @@ public class GridItem extends javax.swing.JPanel {
         initComponents();
         this.product = product;
         imageLabel.setIcon(Model.getImage(product, 200 , 200));
-        priceLabel.setText(String.valueOf(product.getPrice()));
+        priceLabel.setText(String.valueOf(product.getPrice())+ " " + product.getUnit());
         
     }
     
@@ -48,16 +48,22 @@ public class GridItem extends javax.swing.JPanel {
 
         imageLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        buyButton = new javax.swing.JButton();
         priceLabel = new javax.swing.JLabel();
+        amountSpinner = new javax.swing.JSpinner();
+        buyButton = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
         imageLabel.setText("  ");
         add(imageLabel, java.awt.BorderLayout.CENTER);
 
-        jPanel1.setLayout(new java.awt.GridLayout(1, 3));
-        add(jPanel1, java.awt.BorderLayout.PAGE_END);
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+        priceLabel.setText("Pris kr/kg");
+        jPanel1.add(priceLabel, java.awt.BorderLayout.WEST);
+
+        amountSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 99, 1));
+        jPanel1.add(amountSpinner, java.awt.BorderLayout.CENTER);
 
         buyButton.setText("köp");
         buyButton.addActionListener(new java.awt.event.ActionListener() {
@@ -65,19 +71,26 @@ public class GridItem extends javax.swing.JPanel {
                 buyButtonActionPerformed(evt);
             }
         });
-        add(buyButton, java.awt.BorderLayout.PAGE_START);
+        jPanel1.add(buyButton, java.awt.BorderLayout.EAST);
 
-        priceLabel.setText("  ");
-        add(priceLabel, java.awt.BorderLayout.LINE_END);
+        add(jPanel1, java.awt.BorderLayout.PAGE_END);
     }// </editor-fold>//GEN-END:initComponents
 
     private void buyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyButtonActionPerformed
-        ShoppingItem thisItem = new ShoppingItem(product);
-        ModelAux.add(thisItem);
+        int amount;
+        amount = (int)amountSpinner.getValue();
+        if (amount > 0){
+            //Model.getShoppingcart().addProduct(product, amount);
+            ShoppingItem item = new ShoppingItem(product, amount);
+            ModelAux.add(item);
+        }else{
+            //Lämpligt felmeddelande. Men vi ska inte behöva komma då spinner bara tar ints mellan 1-99
+        }
     }//GEN-LAST:event_buyButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JSpinner amountSpinner;
     private javax.swing.JButton buyButton;
     private javax.swing.JLabel imageLabel;
     private javax.swing.JPanel jPanel1;
