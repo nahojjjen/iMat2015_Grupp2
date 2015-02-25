@@ -7,15 +7,12 @@ package imat;
 
 import imat.contentPanels.PanelAccountInfo;
 import imat.contentPanels.PanelHome;
-import imat.contentPanels.PanelResultTest;
 import imat.contentPanels.PanelSearchResult;
 import imat.panels.PanelCart;
-import imat.panels.PanelLoggedOff;
 import imat.panels.PanelNavigation;
 import imat.panels.PanelSearch;
 import imat.panels.loginForms.loginDefault;
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -131,9 +128,6 @@ public class MainWindow extends javax.swing.JFrame {
 
         cartPanel.setLayout(new java.awt.BorderLayout());
         cartPanel.add(new PanelCart());
-
-        contentPanel.setLayout(new java.awt.BorderLayout());
-        contentPanel.add(new PanelResultTest());
 
         logoPanel.setLayout(new GridLayout());
 
