@@ -123,38 +123,20 @@ public class PanelAccountInfo extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void newPasswordTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_newPasswordTextFieldFocusGained
-        newPasswordTextField.setBackground(Color.white);
+        cancelError(newPasswordTextField);
     }//GEN-LAST:event_newPasswordTextFieldFocusGained
 
     private void repeatPasswordTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_repeatPasswordTextFieldFocusGained
-        repeatPasswordTextField.setBackground(Color.white);
+        cancelError(repeatPasswordTextField);
     }//GEN-LAST:event_repeatPasswordTextFieldFocusGained
 
     private void emailTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailTextFieldFocusGained
-        emailTextField.setBackground(Color.white);
+        cancelError(emailTextField);
     }//GEN-LAST:event_emailTextFieldFocusGained
 
     private void repeatEmailTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_repeatEmailTextFieldFocusGained
-        repeatEmailTextField.setBackground(Color.white);
+        cancelError(repeatEmailTextField);
     }//GEN-LAST:event_repeatEmailTextFieldFocusGained
-
-    /**
-     * Working save method, basis for other modules
-     */
-    public void legacySave() {
-        int correctlyFilled = 0; //does nothing as of now
-
-        if (CustomerModel.emailTest(emailTextField.getText())
-                && emailTextField.getText().equals(repeatEmailTextField.getText())) {
-            CustomerModel.setEmail(emailTextField.getText());
-            correctlyFilled++;
-        } else {
-            emailTextField.setBackground(Color.red);
-            repeatEmailTextField.setBackground(Color.red);
-        }
-
-        correctlyFilled = correctlyFilled + savePassword();
-    }
 
     /**
      * Saves both fields
@@ -170,12 +152,8 @@ public class PanelAccountInfo extends javax.swing.JPanel {
      * @return true if both emails are correct
      */
     public boolean isEmailCorrect() {
-        if (CustomerModel.emailTest(emailTextField.getText())
-                && emailTextField.getText().equals(repeatEmailTextField.getText())) {
-            return true;
-        } else {
-            return false;
-        }
+        return (CustomerModel.emailTest(emailTextField.getText())
+                && emailTextField.getText().equals(repeatEmailTextField.getText()));
     }
 
     /**
@@ -184,12 +162,8 @@ public class PanelAccountInfo extends javax.swing.JPanel {
      * @return true if both are correct and matching
      */
     public boolean isPasswordCorrect() {
-        if (newPasswordTextField.getText().equals(repeatPasswordTextField.getText())
-                && CustomerModel.passwordTest(newPasswordTextField.getText())) {
-            return true;
-        } else {
-            return false;
-        }
+        return (newPasswordTextField.getText().equals(repeatPasswordTextField.getText())
+                && CustomerModel.passwordTest(newPasswordTextField.getText()));
     }
 
     /**
@@ -199,6 +173,14 @@ public class PanelAccountInfo extends javax.swing.JPanel {
      */
     public void showError(JTextField input) {
         input.setBackground(new Color(240, 200, 200));
+    }
+     /**
+     * make a textinputbox show white
+     *
+     * @param input what textinputbox to make red.
+     */
+    public void cancelError(JTextField input){
+        input.setBackground(Color.WHITE);
     }
 
     /**
@@ -221,16 +203,6 @@ public class PanelAccountInfo extends javax.swing.JPanel {
         showError(repeatEmailTextField);
     }
 
-    public int savePassword() {
-        if (newPasswordTextField.getText().equals(repeatPasswordTextField.getText())) {
-            CustomerModel.setPassword(newPasswordTextField.getText());
-            return 1;
-        } else {
-            newPasswordTextField.setBackground(Color.red);
-            repeatPasswordTextField.setBackground(Color.red);
-            return 0;
-        }
-    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTextField;

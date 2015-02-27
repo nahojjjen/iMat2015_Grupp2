@@ -138,7 +138,7 @@ public class CustomerModel {
     /**
      * get the email of the user
      *
-     * @return a string of the users post email address
+     * @return a string of the users email address
      */
     public static String getEmail() {
         String email = "";
@@ -148,6 +148,19 @@ public class CustomerModel {
         } catch (NullPointerException e) {
             return email;
         }
+    }
+    
+    /**
+     * set the password of the user
+     *
+     * @param input the string the username should be
+     */
+    public static void setPassword(String input) {
+        user.setPassword(input);
+    }    
+
+    public static void setEmail(String input) {
+        customer.setEmail(input);
     }
 
     public static void setFirstName(String input) {
@@ -172,19 +185,6 @@ public class CustomerModel {
 
     public static void setPhoneNumber(String input) {
         customer.setPhoneNumber(input);
-    }
-
-    public static void setEmail(String input) {
-        customer.setEmail(input);
-    }
-
-    /**
-     * set the password of the user
-     *
-     * @param input the string the username should be
-     */
-    public static void setPassword(String input) {
-        user.setPassword(input);
     }
 
     public static void setCardNumber(String input) {
@@ -279,53 +279,29 @@ public class CustomerModel {
 
     public static boolean cardNumberTest(String str) {
         String cardType = getCardType();
-        if (cardType.equals("American Express") && str.length() == 19
-                || cardType.equals("VISA/MasterCard") && str.length() == 21) {
-            return true;
-        } else {
-            return false;
-        }
+        return(cardType.equals("American Express") && str.length() == 19
+                || cardType.equals("VISA/MasterCard") && str.length() == 21);
     }
 
     public static boolean cardHolderNameTest(String str) {
-        if (str.matches("[a-zA-Z]+") && str.length() > 3) {
-            return true;
-        } else {
-            return false;
-        }
+        return testAlphabeticalString(str);
 
     }
 
     public static boolean cardVerificationTest(String str) {
-        if (str.length() == 3) {
-            return true;
-        } else {
-            return false;
-        }
+        return (str.length() == 3);
     }
 
     public static boolean firstNameTest(String str) {
-        if (str.matches("[a-zA-Z]+") && str.length() > 1) {
-            return true;
-        } else {
-            return false;
-        }
+       return testAlphabeticalString(str);
     }
 
     public static boolean lastNameTest(String str) {
-        if (str.matches("[a-zA-Z]+") && str.length() > 1) {
-            return true;
-        } else {
-            return false;
-        }
+        return testAlphabeticalString(str);
     }
 
     public static boolean addressTest(String str) {
-        if (str.matches("[a-zA-Z]+") && str.length() > 1) {
-            return true;
-        } else {
-            return false;
-        }
+        return testAlphabeticalString(str);
     }
 
     /**
@@ -335,34 +311,19 @@ public class CustomerModel {
      * @return true if str.lenght > 3
      */
     public static boolean passwordTest(String str) {
-        if (str.length() > 3) {
-            return true;
-        }
-        return false;
+        return (str.length() > 3);
     }
 
     public static boolean postCodeTest(String str) {
-        if (str.length() == 6) {
-            return true;
-        } else {
-            return false;
-        }
+        return (str.length() == 6);
     }
 
     public static boolean postAddressTest(String str) {
-        if (str.matches("[a-zA-Z]+") && str.length() > 1) {
-            return true;
-        } else {
-            return false;
-        }
+       return testAlphabeticalString(str);
     }
 
     public static boolean phoneNumberTest(String str) {
-        if (str.length() > 8) {
-            return true;
-        } else {
-            return false;
-        }
+        return (str.length() > 8);
     }
 
     /**
@@ -372,13 +333,6 @@ public class CustomerModel {
      * @param str
      * @return true if something, unknown
      */
-    public static boolean legacyEmailTest(String str) {
-        if (str.matches("[a-zA-Z]+") && str.length() > 5) {
-            return true;
-        } else {
-            return false;
-        }
-    }
 
     public static boolean emailTest(String str) {
         if (str.contains("@") && str.contains(".") && str.length() > 6) {
@@ -387,6 +341,14 @@ public class CustomerModel {
             return false;
       
     
+    }
+    /**
+     * 
+     * @param str
+     * @return true if string only contains letters a-Z
+     */
+    public static boolean testAlphabeticalString(String str){
+        return (str.matches("[a-zA-Z]+") && str.length() > 1);
     }
 
 }
