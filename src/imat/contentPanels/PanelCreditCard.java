@@ -7,7 +7,7 @@ package imat.contentPanels;
 
 import imat.CustomerModel;
 import java.awt.Color;
-import javax.swing.JRadioButton;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
@@ -30,6 +30,7 @@ public class PanelCreditCard extends javax.swing.JPanel {
         cardTypeButtonGroup.add(visaMasterRadioButton);
         setSelectedCardType(CustomerModel.getCardType());
         setDigitsLabel(CustomerModel.getCardType());
+        
     }
 
     /**
@@ -197,15 +198,15 @@ public class PanelCreditCard extends javax.swing.JPanel {
     }//GEN-LAST:event_americanRadioButtonActionPerformed
 
     private void cardNumberTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cardNumberTextFieldFocusGained
-        cancelError(cardNumberTextField);
+        cancelAllErrors(cardNumberTextField,digitsInCardNumberLabel);       
     }//GEN-LAST:event_cardNumberTextFieldFocusGained
 
     private void cardHolderTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cardHolderTextFieldFocusGained
-        cancelError(cardHolderTextField);
+        cancelAllErrors(cardHolderTextField,cardHolderReminderLabel);
     }//GEN-LAST:event_cardHolderTextFieldFocusGained
 
     private void securityNumberTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_securityNumberTextFieldFocusGained
-        cancelError(securityNumberTextField);
+        cancelAllErrors(securityNumberTextField,securityReminderLabel);
     }//GEN-LAST:event_securityNumberTextFieldFocusGained
     /**
      * saves the checked card type
@@ -266,7 +267,10 @@ public class PanelCreditCard extends javax.swing.JPanel {
      * @param input what textinputbox to make red.
      */
     public void showError(JTextField input) {
-        input.setBackground(new Color(240, 200, 200));
+        input.setBackground(new Color(240, 200, 200));        
+    }
+    public void showLabelError(JLabel input){
+        input.setForeground(Color.red);
     }
     /** 
      *make a textinputbox show white
@@ -275,17 +279,27 @@ public class PanelCreditCard extends javax.swing.JPanel {
     private void cancelError(JTextField input) {
         input.setBackground(Color.WHITE);
     }
+    private void cancelLabelError(JLabel input){
+        input.setForeground(Color.BLACK);
+    }
+    private void cancelAllErrors(JTextField textField, JLabel label){
+        cancelError(textField);
+        cancelLabelError(label);
+    }
 
     public void showNameError() {
         showError(cardHolderTextField);
+        showLabelError(cardHolderReminderLabel);
     }
 
     public void showSecNumberError() {
         showError(securityNumberTextField);
+        showLabelError(securityReminderLabel);
     }
 
     public void showCardNumberError() {
         showError(cardNumberTextField);
+        showLabelError(digitsInCardNumberLabel);
     }
 
 

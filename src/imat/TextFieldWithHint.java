@@ -27,6 +27,7 @@ public class TextFieldWithHint extends javax.swing.JPanel {
     }
     
     
+    
     /**
      * Creates new form TextFieldWithHint
      */
@@ -51,6 +52,8 @@ public class TextFieldWithHint extends javax.swing.JPanel {
 
         thisBox = new javax.swing.JTextField();
 
+        setLayout(new java.awt.BorderLayout());
+
         thisBox.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 thisBoxFocusGained(evt);
@@ -59,17 +62,7 @@ public class TextFieldWithHint extends javax.swing.JPanel {
                 thisBoxFocusLost(evt);
             }
         });
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(thisBox, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(thisBox, javax.swing.GroupLayout.DEFAULT_SIZE, 31, Short.MAX_VALUE)
-        );
+        add(thisBox, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void thisBoxFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_thisBoxFocusGained

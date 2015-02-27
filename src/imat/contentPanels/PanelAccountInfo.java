@@ -7,6 +7,7 @@ package imat.contentPanels;
 
 import imat.CustomerModel;
 import java.awt.Color;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
 
 /**
@@ -20,7 +21,8 @@ public class PanelAccountInfo extends javax.swing.JPanel {
      */
     public PanelAccountInfo() {
         initComponents();
-        emailTextField.setText(CustomerModel.getEmail());
+        emailTextField.setHint("Email");
+        //emailTextField.setText(CustomerModel.getEmail());
         newPasswordTextField.setText(CustomerModel.getPassword());//Temporär
     }
 
@@ -35,22 +37,18 @@ public class PanelAccountInfo extends javax.swing.JPanel {
 
         emailLabel = new javax.swing.JLabel();
         repeatEmailLabel = new javax.swing.JLabel();
-        emailTextField = new javax.swing.JTextField();
         repeatEmailTextField = new javax.swing.JTextField();
         newPasswordLabel = new javax.swing.JLabel();
         repeatPasswordLabel = new javax.swing.JLabel();
-        newPasswordTextField = new javax.swing.JTextField();
-        repeatPasswordTextField = new javax.swing.JTextField();
+        newPasswordTextField = new javax.swing.JPasswordField();
+        repeatPasswordTextField = new javax.swing.JPasswordField();
+        mailErrorlabel = new javax.swing.JLabel();
+        passwordErrorLabel = new javax.swing.JLabel();
+        emailTextField = new imat.TextFieldWithHint();
 
         emailLabel.setText("E-post:");
 
         repeatEmailLabel.setText("Repetera e-post:");
-
-        emailTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                emailTextFieldFocusGained(evt);
-            }
-        });
 
         repeatEmailTextField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -62,17 +60,8 @@ public class PanelAccountInfo extends javax.swing.JPanel {
 
         repeatPasswordLabel.setText("Repetera lösenord:");
 
-        newPasswordTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                newPasswordTextFieldFocusGained(evt);
-            }
-        });
-
-        repeatPasswordTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                repeatPasswordTextFieldFocusGained(evt);
-            }
-        });
+        mailErrorlabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
+        mailErrorlabel.setForeground(java.awt.Color.red);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -83,34 +72,42 @@ public class PanelAccountInfo extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(repeatEmailTextField)
-                        .addComponent(emailTextField)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(newPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(repeatPasswordTextField))
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(emailLabel)
                                 .addComponent(repeatEmailLabel)
                                 .addGroup(layout.createSequentialGroup()
                                     .addComponent(newPasswordLabel)
                                     .addGap(87, 87, 87)
-                                    .addComponent(repeatPasswordLabel)))
-                            .addGap(59, 59, 59)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(newPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(54, 54, 54)
-                        .addComponent(repeatPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(158, Short.MAX_VALUE))
+                                    .addComponent(repeatPasswordLabel))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(emailLabel)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addComponent(mailErrorlabel, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGap(6, 6, 6))
+                        .addComponent(passwordErrorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(emailLabel)
-                .addGap(9, 9, 9)
-                .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(emailLabel)
+                    .addComponent(mailErrorlabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(repeatEmailLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(repeatEmailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(passwordErrorLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 5, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(newPasswordLabel)
                     .addComponent(repeatPasswordLabel))
@@ -118,21 +115,9 @@ public class PanelAccountInfo extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(newPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(repeatPasswordTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(34, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void newPasswordTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_newPasswordTextFieldFocusGained
-        cancelError(newPasswordTextField);
-    }//GEN-LAST:event_newPasswordTextFieldFocusGained
-
-    private void repeatPasswordTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_repeatPasswordTextFieldFocusGained
-        cancelError(repeatPasswordTextField);
-    }//GEN-LAST:event_repeatPasswordTextFieldFocusGained
-
-    private void emailTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailTextFieldFocusGained
-        cancelError(emailTextField);
-    }//GEN-LAST:event_emailTextFieldFocusGained
 
     private void repeatEmailTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_repeatEmailTextFieldFocusGained
         cancelError(repeatEmailTextField);
@@ -168,49 +153,64 @@ public class PanelAccountInfo extends javax.swing.JPanel {
 
     /**
      * make a textinputbox show red
-     *
      * @param input what textinputbox to make red.
      */
     public void showError(JTextField input) {
         input.setBackground(new Color(240, 200, 200));
     }
+        public void showLabelError(JLabel input, String str) {
+        input.setText(str);
+    }
      /**
      * make a textinputbox show white
-     *
      * @param input what textinputbox to make red.
      */
     private void cancelError(JTextField input){
         input.setBackground(Color.WHITE);
+    }
+      private void cancelLabelError(JLabel input) {
+        input.setText("");
+    }
+    private void cancelAllErrors(JTextField textField, JLabel label) {
+        cancelError(textField);
+        cancelLabelError(label);
     }
 
     /**
      * make all textinputs show error
      */
     public void showAllErrors() {
-        showError(emailTextField);
+        //showError(emailTextField);
         showError(repeatEmailTextField);
         showError(newPasswordTextField);
         showError(repeatPasswordTextField);
+        showLabelError(passwordErrorLabel,"Felaktigt lösenord");
+        showLabelError(mailErrorlabel,"Felaktigt e-post adress");
     }
 
     public void showPassError() {
         showError(newPasswordTextField);
         showError(repeatPasswordTextField);
+      showLabelError(passwordErrorLabel,"Felaktigt lösenord");
     }
 
     public void showEmailError() {
-        showError(emailTextField);
+        //showError(emailTextField);
         showError(repeatEmailTextField);
+        showLabelError(mailErrorlabel,"Felaktigt e-post adress");
+       
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel emailLabel;
-    private javax.swing.JTextField emailTextField;
+    private imat.TextFieldWithHint emailTextField;
+    private javax.swing.JLabel mailErrorlabel;
     private javax.swing.JLabel newPasswordLabel;
-    private javax.swing.JTextField newPasswordTextField;
+    private javax.swing.JPasswordField newPasswordTextField;
+    private javax.swing.JLabel passwordErrorLabel;
     private javax.swing.JLabel repeatEmailLabel;
     private javax.swing.JTextField repeatEmailTextField;
     private javax.swing.JLabel repeatPasswordLabel;
-    private javax.swing.JTextField repeatPasswordTextField;
+    private javax.swing.JPasswordField repeatPasswordTextField;
     // End of variables declaration//GEN-END:variables
 }
