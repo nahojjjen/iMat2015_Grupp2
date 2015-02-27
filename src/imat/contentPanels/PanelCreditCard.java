@@ -8,6 +8,7 @@ package imat.contentPanels;
 import imat.CustomerModel;
 import java.awt.Color;
 import javax.swing.JRadioButton;
+import javax.swing.JTextField;
 
 /**
  *
@@ -187,77 +188,109 @@ public class PanelCreditCard extends javax.swing.JPanel {
 
     private void visaMasterRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visaMasterRadioButtonActionPerformed
         CustomerModel.setCardType("VISA/MasterCard");
-        setDigitsLabel(CustomerModel.getCardType());
+        setDigitsLabel("VISA/MasterCard");
     }//GEN-LAST:event_visaMasterRadioButtonActionPerformed
-   
+
     private void americanRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_americanRadioButtonActionPerformed
-      CustomerModel.setCardType("American Express");
-      setDigitsLabel(CustomerModel.getCardType());
+        CustomerModel.setCardType("American Express");
+        setDigitsLabel("American Express");
     }//GEN-LAST:event_americanRadioButtonActionPerformed
 
     private void cardNumberTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cardNumberTextFieldFocusGained
-        cardNumberTextField.setBackground(Color.white);
+        cancelError(cardNumberTextField);
     }//GEN-LAST:event_cardNumberTextFieldFocusGained
 
     private void cardHolderTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cardHolderTextFieldFocusGained
-       cardHolderTextField.setBackground(Color.white);
+        cancelError(cardHolderTextField);
     }//GEN-LAST:event_cardHolderTextFieldFocusGained
 
     private void securityNumberTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_securityNumberTextFieldFocusGained
-        securityNumberTextField.setBackground(Color.white);
+        cancelError(securityNumberTextField);
     }//GEN-LAST:event_securityNumberTextFieldFocusGained
-    
-    private  void setSelectedCardType(String str){
-        if (str.equals("American Express")){
+    /**
+     * saves the checked card type
+     */
+    private void setSelectedCardType(String str) {
+        if (str.equals("American Express")) {
             americanRadioButton.setSelected(true);
         } else {
             visaMasterRadioButton.setSelected(true);
         }
     }
-    
-    private void setDigitsLabel(String str){
-        if (str.equals("American Express")){
-            digitsInCardNumberLabel.setText("15 siffror");                    
+
+    /**
+     * sets reminder label for card numbers
+     */
+    private void setDigitsLabel(String str) {
+        if (str.equals("American Express")) {
+            digitsInCardNumberLabel.setText("15 siffror");
         } else {
             digitsInCardNumberLabel.setText("16 siffror");
         }
     }
-     private void save(){
-                int correctlyFilled = 0;
-        correctlyFilled += saveCardNumber();
-        correctlyFilled += saveCardSecurityNumber();
-        correctlyFilled += saveCardHolderName();
+
+    /**
+     * saves all field data
+     */
+    private void save() {
+        CustomerModel.setCardNumber(cardNumberTextField.getText());
+        CustomerModel.setCardVerification(Integer.parseInt(securityNumberTextField.getText()));
+        CustomerModel.setCardHolderName(cardHolderTextField.getText());
         CustomerModel.setCardMonth(monthComboBox.getSelectedIndex());
         CustomerModel.setCardYear(yearComboBox.getSelectedIndex());
     }
-    private int saveCardNumber(){
-        if (CustomerModel.cardNumberTest(cardNumberTextField.getText())) {
-            CustomerModel.setCardNumber(cardNumberTextField.getText());
-            return 1;
-        } else {
-            cardNumberTextField.setBackground(Color.red);
-            return 0;
-        }                
+
+    /**
+     * @return true if card number is filled correctly
+     */
+    private boolean isCardNumberCorrect() {
+        return (CustomerModel.cardNumberTest(cardNumberTextField.getText()));
     }
-    private int saveCardSecurityNumber(){
-           if (CustomerModel.cardVerificationTest(securityNumberTextField.getText())) {
-            CustomerModel.setCardVerification(Integer.parseInt(securityNumberTextField.getText()));
-            return 1;
-        } else {
-            securityNumberTextField.setBackground(Color.red);
-            return 0;
-        }  
+
+    /**
+     * @return true if security number is filled correctly
+     */
+    private boolean isSecNumberCorrect() {
+        return (CustomerModel.cardVerificationTest(securityNumberTextField.getText()));
     }
-    private int saveCardHolderName(){
-              if (CustomerModel.cardHolderNameTest(cardHolderTextField.getText())) {
-            CustomerModel.setCardHolderName(cardHolderTextField.getText());
-            return 1;
-        } else {
-            cardHolderTextField.setBackground(Color.red);
-            return 0;
-        } 
-        
+
+    /**
+     * @return true if card holder name is filled correctly
+     */
+    private boolean isCardHolderNameCorrect() {
+        return (CustomerModel.cardHolderNameTest(cardHolderTextField.getText()));
     }
+
+    /**
+     * make a textinputbox show red
+     *
+     * @param input what textinputbox to make red.
+     */
+    public void showError(JTextField input) {
+        input.setBackground(new Color(240, 200, 200));
+    }
+
+    /**
+     * make a textinputbox show white
+     *
+     * @param input what textinputbox to revert to white.
+     */
+    public void cancelError(JTextField input) {
+        input.setBackground(Color.WHITE);
+    }
+
+    public void showNameError() {
+        showError(cardHolderTextField);
+    }
+
+    public void showSecNumberError() {
+        showError(securityNumberTextField);
+    }
+
+    public void showCardNumberError() {
+        showError(cardNumberTextField);
+    }
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton americanRadioButton;

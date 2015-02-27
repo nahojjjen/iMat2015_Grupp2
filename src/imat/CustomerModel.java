@@ -149,7 +149,7 @@ public class CustomerModel {
             return email;
         }
     }
-    
+
     /**
      * set the password of the user
      *
@@ -157,7 +157,7 @@ public class CustomerModel {
      */
     public static void setPassword(String input) {
         user.setPassword(input);
-    }    
+    }
 
     public static void setEmail(String input) {
         customer.setEmail(input);
@@ -279,7 +279,7 @@ public class CustomerModel {
 
     public static boolean cardNumberTest(String str) {
         String cardType = getCardType();
-        return(cardType.equals("American Express") && str.length() == 19
+        return (cardType.equals("American Express") && str.length() == 19
                 || cardType.equals("VISA/MasterCard") && str.length() == 21);
     }
 
@@ -293,7 +293,7 @@ public class CustomerModel {
     }
 
     public static boolean firstNameTest(String str) {
-       return testAlphabeticalString(str);
+        return testAlphabeticalString(str);
     }
 
     public static boolean lastNameTest(String str) {
@@ -319,7 +319,7 @@ public class CustomerModel {
     }
 
     public static boolean postAddressTest(String str) {
-       return testAlphabeticalString(str);
+        return testAlphabeticalString(str);
     }
 
     public static boolean phoneNumberTest(String str) {
@@ -333,21 +333,20 @@ public class CustomerModel {
      * @param str
      * @return true if something, unknown
      */
-
     public static boolean emailTest(String str) {
         if (str.contains("@") && str.contains(".") && str.length() > 6) {
-                return true;
+            return true;
         }
-            return false;
-      
-    
+        return false;
+
     }
+
     /**
-     * 
+     *
      * @param str
      * @return true if string only contains letters a-Z
      */
-    public static boolean testAlphabeticalString(String str){
+    public static boolean testAlphabeticalString(String str) {
         return (str.matches("[a-zA-Z]+") && str.length() > 1);
     }
 
