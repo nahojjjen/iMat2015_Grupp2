@@ -11,6 +11,7 @@ import imat.contentPanels.PanelAccountInfo;
 import imat.IMat;
 import imat.contentPanels.PanelCreditCard;
 import imat.contentPanels.PanelEarlierCarts;
+import se.chalmers.ait.dat215.project.ProductCategory;
 
 /**
  *
@@ -66,7 +67,12 @@ public class PanelNavigationExpanded extends javax.swing.JPanel {
         });
         add(jButton2);
 
-        jButton7.setText("jButton7");
+        jButton7.setText("Bröd");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
         add(jButton7);
 
         jButton8.setText("jButton8");
@@ -122,6 +128,10 @@ public class PanelNavigationExpanded extends javax.swing.JPanel {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         IMat.getWindow().setContent(new PanelCreditCard());
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        IMat.getWindow().setContent(new PanelSearchResult(ProductCategory.BREAD));        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton7ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

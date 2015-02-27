@@ -5,6 +5,7 @@
  */
 package imat.contentPanels;
 
+import imat.Model;
 import imat.panels.PanelNavigation;
 import imat.panels.subItems.DetailItem;
 import imat.panels.subItems.GridItem;
@@ -31,6 +32,20 @@ public class PanelSearchResult extends javax.swing.JPanel {
     public PanelSearchResult(List<Product> list) {
         products = list;
         initComponents();
+
+    }
+
+    public PanelSearchResult(ProductCategory category) {
+        List<Product> list = Model.doSearch("");
+        List<Product> categoryList = Model.doSearch("dirtyhacksaredirty!!!");
+        for (Product product : list) {
+            if (product.getCategory() == category) {
+                categoryList.add(product);
+            }
+        }
+        products = categoryList;
+        initComponents();
+        System.out.println("showing" + category);
 
     }
 
@@ -84,7 +99,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
         detailsView.setLayout(new GridLayout(rows, 1));
 
-        int height = products.size() * 90 + amountOfCategories *90;
+        int height = products.size() * 90 + amountOfCategories * 90;
         Dimension dim = new Dimension(500, height);
 
         detailsView.setPreferredSize(dim);
