@@ -11,6 +11,8 @@ import imat.contentPanels.PanelAccountInfo;
 import imat.IMat;
 import imat.contentPanels.PanelCreditCard;
 import imat.contentPanels.PanelEarlierCarts;
+import java.util.ArrayList;
+import java.util.List;
 import se.chalmers.ait.dat215.project.ProductCategory;
 
 /**
@@ -42,6 +44,10 @@ public class PanelNavigationExpanded extends javax.swing.JPanel {
         jButton2 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
+        jButton10 = new javax.swing.JButton();
+        jButton11 = new javax.swing.JButton();
+        jButton12 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -49,7 +55,7 @@ public class PanelNavigationExpanded extends javax.swing.JPanel {
 
         setMaximumSize(new java.awt.Dimension(400, 400));
         setPreferredSize(new java.awt.Dimension(220, 400));
-        setLayout(new java.awt.GridLayout(8, 0));
+        setLayout(new java.awt.GridLayout(12, 0));
 
         jButton1.setText("Hem");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +73,7 @@ public class PanelNavigationExpanded extends javax.swing.JPanel {
         });
         add(jButton2);
 
-        jButton7.setText("Bröd");
+        jButton7.setText("TorrVaror");
         jButton7.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -75,8 +81,45 @@ public class PanelNavigationExpanded extends javax.swing.JPanel {
         });
         add(jButton7);
 
-        jButton8.setText("jButton8");
+        jButton8.setText("Dricka");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
         add(jButton8);
+
+        jButton9.setText("Mejeri");
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton9ActionPerformed(evt);
+            }
+        });
+        add(jButton9);
+
+        jButton10.setText("Sötsaker");
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton10ActionPerformed(evt);
+            }
+        });
+        add(jButton10);
+
+        jButton11.setText("Kött & Fisk");
+        jButton11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton11ActionPerformed(evt);
+            }
+        });
+        add(jButton11);
+
+        jButton12.setText("Grönt");
+        jButton12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton12ActionPerformed(evt);
+            }
+        });
+        add(jButton12);
 
         jButton3.setText("Profil");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -130,12 +173,62 @@ public class PanelNavigationExpanded extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
-        IMat.getWindow().setContent(new PanelSearchResult(ProductCategory.BREAD));        // TODO add your handling code here:
+        List<ProductCategory> inputList = new ArrayList<ProductCategory>();
+        inputList.add(ProductCategory.PASTA);
+        inputList.add(ProductCategory.BREAD);
+        inputList.add(ProductCategory.FLOUR_SUGAR_SALT);
+        inputList.add(ProductCategory.POTATO_RICE);
+        IMat.getWindow().setContent(new PanelSearchResult(inputList,0));        // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        List<ProductCategory> inputList = new ArrayList<ProductCategory>();
+        inputList.add(ProductCategory.COLD_DRINKS);
+        inputList.add(ProductCategory.HOT_DRINKS);
+        IMat.getWindow().setContent(new PanelSearchResult(inputList,  0));  
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
+        List<ProductCategory> inputList = new ArrayList<ProductCategory>();
+        inputList.add(ProductCategory.DAIRIES);
+        IMat.getWindow().setContent(new PanelSearchResult(inputList,  0));  
+    }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
+       List<ProductCategory> inputList = new ArrayList<ProductCategory>();
+        inputList.add(ProductCategory.SWEET);
+        IMat.getWindow().setContent(new PanelSearchResult(inputList,  0));  
+    }//GEN-LAST:event_jButton10ActionPerformed
+
+    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
+         List<ProductCategory> inputList = new ArrayList<ProductCategory>();
+        inputList.add(ProductCategory.MEAT);
+        inputList.add(ProductCategory.FISH);
+        IMat.getWindow().setContent(new PanelSearchResult(inputList,  0));  
+    }//GEN-LAST:event_jButton11ActionPerformed
+
+    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+         List<ProductCategory> inputList = new ArrayList<ProductCategory>();
+        inputList.add(ProductCategory.POD);
+        inputList.add(ProductCategory.HERB);
+        inputList.add(ProductCategory.NUTS_AND_SEEDS);
+        inputList.add(ProductCategory.BERRY);
+        inputList.add(ProductCategory.CABBAGE);
+        inputList.add(ProductCategory.CITRUS_FRUIT);
+        inputList.add(ProductCategory.EXOTIC_FRUIT);
+        inputList.add(ProductCategory.MELONS);
+        inputList.add(ProductCategory.FRUIT);
+        inputList.add(ProductCategory.ROOT_VEGETABLE);
+        inputList.add(ProductCategory.VEGETABLE_FRUIT);
+        IMat.getWindow().setContent(new PanelSearchResult(inputList,  0));  
+    }//GEN-LAST:event_jButton12ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton10;
+    private javax.swing.JButton jButton11;
+    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -143,5 +236,6 @@ public class PanelNavigationExpanded extends javax.swing.JPanel {
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     // End of variables declaration//GEN-END:variables
 }
