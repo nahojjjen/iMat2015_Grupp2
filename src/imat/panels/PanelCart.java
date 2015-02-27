@@ -57,6 +57,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         filler = new javax.swing.JPanel();
         totalLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
         cartContent = new javax.swing.JPanel();
 
         jLabel1.setText("Kundvagn:");
@@ -94,14 +95,16 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         cartContent.setLayout(cartContentLayout);
         cartContentLayout.setHorizontalGroup(
             cartContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 170, Short.MAX_VALUE)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
         cartContentLayout.setVerticalGroup(
             cartContentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 264, Short.MAX_VALUE)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        jScrollPane2.setViewportView(cartContent);
+        jPanel1.add(cartContent);
+
+        jScrollPane2.setViewportView(jPanel1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -171,6 +174,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
     private javax.swing.JButton detailButton;
     private javax.swing.JPanel filler;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel totalLabel;
     // End of variables declaration//GEN-END:variables
@@ -196,7 +200,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         }
         
         double price = Model.getShoppingcart().getTotal();
-        totalLabel.setText(String.valueOf(price));
+        totalLabel.setText("Total: " + String.valueOf((int)price) + " kr");
         
         if (price <= 0){
             disableBuyButton();
