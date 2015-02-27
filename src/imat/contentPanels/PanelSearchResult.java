@@ -9,6 +9,7 @@ import imat.panels.PanelNavigation;
 import imat.panels.subItems.DetailItem;
 import imat.panels.subItems.GridItem;
 import imat.panels.subItems.ListItem;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -65,25 +66,22 @@ public class PanelSearchResult extends javax.swing.JPanel {
     private void showDetailsResultsGrouped(List<Product> products) {
         removePreviousItems();
         int rows = products.size();
-        int height = products.size() * 85;
+        int amountOfCategories = 0;
         ProductCategory category = null;
         for (Product product : products) {
 
-            if (category == product.getCategory()) {
-
-                System.out.println(category + "is old");
-            } else {
+            if (!(category == product.getCategory())) {
                 category = product.getCategory();
                 detailsView.add(new JLabel(category.toString()));
                 rows++;
-                height += 20;
+                amountOfCategories++;
             }
 
             detailsView.add(new DetailItem(product));
         }
-
+        
         detailsView.setLayout(new GridLayout(rows, 1));
-      
+        int height = products.size() * 90 + amountOfCategories*90;
         Dimension dim = new Dimension(500, height);
 
         detailsView.setPreferredSize(dim);
@@ -97,9 +95,10 @@ public class PanelSearchResult extends javax.swing.JPanel {
      */
     private void showGridResults(List<Product> products) {
         removePreviousItems();
-        gridView.setLayout(new FlowLayout(FlowLayout.CENTER));
-
-        gridView.setPreferredSize(new Dimension(500, 7000));
+        FlowLayout flowLayout = new FlowLayout(FlowLayout.LEFT);
+        gridView.setLayout(flowLayout);
+        gridView.setPreferredSize(new Dimension(500,7000));
+       
         for (Product product : products) {
             gridView.add(new GridItem(product));
         }
