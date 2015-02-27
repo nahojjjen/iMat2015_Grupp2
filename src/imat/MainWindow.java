@@ -310,17 +310,16 @@ public class MainWindow extends javax.swing.JFrame {
         spacec.setLayout(new java.awt.BorderLayout());
 
         contentPanel.setBackground(new java.awt.Color(250, 250, 250));
-        contentPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 50, 0, 50));
 
         javax.swing.GroupLayout contentPanelLayout = new javax.swing.GroupLayout(contentPanel);
         contentPanel.setLayout(contentPanelLayout);
         contentPanelLayout.setHorizontalGroup(
             contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 958, Short.MAX_VALUE)
+            .addGap(0, 1058, Short.MAX_VALUE)
         );
         contentPanelLayout.setVerticalGroup(
             contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 838, Short.MAX_VALUE)
+            .addGap(0, 859, Short.MAX_VALUE)
         );
 
         spacec.add(contentPanel, java.awt.BorderLayout.CENTER);

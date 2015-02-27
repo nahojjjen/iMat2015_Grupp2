@@ -34,13 +34,19 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
     }
 
+    private void clearPreviousItems() {
+        gridView.removeAll();
+        listView.removeAll();
+        detailsView.removeAll();
+    }
+
     /**
      * create the list of detailitems and put them in the stuff
      *
      * @param products what products to show
      */
     private void showDetailsResults(List<Product> products) {
-
+        clearPreviousItems();
         detailsView.setLayout(new GridLayout(products.size(), 1));
         int height = products.size() * 85;
         Dimension dim = new Dimension(500, height);
@@ -59,27 +65,26 @@ public class PanelSearchResult extends javax.swing.JPanel {
      * @param products what products to show
      */
     private void showDetailsResultsGrouped(List<Product> products) {
-
+        clearPreviousItems();
         int rows = products.size();
-        int height = products.size() * 85;
+        int amountOfCategories = 0;
         ProductCategory category = null;
         for (Product product : products) {
 
-            if (category == product.getCategory()) {
+            if (!(category == product.getCategory())) {
 
-                System.out.println(category + "is old");
-            } else {
                 category = product.getCategory();
                 detailsView.add(new JLabel(category.toString()));
                 rows++;
-                height += 20;
+                amountOfCategories++;
             }
 
             detailsView.add(new DetailItem(product));
         }
 
         detailsView.setLayout(new GridLayout(rows, 1));
-      
+
+        int height = products.size() * 90 + amountOfCategories *90;
         Dimension dim = new Dimension(500, height);
 
         detailsView.setPreferredSize(dim);
@@ -92,6 +97,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
      * @param products
      */
     private void showGridResults(List<Product> products) {
+        clearPreviousItems();
         gridView.setLayout(new FlowLayout(FlowLayout.CENTER));
 
         gridView.setPreferredSize(new Dimension(500, 7000));
@@ -109,6 +115,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
      * @param products what products to show
      */
     private void showListResults(List<Product> products) {
+        clearPreviousItems();
         listView.setLayout(new GridLayout(products.size(), 1));
         int height = products.size() * 50;
         Dimension dim = new Dimension(500, height);
@@ -143,6 +150,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         tabPanel = new javax.swing.JTabbedPane();
         detailsViewWrapper = new javax.swing.JScrollPane();
+        jPanel2 = new javax.swing.JPanel();
         detailsView = new javax.swing.JPanel();
         listViewWrapper = new javax.swing.JScrollPane();
         listView = new javax.swing.JPanel();
@@ -193,14 +201,16 @@ public class PanelSearchResult extends javax.swing.JPanel {
         detailsView.setLayout(detailsViewLayout);
         detailsViewLayout.setHorizontalGroup(
             detailsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
         detailsViewLayout.setVerticalGroup(
             detailsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        detailsViewWrapper.setViewportView(detailsView);
+        jPanel2.add(detailsView);
+
+        detailsViewWrapper.setViewportView(jPanel2);
 
         tabPanel.addTab("Detaljvy", detailsViewWrapper);
 
@@ -264,6 +274,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel listView;
     private javax.swing.JScrollPane listViewWrapper;
     private javax.swing.JTabbedPane tabPanel;
