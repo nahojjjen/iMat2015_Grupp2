@@ -6,6 +6,7 @@
 package imat;
 
 import java.awt.Color;
+import java.awt.event.FocusEvent;
 
 /**
  *
@@ -17,9 +18,14 @@ public class TextFieldWithHint extends javax.swing.JPanel {
      * Creates new form TextFieldWithHint
      */
     public TextFieldWithHint() {
-        
+        hint = "a hint";
         initComponents();
     }   
+    
+    public String getText(){
+        return thisBox.getText();
+    }
+    
     
     /**
      * Creates new form TextFieldWithHint
@@ -31,6 +37,8 @@ public class TextFieldWithHint extends javax.swing.JPanel {
 
     public void setHint(String input){
         hint = input;
+         thisBox.setForeground(new Color(80,80,80));
+            thisBox.setText(hint);
     }
     /**
      * This method is called from within the constructor to initialize the form.

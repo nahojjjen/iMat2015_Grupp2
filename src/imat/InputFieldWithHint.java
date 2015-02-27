@@ -22,6 +22,8 @@ public class InputFieldWithHint extends JTextField implements FocusListener{
         hint = input;
     }
     
+    
+    
     @Override
     public void focusGained(FocusEvent e) {
           if(this.getText().equals(hint)){
