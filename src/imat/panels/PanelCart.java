@@ -187,7 +187,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         layout.setColumns(1);
         layout.setRows(cart.size());
         cartContent.setLayout(layout);
-        int height = cart.size()*20;
+        int height = cart.size()*30;
         Dimension dimension = new Dimension(200,height);
         cartContent.setPreferredSize(dimension);
         for (ShoppingItem item : cart) {
