@@ -7,6 +7,7 @@ package imat.contentPanels;
 
 import imat.CustomerModel;
 import java.awt.Color;
+import javax.swing.JTextField;
 
 /**
  *
@@ -188,68 +189,97 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void firstNameTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_firstNameTextFieldFocusGained
-        firstNameTextField.setBackground(Color.white);
+        cancelError(firstNameTextField);
     }//GEN-LAST:event_firstNameTextFieldFocusGained
 
     private void lastNameTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lastNameTextFieldFocusGained
-        lastNameTextField.setBackground(Color.white);
+        cancelError(lastNameTextField);
     }//GEN-LAST:event_lastNameTextFieldFocusGained
 
     private void addressTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addressTextFieldFocusGained
-        addressTextField.setBackground(Color.white);
+        cancelError(addressTextField);
     }//GEN-LAST:event_addressTextFieldFocusGained
 
     private void postAddressTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_postAddressTextFieldFocusGained
-        postAddressTextField.setBackground(Color.white);
+        cancelError(postAddressTextField);
     }//GEN-LAST:event_postAddressTextFieldFocusGained
 
     private void postCodeTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_postCodeTextFieldFocusGained
-        postCodeTextField.setBackground(Color.white);
+        cancelError(postCodeTextField);
     }//GEN-LAST:event_postCodeTextFieldFocusGained
 
     private void phoneNumberTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldFocusGained
-        phoneNumberTextField.setBackground(Color.white);
+        cancelError(phoneNumberTextField);
     }//GEN-LAST:event_phoneNumberTextFieldFocusGained
-    private void save(){
-           int correctlyFilled = 0;
-        if(CustomerModel.firstNameTest(firstNameTextField.getText())){
-            CustomerModel.setFirstName(firstNameTextField.getText());
-            correctlyFilled++;
-        } else {
-            firstNameTextField.setBackground(Color.red);
-        }
-        if(CustomerModel.lastNameTest(lastNameTextField.getText())){
-            CustomerModel.setLastName(lastNameTextField.getText());
-            correctlyFilled++;
-        }else {
-            lastNameTextField.setBackground(Color.red);
-        }
-        if(CustomerModel.addressTest(addressTextField.getText())){
-            CustomerModel.setAddress(addressTextField.getText());
-            correctlyFilled++;
-        } else {
-            addressTextField.setBackground(Color.red);
-        }
-        if(CustomerModel.postCodeTest(postCodeTextField.getText())){
-            CustomerModel.setPostCode(postCodeTextField.getText());
-            correctlyFilled++;
-        }else {
-            postCodeTextField.setBackground(Color.red);
-        }
-        if(CustomerModel.postAddressTest(postAddressTextField.getText())){
-            CustomerModel.setPostAddress(postAddressTextField.getText());
-            correctlyFilled++;
-        } else {
-            postAddressTextField.setBackground(Color.red);
-        }
-        if(CustomerModel.phoneNumberTest(phoneNumberTextField.getText())){
-            CustomerModel.setPhoneNumber(phoneNumberTextField.getText());
-            correctlyFilled++;
-        } else{
-            phoneNumberTextField.setBackground(Color.red);
-        }
+    
+    public void save() {
+        CustomerModel.setFirstName(firstNameTextField.getText());
+        CustomerModel.setLastName(lastNameTextField.getText());
+        CustomerModel.setAddress(addressTextField.getText());
+        CustomerModel.setPostCode(postCodeTextField.getText());
+        CustomerModel.setPostAddress(postAddressTextField.getText());
+        CustomerModel.setPhoneNumber(phoneNumberTextField.getText());
     }
 
+    public boolean isFirstNameCorrect() {
+        return (CustomerModel.firstNameTest(firstNameTextField.getText()));
+    }
+
+    public boolean isLastNameCorrect() {
+        return (CustomerModel.lastNameTest(lastNameTextField.getText()));
+    }
+
+    public boolean isAddressCorrect() {
+        return (CustomerModel.addressTest(addressTextField.getText()));
+    }
+
+    public boolean isPostCodeCorrect() {
+        return (CustomerModel.postCodeTest(postCodeTextField.getText()));
+    }
+
+    public boolean isPostAddressCorrect() {
+        return (CustomerModel.postAddressTest(postAddressTextField.getText()));
+    }
+
+    public boolean isPhoneNumberCorrect() {
+        return (CustomerModel.phoneNumberTest(phoneNumberTextField.getText()));
+    }
+
+    /**
+     * make a textinputbox show red
+     * @param input what textinputbox to make red.
+     */
+    public void showError(JTextField input) {
+        input.setBackground(new Color(240, 200, 200));
+    }
+
+    /**
+     * make a textinputbox show white
+     * @param input what textinputbox to revert to white.
+     */
+    private void cancelError(JTextField input) {
+        input.setBackground(Color.WHITE);
+    }
+
+    public void showFirstNameError(){
+        showError(firstNameTextField);
+    }
+    public void showLastNameError(){
+        showError(lastNameTextField);
+    }
+    public void showAddressError(){
+        showError(addressTextField);
+    }
+    public void showPostCodeError(){
+        showError(postCodeTextField);
+    }
+    public void showPostAddressError(){
+        showError(postAddressTextField);
+    }
+    public void showPhoneError(){
+        showError(phoneNumberTextField);
+    }
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel addressLabel;
     private javax.swing.JTextField addressTextField;

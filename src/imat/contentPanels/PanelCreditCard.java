@@ -232,7 +232,7 @@ public class PanelCreditCard extends javax.swing.JPanel {
     /**
      * saves all field data
      */
-    private void save() {
+    public void save() {
         CustomerModel.setCardNumber(cardNumberTextField.getText());
         CustomerModel.setCardVerification(Integer.parseInt(securityNumberTextField.getText()));
         CustomerModel.setCardHolderName(cardHolderTextField.getText());
@@ -243,39 +243,36 @@ public class PanelCreditCard extends javax.swing.JPanel {
     /**
      * @return true if card number is filled correctly
      */
-    private boolean isCardNumberCorrect() {
+    public boolean isCardNumberCorrect() {
         return (CustomerModel.cardNumberTest(cardNumberTextField.getText()));
     }
 
     /**
      * @return true if security number is filled correctly
      */
-    private boolean isSecNumberCorrect() {
+    public boolean isSecNumberCorrect() {
         return (CustomerModel.cardVerificationTest(securityNumberTextField.getText()));
     }
 
     /**
      * @return true if card holder name is filled correctly
      */
-    private boolean isCardHolderNameCorrect() {
+    public boolean isCardHolderNameCorrect() {
         return (CustomerModel.cardHolderNameTest(cardHolderTextField.getText()));
     }
 
     /**
      * make a textinputbox show red
-     *
      * @param input what textinputbox to make red.
      */
     public void showError(JTextField input) {
         input.setBackground(new Color(240, 200, 200));
     }
-
-    /**
-     * make a textinputbox show white
-     *
+    /** 
+     *make a textinputbox show white
      * @param input what textinputbox to revert to white.
      */
-    public void cancelError(JTextField input) {
+    private void cancelError(JTextField input) {
         input.setBackground(Color.WHITE);
     }
 

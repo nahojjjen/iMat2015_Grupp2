@@ -179,7 +179,7 @@ public class PanelAccountInfo extends javax.swing.JPanel {
      *
      * @param input what textinputbox to make red.
      */
-    public void cancelError(JTextField input){
+    private void cancelError(JTextField input){
         input.setBackground(Color.WHITE);
     }
 
