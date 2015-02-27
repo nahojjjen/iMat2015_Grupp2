@@ -16,25 +16,19 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="530" max="32767" attributes="0"/>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="318" max="32767" attributes="0"/>
-          <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="32767" attributes="0"/>
-                  <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
-              </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jPanel1" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -50,6 +44,17 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
+                              <Group type="102" attributes="0">
+                                  <Component id="mobileNumberLabel1" min="-2" pref="119" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="cardHolderReminderLabel" pref="210" max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <EmptySpace pref="149" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Component id="firstNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="firstNameTextField" alignment="0" max="32767" attributes="0"/>
                               <Component id="postCodeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -57,20 +62,27 @@
                               <Component id="addressTextField" alignment="0" pref="119" max="32767" attributes="0"/>
                               <Component id="phoneNumberLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="postCodeTextField" alignment="0" max="32767" attributes="0"/>
+                              <Component id="phoneNumberTextField" alignment="0" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="postAddressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="lastNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="lastNameTextField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="careOfLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="careOfTextField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="postAddressTextField" alignment="0" min="-2" pref="143" max="-2" attributes="0"/>
+                              <Component id="postAddressTextField" alignment="0" pref="143" max="32767" attributes="0"/>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="postAddressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lastNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="careOfLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="mobileNumberLabel" min="-2" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              </Group>
+                              <Component id="mobileNumberTextField" alignment="0" max="32767" attributes="0"/>
                           </Group>
+                          <EmptySpace min="-2" pref="116" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="phoneNumberTextField" alignment="0" min="-2" pref="119" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="149" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -108,10 +120,23 @@
                       <Component id="postCodeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Component id="phoneNumberLabel" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
-                  <Component id="phoneNumberTextField" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="37" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="phoneNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="mobileNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="phoneNumberTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="mobileNumberTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="mobileNumberLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cardHolderReminderLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="44" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -129,6 +154,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="firstNameTextField">
           <Properties>
+            <Property name="text" type="java.lang.String" value="Johan"/>
             <Property name="autoscrolls" type="boolean" value="false"/>
           </Properties>
           <Events>
@@ -191,6 +217,44 @@
           <Events>
             <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="phoneNumberTextFieldFocusGained"/>
           </Events>
+        </Component>
+        <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+          <AuxValues>
+            <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+          </AuxValues>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JTextArea" name="informationTextArea">
+              <Properties>
+                <Property name="columns" type="int" value="20"/>
+                <Property name="rows" type="int" value="5"/>
+              </Properties>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JFormattedTextField" name="mobileNumberTextField">
+          <Events>
+            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="mobileNumberTextFieldFocusGained"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="mobileNumberLabel">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Mobil:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="mobileNumberLabel1">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="&#xd6;vrig information:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="cardHolderReminderLabel">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Tahoma" size="10" style="2"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="T.ex portkod eller v&#xe5;nings-/l&#xe4;genhetsnummer"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
