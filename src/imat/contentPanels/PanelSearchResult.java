@@ -35,6 +35,21 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
     }
 
+    public PanelSearchResult(List<ProductCategory> categories, int i) {
+        List<Product> list = Model.doSearch("");
+        List<Product> categoryList = Model.doSearch("dirtyhacksaredirty!!!");
+        for (Product product : list) {
+            for(ProductCategory category:categories){
+                 if (product.getCategory() == category) {
+                categoryList.add(product);
+            }
+            }
+           
+        }
+        products = categoryList;
+        initComponents();
+
+    }
     public PanelSearchResult(ProductCategory category) {
         List<Product> list = Model.doSearch("");
         List<Product> categoryList = Model.doSearch("dirtyhacksaredirty!!!");
@@ -45,7 +60,6 @@ public class PanelSearchResult extends javax.swing.JPanel {
         }
         products = categoryList;
         initComponents();
-        System.out.println("showing" + category);
 
     }
 
