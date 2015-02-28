@@ -45,6 +45,12 @@ public class CustomerModel {
         }
     }
 
+    public static boolean isPaymentFilledIn(){
+        
+        
+        
+        return false;
+    }
     /**
      * get the first name of the user
      *

@@ -5,8 +5,12 @@
  */
 package imat.contentPanels.buyingPanels;
 
+import imat.CustomerModel;
 import imat.IMat;
 import imat.Model;
+import imat.contentPanels.PanelCreditCard;
+import imat.contentPanels.PanelDeliveryInfo;
+import se.chalmers.ait.dat215.project.Customer;
 
 /**
  *
@@ -19,6 +23,8 @@ public class PanelSelectPayment extends javax.swing.JPanel {
      */
     public PanelSelectPayment() {
         initComponents();
+        gridHolder.add(new PanelCreditCard());
+        gridHolder.add(new PanelDeliveryInfo());
     }
 
     /**
@@ -30,76 +36,76 @@ public class PanelSelectPayment extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        theEjectSeatButton = new javax.swing.JButton();
-        paymentOptions = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        scroller = new javax.swing.JScrollPane();
+        jPanel2 = new javax.swing.JPanel();
+        gridHolder = new javax.swing.JPanel();
 
-        theEjectSeatButton.setText("Bekräfta betalningsuppgifter & lägg beställning");
-        theEjectSeatButton.addActionListener(new java.awt.event.ActionListener() {
+        setLayout(new java.awt.BorderLayout());
+
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/s2.png"))); // NOI18N
+        add(jLabel1, java.awt.BorderLayout.PAGE_START);
+
+        jButton1.setText("Bekräfta köp");
+        jButton1.setPreferredSize(new java.awt.Dimension(75, 25));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                theEjectSeatButtonActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
-        jTextField1.setText("Du använder dina betalningsinfo och din leveransinfo som är fäst till ditt konto, ändra dem under \"ditt konto\" om du");
+        gridHolder.setLayout(new java.awt.GridLayout(2, 1));
+        jPanel2.add(gridHolder);
 
-        javax.swing.GroupLayout paymentOptionsLayout = new javax.swing.GroupLayout(paymentOptions);
-        paymentOptions.setLayout(paymentOptionsLayout);
-        paymentOptionsLayout.setHorizontalGroup(
-            paymentOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paymentOptionsLayout.createSequentialGroup()
-                .addGap(101, 101, 101)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        paymentOptionsLayout.setVerticalGroup(
-            paymentOptionsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(paymentOptionsLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(225, Short.MAX_VALUE))
-        );
+        scroller.setViewportView(jPanel2);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(57, 57, 57)
-                .addComponent(theEjectSeatButton, javax.swing.GroupLayout.DEFAULT_SIZE, 347, Short.MAX_VALUE)
-                .addGap(71, 71, 71))
-            .addGroup(layout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(386, Short.MAX_VALUE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addComponent(scroller)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(paymentOptions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(scroller, javax.swing.GroupLayout.DEFAULT_SIZE, 395, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(paymentOptions, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(theEjectSeatButton, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+
+        add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void theEjectSeatButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_theEjectSeatButtonActionPerformed
-        if (Model.getShoppingcart().getItems().size() != 0) {
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        finishOrder();
+        
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+private void finishOrder() {
+       if (!(Model.getShoppingcart().getItems().isEmpty()) && CustomerModel.isPaymentFilledIn()) {
             Model.placeOrder();
             Model.getShoppingcart().clear();
             IMat.getWindow().refreshCart();
             IMat.getWindow().setContent(new PanelDoneShopping());
         } else{
-            System.out.println("theres nothing in the cart to buy!");
+            System.out.println("theres nothing in the cart to buy! Something went wrong");
         }
-
-    }//GEN-LAST:event_theEjectSeatButtonActionPerformed
-
-
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JPanel paymentOptions;
-    private javax.swing.JButton theEjectSeatButton;
+    private javax.swing.JPanel gridHolder;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane scroller;
     // End of variables declaration//GEN-END:variables
 }

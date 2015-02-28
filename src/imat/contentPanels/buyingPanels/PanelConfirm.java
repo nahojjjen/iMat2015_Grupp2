@@ -26,12 +26,12 @@ public class PanelConfirm extends javax.swing.JPanel {
     public PanelConfirm() {
         initComponents();
              List<ShoppingItem> cartItems = Model.getShoppingcart().getItems();
-       List cart = new ArrayList<Product>();
+       List cartList = new ArrayList<Product>();
        for(ShoppingItem item:cartItems){
-           cart.add(item.getProduct());
+           cartList.add(item.getProduct());
        }
        
-        cartViewer.add(new PanelSearchResult(cart));
+        cartViewer.add(new PanelSearchResult(cartList));
     }
 
     /**
@@ -43,80 +43,58 @@ public class PanelConfirm extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel2 = new javax.swing.JPanel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jProgressBar1 = new javax.swing.JProgressBar();
+        jLabel1 = new javax.swing.JLabel();
+        holder = new javax.swing.JPanel();
         cartViewer = new javax.swing.JPanel();
-        nextPanel = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setLayout(new java.awt.BorderLayout());
 
-        jPanel2.setLayout(new java.awt.GridLayout(3, 1));
-
-        jLabel2.setText("kontrollera att kundvagnen ser rtt ut");
-
-        jProgressBar1.setValue(20);
-
-        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(220, 220, 220)
-                .addComponent(jLabel2)
-                .addContainerGap(226, Short.MAX_VALUE))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        jPanel3Layout.setVerticalGroup(
-            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2)
-                .addContainerGap(117, Short.MAX_VALUE))
-        );
-
-        jPanel2.add(jPanel3);
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/s1.png"))); // NOI18N
+        add(jLabel1, java.awt.BorderLayout.PAGE_START);
 
         cartViewer.setLayout(new java.awt.BorderLayout());
-        jPanel2.add(cartViewer);
 
-        jButton1.setText("ser bra ut");
+        jButton1.setText("Nästa");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout nextPanelLayout = new javax.swing.GroupLayout(nextPanel);
-        nextPanel.setLayout(nextPanelLayout);
-        nextPanelLayout.setHorizontalGroup(
-            nextPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, nextPanelLayout.createSequentialGroup()
-                .addContainerGap(487, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(56, 56, 56))
+        jLabel2.setForeground(new java.awt.Color(102, 102, 102));
+        jLabel2.setText("Nästa steg: välj betalning");
+
+        javax.swing.GroupLayout holderLayout = new javax.swing.GroupLayout(holder);
+        holder.setLayout(holderLayout);
+        holderLayout.setHorizontalGroup(
+            holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(cartViewer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, holderLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addContainerGap())
         );
-        nextPanelLayout.setVerticalGroup(
-            nextPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(nextPanelLayout.createSequentialGroup()
-                .addGap(73, 73, 73)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(53, Short.MAX_VALUE))
+        holderLayout.setVerticalGroup(
+            holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(holderLayout.createSequentialGroup()
+                .addComponent(cartViewer, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
-        jPanel2.add(nextPanel);
-
-        add(jPanel2, java.awt.BorderLayout.CENTER);
+        add(holder, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        goToNext();
+    goToNext();     
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void goToNext(){
@@ -129,11 +107,9 @@ public class PanelConfirm extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel cartViewer;
+    private javax.swing.JPanel holder;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JProgressBar jProgressBar1;
-    private javax.swing.JPanel nextPanel;
     // End of variables declaration//GEN-END:variables
 }
