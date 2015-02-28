@@ -45,11 +45,12 @@ public class CustomerModel {
         }
     }
 
+    //todo
     public static boolean isPaymentFilledIn(){
+    
         
         
-        
-        return false;
+        return true;
     }
     /**
      * get the first name of the user

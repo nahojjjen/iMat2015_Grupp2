@@ -22,11 +22,15 @@ public class TextFieldWithHint extends javax.swing.JPanel {
         initComponents();
     }   
     
+    /**
+     * get the text of the inputbox within
+     * @return the text in this component
+     */
     public String getText(){
         return thisBox.getText();
     }
     
-    
+
     
     /**
      * Creates new form TextFieldWithHint
