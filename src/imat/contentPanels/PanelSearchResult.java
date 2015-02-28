@@ -112,23 +112,26 @@ public class PanelSearchResult extends javax.swing.JPanel {
      * @param products what products to show
      */
     private void showDetailsResultsGrouped(List<Product> products) {
+        
         clearPreviousItems();
         int rows = products.size();
         int amountOfCategories = 0;
         ProductCategory category = null;
+        
+    
         for (Product product : products) {
-
+            
             if (!(category == product.getCategory())) {
-
                 category = product.getCategory();
                 detailsView.add(new JLabel(category.toString()));
                 rows++;
                 amountOfCategories++;
             }
-
+            
             detailsView.add(new DetailItem(product));
         }
-
+            
+            
         detailsView.setLayout(new GridLayout(rows, 1));
 
         int height = products.size() * 90 + amountOfCategories * 90;
@@ -136,7 +139,10 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
         detailsView.setPreferredSize(dim);
         this.revalidate();
+      
     }
+    
+    
 
     /**
      * create a list of gridresults and put them in results.

@@ -41,6 +41,8 @@ public class PanelSearch extends javax.swing.JPanel {
         SearchInput.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N
         SearchInput.setForeground(new java.awt.Color(102, 102, 102));
         SearchInput.setText("Sök...");
+        SearchInput.setToolTipText("Skriv in produktnamn.");
+        SearchInput.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 15, 1, 1));
         SearchInput.setPreferredSize(new java.awt.Dimension(57, 40));
         SearchInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

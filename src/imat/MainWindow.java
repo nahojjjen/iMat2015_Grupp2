@@ -38,12 +38,21 @@ public class MainWindow extends javax.swing.JFrame {
      */
     public MainWindow() {
         initComponents();
+        cacheItems();
         addModules();
         showLogo();
         fixColors();
         setIcons();
         this.setTitle("iMat");
 
+    }
+    
+    /**
+     * loads all items in memory when app starts, makes first 
+     * result load 0.5 seconds faster.
+     */
+   private void  cacheItems(){
+        showSearch(Model.doSearch(""));
     }
 
     
