@@ -10,6 +10,7 @@ import imat.panels.PanelNavigation;
 import imat.panels.subItems.DetailItem;
 import imat.panels.subItems.GridItem;
 import imat.panels.subItems.ListItem;
+import imat.panels.subItems.NoResultsPanel;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -35,22 +36,36 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
     }
 
+    /**
+     * show all items beloning to multiple categories used by navigation buttons
+     *
+     * @param categories
+     * @param i bad hack, used so that method arguments dont collide with
+     * list<product>
+     */
     public PanelSearchResult(List<ProductCategory> categories, int i) {
         List<Product> list = Model.doSearch("");
         List<Product> categoryList = Model.doSearch("dirtyhacksaredirty!!!");
         for (Product product : list) {
-            for(ProductCategory category:categories){
-                 if (product.getCategory() == category) {
-                categoryList.add(product);
+            for (ProductCategory category : categories) {
+                if (product.getCategory() == category) {
+                    categoryList.add(product);
+                }
             }
-            }
-           
+
         }
         products = categoryList;
         initComponents();
 
     }
+
+    /**
+     * Shows a category
+     *
+     * @param category
+     */
     public PanelSearchResult(ProductCategory category) {
+        clearPreviousItems();
         List<Product> list = Model.doSearch("");
         List<Product> categoryList = Model.doSearch("dirtyhacksaredirty!!!");
         for (Product product : list) {
@@ -63,6 +78,9 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
     }
 
+    /**
+     * clears all previous items in the searchresults
+     */
     private void clearPreviousItems() {
         gridView.removeAll();
         listView.removeAll();
@@ -70,7 +88,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
     }
 
     /**
-     * create the list of detailitems and put them in the stuff
+     * create the list of detailitems and put them in the retults
      *
      * @param products what products to show
      */
@@ -89,7 +107,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
     }
 
     /**
-     * create the list of detailitems and put them in the stuff
+     * create the list of detailitems and put them in the results
      *
      * @param products what products to show
      */
@@ -280,18 +298,37 @@ public class PanelSearchResult extends javax.swing.JPanel {
         loadResult(tabPanel.getSelectedIndex());
     }//GEN-LAST:event_tabPanelStateChanged
 
+    /**
+     * makes the search load when the user clicks, instead of loading them all
+     * at once when the user loads.
+     *
+     * @param i which tab to load, starting at index 0
+     */
     private void loadResult(int i) {
-        switch (i) {
-            case (0):
-                showDetailsResultsGrouped(products);
-                break;
-            case (1):
-                showListResults(products);
-                break;
-            case (2):
-                showGridResults(products);
-                break;
+        if (products.size() > 0) {
+            switch (i) {
+                case (0):
+                    showDetailsResultsGrouped(products);
+                    break;
+                case (1):
+                    showListResults(products);
+                    break;
+                case (2):
+                    showGridResults(products);
+                    break;
+            }
 
+        } else {
+            clearPreviousItems();
+            detailsView.setLayout(new FlowLayout());
+            listView.setLayout(new FlowLayout());
+            gridView.setLayout(new FlowLayout());
+            
+            detailsView.add(new NoResultsPanel());
+            listView.add(new NoResultsPanel());
+            gridView.add(new NoResultsPanel());
+            revalidate();
+            repaint();
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
