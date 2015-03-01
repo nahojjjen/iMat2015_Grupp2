@@ -5,12 +5,12 @@
  */
 package imat.panels;
 
-import imat.contentPanels.PanelSearchResult;
 import imat.contentPanels.PanelHome;
 import imat.contentPanels.PanelAccountInfo;
 import imat.IMat;
 import imat.contentPanels.PanelCreditCard;
 import imat.contentPanels.PanelEarlierCarts;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
 
 /**
  *
@@ -88,7 +88,12 @@ public class PanelNavigation extends javax.swing.JPanel {
         });
         add(jButton5);
 
-        jButton6.setText("empty");
+        jButton6.setText("Reset app");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         add(jButton6);
     }// </editor-fold>//GEN-END:initComponents
 
@@ -113,6 +118,10 @@ public class PanelNavigation extends javax.swing.JPanel {
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         IMat.getWindow().setContent(new PanelCreditCard());
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+       IMatDataHandler.getInstance().reset();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

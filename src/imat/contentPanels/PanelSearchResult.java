@@ -33,6 +33,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
     public PanelSearchResult(List<Product> list) {
         products = list;
         initComponents();
+        fixScroll();
 
     }
 
@@ -59,6 +60,15 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
     }
 
+    /**
+     * makes the scrollspeed about 10 times faster
+     */
+    private void fixScroll(){
+        int scrollSpeed = 50;
+        detailsViewWrapper.getVerticalScrollBar().setUnitIncrement(scrollSpeed);
+        gridViewWrapper.getVerticalScrollBar().setUnitIncrement(scrollSpeed);
+        listViewWrapper.getVerticalScrollBar().setUnitIncrement(scrollSpeed);
+    }
     /**
      * Shows a category
      *
@@ -250,6 +260,8 @@ public class PanelSearchResult extends javax.swing.JPanel {
             }
         });
 
+        detailsViewWrapper.setBorder(null);
+
         javax.swing.GroupLayout detailsViewLayout = new javax.swing.GroupLayout(detailsView);
         detailsView.setLayout(detailsViewLayout);
         detailsViewLayout.setHorizontalGroup(
@@ -267,30 +279,34 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
         tabPanel.addTab("Detaljvy", detailsViewWrapper);
 
+        listViewWrapper.setBorder(null);
+
         javax.swing.GroupLayout listViewLayout = new javax.swing.GroupLayout(listView);
         listView.setLayout(listViewLayout);
         listViewLayout.setHorizontalGroup(
             listViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+            .addGap(0, 672, Short.MAX_VALUE)
         );
         listViewLayout.setVerticalGroup(
             listViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
+            .addGap(0, 592, Short.MAX_VALUE)
         );
 
         listViewWrapper.setViewportView(listView);
 
         tabPanel.addTab("Listvy", listViewWrapper);
 
+        gridViewWrapper.setBorder(null);
+
         javax.swing.GroupLayout gridViewLayout = new javax.swing.GroupLayout(gridView);
         gridView.setLayout(gridViewLayout);
         gridViewLayout.setHorizontalGroup(
             gridViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 670, Short.MAX_VALUE)
+            .addGap(0, 672, Short.MAX_VALUE)
         );
         gridViewLayout.setVerticalGroup(
             gridViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 590, Short.MAX_VALUE)
+            .addGap(0, 592, Short.MAX_VALUE)
         );
 
         gridViewWrapper.setViewportView(gridView);
