@@ -10,6 +10,7 @@ import imat.contentPanels.PanelAccountInfo;
 import imat.IMat;
 import imat.contentPanels.PanelCreditCard;
 import imat.contentPanels.PanelEarlierCarts;
+import imat.contentPanels.PanelSearchResult;
 import se.chalmers.ait.dat215.project.IMatDataHandler;
 
 /**
@@ -80,7 +81,7 @@ public class PanelNavigation extends javax.swing.JPanel {
         });
         add(jButton4);
 
-        jButton5.setText("Kort");
+        jButton5.setText("Favoriter");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -116,7 +117,7 @@ public class PanelNavigation extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        IMat.getWindow().setContent(new PanelCreditCard());
+        IMat.getWindow().setContent(new PanelSearchResult("fav"));
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed

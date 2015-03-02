@@ -59,6 +59,22 @@ public class PanelSearchResult extends javax.swing.JPanel {
         initComponents();
 
     }
+    
+        public PanelSearchResult(String fav) {
+        List<Product> list = Model.doSearch("");
+        List<Product> favoriteList = Model.doSearch("dirtyhacksaredirty!!!");
+        for (Product product : list) {
+           
+                if (Model.isFavorited(product)) {
+                    favoriteList.add(product);
+                }
+            }
+
+        products = favoriteList;
+        initComponents();
+        }
+
+    
 
     /**
      * makes the scrollspeed about 10 times faster
