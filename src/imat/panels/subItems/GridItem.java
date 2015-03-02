@@ -24,6 +24,7 @@ public class GridItem extends javax.swing.JPanel {
     public GridItem(Product product) {
         initComponents();
         this.product = product;
+        productName.setText(product.getName());
         imageLabel.setIcon(Model.getImage(product, 200 , 200));
         priceLabel.setText(String.valueOf(product.getPrice())+ " " + product.getUnit());
         
@@ -46,6 +47,7 @@ public class GridItem extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        productName = new javax.swing.JLabel();
         imageLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         priceLabel = new javax.swing.JLabel();
@@ -54,16 +56,15 @@ public class GridItem extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
+        productName.setText("Produktnamn");
+        add(productName, java.awt.BorderLayout.NORTH);
+
         imageLabel.setText("  ");
         add(imageLabel, java.awt.BorderLayout.CENTER);
 
-        jPanel1.setLayout(new java.awt.BorderLayout());
-
         priceLabel.setText("Pris kr/kg");
-        jPanel1.add(priceLabel, java.awt.BorderLayout.WEST);
 
         amountSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 99, 1));
-        jPanel1.add(amountSpinner, java.awt.BorderLayout.CENTER);
 
         buyButton.setText("köp");
         buyButton.addActionListener(new java.awt.event.ActionListener() {
@@ -71,16 +72,37 @@ public class GridItem extends javax.swing.JPanel {
                 buyButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(buyButton, java.awt.BorderLayout.EAST);
 
-        add(jPanel1, java.awt.BorderLayout.PAGE_END);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(priceLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addComponent(amountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(buyButton)
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buyButton)
+                    .addComponent(amountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        add(jPanel1, java.awt.BorderLayout.SOUTH);
     }// </editor-fold>//GEN-END:initComponents
 
     private void buyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyButtonActionPerformed
         int amount;
         amount = (int)amountSpinner.getValue();
         if (amount > 0){
-            //Model.getShoppingcart().addProduct(product, amount);
             ShoppingItem item = new ShoppingItem(product, amount);
             ModelAux.add(item);
         }else{
@@ -95,5 +117,6 @@ public class GridItem extends javax.swing.JPanel {
     private javax.swing.JLabel imageLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel priceLabel;
+    private javax.swing.JLabel productName;
     // End of variables declaration//GEN-END:variables
 }
