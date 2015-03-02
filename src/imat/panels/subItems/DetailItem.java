@@ -9,6 +9,7 @@ import imat.IMat;
 import imat.Model;
 import imat.ModelAux;
 import java.awt.Dimension;
+import javax.swing.ImageIcon;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -19,6 +20,8 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
 public class DetailItem extends javax.swing.JPanel {
 
     private Product product;
+    private ImageIcon favIcon = new ImageIcon("src/resources/fav.png");
+    private ImageIcon unFavIcon = new ImageIcon("src/resources/unfav.png");
     
         /**
      * Creates new form DetailItem
@@ -28,8 +31,23 @@ public class DetailItem extends javax.swing.JPanel {
         this.product = product;
         initiate();
         fixColor();
+        fixFav();
     }
     
+    private void fixFav(){
+        if (Model.isFavorited(product)){
+                    favoriteLabel.setIcon(favIcon);
+        }
+    }
+    private void toggleFavorite(){
+        if (Model.isFavorited(product)){
+            Model.removeFavorite(product);
+            favoriteLabel.setIcon(unFavIcon);
+        }else{
+            Model.addFavorite(product);
+            favoriteLabel.setIcon(favIcon);
+        }
+    }
     private void fixColor(){
         jPanel1.setBackground(IMat.getForegroundColor());
         jPanel2.setBackground(IMat.getForegroundColor());
@@ -66,6 +84,7 @@ public class DetailItem extends javax.swing.JPanel {
         addButton = new javax.swing.JButton();
         inputField = new javax.swing.JSpinner();
         warningLabel = new javax.swing.JLabel();
+        favoriteLabel = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         setLayout(new java.awt.BorderLayout());
@@ -92,9 +111,10 @@ public class DetailItem extends javax.swing.JPanel {
         jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         jPanel2.setLayout(null);
 
+        priceLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         priceLabel.setText("jLabel1");
         jPanel2.add(priceLabel);
-        priceLabel.setBounds(250, 0, 90, 14);
+        priceLabel.setBounds(260, 10, 130, 14);
 
         nameLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         nameLabel.setText("jLabel1");
@@ -113,15 +133,25 @@ public class DetailItem extends javax.swing.JPanel {
             }
         });
         jPanel2.add(addButton);
-        addButton.setBounds(239, 50, 90, 33);
+        addButton.setBounds(310, 50, 90, 33);
 
         inputField.setModel(new javax.swing.SpinnerNumberModel(1, 1, 99, 1));
         jPanel2.add(inputField);
-        inputField.setBounds(170, 50, 39, 33);
+        inputField.setBounds(270, 50, 39, 33);
 
         warningLabel.setText("   ");
         jPanel2.add(warningLabel);
         warningLabel.setBounds(195, 47, 9, 33);
+
+        favoriteLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/unfav.png"))); // NOI18N
+        favoriteLabel.setToolTipText("Favorite");
+        favoriteLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                favoriteLabelMouseClicked(evt);
+            }
+        });
+        jPanel2.add(favoriteLabel);
+        favoriteLabel.setBounds(10, 64, 15, 20);
 
         jSplitPane1.setRightComponent(jPanel2);
 
@@ -141,10 +171,15 @@ public class DetailItem extends javax.swing.JPanel {
             
     }//GEN-LAST:event_addButtonActionPerformed
 
+    private void favoriteLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_favoriteLabelMouseClicked
+      toggleFavorite();
+    }//GEN-LAST:event_favoriteLabelMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
     private javax.swing.JLabel descriptionLabel;
+    private javax.swing.JLabel favoriteLabel;
     private javax.swing.JLabel imageLabel;
     private javax.swing.JSpinner inputField;
     private javax.swing.JPanel jPanel1;
