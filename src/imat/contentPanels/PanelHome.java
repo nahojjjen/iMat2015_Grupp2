@@ -21,12 +21,12 @@ public class PanelHome extends javax.swing.JPanel {
     public PanelHome() {
         initComponents();
         if (IMat.isLoggedin()) {
-
             bodyPanel.add(new loggedInHome());
-
         } else {
             bodyPanel.add(new loggedOutHome());
         }
+        jPanel1.setBackground(IMat.getAccentColor());
+        bodyPanel.setBackground(IMat.getForegroundColor());
     }
 
     /**
@@ -45,12 +45,15 @@ public class PanelHome extends javax.swing.JPanel {
 
         setLayout(new java.awt.BorderLayout());
 
+        jSplitPane1.setBorder(null);
         jSplitPane1.setDividerLocation(60);
         jSplitPane1.setDividerSize(0);
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
+        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Välkommen till iMat!");
         jPanel1.add(jLabel1, java.awt.BorderLayout.CENTER);

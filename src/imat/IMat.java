@@ -18,8 +18,9 @@ import se.chalmers.ait.dat215.project.*;
 public class IMat {
 
     private static final Color headerColor = new Color(80,150,240);
-    private static final Color headerShadowColor = new Color(80,80,160);
-    private static final Color highlightButtonColor = new Color(200,200,255);
+    //private static final Color headerShadowColor = new Color(80,80,160);
+    //private static final Color highlightButtonColor = new Color(200,200,255);
+    private static final Color redAccent = new Color(80,200,80);
     
     private static final Color backgroundColor = new Color(240,240,240);
     private static final Color averageColor = new Color(245,245,245);
@@ -66,19 +67,7 @@ public class IMat {
         return headerColor;
     }
 
-    /**
-     * @return the headerShadowColor
-     */
-    public static Color getHeaderShadowColor() {
-        return headerShadowColor;
-    }
 
-    /**
-     * @return the highlightButtonColor
-     */
-    public static Color getHighlightButtonColor() {
-        return highlightButtonColor;
-    }
 
     /**
      * @return the backgroundColor
@@ -87,6 +76,14 @@ public class IMat {
         return backgroundColor;
     }
 
+       /**
+     * @return the backgroundColor
+     */
+    public static Color getAccentColor() {
+        return redAccent;
+    }
+
+    
     /**
      * @return the averageColor
      */

@@ -69,6 +69,8 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         postAddressErrorLabel = new javax.swing.JLabel();
         careOfErrorLabel = new javax.swing.JLabel();
 
+        setOpaque(false);
+
         firstNameLabel.setText("Förnamn:");
 
         lastNameLabel.setText("Efternamn:");

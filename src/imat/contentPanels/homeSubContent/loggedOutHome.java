@@ -34,6 +34,8 @@ public class loggedOutHome extends javax.swing.JPanel {
         jButton6 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
+        setOpaque(false);
+
         jButton3.setText("Erbjudanden");
 
         jButton6.setText("Vanliga Frågor");

@@ -39,6 +39,8 @@ public class loggedInHome extends javax.swing.JPanel {
         jButton3 = new javax.swing.JButton();
         jButtonFAQ = new javax.swing.JButton();
 
+        setOpaque(false);
+
         jButton1.setText("Pågående Beställning");
 
         jButtonAccoutInfo.setText("Mitt Konto");

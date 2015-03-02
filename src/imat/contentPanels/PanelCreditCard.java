@@ -59,6 +59,8 @@ public class PanelCreditCard extends javax.swing.JPanel {
         cardNumberTextField = new javax.swing.JFormattedTextField();
         securityNumberTextField = new javax.swing.JFormattedTextField();
 
+        setOpaque(false);
+
         visaMasterRadioButton.setText("VISA/MasterCard");
         visaMasterRadioButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -5,6 +5,7 @@
  */
 package imat.contentPanels;
 
+import imat.IMat;
 import imat.Model;
 import imat.panels.subItems.CartHistory;
 import java.awt.GridLayout;
@@ -35,7 +36,7 @@ public class PanelEarlierCarts extends javax.swing.JPanel {
             
         }
         this.revalidate();
-        
+        earlierOrderLabel.setBackground(IMat.getAccentColor());
     }
 
     /**
@@ -47,55 +48,45 @@ public class PanelEarlierCarts extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         cartList = new javax.swing.JPanel();
+        earlierOrderLabel = new javax.swing.JLabel();
 
+        setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setText("Dina tidigare kundvagnar:");
+        jScrollPane1.setBorder(null);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(353, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addContainerGap(75, Short.MAX_VALUE))
-        );
-
-        add(jPanel1, java.awt.BorderLayout.PAGE_START);
+        cartList.setOpaque(false);
 
         javax.swing.GroupLayout cartListLayout = new javax.swing.GroupLayout(cartList);
         cartList.setLayout(cartListLayout);
         cartListLayout.setHorizontalGroup(
             cartListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 485, Short.MAX_VALUE)
+            .addGap(0, 608, Short.MAX_VALUE)
         );
         cartListLayout.setVerticalGroup(
             cartListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 351, Short.MAX_VALUE)
+            .addGap(0, 536, Short.MAX_VALUE)
         );
 
         jScrollPane1.setViewportView(cartList);
 
         add(jScrollPane1, java.awt.BorderLayout.CENTER);
+
+        earlierOrderLabel.setBackground(new java.awt.Color(102, 255, 102));
+        earlierOrderLabel.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        earlierOrderLabel.setForeground(new java.awt.Color(255, 255, 255));
+        earlierOrderLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        earlierOrderLabel.setText("Tidigare beställningar:");
+        earlierOrderLabel.setOpaque(true);
+        add(earlierOrderLabel, java.awt.BorderLayout.PAGE_START);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel cartList;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel earlierOrderLabel;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

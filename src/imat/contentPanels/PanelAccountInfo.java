@@ -50,6 +50,8 @@ public class PanelAccountInfo extends javax.swing.JPanel {
         passOk = new javax.swing.JLabel();
         emailTextField = new javax.swing.JTextField();
 
+        setOpaque(false);
+
         emailLabel.setText("E-post:");
 
         repeatEmailLabel.setText("Repetera e-post:");
