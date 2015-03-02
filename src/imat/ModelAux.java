@@ -110,21 +110,21 @@ public class ModelAux {
         //get the current items in the cart as a list
         ShoppingCart cart = Model.getShoppingcart();
         List<ShoppingItem> cartList = cart.getItems();
+        
+        double resultAmount=0;
         //cycle through all items, and remove the item that fits
         for (ShoppingItem sci : cartList) {
             if (sci.getProduct().getProductId() == item.getProductId()) {
                 double currentAmount = sci.getAmount();
-                double resultAmount = currentAmount - removeAmount;
-
+                resultAmount = currentAmount - removeAmount;
                 cart.removeItem(sci);
-                
-                // only add it back if there are some items left
+                break;
+            }
+        }
+        // only add it back if there are some items left
                 if (resultAmount > 0){
                     cart.addItem(new ShoppingItem(item, resultAmount));
                 }
-               
-            }
-        }
 
     }
 
