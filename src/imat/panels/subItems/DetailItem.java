@@ -22,8 +22,8 @@ public class DetailItem extends javax.swing.JPanel {
     private Product product;
     private ImageIcon favIcon = new ImageIcon("src/resources/fav.png");
     private ImageIcon unFavIcon = new ImageIcon("src/resources/unfav.png");
-    
-        /**
+
+    /**
      * Creates new form DetailItem
      */
     public DetailItem(Product product) {
@@ -32,32 +32,37 @@ public class DetailItem extends javax.swing.JPanel {
         initiate();
         fixColor();
         fixFav();
+        refreshRemoveButton();
     }
-    
-    private void fixFav(){
-        if (Model.isFavorited(product)){
-                    favoriteLabel.setIcon(favIcon);
+
+    private void fixFav() {
+        if (Model.isFavorited(product)) {
+            favoriteLabel.setIcon(favIcon);
         }
     }
-    private void toggleFavorite(){
-        if (Model.isFavorited(product)){
+
+    private void toggleFavorite() {
+        if (Model.isFavorited(product)) {
             Model.removeFavorite(product);
             favoriteLabel.setIcon(unFavIcon);
-        }else{
+        } else {
             Model.addFavorite(product);
             favoriteLabel.setIcon(favIcon);
         }
     }
-    private void fixColor(){
+
+    private void fixColor() {
         jPanel1.setBackground(IMat.getForegroundColor());
         jPanel2.setBackground(IMat.getForegroundColor());
     }
-    private void initiate(){
-        imageLabel.setIcon(Model.getImage(product,80,80));
+
+    private void initiate() {
+        imageLabel.setIcon(Model.getImage(product, 80, 80));
         nameLabel.setText(Model.getName(product));
-        priceLabel.setText(String.valueOf(product.getPrice() +" " +  product.getUnit()));
-        
+        priceLabel.setText(String.valueOf(product.getPrice() + " " + product.getUnit()));
+
     }
+
     /**
      * Creates new form DetailItem
      */
@@ -85,6 +90,7 @@ public class DetailItem extends javax.swing.JPanel {
         inputField = new javax.swing.JSpinner();
         warningLabel = new javax.swing.JLabel();
         favoriteLabel = new javax.swing.JLabel();
+        removeButton = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         setLayout(new java.awt.BorderLayout());
@@ -153,6 +159,15 @@ public class DetailItem extends javax.swing.JPanel {
         jPanel2.add(favoriteLabel);
         favoriteLabel.setBounds(10, 64, 15, 20);
 
+        removeButton.setText("Ta Bort");
+        removeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeButtonActionPerformed(evt);
+            }
+        });
+        jPanel2.add(removeButton);
+        removeButton.setBounds(180, 50, 90, 30);
+
         jSplitPane1.setRightComponent(jPanel2);
 
         add(jSplitPane1, java.awt.BorderLayout.CENTER);
@@ -160,21 +175,53 @@ public class DetailItem extends javax.swing.JPanel {
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
         int amount;
-        amount = (int)inputField.getValue();
-        if (amount > 0){
+        amount = (int) inputField.getValue();
+        if (amount > 0) {
             //Model.getShoppingcart().addProduct(product, amount);
             ShoppingItem item = new ShoppingItem(product, amount);
             ModelAux.add(item);
-        }else{
+        } else {
             warningLabel.setText("t.ex. 1");
         }
-            
+        refreshRemoveButton();
+
     }//GEN-LAST:event_addButtonActionPerformed
 
+    /**
+     * calls togglefavorite
+     * @param evt 
+     */
     private void favoriteLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_favoriteLabelMouseClicked
-      toggleFavorite();
+        toggleFavorite();
     }//GEN-LAST:event_favoriteLabelMouseClicked
 
+    /**
+     * 
+     */
+    private void refreshRemoveButton() {
+        if (ModelAux.getAmountInCart(product) == 0) {
+            showRemoveButton(false);
+        } else {
+            showRemoveButton(true);
+        }
+    }
+    
+    /**
+     * removes the specified amount of items from the cart
+     * @param evt 
+     */
+    private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
+        int amount = (int) inputField.getValue();
+        
+        ModelAux.remove(product, amount);
+        
+        refreshRemoveButton();
+
+    }//GEN-LAST:event_removeButtonActionPerformed
+
+    private void showRemoveButton(boolean is) {
+        removeButton.setVisible(is);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
@@ -187,6 +234,7 @@ public class DetailItem extends javax.swing.JPanel {
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel priceLabel;
+    private javax.swing.JButton removeButton;
     private javax.swing.JLabel warningLabel;
     // End of variables declaration//GEN-END:variables
 }
