@@ -54,6 +54,7 @@ public class PanelNavigationExpanded extends javax.swing.JPanel {
         jButton6 = new javax.swing.JButton();
 
         setMaximumSize(new java.awt.Dimension(400, 400));
+        setOpaque(false);
         setPreferredSize(new java.awt.Dimension(220, 400));
         setLayout(new java.awt.GridLayout(12, 0));
 

@@ -36,6 +36,7 @@ public class PanelSearch extends javax.swing.JPanel {
 
         SearchInput = new javax.swing.JTextField();
 
+        setOpaque(false);
         setPreferredSize(new java.awt.Dimension(120, 400));
 
         SearchInput.setFont(new java.awt.Font("Segoe UI Light", 0, 24)); // NOI18N

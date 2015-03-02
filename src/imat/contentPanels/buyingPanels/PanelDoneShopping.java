@@ -32,6 +32,8 @@ public class PanelDoneShopping extends javax.swing.JPanel {
         jTextArea1 = new javax.swing.JTextArea();
         jLabel1 = new javax.swing.JLabel();
 
+        setOpaque(false);
+
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setText("Tack för din beställning!");
 

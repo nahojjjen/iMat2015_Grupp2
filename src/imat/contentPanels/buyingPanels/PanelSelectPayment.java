@@ -43,11 +43,14 @@ public class PanelSelectPayment extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         gridHolder = new javax.swing.JPanel();
 
+        setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/s2.png"))); // NOI18N
         add(jLabel1, java.awt.BorderLayout.PAGE_START);
+
+        jPanel1.setOpaque(false);
 
         jButton1.setText("Bekräfta köp");
         jButton1.setPreferredSize(new java.awt.Dimension(75, 25));
@@ -56,6 +59,11 @@ public class PanelSelectPayment extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        scroller.setBorder(null);
+        scroller.setOpaque(false);
+
+        jPanel2.setOpaque(false);
 
         gridHolder.setLayout(new java.awt.GridLayout(2, 1));
         jPanel2.add(gridHolder);

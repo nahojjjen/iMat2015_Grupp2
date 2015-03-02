@@ -236,11 +236,14 @@ public class PanelSearchResult extends javax.swing.JPanel {
         gridViewWrapper = new javax.swing.JScrollPane();
         gridView = new javax.swing.JPanel();
 
+        setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
+        jPanel1.setOpaque(false);
         jPanel1.setPreferredSize(new java.awt.Dimension(677, 40));
 
         groupCheckbox.setText("Gruppera kategorier");
+        groupCheckbox.setOpaque(false);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Populäritet", "Alfabetisk", "Pris" }));
 
@@ -277,6 +280,9 @@ public class PanelSearchResult extends javax.swing.JPanel {
         });
 
         detailsViewWrapper.setBorder(null);
+        detailsViewWrapper.setOpaque(false);
+
+        jPanel2.setOpaque(false);
 
         javax.swing.GroupLayout detailsViewLayout = new javax.swing.GroupLayout(detailsView);
         detailsView.setLayout(detailsViewLayout);
@@ -296,6 +302,9 @@ public class PanelSearchResult extends javax.swing.JPanel {
         tabPanel.addTab("Detaljvy", detailsViewWrapper);
 
         listViewWrapper.setBorder(null);
+        listViewWrapper.setOpaque(false);
+
+        listView.setOpaque(false);
 
         javax.swing.GroupLayout listViewLayout = new javax.swing.GroupLayout(listView);
         listView.setLayout(listViewLayout);
@@ -313,6 +322,9 @@ public class PanelSearchResult extends javax.swing.JPanel {
         tabPanel.addTab("Listvy", listViewWrapper);
 
         gridViewWrapper.setBorder(null);
+        gridViewWrapper.setOpaque(false);
+
+        gridView.setOpaque(false);
 
         javax.swing.GroupLayout gridViewLayout = new javax.swing.GroupLayout(gridView);
         gridView.setLayout(gridViewLayout);

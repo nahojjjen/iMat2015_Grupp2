@@ -43,12 +43,14 @@ public class PanelHome extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         bodyPanel = new javax.swing.JPanel();
 
+        setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
         jSplitPane1.setBorder(null);
         jSplitPane1.setDividerLocation(60);
         jSplitPane1.setDividerSize(0);
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
+        jSplitPane1.setOpaque(false);
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
@@ -60,6 +62,7 @@ public class PanelHome extends javax.swing.JPanel {
 
         jSplitPane1.setTopComponent(jPanel1);
 
+        bodyPanel.setOpaque(false);
         bodyPanel.setLayout(new java.awt.BorderLayout());
         jSplitPane1.setRightComponent(bodyPanel);
 

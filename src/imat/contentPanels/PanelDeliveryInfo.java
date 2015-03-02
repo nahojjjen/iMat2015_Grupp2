@@ -71,6 +71,8 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
 
         setOpaque(false);
 
+        jPanel1.setOpaque(false);
+
         firstNameLabel.setText("Förnamn:");
 
         lastNameLabel.setText("Efternamn:");

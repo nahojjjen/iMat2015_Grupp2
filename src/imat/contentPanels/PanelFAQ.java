@@ -70,6 +70,8 @@ public class PanelFAQ extends javax.swing.JPanel {
         jLabel28 = new javax.swing.JLabel();
         jLabelLinkToOrders = new javax.swing.JLabel();
 
+        setOpaque(false);
+
         jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel2.setText("Betalningar");
 

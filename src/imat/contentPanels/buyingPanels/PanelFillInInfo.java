@@ -50,6 +50,8 @@ public class PanelFillInInfo extends javax.swing.JPanel {
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
+        setOpaque(false);
+
         jProgressBar1.setValue(80);
 
         buyButton.setText("Bekräfta köp");
@@ -59,6 +61,7 @@ public class PanelFillInInfo extends javax.swing.JPanel {
             }
         });
 
+        paymentFillIn.setOpaque(false);
         paymentFillIn.setLayout(new java.awt.GridLayout(1, 2));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

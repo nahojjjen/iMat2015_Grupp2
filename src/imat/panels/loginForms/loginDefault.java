@@ -71,9 +71,11 @@ public class loginDefault extends javax.swing.JPanel {
         passwordInput = new javax.swing.JPasswordField();
         okLoginButton = new javax.swing.JButton();
 
+        setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
         buttonPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 20, 0, 20));
+        buttonPanel.setOpaque(false);
         buttonPanel.setPreferredSize(new java.awt.Dimension(300, 40));
         buttonPanel.setLayout(new java.awt.GridLayout(1, 2, 20, 10));
 
@@ -96,6 +98,7 @@ public class loginDefault extends javax.swing.JPanel {
         add(buttonPanel, java.awt.BorderLayout.NORTH);
 
         formPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 20, 20, 20));
+        formPanel.setOpaque(false);
         formPanel.setPreferredSize(new java.awt.Dimension(300, 80));
         formPanel.setLayout(new java.awt.GridLayout(2, 2, 5, 5));
 
@@ -109,6 +112,8 @@ public class loginDefault extends javax.swing.JPanel {
             }
         });
         formPanel.add(usernameInput);
+
+        filler.setOpaque(false);
 
         javax.swing.GroupLayout fillerLayout = new javax.swing.GroupLayout(filler);
         filler.setLayout(fillerLayout);

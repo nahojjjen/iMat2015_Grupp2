@@ -66,6 +66,8 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         clearCartLabel = new javax.swing.JLabel();
         regretLabel = new javax.swing.JLabel();
 
+        setOpaque(false);
+
         jLabel1.setText("Kundvagn:");
 
         buyButton.setText("Gå till kassan");
@@ -82,6 +84,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
             }
         });
 
+        filler.setOpaque(false);
         filler.setPreferredSize(new java.awt.Dimension(220, 200));
 
         javax.swing.GroupLayout fillerLayout = new javax.swing.GroupLayout(filler);
@@ -92,10 +95,13 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         );
         fillerLayout.setVerticalGroup(
             fillerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 99, Short.MAX_VALUE)
+            .addGap(0, 102, Short.MAX_VALUE)
         );
 
         totalLabel.setText("jLabel2");
+
+        jScrollPane2.setBorder(null);
+        jScrollPane2.setOpaque(false);
 
         javax.swing.GroupLayout cartContentLayout = new javax.swing.GroupLayout(cartContent);
         cartContent.setLayout(cartContentLayout);
@@ -178,7 +184,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
                     .addComponent(detailButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(filler, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                .addComponent(filler, javax.swing.GroupLayout.DEFAULT_SIZE, 102, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents

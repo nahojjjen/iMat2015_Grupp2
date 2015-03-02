@@ -68,12 +68,12 @@ public class MainWindow extends javax.swing.JFrame {
         accountPanel.setBackground(IMat.getHeaderColor());
         
         //body
-        navigationPanel.setBackground(IMat.getAverageColor());
-        cartPanel.setBackground(IMat.getAverageColor());
+        navigationPanel.setBackground(IMat.getBackgroundColor());
+        cartPanel.setBackground(IMat.getBackgroundColor());
         contentPanel.setBackground(IMat.getAverageColor());
         
         //behind body
-        spacec.setBackground(IMat.getAverageColor());
+        spacec.setBackground(IMat.getBackgroundColor());
         
     }
     
@@ -261,6 +261,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         logoPanel.setBackground(new java.awt.Color(102, 153, 255));
         logoPanel.setMinimumSize(new java.awt.Dimension(120, 120));
+        logoPanel.setOpaque(false);
         logoPanel.setPreferredSize(new java.awt.Dimension(300, 120));
         logoPanel.setLayout(new java.awt.BorderLayout());
         headerPanel.add(logoPanel, java.awt.BorderLayout.WEST);

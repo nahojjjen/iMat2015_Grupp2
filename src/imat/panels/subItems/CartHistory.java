@@ -5,7 +5,9 @@
  */
 package imat.panels.subItems;
 
+import java.awt.Color;
 import java.util.List;
+import javax.swing.JPanel;
 import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -14,8 +16,10 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  * @author Johan Swanberg
  */
 public class CartHistory extends javax.swing.JPanel {
-
+    private Color zebra1 = new Color(245,245,245);
+    private Color zebra2 = new Color(250,250,250);
     private Order order;
+    private static boolean zebra = false;
     /**
      * Creates new form CartHistory
      */
@@ -23,8 +27,25 @@ public class CartHistory extends javax.swing.JPanel {
         initComponents();
         this.order = inputOrder;
         initLabels();
+        toggleZebra();
+        fixZebraColor();
+    }
+    
+    private void fixZebraColor(){
+        if(zebra){
+            this.setBackground(zebra1);
+        }else{
+            this.setBackground(zebra2);
+        }
     }
 
+    private void toggleZebra(){
+        if (zebra){
+            zebra = false;
+        }else{
+            zebra = true;
+        }
+    }
     private void initLabels(){
         dateLabel.setText(order.getDate().toString());
         orderIDLabel.setText(String.valueOf(order.getOrderNumber()));

@@ -49,12 +49,16 @@ public class PanelConfirm extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
+        setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/s1.png"))); // NOI18N
         add(jLabel1, java.awt.BorderLayout.PAGE_START);
 
+        holder.setOpaque(false);
+
+        cartViewer.setOpaque(false);
         cartViewer.setLayout(new java.awt.BorderLayout());
 
         jButton1.setText("Nästa");

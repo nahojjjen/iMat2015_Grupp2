@@ -57,6 +57,7 @@ public class PanelEarlierCarts extends javax.swing.JPanel {
 
         jScrollPane1.setBorder(null);
 
+        cartList.setBackground(new java.awt.Color(204, 204, 204));
         cartList.setOpaque(false);
 
         javax.swing.GroupLayout cartListLayout = new javax.swing.GroupLayout(cartList);
