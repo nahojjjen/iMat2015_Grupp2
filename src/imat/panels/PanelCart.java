@@ -7,6 +7,7 @@ package imat.panels;
 
 import imat.IMat;
 import imat.Model;
+import imat.ModelAux;
 import imat.contentPanels.buyingPanels.PanelConfirm;
 import imat.panels.subItems.CartItem;
 import imat.panels.subItems.FillerItem;
@@ -17,6 +18,7 @@ import java.util.List;
 import javax.swing.JLabel;
 import se.chalmers.ait.dat215.project.CartEvent;
 import se.chalmers.ait.dat215.project.Product;
+import se.chalmers.ait.dat215.project.ShoppingCart;
 import se.chalmers.ait.dat215.project.ShoppingCartListener;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -26,6 +28,7 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  */
 public class PanelCart extends javax.swing.JPanel implements ShoppingCartListener {
 
+    List<ShoppingItem> previousCart;
     /**
      * Creates new form PanelCart
      */
@@ -34,6 +37,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         Model.getShoppingcart().addShoppingCartListener(this);
         refreshCartContent();
         fixColor();
+        regretLabel.setVisible(false);
     }
 
     
@@ -59,6 +63,8 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel1 = new javax.swing.JPanel();
         cartContent = new javax.swing.JPanel();
+        clearCartLabel = new javax.swing.JLabel();
+        regretLabel = new javax.swing.JLabel();
 
         jLabel1.setText("Kundvagn:");
 
@@ -69,7 +75,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
             }
         });
 
-        detailButton.setText("Detaljer");
+        detailButton.setText("Se kundvagn");
         detailButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 detailButtonActionPerformed(evt);
@@ -86,7 +92,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         );
         fillerLayout.setVerticalGroup(
             fillerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 94, Short.MAX_VALUE)
+            .addGap(0, 99, Short.MAX_VALUE)
         );
 
         totalLabel.setText("jLabel2");
@@ -106,6 +112,23 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
 
         jScrollPane2.setViewportView(jPanel1);
 
+        clearCartLabel.setForeground(new java.awt.Color(153, 153, 153));
+        clearCartLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        clearCartLabel.setText("Rensa varukorg");
+        clearCartLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                clearCartLabelMouseClicked(evt);
+            }
+        });
+
+        regretLabel.setForeground(new java.awt.Color(153, 153, 153));
+        regretLabel.setText("Ångra");
+        regretLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                regretLabelMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -114,16 +137,19 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(detailButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(detailButton, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buyButton))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jLabel1)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(regretLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(clearCartLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(filler, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)))
+                        .addComponent(filler, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -138,8 +164,12 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(clearCartLabel)
+                        .addComponent(regretLabel)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(totalLabel)
@@ -148,7 +178,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
                     .addComponent(detailButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(filler, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE)
+                .addComponent(filler, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -167,15 +197,37 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         IMat.getWindow().showSearch(cart);
     }//GEN-LAST:event_detailButtonActionPerformed
 
+    private void clearCartLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearCartLabelMouseClicked
+        previousCart = new ArrayList<ShoppingItem>();
+        
+        List<ShoppingItem> currentCart = Model.getShoppingcart().getItems();
+        for (ShoppingItem sci:currentCart){
+            previousCart.add(sci);
+        }
+        
+        System.out.println(previousCart + "what is in previouscart step 1");
+        
+        Model.getShoppingcart().clear();
+           System.out.println(previousCart + "what is in previouscart step 1");
+        regretLabel.setVisible(true);
+    }//GEN-LAST:event_clearCartLabelMouseClicked
+
+    private void regretLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_regretLabelMouseClicked
+        regretLabel.setVisible(false);
+        ModelAux.setCart(previousCart);
+    }//GEN-LAST:event_regretLabelMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton buyButton;
     private javax.swing.JPanel cartContent;
+    private javax.swing.JLabel clearCartLabel;
     private javax.swing.JButton detailButton;
     private javax.swing.JPanel filler;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel regretLabel;
     private javax.swing.JLabel totalLabel;
     // End of variables declaration//GEN-END:variables
 

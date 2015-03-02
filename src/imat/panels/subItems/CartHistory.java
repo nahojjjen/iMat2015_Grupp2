@@ -36,13 +36,18 @@ public class CartHistory extends javax.swing.JPanel {
         for (ShoppingItem item : items){
             price += item.getTotal();
         }
-        priceLabel.setText(String.valueOf(price));
+        priceLabel.setText(String.valueOf((int)price));
     }
     private String getPartialOrder() {
         String returner = "";
         List<ShoppingItem> items = order.getItems();
+        int cntr = 0;
         for (ShoppingItem item : items){
             returner = returner + item.getProduct().getName() + ", " ;
+            cntr++;
+            if (cntr > 4){
+                break;
+            }
         }
         
         return returner;

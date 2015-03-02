@@ -127,5 +127,14 @@ public class ModelAux {
                 }
 
     }
+    
+    public static void setCart(List<ShoppingItem> newCart){
+        ShoppingCart currentCart = Model.getShoppingcart();
+        currentCart.clear();
+        for (ShoppingItem sci:newCart){
+            currentCart.addItem(sci);
+        }
+        
+    }
 
 }
