@@ -218,11 +218,11 @@ public class MainWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jSplitPane1 = new javax.swing.JSplitPane();
-        headerPanel = new HeaderPanel();
+        headerPanel = new imat.models.customPanelLogic.HeaderPanel();
         accountPanel = new javax.swing.JPanel();
         logoPanel = new javax.swing.JPanel();
         searchPanel = new javax.swing.JPanel();
-        bodyPanel = new javax.swing.JPanel();
+        bodyPanel = new imat.models.customPanelLogic.BodyPanel();
         cartPanel = new javax.swing.JPanel();
         navigationPanel = new javax.swing.JPanel();
         spacec = new javax.swing.JPanel();
