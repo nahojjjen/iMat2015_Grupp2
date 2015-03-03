@@ -19,6 +19,8 @@ public class loggedOutHome extends javax.swing.JPanel {
      */
     public loggedOutHome() {
         initComponents();
+        howTo.setEnabled(false);
+        offers.setEnabled(false);
     }
 
     /**
@@ -30,13 +32,13 @@ public class loggedOutHome extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton3 = new javax.swing.JButton();
+        offers = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        howTo = new javax.swing.JButton();
 
         setOpaque(false);
 
-        jButton3.setText("Erbjudanden");
+        offers.setText("Erbjudanden");
 
         jButton6.setText("Vanliga Frågor");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
@@ -45,7 +47,7 @@ public class loggedOutHome extends javax.swing.JPanel {
             }
         });
 
-        jButton2.setText("Hur gör man?");
+        howTo.setText("Hur gör man?");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -53,20 +55,20 @@ public class loggedOutHome extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(howTo, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
+                .addComponent(offers, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
                 .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(howTo, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(offers, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(285, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -77,8 +79,8 @@ public class loggedOutHome extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton howTo;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton offers;
     // End of variables declaration//GEN-END:variables
 }

@@ -21,11 +21,11 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButton2" min="-2" pref="196" max="-2" attributes="0"/>
+              <Component id="howTo" min="-2" pref="196" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButton6" min="-2" pref="184" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButton3" pref="184" max="32767" attributes="0"/>
+              <Component id="offers" pref="184" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -34,9 +34,9 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton2" alignment="3" min="-2" pref="148" max="-2" attributes="0"/>
+                  <Component id="howTo" alignment="3" min="-2" pref="148" max="-2" attributes="0"/>
                   <Component id="jButton6" alignment="3" min="-2" pref="148" max="-2" attributes="0"/>
-                  <Component id="jButton3" alignment="3" min="-2" pref="148" max="-2" attributes="0"/>
+                  <Component id="offers" alignment="3" min="-2" pref="148" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="285" max="32767" attributes="0"/>
           </Group>
@@ -44,7 +44,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="javax.swing.JButton" name="jButton3">
+    <Component class="javax.swing.JButton" name="offers">
       <Properties>
         <Property name="text" type="java.lang.String" value="Erbjudanden"/>
       </Properties>
@@ -57,7 +57,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton6ActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
+    <Component class="javax.swing.JButton" name="howTo">
       <Properties>
         <Property name="text" type="java.lang.String" value="Hur g&#xf6;r man?"/>
       </Properties>

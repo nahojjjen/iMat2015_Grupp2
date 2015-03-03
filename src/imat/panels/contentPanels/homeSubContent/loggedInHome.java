@@ -7,6 +7,7 @@ package imat.panels.contentPanels.homeSubContent;
 
 import imat.IMat;
 import imat.panels.contentPanels.PanelAccountInfo;
+import imat.panels.contentPanels.PanelEarlierCarts;
 import imat.panels.contentPanels.PanelFAQ;
 import imat.panels.contentPanels.PanelHome;
 
@@ -21,6 +22,9 @@ public class loggedInHome extends javax.swing.JPanel {
      */
     public loggedInHome() {
         initComponents();
+        currentOrders.setEnabled(false);
+        howTo.setEnabled(false);
+        offers.setEnabled(false);
     }
 
     /**
@@ -32,16 +36,16 @@ public class loggedInHome extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
+        currentOrders = new javax.swing.JButton();
         jButtonAccoutInfo = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        howTo = new javax.swing.JButton();
+        offers = new javax.swing.JButton();
         jButtonFAQ = new javax.swing.JButton();
 
         setOpaque(false);
 
-        jButton1.setText("Pågående Beställning");
+        currentOrders.setText("Pågående Beställning");
 
         jButtonAccoutInfo.setText("Mitt Konto");
         jButtonAccoutInfo.addActionListener(new java.awt.event.ActionListener() {
@@ -51,10 +55,25 @@ public class loggedInHome extends javax.swing.JPanel {
         });
 
         jButton5.setText("Tidigare Beställningar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Hur gör man?");
+        howTo.setText("Hur gör man?");
+        howTo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                howToActionPerformed(evt);
+            }
+        });
 
-        jButton3.setText("Erbjudanden");
+        offers.setText("Erbjudanden");
+        offers.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                offersActionPerformed(evt);
+            }
+        });
 
         jButtonFAQ.setText("Vanliga Frågor");
         jButtonFAQ.addActionListener(new java.awt.event.ActionListener() {
@@ -70,8 +89,8 @@ public class loggedInHome extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE))
+                    .addComponent(howTo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(currentOrders, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
@@ -79,7 +98,7 @@ public class loggedInHome extends javax.swing.JPanel {
                 .addGap(4, 4, 4)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(offers, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap())
                     .addComponent(jButtonAccoutInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
@@ -91,12 +110,12 @@ public class loggedInHome extends javax.swing.JPanel {
                     .addComponent(jButtonAccoutInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(currentOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(howTo, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButtonFAQ, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(offers, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(170, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -111,13 +130,25 @@ public class loggedInHome extends javax.swing.JPanel {
         IMat.getWindow().setContent(new PanelFAQ());
     }//GEN-LAST:event_jButtonFAQActionPerformed
 
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        IMat.getWindow().setContent(new PanelEarlierCarts());        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void howToActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_howToActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_howToActionPerformed
+
+    private void offersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_offersActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_offersActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton currentOrders;
+    private javax.swing.JButton howTo;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonAccoutInfo;
     private javax.swing.JButton jButtonFAQ;
+    private javax.swing.JButton offers;
     // End of variables declaration//GEN-END:variables
 }
