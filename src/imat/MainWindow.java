@@ -6,7 +6,6 @@
 package imat;
 
 import imat.models.Model;
-import imat.models.customPanelLogic.HeaderPanel;
 import imat.panels.contentPanels.PanelAccountInfo;
 import imat.panels.contentPanels.PanelHome;
 import imat.panels.contentPanels.PanelSearchResult;
@@ -23,6 +22,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import javax.imageio.ImageIO;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -35,6 +35,9 @@ import se.chalmers.ait.dat215.project.Product;
  */
 public class MainWindow extends javax.swing.JFrame {
 
+    private  JLabel imageLabel;
+    private ImageIcon logo;
+    private ImageIcon logoH;
     /**
      * Creates new form MainWindowdr
      */
@@ -59,7 +62,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     
     private void setIcons(){
-        ImageIcon icon = new ImageIcon("src/resources/stolenicon.png");
+        ImageIcon icon = new ImageIcon("src/resources/Icon.png");
         this.setIconImage(icon.getImage());
     }
     private void fixColors(){
@@ -85,14 +88,18 @@ public class MainWindow extends javax.swing.JFrame {
      */
     private void showLogo() {
         //show the logo
-        BufferedImage logo = null;
+        BufferedImage blogo = null;
+        BufferedImage blogoH = null;
         try {
-            logo = ImageIO.read(new File("src/resources/logo2.png"));
+            blogo = ImageIO.read(new File("src/resources/logo.png"));
+            blogoH = ImageIO.read(new File("src/resources/logoH.png"));
+            logo = new ImageIcon(blogo);
+            logoH = new ImageIcon(blogoH);
         } catch (IOException e) {
             System.out.println("failed to read image");
 
         }
-        JLabel imageLabel = new JLabel(new ImageIcon(logo));
+        imageLabel = new JLabel(logo);
         imageLabel.addMouseListener(new MouseListener() {
 
             @Override
@@ -110,10 +117,12 @@ public class MainWindow extends javax.swing.JFrame {
 
             @Override
             public void mouseEntered(MouseEvent e) {
+                imageLabel.setIcon(logoH);
             }
 
             @Override
             public void mouseExited(MouseEvent e) {
+                imageLabel.setIcon(logo);
             }
         });
         logoPanel.add(imageLabel);
@@ -236,7 +245,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         headerPanel.setBackground(new java.awt.Color(102, 153, 255));
         headerPanel.setMinimumSize(new java.awt.Dimension(100, 120));
-        headerPanel.setPreferredSize(new java.awt.Dimension(733, 120));
+        headerPanel.setPreferredSize(new java.awt.Dimension(733, 80));
         headerPanel.setLayout(new java.awt.BorderLayout());
 
         accountPanel.setBackground(new java.awt.Color(102, 153, 255));
@@ -251,7 +260,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
         accountPanelLayout.setVerticalGroup(
             accountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
+            .addGap(0, 119, Short.MAX_VALUE)
         );
 
         headerPanel.add(accountPanel, java.awt.BorderLayout.EAST);
@@ -266,6 +275,7 @@ public class MainWindow extends javax.swing.JFrame {
         searchPanel.setBackground(new java.awt.Color(102, 153, 255));
         searchPanel.setOpaque(false);
         searchPanel.setPreferredSize(new java.awt.Dimension(254, 120));
+        searchPanel.setRequestFocusEnabled(false);
 
         javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
         searchPanel.setLayout(searchPanelLayout);
@@ -295,7 +305,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
         cartPanelLayout.setVerticalGroup(
             cartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 878, Short.MAX_VALUE)
+            .addGap(0, 879, Short.MAX_VALUE)
         );
 
         bodyPanel.add(cartPanel, java.awt.BorderLayout.EAST);
@@ -311,7 +321,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
         navigationPanelLayout.setVerticalGroup(
             navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 878, Short.MAX_VALUE)
+            .addGap(0, 879, Short.MAX_VALUE)
         );
 
         bodyPanel.add(navigationPanel, java.awt.BorderLayout.WEST);

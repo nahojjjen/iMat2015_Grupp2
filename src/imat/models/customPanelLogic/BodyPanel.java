@@ -15,14 +15,15 @@ import javax.swing.JPanel;
  */
 public class BodyPanel extends JPanel{
     
+    int lineWidth = 4;
     @Override
     public void paintComponent(Graphics g){
         int width = this.getWidth();
         int height = this.getHeight();
-        g.setColor(new Color(200,200,200));
+        g.setColor(new Color(200,230,200));
        for (int x=0; x<width; x++){
            for (int y=0; y<height; y++){
-               if ((x+y)%3 == 1){
+               if ((x+y)%lineWidth == 1){
                    g.drawLine(x, y, x, y);
                }
            }

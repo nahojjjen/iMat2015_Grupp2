@@ -108,7 +108,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
      */
     private void clearPreviousItems() {
         gridView.removeAll();
-        listView.removeAll();
+        flowpanel.removeAll();
         detailsView.removeAll();
     }
 
@@ -194,14 +194,14 @@ public class PanelSearchResult extends javax.swing.JPanel {
      */
     private void showListResults(List<Product> products) {
         clearPreviousItems();
-        listView.setLayout(new GridLayout(products.size(), 1));
+        flowpanel.setLayout(new GridLayout(products.size(), 1));
         int height = products.size() * 50;
         Dimension dim = new Dimension(500, height);
 
-        listView.setPreferredSize(dim);
+        flowpanel.setPreferredSize(dim);
 
         for (Product product : products) {
-            listView.add(new ListItem(product));
+            flowpanel.add(new ListItem(product));
         }
         this.revalidate();
     }
@@ -231,6 +231,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         detailsView = new javax.swing.JPanel();
         listViewWrapper = new javax.swing.JScrollPane();
+        flowpanel = new javax.swing.JPanel();
         listView = new javax.swing.JPanel();
         gridViewWrapper = new javax.swing.JScrollPane();
         gridView = new javax.swing.JPanel();
@@ -303,20 +304,22 @@ public class PanelSearchResult extends javax.swing.JPanel {
         listViewWrapper.setBorder(null);
         listViewWrapper.setOpaque(false);
 
-        listView.setOpaque(false);
+        flowpanel.setOpaque(false);
 
         javax.swing.GroupLayout listViewLayout = new javax.swing.GroupLayout(listView);
         listView.setLayout(listViewLayout);
         listViewLayout.setHorizontalGroup(
             listViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 672, Short.MAX_VALUE)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
         listViewLayout.setVerticalGroup(
             listViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 592, Short.MAX_VALUE)
+            .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        listViewWrapper.setViewportView(listView);
+        flowpanel.add(listView);
+
+        listViewWrapper.setViewportView(flowpanel);
 
         tabPanel.addTab("Listvy", listViewWrapper);
 
@@ -370,11 +373,11 @@ public class PanelSearchResult extends javax.swing.JPanel {
         } else {
             clearPreviousItems();
             detailsView.setLayout(new FlowLayout());
-            listView.setLayout(new FlowLayout());
+            flowpanel.setLayout(new FlowLayout());
             gridView.setLayout(new FlowLayout());
             
             detailsView.add(new NoResultsPanel());
-            listView.add(new NoResultsPanel());
+            flowpanel.add(new NoResultsPanel());
             gridView.add(new NoResultsPanel());
             revalidate();
             repaint();
@@ -383,6 +386,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel detailsView;
     private javax.swing.JScrollPane detailsViewWrapper;
+    private javax.swing.JPanel flowpanel;
     private javax.swing.JPanel gridView;
     private javax.swing.JScrollPane gridViewWrapper;
     private javax.swing.JCheckBox groupCheckbox;
