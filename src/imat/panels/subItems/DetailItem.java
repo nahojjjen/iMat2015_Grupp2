@@ -6,8 +6,8 @@
 package imat.panels.subItems;
 
 import imat.IMat;
-import imat.Model;
-import imat.ModelAux;
+import imat.models.Model;
+import imat.models.ModelAux;
 import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import se.chalmers.ait.dat215.project.Product;

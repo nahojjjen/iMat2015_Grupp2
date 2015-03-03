@@ -5,8 +5,8 @@
  */
 package imat.panels;
 
-import imat.Model;
-import imat.ModelAux;
+import imat.models.Model;
+import imat.models.ModelAux;
 import imat.panels.subItems.GridItem;
 import java.util.ArrayList;
 import java.util.Collections;

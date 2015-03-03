@@ -5,13 +5,15 @@
  */
 package imat;
 
-import imat.contentPanels.PanelAccountInfo;
-import imat.contentPanels.PanelHome;
-import imat.contentPanels.PanelSearchResult;
-import imat.panels.PanelCart;
-import imat.panels.PanelNavigation;
-import imat.panels.PanelSearch;
-import imat.panels.loginForms.loginDefault;
+import imat.models.Model;
+import imat.models.customPanelLogic.HeaderPanel;
+import imat.panels.contentPanels.PanelAccountInfo;
+import imat.panels.contentPanels.PanelHome;
+import imat.panels.contentPanels.PanelSearchResult;
+import imat.panels.modulePanels.PanelCart;
+import imat.panels.modulePanels.PanelNavigation;
+import imat.panels.modulePanels.PanelSearch;
+import imat.panels.modulePanels.loginDefault;
 import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
@@ -63,17 +65,11 @@ public class MainWindow extends javax.swing.JFrame {
     private void fixColors(){
         //header
         headerPanel.setBackground(IMat.getHeaderColor());
-        logoPanel.setBackground(IMat.getHeaderColor());
-        searchPanel.setBackground(IMat.getHeaderColor());
-        accountPanel.setBackground(IMat.getHeaderColor());
-        
-        //body
-        navigationPanel.setBackground(IMat.getBackgroundColor());
-        cartPanel.setBackground(IMat.getBackgroundColor());
+        bodyPanel.setBackground(IMat.getBackgroundColor());
         contentPanel.setBackground(IMat.getAverageColor());
         
         //behind body
-        spacec.setBackground(IMat.getBackgroundColor());
+        //spacec.setBackground(IMat.getBackgroundColor());
         
     }
     
@@ -222,7 +218,7 @@ public class MainWindow extends javax.swing.JFrame {
     private void initComponents() {
 
         jSplitPane1 = new javax.swing.JSplitPane();
-        headerPanel = new javax.swing.JPanel();
+        headerPanel = new HeaderPanel();
         accountPanel = new javax.swing.JPanel();
         logoPanel = new javax.swing.JPanel();
         searchPanel = new javax.swing.JPanel();
@@ -244,6 +240,7 @@ public class MainWindow extends javax.swing.JFrame {
         headerPanel.setLayout(new java.awt.BorderLayout());
 
         accountPanel.setBackground(new java.awt.Color(102, 153, 255));
+        accountPanel.setOpaque(false);
         accountPanel.setPreferredSize(new java.awt.Dimension(400, 120));
 
         javax.swing.GroupLayout accountPanelLayout = new javax.swing.GroupLayout(accountPanel);
@@ -267,6 +264,7 @@ public class MainWindow extends javax.swing.JFrame {
         headerPanel.add(logoPanel, java.awt.BorderLayout.WEST);
 
         searchPanel.setBackground(new java.awt.Color(102, 153, 255));
+        searchPanel.setOpaque(false);
         searchPanel.setPreferredSize(new java.awt.Dimension(254, 120));
 
         javax.swing.GroupLayout searchPanelLayout = new javax.swing.GroupLayout(searchPanel);
@@ -277,7 +275,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
         searchPanelLayout.setVerticalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 120, Short.MAX_VALUE)
+            .addGap(0, 119, Short.MAX_VALUE)
         );
 
         headerPanel.add(searchPanel, java.awt.BorderLayout.CENTER);
@@ -287,6 +285,7 @@ public class MainWindow extends javax.swing.JFrame {
         bodyPanel.setLayout(new java.awt.BorderLayout());
 
         cartPanel.setMinimumSize(new java.awt.Dimension(220, 100));
+        cartPanel.setOpaque(false);
 
         javax.swing.GroupLayout cartPanelLayout = new javax.swing.GroupLayout(cartPanel);
         cartPanel.setLayout(cartPanelLayout);
@@ -302,6 +301,7 @@ public class MainWindow extends javax.swing.JFrame {
         bodyPanel.add(cartPanel, java.awt.BorderLayout.EAST);
 
         navigationPanel.setMinimumSize(new java.awt.Dimension(220, 100));
+        navigationPanel.setOpaque(false);
 
         javax.swing.GroupLayout navigationPanelLayout = new javax.swing.GroupLayout(navigationPanel);
         navigationPanel.setLayout(navigationPanelLayout);
@@ -317,6 +317,7 @@ public class MainWindow extends javax.swing.JFrame {
         bodyPanel.add(navigationPanel, java.awt.BorderLayout.WEST);
 
         spacec.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 50, 0, 50));
+        spacec.setOpaque(false);
         spacec.setLayout(new java.awt.BorderLayout());
 
         contentPanel.setBackground(new java.awt.Color(250, 250, 250));

@@ -5,6 +5,7 @@
  */
 package imat;
 
+import imat.models.Model;
 import java.awt.Color;
 import java.util.List;
 import se.chalmers.ait.dat215.project.*;

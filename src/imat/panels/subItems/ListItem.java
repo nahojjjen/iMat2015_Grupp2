@@ -5,7 +5,7 @@
  */
 package imat.panels.subItems;
 
-import imat.ModelAux;
+import imat.models.ModelAux;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
