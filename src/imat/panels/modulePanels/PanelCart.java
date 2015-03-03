@@ -11,6 +11,7 @@ import imat.models.ModelAux;
 import imat.panels.contentPanels.buyingPanels.PanelConfirm;
 import imat.panels.subItems.CartItem;
 import imat.panels.subItems.FillerItem;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.ArrayList;
@@ -118,7 +119,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
 
         jScrollPane2.setViewportView(jPanel1);
 
-        clearCartLabel.setForeground(new java.awt.Color(153, 153, 153));
+        clearCartLabel.setForeground(new java.awt.Color(51, 102, 255));
         clearCartLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         clearCartLabel.setText("Rensa varukorg");
         clearCartLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -127,7 +128,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
             }
         });
 
-        regretLabel.setForeground(new java.awt.Color(153, 153, 153));
+        regretLabel.setForeground(new java.awt.Color(255, 0, 51));
         regretLabel.setText("Ångra");
         regretLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -204,6 +205,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
     }//GEN-LAST:event_detailButtonActionPerformed
 
     private void clearCartLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearCartLabelMouseClicked
+        if (Model.getShoppingcart().getItems().size()>0){
         previousCart = new ArrayList<ShoppingItem>();
         
         List<ShoppingItem> currentCart = Model.getShoppingcart().getItems();
@@ -216,6 +218,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         Model.getShoppingcart().clear();
            System.out.println(previousCart + "what is in previouscart step 1");
         regretLabel.setVisible(true);
+        }
     }//GEN-LAST:event_clearCartLabelMouseClicked
 
     private void regretLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_regretLabelMouseClicked
@@ -261,21 +264,23 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         totalLabel.setText("Total: " + String.valueOf((int)price) + " kr");
         
         if (price <= 0){
-            disableBuyButton();
+            disableActions();
             cartContent.add(new JLabel());
         }else{
-            enableBuyButton();
+            enableActions();
         }
         this.revalidate();
         
     }
     
-    public void disableBuyButton(){
+    public void disableActions(){
         buyButton.setEnabled(false);
         detailButton.setEnabled(false);
+        clearCartLabel.setForeground(Color.gray);
     }
-    public void enableBuyButton(){
+    public void enableActions(){
         buyButton.setEnabled(true);
         detailButton.setEnabled(true);
+        clearCartLabel.setForeground(new Color(230,80,80));
     }
 }
