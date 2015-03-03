@@ -27,9 +27,7 @@ public class PanelEarlierCarts extends javax.swing.JPanel {
         List<Order> orders = Model.getOrders();
         cartList.setLayout(new GridLayout(orders.size(),1));
         for (Order order : orders) {
-            System.out.println("asd");
             cartList.add(new CartHistory(order));
-
         }
         if (orders.size() == 0 ){
             cartList.add(new JLabel("Du har inga tidigare beställningar."));
@@ -49,6 +47,7 @@ public class PanelEarlierCarts extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
+        filler = new javax.swing.JPanel();
         cartList = new javax.swing.JPanel();
         earlierOrderLabel = new javax.swing.JLabel();
 
@@ -57,21 +56,13 @@ public class PanelEarlierCarts extends javax.swing.JPanel {
 
         jScrollPane1.setBorder(null);
 
-        cartList.setBackground(new java.awt.Color(204, 204, 204));
-        cartList.setOpaque(false);
+        filler.setBackground(new java.awt.Color(204, 204, 204));
+        filler.setOpaque(false);
 
-        javax.swing.GroupLayout cartListLayout = new javax.swing.GroupLayout(cartList);
-        cartList.setLayout(cartListLayout);
-        cartListLayout.setHorizontalGroup(
-            cartListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 608, Short.MAX_VALUE)
-        );
-        cartListLayout.setVerticalGroup(
-            cartListLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 536, Short.MAX_VALUE)
-        );
+        cartList.setLayout(new java.awt.GridLayout(1, 1));
+        filler.add(cartList);
 
-        jScrollPane1.setViewportView(cartList);
+        jScrollPane1.setViewportView(filler);
 
         add(jScrollPane1, java.awt.BorderLayout.CENTER);
 
@@ -80,6 +71,7 @@ public class PanelEarlierCarts extends javax.swing.JPanel {
         earlierOrderLabel.setForeground(new java.awt.Color(255, 255, 255));
         earlierOrderLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         earlierOrderLabel.setText("Tidigare beställningar:");
+        earlierOrderLabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         earlierOrderLabel.setOpaque(true);
         add(earlierOrderLabel, java.awt.BorderLayout.PAGE_START);
     }// </editor-fold>//GEN-END:initComponents
@@ -88,6 +80,7 @@ public class PanelEarlierCarts extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel cartList;
     private javax.swing.JLabel earlierOrderLabel;
+    private javax.swing.JPanel filler;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

@@ -18,6 +18,7 @@ public class BodyPanel extends JPanel{
     int lineWidth = 4;
     @Override
     public void paintComponent(Graphics g){
+        super.paintComponent(g);
         int width = this.getWidth();
         int height = this.getHeight();
         g.setColor(new Color(200,230,200));
