@@ -108,7 +108,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
      */
     private void clearPreviousItems() {
         gridView.removeAll();
-        flowpanel.removeAll();
+        listView.removeAll();
         detailsView.removeAll();
     }
 
@@ -194,14 +194,14 @@ public class PanelSearchResult extends javax.swing.JPanel {
      */
     private void showListResults(List<Product> products) {
         clearPreviousItems();
-        flowpanel.setLayout(new GridLayout(products.size(), 1));
+        listView.setLayout(new GridLayout(products.size(), 1));
         int height = products.size() * 50;
         Dimension dim = new Dimension(500, height);
 
-        flowpanel.setPreferredSize(dim);
+        listView.setPreferredSize(dim);
 
         for (Product product : products) {
-            flowpanel.add(new ListItem(product));
+            listView.add(new ListItem(product));
         }
         this.revalidate();
     }
@@ -305,6 +305,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         listViewWrapper.setOpaque(false);
 
         flowpanel.setOpaque(false);
+        flowpanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 5));
 
         javax.swing.GroupLayout listViewLayout = new javax.swing.GroupLayout(listView);
         listView.setLayout(listViewLayout);
@@ -373,11 +374,11 @@ public class PanelSearchResult extends javax.swing.JPanel {
         } else {
             clearPreviousItems();
             detailsView.setLayout(new FlowLayout());
-            flowpanel.setLayout(new FlowLayout());
+            listView.setLayout(new FlowLayout());
             gridView.setLayout(new FlowLayout());
             
             detailsView.add(new NoResultsPanel());
-            flowpanel.add(new NoResultsPanel());
+            listView.add(new NoResultsPanel());
             gridView.add(new NoResultsPanel());
             revalidate();
             repaint();

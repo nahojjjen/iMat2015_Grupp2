@@ -160,7 +160,9 @@
                 <Property name="opaque" type="boolean" value="false"/>
               </Properties>
 
-              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout">
+                <Property name="horizontalGap" type="int" value="0"/>
+              </Layout>
               <SubComponents>
                 <Container class="javax.swing.JPanel" name="listView">
 

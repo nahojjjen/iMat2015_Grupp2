@@ -3,11 +3,15 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/filiplarsson/Documents/Chalmers/iMat2015_Grupp2/src/imat/panels/contentPanels/buyingPanels/PanelSelectPayment.java</file>
-            <file>file:/Users/filiplarsson/Documents/Chalmers/iMat2015_Grupp2/src/imat/IMat.java</file>
-            <file>file:/Users/filiplarsson/Documents/Chalmers/iMat2015_Grupp2/src/imat/panels/contentPanels/buyingPanels/PanelFillInInfo.java</file>
-            <file>file:/Users/filiplarsson/Documents/Chalmers/iMat2015_Grupp2/src/imat/panels/contentPanels/buyingPanels/PanelDoneShopping.java</file>
-            <file>file:/Users/filiplarsson/Documents/Chalmers/iMat2015_Grupp2/src/imat/panels/contentPanels/PanelHome.java</file>
+            <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/models/customPanelLogic/HeaderPanel.java</file>
+            <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/panels/contentPanels/PanelSearchResult.java</file>
+            <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/panels/modulePanels/PanelCart.java</file>
+            <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/panels/modulePanels/loginDefault.java</file>
+            <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/panels/subItems/CartHistory.java</file>
+            <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/models/customPanelLogic/BodyPanel.java</file>
+            <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/panels/contentPanels/PanelEarlierCarts.java</file>
+            <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/MainWindow.java</file>
+            <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/IMat.java</file>
         </group>
     </open-files>
 </project-private>
