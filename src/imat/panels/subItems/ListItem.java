@@ -5,7 +5,18 @@
  */
 package imat.panels.subItems;
 
+import imat.IMat;
 import imat.models.ModelAux;
+import imat.panels.DetailPopUp;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.font.TextAttribute;
+import java.util.Map;
+import javafx.scene.control.ListView;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -16,6 +27,7 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
 public class ListItem extends javax.swing.JPanel {
 
     private Product product;
+    private Frame MainWindow = IMat.getWindow();
     /**
      * Creates new form ListItem
      */
@@ -27,9 +39,17 @@ public class ListItem extends javax.swing.JPanel {
         initComponents();
         this.product = product;
         productName.setText(product.getName());
+        setJLabelUnderlined();
         productPrice.setText(String.valueOf(product.getPrice())+ " " + product.getUnit());
     }
 
+    private void setJLabelUnderlined(){
+        Font font = productName.getFont();
+        Map attributes = font.getAttributes();
+        attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+        productName.setFont(font.deriveFont(attributes));
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -47,12 +67,24 @@ public class ListItem extends javax.swing.JPanel {
         jSeparator2 = new javax.swing.JSeparator();
 
         productName.setText("Produktnamn");
+        productName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                mouseClickedHandler(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                mouseExitedHandler(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                mouseEnteredHandler(evt);
+            }
+        });
 
         productPrice.setText("Pris");
 
         ammountSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 99, 1));
 
-        buyButton.setText("Köp");
+        buyButton.setLabel("Lägg till");
+        buyButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
         buyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buyButtonActionPerformed(evt);
@@ -70,7 +102,7 @@ public class ListItem extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(productName)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 326, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 310, Short.MAX_VALUE)
                 .addComponent(productPrice)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -94,10 +126,11 @@ public class ListItem extends javax.swing.JPanel {
                         .addComponent(productPrice)))
                 .addGroup(layout.createSequentialGroup()
                     .addGap(5, 5, 5)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(buyButton)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ammountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(buyButton)
+                            .addComponent(ammountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -111,6 +144,22 @@ public class ListItem extends javax.swing.JPanel {
             //Vi ska inte kunna komma hit, då spinnern endast tar värden 1-99
         }
     }//GEN-LAST:event_buyButtonActionPerformed
+
+    private void mouseEnteredHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseEnteredHandler
+        // TODO add your handling code here
+        this.productName.setForeground(Color.BLUE);
+    }//GEN-LAST:event_mouseEnteredHandler
+
+    private void mouseExitedHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseExitedHandler
+        // TODO add your handling code here:
+        this.productName.setForeground(Color.BLACK);
+    }//GEN-LAST:event_mouseExitedHandler
+
+    private void mouseClickedHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseClickedHandler
+        // TODO add your handling code here:
+        DetailPopUp detailPopUp = new DetailPopUp(MainWindow, product);
+        detailPopUp.setVisible(true);
+    }//GEN-LAST:event_mouseClickedHandler
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

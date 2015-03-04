@@ -19,7 +19,7 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="productName" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="326" max="32767" attributes="0"/>
+              <EmptySpace pref="310" max="32767" attributes="0"/>
               <Component id="productPrice" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="jSeparator2" min="-2" max="-2" attributes="0"/>
@@ -48,10 +48,12 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="buyButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="jSeparator1" alignment="0" min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="ammountSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="buyButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="ammountSpinner" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
           </Group>
@@ -63,6 +65,11 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Produktnamn"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mouseClickedHandler"/>
+        <EventHandler event="mouseExited" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mouseExitedHandler"/>
+        <EventHandler event="mouseEntered" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="mouseEnteredHandler"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="productPrice">
       <Properties>
@@ -78,7 +85,10 @@
     </Component>
     <Component class="javax.swing.JButton" name="buyButton">
       <Properties>
-        <Property name="text" type="java.lang.String" value="K&#xf6;p"/>
+        <Property name="label" type="java.lang.String" value="L&#xe4;gg till"/>
+        <Property name="margin" type="java.awt.Insets" editor="org.netbeans.beaninfo.editors.InsetsEditor">
+          <Insets value="[0, 0, 0, 0]"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buyButtonActionPerformed"/>

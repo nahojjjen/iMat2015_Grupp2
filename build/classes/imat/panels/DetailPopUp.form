@@ -55,21 +55,21 @@
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                              <Component id="closeButton" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
                               <Component id="info3Svar" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace pref="59" max="32767" attributes="0"/>
+                              <EmptySpace pref="442" max="32767" attributes="0"/>
                               <Component id="priceLabel" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="amountSpinner" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                               <Component id="buyButton" min="-2" max="-2" attributes="0"/>
                           </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                              <Component id="closeButton" min="-2" pref="30" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
                   </Group>
-                  <Component id="moreProductsPane" alignment="0" max="32767" attributes="0"/>
+                  <Component id="moreProductsPane" alignment="0" pref="911" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
@@ -113,7 +113,7 @@
                   </Group>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="moreProductsPane" pref="264" max="32767" attributes="0"/>
+              <Component id="moreProductsPane" pref="210" max="32767" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -144,9 +144,17 @@
     <Container class="javax.swing.JPanel" name="moreProductsPane">
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridLayout">
-        <Property name="columns" type="int" value="3"/>
+        <Property name="columns" type="int" value="0"/>
         <Property name="rows" type="int" value="1"/>
       </Layout>
+      <SubComponents>
+        <Component class="imat.panels.subItems.GridItem" name="gridItem1">
+        </Component>
+        <Component class="imat.panels.subItems.GridItem" name="gridItem2">
+        </Component>
+        <Component class="imat.panels.subItems.GridItem" name="gridItem3">
+        </Component>
+      </SubComponents>
     </Container>
     <Component class="javax.swing.JLabel" name="infoLabel">
       <Properties>
