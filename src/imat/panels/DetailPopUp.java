@@ -35,7 +35,7 @@ public class DetailPopUp extends javax.swing.JDialog {
     public DetailPopUp(Window parent, Product product){
         super(parent);
         initComponents();
-        this.setLocation(500, 400);
+        this.setLocation(500, 350);
         this.setResizable(false);
         productList = Model.doSearch("");
         this.product=product;
