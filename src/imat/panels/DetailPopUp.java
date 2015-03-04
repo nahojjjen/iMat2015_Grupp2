@@ -35,6 +35,8 @@ public class DetailPopUp extends javax.swing.JDialog {
     public DetailPopUp(Window parent, Product product){
         super(parent);
         initComponents();
+        this.setLocation(500, 400);
+        this.setResizable(false);
         productList = Model.doSearch("");
         this.product=product;
         initialize(product);
@@ -52,7 +54,6 @@ public class DetailPopUp extends javax.swing.JDialog {
     private void addBottomPanel (){
         this.gridItem1 = new GridItem(productList.get(12));
         this.gridItem2 = new GridItem(productList.get(34));
-        this.gridItem3 = new GridItem(productList.get(50));
     }
 
     /**
@@ -70,7 +71,6 @@ public class DetailPopUp extends javax.swing.JDialog {
         moreProductsPane = new javax.swing.JPanel();
         gridItem1 = new imat.panels.subItems.GridItem();
         gridItem2 = new imat.panels.subItems.GridItem();
-        gridItem3 = new imat.panels.subItems.GridItem();
         infoLabel = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         infoText = new javax.swing.JTextArea();
@@ -87,7 +87,6 @@ public class DetailPopUp extends javax.swing.JDialog {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         productName.setText("Produktnamn");
-        productName.setSize(new java.awt.Dimension(100, 20));
 
         closeButton.setText("X");
         closeButton.addActionListener(new java.awt.event.ActionListener() {
@@ -96,15 +95,13 @@ public class DetailPopUp extends javax.swing.JDialog {
             }
         });
 
-        productImage.setText("Produktbild");
-
         moreProductsPane.setLayout(new java.awt.GridLayout(1, 0));
         moreProductsPane.add(gridItem1);
         moreProductsPane.add(gridItem2);
-        moreProductsPane.add(gridItem3);
 
         infoLabel.setText("Information:");
 
+        infoText.setEditable(false);
         infoText.setColumns(20);
         infoText.setRows(5);
         infoText.setText("Random Info Text");
@@ -118,7 +115,7 @@ public class DetailPopUp extends javax.swing.JDialog {
 
         info2Svar.setText("Spanien");
 
-        info3Label.setText("Allergivarning:");
+        info3Label.setText("Allergi:");
 
         info3Svar.setText("Jordnötter, Baljväxter osv");
 
@@ -126,7 +123,7 @@ public class DetailPopUp extends javax.swing.JDialog {
 
         priceLabel.setText("Pris per kg");
 
-        buyButton.setText("Köp");
+        buyButton.setText("Lägg till");
         buyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buyButtonActionPerformed(evt);
@@ -138,42 +135,45 @@ public class DetailPopUp extends javax.swing.JDialog {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(20, 20, 20)
+                .addComponent(infoLabel)
+                .addGap(12, 12, 12)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(info1Label)
+                .addGap(12, 12, 12)
+                .addComponent(info1Svar))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(info2Label)
+                .addGap(12, 12, 12)
+                .addComponent(info2Svar))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addComponent(productImage, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(20, 20, 20)
+                    .addComponent(productName)
+                    .addGap(460, 460, 460)
+                    .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(14, 14, 14)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(productName)
-                                    .addComponent(productImage)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(info1Label)
-                                        .addComponent(infoLabel))))
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(info2Label)
-                                .addComponent(info3Label)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(info1Svar)
-                                    .addComponent(info2Svar))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(info3Svar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 442, Short.MAX_VALUE)
-                                .addComponent(priceLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(amountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(buyButton))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(closeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(moreProductsPane, javax.swing.GroupLayout.DEFAULT_SIZE, 911, Short.MAX_VALUE))
-                .addContainerGap())
+                        .addGap(53, 53, 53)
+                        .addComponent(info3Label)
+                        .addGap(12, 12, 12)
+                        .addComponent(info3Svar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(priceLabel)
+                        .addGap(6, 6, 6)
+                        .addComponent(amountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(buyButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(moreProductsPane, javax.swing.GroupLayout.PREFERRED_SIZE, 594, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -182,32 +182,33 @@ public class DetailPopUp extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(productName)
                     .addComponent(closeButton))
-                .addGap(38, 38, 38)
-                .addComponent(productImage)
-                .addGap(130, 130, 130)
+                .addGap(12, 12, 12)
+                .addComponent(productImage, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(infoLabel)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(info1Svar)
-                    .addComponent(info1Label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(info2Svar)
-                    .addComponent(info2Label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(buyButton)
-                        .addComponent(amountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(info1Label)
+                    .addComponent(info1Svar))
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(info2Label)
+                    .addComponent(info2Svar))
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(info3Label)
+                    .addComponent(info3Svar)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(6, 6, 6)
                         .addComponent(priceLabel))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(info3Label)
-                        .addComponent(info3Svar)))
+                    .addComponent(amountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(buyButton)))
                 .addGap(18, 18, 18)
-                .addComponent(moreProductsPane, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE)
-                .addGap(18, 18, 18))
+                .addComponent(moreProductsPane, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -276,7 +277,6 @@ public class DetailPopUp extends javax.swing.JDialog {
     private javax.swing.JButton closeButton;
     private imat.panels.subItems.GridItem gridItem1;
     private imat.panels.subItems.GridItem gridItem2;
-    private imat.panels.subItems.GridItem gridItem3;
     private javax.swing.JLabel info1Label;
     private javax.swing.JLabel info1Svar;
     private javax.swing.JLabel info2Label;

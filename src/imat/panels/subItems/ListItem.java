@@ -6,6 +6,7 @@
 package imat.panels.subItems;
 
 import imat.IMat;
+import imat.models.Model;
 import imat.models.ModelAux;
 import imat.panels.DetailPopUp;
 import java.awt.Color;
@@ -14,6 +15,7 @@ import java.awt.Frame;
 import java.awt.font.TextAttribute;
 import java.util.Map;
 import javafx.scene.control.ListView;
+import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -28,6 +30,8 @@ public class ListItem extends javax.swing.JPanel {
 
     private Product product;
     private Frame MainWindow = IMat.getWindow();
+    private ImageIcon favIcon = new ImageIcon("src/resources/fav.png");
+    private ImageIcon unFavIcon = new ImageIcon("src/resources/unfav.png");
     /**
      * Creates new form ListItem
      */
@@ -41,8 +45,34 @@ public class ListItem extends javax.swing.JPanel {
         productName.setText(product.getName());
         setJLabelUnderlined();
         productPrice.setText(String.valueOf(product.getPrice())+ " " + product.getUnit());
+        fixFav();
+        refreshRemoveButton();
     }
 
+    private void fixFav() {
+        if (Model.isFavorited(product)) {
+            favoriteLabel.setIcon(favIcon);
+        }
+    }
+
+    private void toggleFavorite() {
+        if (Model.isFavorited(product)) {
+            Model.removeFavorite(product);
+            favoriteLabel.setIcon(unFavIcon);
+        } else {
+            Model.addFavorite(product);
+            favoriteLabel.setIcon(favIcon);
+        }
+    }
+    
+    private void refreshRemoveButton() {
+        if (ModelAux.getAmountInCart(product) == 0) {
+            removeButton.setEnabled(false);
+        } else {
+            removeButton.setEnabled(true);
+        }
+    }
+    
     private void setJLabelUnderlined(){
         Font font = productName.getFont();
         Map attributes = font.getAttributes();
@@ -65,8 +95,12 @@ public class ListItem extends javax.swing.JPanel {
         buyButton = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        jSeparator3 = new javax.swing.JSeparator();
+        favoriteLabel = new javax.swing.JLabel();
+        removeButton = new javax.swing.JButton();
 
         productName.setText("Produktnamn");
+        productName.setToolTipText("Tryck för detaljerad vy");
         productName.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mouseClickedHandler(evt);
@@ -81,8 +115,9 @@ public class ListItem extends javax.swing.JPanel {
 
         productPrice.setText("Pris");
 
-        ammountSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 99, 1));
+        ammountSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
+        buyButton.setToolTipText("Lägg till i kundvagn");
         buyButton.setLabel("Lägg till");
         buyButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
         buyButton.addActionListener(new java.awt.event.ActionListener() {
@@ -95,6 +130,25 @@ public class ListItem extends javax.swing.JPanel {
 
         jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
+        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
+
+        favoriteLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/unfav.png"))); // NOI18N
+        favoriteLabel.setToolTipText("Favorite");
+        favoriteLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                favoriteLabelMouseClicked(evt);
+            }
+        });
+
+        removeButton.setText("Ta bort");
+        removeButton.setToolTipText("Ta bort vald mängd");
+        removeButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
+        removeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -102,35 +156,45 @@ public class ListItem extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(productName)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 310, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
+                .addComponent(favoriteLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(productPrice)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ammountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(ammountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(removeButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buyButton))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
+                .addGap(11, 11, 11)
+                .addComponent(productName))
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(11, 11, 11)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(productName)
-                        .addComponent(productPrice)))
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(5, 5, 5)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(6, 6, 6)
+                            .addComponent(favoriteLabel))
                         .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(buyButton)
-                            .addComponent(ammountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(ammountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(productPrice))
+                            .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(buyButton)
+                        .addComponent(removeButton))))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -143,6 +207,7 @@ public class ListItem extends javax.swing.JPanel {
         } else {
             //Vi ska inte kunna komma hit, då spinnern endast tar värden 1-99
         }
+        removeButton.setEnabled(true);
     }//GEN-LAST:event_buyButtonActionPerformed
 
     private void mouseEnteredHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseEnteredHandler
@@ -161,13 +226,30 @@ public class ListItem extends javax.swing.JPanel {
         detailPopUp.setVisible(true);
     }//GEN-LAST:event_mouseClickedHandler
 
+    private void favoriteLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_favoriteLabelMouseClicked
+        // TODO add your handling code here:
+        toggleFavorite();
+    }//GEN-LAST:event_favoriteLabelMouseClicked
+
+    private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
+        // TODO add your handling code here:
+        int amount = (int) ammountSpinner.getValue();
+        
+        ModelAux.remove(product, amount);
+        
+        refreshRemoveButton();
+    }//GEN-LAST:event_removeButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner ammountSpinner;
     private javax.swing.JButton buyButton;
+    private javax.swing.JLabel favoriteLabel;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel productName;
     private javax.swing.JLabel productPrice;
+    private javax.swing.JButton removeButton;
     // End of variables declaration//GEN-END:variables
 }
