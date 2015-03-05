@@ -14,7 +14,6 @@ import java.awt.Font;
 import java.awt.Frame;
 import java.awt.font.TextAttribute;
 import java.util.Map;
-import javafx.scene.control.ListView;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
