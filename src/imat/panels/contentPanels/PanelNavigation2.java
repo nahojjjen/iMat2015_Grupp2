@@ -5,6 +5,8 @@
  */
 package imat.panels.contentPanels;
 
+import imat.models.navPanelActionListeners.Debug2;
+import imat.models.navPanelActionListeners.debug;
 import imat.panels.subItems.CustomButton;
 import javax.swing.ImageIcon;
 
@@ -14,19 +16,56 @@ import javax.swing.ImageIcon;
  */
 public class PanelNavigation2 extends javax.swing.JPanel {
 
+    //all icon declerations will be here:
     private ImageIcon test1 = new ImageIcon("src/resources/logoH.png");
     private ImageIcon test2 = new ImageIcon("src/resources/logoH.png");
     private ImageIcon test3 = new ImageIcon("src/resources/logoH.png");
+    
+    
     /**
      * Creates new form PanelNavigation2
      */
     public PanelNavigation2() {
         initComponents();
-        for (int i = 0; i<10; i++){
-            holder.add(new CustomButton(test1, test2, test3));
-        }
+        addShowingButtons();
+       
     }
 
+    private void addShowingButtons(){
+        //debugg code:
+        CustomButton btn = new CustomButton(test1, test1, test1, new Debug2());
+        
+        holder.add(btn);
+         
+         //add static buttons (including giving them listeners)
+         addStaticButtons1();
+         //add dynamic buttons, aka check if categories are expanded.
+         addShowingCategoryButtons();
+         
+         //add last static buttons
+         addStaticButtons2();
+    }
+    
+    private void addShowingCategoryButtons(){
+        System.out.println("navpanel: trying to add categoryButtons");
+    }
+    
+    private void addStaticButtons1(){
+        System.out.println("navpanel: trying to add static buttons 1");
+    }
+    private void addStaticButtons2(){
+        System.out.println("navpanel: trying to add static buttons 2");
+    }
+    /**
+     * call this whenever the panel should force-update
+     */
+    private void refresh(){
+        holder.removeAll();
+        addShowingButtons();
+        revalidate();
+        repaint();
+        
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

@@ -5,6 +5,7 @@
  */
 package imat.panels.subItems;
 
+import imat.models.navPanelActionListeners.ActionCommand;
 import javax.swing.ImageIcon;
 
 /**
@@ -16,17 +17,19 @@ public class CustomButton extends javax.swing.JPanel {
     private ImageIcon normal;
     private ImageIcon hover;
     private ImageIcon pressed;
-
+    private ActionCommand strategy;
       /**
      * Creates new form CustomButton
      */
-    public CustomButton(ImageIcon normali, ImageIcon hoveri, ImageIcon pressedi) {
+    public CustomButton(ImageIcon normali, ImageIcon hoveri, ImageIcon pressedi, ActionCommand strategy) {
         initComponents();
         normal=normali;
         hover = hoveri;
         pressed = pressedi;
+        this.strategy = strategy;
         thisButton.setText("");
         thisButton.setIcon(normal);
+        
     }
     
     private void setIcon(ImageIcon icon){
@@ -75,22 +78,26 @@ public class CustomButton extends javax.swing.JPanel {
 
     private void thisButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thisButtonMousePressed
         setIcon(pressed);// TODO add your handling code here:
+        System.out.println("button: pressed");
     }//GEN-LAST:event_thisButtonMousePressed
 
     private void thisButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thisButtonMouseReleased
         setIcon(normal); // TODO add your handling code here:
+        System.out.println("button: released");
     }//GEN-LAST:event_thisButtonMouseReleased
 
     private void thisButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thisButtonMouseExited
         setIcon(normal);        // TODO add your handling code here:
+        System.out.println("button: exited");
     }//GEN-LAST:event_thisButtonMouseExited
 
     private void thisButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thisButtonMouseEntered
         setIcon(hover);        // TODO add your handling code here:
+        System.out.println("button: entered");
     }//GEN-LAST:event_thisButtonMouseEntered
 
     private void thisButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thisButtonMouseClicked
-      
+      strategy.doCommand();
     }//GEN-LAST:event_thisButtonMouseClicked
 
 
