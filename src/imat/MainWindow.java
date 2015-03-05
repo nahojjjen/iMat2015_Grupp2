@@ -8,6 +8,7 @@ package imat;
 import imat.models.Model;
 import imat.panels.contentPanels.PanelAccountInfo;
 import imat.panels.contentPanels.PanelHome;
+import imat.panels.contentPanels.PanelNavigation2;
 import imat.panels.contentPanels.PanelSearchResult;
 import imat.panels.modulePanels.PanelCart;
 import imat.panels.modulePanels.PanelNavigation;
@@ -142,8 +143,8 @@ public class MainWindow extends javax.swing.JFrame {
      */
     private void addModules() {
         navigationPanel.setLayout(new java.awt.BorderLayout());
-        navigationPanel.add(new PanelNavigation());
-
+        //navigationPanel.add(new PanelNavigation());
+        navigationPanel.add(new PanelNavigation2());
         searchPanel.setLayout(new java.awt.BorderLayout());
         searchPanel.add(new PanelSearch());
 
