@@ -176,9 +176,11 @@ public class PanelSearchResult extends javax.swing.JPanel {
      */
     private void showGridResults(List<Product> products) {
         clearPreviousItems();
-        gridView.setLayout(new FlowLayout(FlowLayout.CENTER));
-
-        gridView.setPreferredSize(new Dimension(500, 7000));
+        
+        //Fixade att den löser sig självt. >> satte grid layout på grid panelen med columns = 4, rows = 0
+        //gridView.setLayout(new FlowLayout(FlowLayout.CENTER));
+        //gridView.setPreferredSize(new Dimension(500, 7000));
+        
         for (Product product : products) {
             gridView.add(new GridItem(product));
         }
@@ -243,7 +245,6 @@ public class PanelSearchResult extends javax.swing.JPanel {
         jPanel1.setPreferredSize(new java.awt.Dimension(677, 40));
 
         groupCheckbox.setText("Gruppera kategorier");
-        groupCheckbox.setOpaque(false);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Populäritet", "Alfabetisk", "Pris" }));
 
@@ -328,18 +329,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         gridViewWrapper.setOpaque(false);
 
         gridView.setOpaque(false);
-
-        javax.swing.GroupLayout gridViewLayout = new javax.swing.GroupLayout(gridView);
-        gridView.setLayout(gridViewLayout);
-        gridViewLayout.setHorizontalGroup(
-            gridViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 672, Short.MAX_VALUE)
-        );
-        gridViewLayout.setVerticalGroup(
-            gridViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 592, Short.MAX_VALUE)
-        );
-
+        gridView.setLayout(new java.awt.GridLayout(0, 4));
         gridViewWrapper.setViewportView(gridView);
 
         tabPanel.addTab("Gridvy", gridViewWrapper);
