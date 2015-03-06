@@ -82,16 +82,16 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         firstNameTextField.setToolTipText("Endast A-Z tillåtet");
         firstNameTextField.setAutoscrolls(false);
         firstNameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                firstNameTextFieldKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                firstNameTextFieldKeyReleased(evt);
             }
         });
         jPanel1.add(firstNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 36, 156, -1));
 
         lastNameTextField.setToolTipText("Endast A-Z tillåtet");
         lastNameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                lastNameTextFieldKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                lastNameTextFieldKeyReleased(evt);
             }
         });
         jPanel1.add(lastNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 36, 198, -1));
@@ -103,8 +103,8 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         jPanel1.add(careOfLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 76, -1, -1));
 
         addressTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                addressTextFieldKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                addressTextFieldKeyReleased(evt);
             }
         });
         jPanel1.add(addressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 102, 156, -1));
@@ -120,8 +120,8 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
 
         postAddressTextField.setToolTipText("Endast A-Z tillåtet");
         postAddressTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                postAddressTextFieldKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                postAddressTextFieldKeyReleased(evt);
             }
         });
         jPanel1.add(postAddressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 165, 198, -1));
@@ -132,8 +132,8 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         postCodeTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#####"))));
         postCodeTextField.setToolTipText("5 sifror");
         postCodeTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                postCodeTextFieldKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                postCodeTextFieldKeyReleased(evt);
             }
         });
         jPanel1.add(postCodeTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 165, 77, -1));
@@ -141,8 +141,8 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         phoneNumberTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
         phoneNumberTextField.setToolTipText("Endast siffror");
         phoneNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                phoneNumberTextFieldKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                phoneNumberTextFieldKeyReleased(evt);
             }
         });
         jPanel1.add(phoneNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 234, 156, -1));
@@ -200,29 +200,29 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void firstNameTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_firstNameTextFieldKeyPressed
-        setOkLabel(isFirstNameCorrect(), firstNameOk);
-    }//GEN-LAST:event_firstNameTextFieldKeyPressed
+    private void firstNameTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_firstNameTextFieldKeyReleased
+       setOkLabel(isFirstNameCorrect(), firstNameOk);
+    }//GEN-LAST:event_firstNameTextFieldKeyReleased
 
-    private void lastNameTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lastNameTextFieldKeyPressed
-        setOkLabel(isLastNameCorrect(), lastNameOk);
-    }//GEN-LAST:event_lastNameTextFieldKeyPressed
+    private void lastNameTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lastNameTextFieldKeyReleased
+       setOkLabel(isLastNameCorrect(), lastNameOk);
+    }//GEN-LAST:event_lastNameTextFieldKeyReleased
 
-    private void addressTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addressTextFieldKeyPressed
-        setOkLabel(isAddressCorrect(), addressOk);
-    }//GEN-LAST:event_addressTextFieldKeyPressed
+    private void addressTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addressTextFieldKeyReleased
+       setOkLabel(isAddressCorrect(), addressOk);
+    }//GEN-LAST:event_addressTextFieldKeyReleased
 
-    private void postCodeTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_postCodeTextFieldKeyPressed
+    private void postCodeTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_postCodeTextFieldKeyReleased
         setOkLabel(isPostCodeCorrect(), postCodeOk);
-    }//GEN-LAST:event_postCodeTextFieldKeyPressed
+    }//GEN-LAST:event_postCodeTextFieldKeyReleased
 
-    private void postAddressTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_postAddressTextFieldKeyPressed
-        setOkLabel(isPostAddressCorrect(), postAddressOk);
-    }//GEN-LAST:event_postAddressTextFieldKeyPressed
+    private void postAddressTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_postAddressTextFieldKeyReleased
+       setOkLabel(isPostAddressCorrect(), postAddressOk);
+    }//GEN-LAST:event_postAddressTextFieldKeyReleased
 
-    private void phoneNumberTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldKeyPressed
+    private void phoneNumberTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldKeyReleased
         setOkLabel(isPhoneNumberCorrect(), phoneOk);
-    }//GEN-LAST:event_phoneNumberTextFieldKeyPressed
+    }//GEN-LAST:event_phoneNumberTextFieldKeyReleased
     private void setLabels() {
         setOkLabel(isFirstNameCorrect(), firstNameOk);
         setOkLabel(isLastNameCorrect(), lastNameOk);

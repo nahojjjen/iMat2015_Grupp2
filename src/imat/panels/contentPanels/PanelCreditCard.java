@@ -117,8 +117,8 @@ public class PanelCreditCard extends javax.swing.JPanel {
         }
         cardHolderTextField.setToolTipText("Endast siffror");
         cardHolderTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                cardHolderTextFieldKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cardHolderTextFieldKeyReleased(evt);
             }
         });
         add(cardHolderTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 200, -1));
@@ -126,8 +126,8 @@ public class PanelCreditCard extends javax.swing.JPanel {
         securityNumberTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###"))));
         securityNumberTextField.setToolTipText("Endast siffror");
         securityNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                securityNumberTextFieldKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                securityNumberTextFieldKeyReleased(evt);
             }
         });
         add(securityNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 211, 66, -1));
@@ -138,8 +138,8 @@ public class PanelCreditCard extends javax.swing.JPanel {
         cardNumberTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("############,####"))));
         cardNumberTextField.setToolTipText("Endast siffror");
         cardNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                cardNumberTextFieldKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cardNumberTextFieldKeyReleased(evt);
             }
         });
         add(cardNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 91, 200, -1));
@@ -155,17 +155,17 @@ public class PanelCreditCard extends javax.swing.JPanel {
         setDigitsLabel("American Express");
     }//GEN-LAST:event_americanRadioButtonActionPerformed
 
-    private void cardHolderTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cardHolderTextFieldKeyPressed
-        setOkLabel(isCardHolderNameCorrect(), holderNameOkLabel);
-    }//GEN-LAST:event_cardHolderTextFieldKeyPressed
-
-    private void securityNumberTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_securityNumberTextFieldKeyPressed
-        setOkLabel(isSecNumberCorrect(), secNumberOkLabel);
-    }//GEN-LAST:event_securityNumberTextFieldKeyPressed
-
-    private void cardNumberTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cardNumberTextFieldKeyPressed
+    private void cardNumberTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cardNumberTextFieldKeyReleased
         setOkLabel(isCardNumberCorrect(), cardNumberOkLabel);
-    }//GEN-LAST:event_cardNumberTextFieldKeyPressed
+    }//GEN-LAST:event_cardNumberTextFieldKeyReleased
+
+    private void cardHolderTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cardHolderTextFieldKeyReleased
+        setOkLabel(isCardHolderNameCorrect(), holderNameOkLabel);
+    }//GEN-LAST:event_cardHolderTextFieldKeyReleased
+
+    private void securityNumberTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_securityNumberTextFieldKeyReleased
+        setOkLabel(isSecNumberCorrect(), secNumberOkLabel);
+    }//GEN-LAST:event_securityNumberTextFieldKeyReleased
     private void setCardInfo() {
         
         cardHolderTextField.setText(CustomerModel.getCardHolderName());

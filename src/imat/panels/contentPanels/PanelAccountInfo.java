@@ -23,8 +23,8 @@ public class PanelAccountInfo extends javax.swing.JPanel {
      */
     public PanelAccountInfo() {
         initComponents();
+        setTextFields();
         setLabels();
-        setTextFields();        
     }
 
     /**
@@ -61,8 +61,8 @@ public class PanelAccountInfo extends javax.swing.JPanel {
         add(repeatEmailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 68, -1, -1));
 
         repeatEmailTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                repeatEmailTextFieldKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                repeatEmailTextFieldKeyReleased(evt);
             }
         });
         add(repeatEmailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 91, 308, 25));
@@ -75,16 +75,16 @@ public class PanelAccountInfo extends javax.swing.JPanel {
 
         newPasswordTextField.setToolTipText("Minst 4 tecken långt");
         newPasswordTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                newPasswordTextFieldKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                newPasswordTextFieldKeyReleased(evt);
             }
         });
         add(newPasswordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 172, 130, -1));
 
         repeatPasswordTextField.setToolTipText("Minst 4 tecken långt");
         repeatPasswordTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                repeatPasswordTextFieldKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                repeatPasswordTextFieldKeyReleased(evt);
             }
         });
         add(repeatPasswordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 172, 130, -1));
@@ -100,32 +100,32 @@ public class PanelAccountInfo extends javax.swing.JPanel {
         add(passOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 172, 25, 25));
 
         emailTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                emailTextFieldKeyPressed(evt);
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                emailTextFieldKeyReleased(evt);
             }
         });
         add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 36, 308, 25));
         add(repeatPassOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 172, 25, 25));
     }// </editor-fold>//GEN-END:initComponents
 
-    private void repeatEmailTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_repeatEmailTextFieldKeyPressed
-        setOkLabel(isBothEmailCorrect(), repeatEmailOk);
-    }//GEN-LAST:event_repeatEmailTextFieldKeyPressed
+    private void emailTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailTextFieldKeyReleased
+        setOkLabel(isEmailCorrect(), emailOk);
+    }//GEN-LAST:event_emailTextFieldKeyReleased
 
-    private void newPasswordTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_newPasswordTextFieldKeyPressed
+    private void repeatEmailTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_repeatEmailTextFieldKeyReleased
+         setOkLabel(isBothEmailCorrect(), repeatEmailOk);
+    }//GEN-LAST:event_repeatEmailTextFieldKeyReleased
+
+    private void newPasswordTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_newPasswordTextFieldKeyReleased
         setOkLabel(isPasswordCorrect(), passOk);
-    }//GEN-LAST:event_newPasswordTextFieldKeyPressed
+    }//GEN-LAST:event_newPasswordTextFieldKeyReleased
 
-    private void repeatPasswordTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_repeatPasswordTextFieldKeyPressed
-        setOkLabel(isBothPasswordCorrect(), repeatPassOk);
+    private void repeatPasswordTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_repeatPasswordTextFieldKeyReleased
+               setOkLabel(isBothPasswordCorrect(), repeatPassOk);
         if(!isBothPasswordCorrect()){
             passwordErrorLabel.setText("Lösenorden stämmer inte överrens");
         }
-    }//GEN-LAST:event_repeatPasswordTextFieldKeyPressed
-
-    private void emailTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailTextFieldKeyPressed
-        setOkLabel(isEmailCorrect(), emailOk);
-    }//GEN-LAST:event_emailTextFieldKeyPressed
+    }//GEN-LAST:event_repeatPasswordTextFieldKeyReleased
     private void setLabels() {
         setOkLabel(isPasswordCorrect(), passOk);
         setOkLabel(isBothPasswordCorrect(), repeatPassOk);
