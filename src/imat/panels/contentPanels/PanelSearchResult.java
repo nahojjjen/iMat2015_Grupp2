@@ -11,6 +11,7 @@ import imat.panels.subItems.DetailItem;
 import imat.panels.subItems.GridItem;
 import imat.panels.subItems.ListItem;
 import imat.panels.subItems.NoResultsPanel;
+import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
@@ -26,14 +27,22 @@ import se.chalmers.ait.dat215.project.ProductCategory;
 public class PanelSearchResult extends javax.swing.JPanel {
 
     private List<Product> products;
-
+    private CardLayout card;
+    
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    /////////////////////   Constructors               /////////////////////
+    ////////////////////////////////////////////////////////////////////////
     /**
      * Creates new form PanelSearchResult
+     * @param list - products to show
      */
     public PanelSearchResult(List<Product> list) {
         products = list;
         initComponents();
+        card = (CardLayout) cardPanel.getLayout();
         fixScroll();
+        loadResult(0);
     }
 
     /**
@@ -41,9 +50,9 @@ public class PanelSearchResult extends javax.swing.JPanel {
      *
      * @param categories
      * @param i bad hack, used so that method arguments dont collide with
-     * list<product>
      */
     public PanelSearchResult(List<ProductCategory> categories, int i) {
+      
         List<Product> list = Model.doSearch("");
         List<Product> categoryList = Model.doSearch("dirtyhacksaredirty!!!");
         for (Product product : list) {
@@ -56,34 +65,28 @@ public class PanelSearchResult extends javax.swing.JPanel {
         }
         products = categoryList;
         initComponents();
+          card = (CardLayout) cardPanel.getLayout();
 
     }
-    
-        public PanelSearchResult(String fav) {
+
+    public PanelSearchResult(String fav) {
         List<Product> list = Model.doSearch("");
         List<Product> favoriteList = Model.doSearch("dirtyhacksaredirty!!!");
         for (Product product : list) {
-           
-                if (Model.isFavorited(product)) {
-                    favoriteList.add(product);
-                }
+
+            if (Model.isFavorited(product)) {
+                favoriteList.add(product);
             }
+        }
 
         products = favoriteList;
         initComponents();
-        }
-
-    
+          card = (CardLayout) cardPanel.getLayout();
+    }
 
     /**
      * makes the scrollspeed about 10 times faster
      */
-    private void fixScroll(){
-        int scrollSpeed = 50;
-        detailsViewWrapper.getVerticalScrollBar().setUnitIncrement(scrollSpeed);
-        gridViewWrapper.getVerticalScrollBar().setUnitIncrement(scrollSpeed);
-        listViewWrapper.getVerticalScrollBar().setUnitIncrement(scrollSpeed);
-    }
     /**
      * Shows a category
      *
@@ -100,18 +103,20 @@ public class PanelSearchResult extends javax.swing.JPanel {
         }
         products = categoryList;
         initComponents();
+          card = (CardLayout) cardPanel.getLayout();
 
     }
 
-    /**
-     * clears all previous items in the searchresults
-     */
-    private void clearPreviousItems() {
-        gridView.removeAll();
-        listView.removeAll();
-        detailsView.removeAll();
-    }
-
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    ///////////////////    Search methods     //////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////
+    
+    
     /**
      * create the list of detailitems and put them in the retults
      *
@@ -137,26 +142,27 @@ public class PanelSearchResult extends javax.swing.JPanel {
      * @param products what products to show
      */
     private void showDetailsResultsGrouped(List<Product> products) {
-        
+
         clearPreviousItems();
+
+        card.show(cardPanel, "detailsViewWrapper");
+
         int rows = products.size();
         int amountOfCategories = 0;
         ProductCategory category = null;
-        
-    
+
         for (Product product : products) {
-            
+
             if (!(category == product.getCategory())) {
                 category = product.getCategory();
                 detailsView.add(new JLabel(category.toString()));
                 rows++;
                 amountOfCategories++;
             }
-            
+
             detailsView.add(new DetailItem(product));
         }
-            
-            
+
         detailsView.setLayout(new GridLayout(rows, 1));
 
         int height = products.size() * 90 + amountOfCategories * 90;
@@ -164,10 +170,8 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
         detailsView.setPreferredSize(dim);
         this.revalidate();
-      
+
     }
-    
-    
 
     /**
      * create a list of gridresults and put them in results.
@@ -176,11 +180,10 @@ public class PanelSearchResult extends javax.swing.JPanel {
      */
     private void showGridResults(List<Product> products) {
         clearPreviousItems();
-        
+
         //Fixade att den löser sig självt. >> satte grid layout på grid panelen med columns = 4, rows = 0
         //gridView.setLayout(new FlowLayout(FlowLayout.CENTER));
         //gridView.setPreferredSize(new Dimension(500, 7000));
-        
         for (Product product : products) {
             gridView.add(new GridItem(product));
         }
@@ -208,6 +211,65 @@ public class PanelSearchResult extends javax.swing.JPanel {
         this.revalidate();
     }
 
+    ///////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////
+    //////////////////////////    Helper methods   ////////////////////
+    ///////////////////////////////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////
+    private void fixScroll() {
+        int scrollSpeed = 50;
+        detailsViewWrapper.getVerticalScrollBar().setUnitIncrement(scrollSpeed);
+        gridViewWrapper.getVerticalScrollBar().setUnitIncrement(scrollSpeed);
+        listViewWrapper.getVerticalScrollBar().setUnitIncrement(scrollSpeed);
+    }
+
+    /**
+     * clears all previous items in the searchresults
+     */
+    private void clearPreviousItems() {
+        gridView.removeAll();
+        listView.removeAll();
+        detailsView.removeAll();
+    }
+    
+       /**
+     * makes the search load when the user clicks, instead of loading them all
+     * at once when the user loads.
+     *
+     * @param i which tab to load, starting at index 0
+     */
+    private void loadResult(int i) {
+        if (products.size() > 0) {
+            switch (i) {
+                case (0):
+                    card.show(cardPanel, "detailsCard");
+                    showDetailsResultsGrouped(products);
+                    break;
+                case (1):
+                    card.show(cardPanel, "listCard");
+                    showListResults(products);
+                    break;
+                case (2):
+                    
+                    card.show(cardPanel, "gridCard");
+                    showGridResults(products);
+                    break;
+            }
+
+        } else {
+            clearPreviousItems();
+            detailsView.setLayout(new FlowLayout());
+            listView.setLayout(new FlowLayout());
+            gridView.setLayout(new FlowLayout());
+
+            detailsView.add(new NoResultsPanel());
+            listView.add(new NoResultsPanel());
+            gridView.add(new NoResultsPanel());
+            revalidate();
+            repaint();
+        }
+    }
+
     /**
      * Creates new form PanelSearchResult
      */
@@ -224,16 +286,20 @@ public class PanelSearchResult extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        headerPanel = new javax.swing.JPanel();
         groupCheckbox = new javax.swing.JCheckBox();
         jComboBox1 = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
-        tabPanel = new javax.swing.JTabbedPane();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        cardPanel = new javax.swing.JPanel();
         detailsViewWrapper = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
         detailsView = new javax.swing.JPanel();
         listViewWrapper = new javax.swing.JScrollPane();
-        flowpanel = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         listView = new javax.swing.JPanel();
         gridViewWrapper = new javax.swing.JScrollPane();
         gridView = new javax.swing.JPanel();
@@ -241,152 +307,140 @@ public class PanelSearchResult extends javax.swing.JPanel {
         setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
-        jPanel1.setOpaque(false);
-        jPanel1.setPreferredSize(new java.awt.Dimension(677, 40));
+        headerPanel.setBackground(imat.IMat.getAccentColor());
+        headerPanel.setPreferredSize(new java.awt.Dimension(677, 40));
 
         groupCheckbox.setText("Gruppera kategorier");
+        groupCheckbox.setOpaque(false);
 
         jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Populäritet", "Alfabetisk", "Pris" }));
 
         jLabel1.setText("Sortera på");
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/detailsViewIcon.png"))); // NOI18N
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/listViewIcon.png"))); // NOI18N
+        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel3MouseClicked(evt);
+            }
+        });
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/gridViewIcon.png"))); // NOI18N
+        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel4MouseClicked(evt);
+            }
+        });
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel5.setText("Sökresultat:");
+
+        javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
+        headerPanel.setLayout(headerPanelLayout);
+        headerPanelLayout.setHorizontalGroup(
+            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(headerPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
                 .addComponent(groupCheckbox)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 412, Short.MAX_VALUE)
+                .addGap(54, 54, 54)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 17, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1)
-                    .addComponent(groupCheckbox)))
+        headerPanelLayout.setVerticalGroup(
+            headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(headerPanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(groupCheckbox)
+                    .addComponent(jLabel3)
+                    .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel1))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel4))
+                .addGap(0, 9, Short.MAX_VALUE))
         );
 
-        add(jPanel1, java.awt.BorderLayout.PAGE_START);
+        add(headerPanel, java.awt.BorderLayout.PAGE_START);
 
-        tabPanel.addChangeListener(new javax.swing.event.ChangeListener() {
-            public void stateChanged(javax.swing.event.ChangeEvent evt) {
-                tabPanelStateChanged(evt);
-            }
-        });
+        cardPanel.setLayout(new java.awt.CardLayout());
 
         detailsViewWrapper.setBorder(null);
-        detailsViewWrapper.setOpaque(false);
 
-        jPanel2.setOpaque(false);
-
-        javax.swing.GroupLayout detailsViewLayout = new javax.swing.GroupLayout(detailsView);
-        detailsView.setLayout(detailsViewLayout);
-        detailsViewLayout.setHorizontalGroup(
-            detailsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        detailsViewLayout.setVerticalGroup(
-            detailsViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
+        detailsView.setLayout(new java.awt.GridLayout());
         jPanel2.add(detailsView);
 
         detailsViewWrapper.setViewportView(jPanel2);
 
-        tabPanel.addTab("Detaljvy", detailsViewWrapper);
+        cardPanel.add(detailsViewWrapper, "detailsCard");
 
         listViewWrapper.setBorder(null);
-        listViewWrapper.setOpaque(false);
 
-        flowpanel.setOpaque(false);
-        flowpanel.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 5));
+        listView.setLayout(new java.awt.GridLayout(0, 1));
+        jPanel3.add(listView);
 
-        javax.swing.GroupLayout listViewLayout = new javax.swing.GroupLayout(listView);
-        listView.setLayout(listViewLayout);
-        listViewLayout.setHorizontalGroup(
-            listViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-        listViewLayout.setVerticalGroup(
-            listViewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
+        listViewWrapper.setViewportView(jPanel3);
 
-        flowpanel.add(listView);
-
-        listViewWrapper.setViewportView(flowpanel);
-
-        tabPanel.addTab("Listvy", listViewWrapper);
+        cardPanel.add(listViewWrapper, "listCard");
 
         gridViewWrapper.setBorder(null);
-        gridViewWrapper.setOpaque(false);
 
-        gridView.setOpaque(false);
         gridView.setLayout(new java.awt.GridLayout(0, 4));
         gridViewWrapper.setViewportView(gridView);
 
-        tabPanel.addTab("Gridvy", gridViewWrapper);
+        cardPanel.add(gridViewWrapper, "gridCard");
 
-        add(tabPanel, java.awt.BorderLayout.CENTER);
+        add(cardPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tabPanelStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tabPanelStateChanged
-        loadResult(tabPanel.getSelectedIndex());
-    }//GEN-LAST:event_tabPanelStateChanged
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+        loadResult(0);
+    }//GEN-LAST:event_jLabel2MouseClicked
 
-    /**
-     * makes the search load when the user clicks, instead of loading them all
-     * at once when the user loads.
-     *
-     * @param i which tab to load, starting at index 0
-     */
-    private void loadResult(int i) {
-        if (products.size() > 0) {
-            switch (i) {
-                case (0):
-                    showDetailsResultsGrouped(products);
-                    break;
-                case (1):
-                    showListResults(products);
-                    break;
-                case (2):
-                    showGridResults(products);
-                    break;
-            }
+    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+        loadResult(1);
+    }//GEN-LAST:event_jLabel3MouseClicked
 
-        } else {
-            clearPreviousItems();
-            detailsView.setLayout(new FlowLayout());
-            listView.setLayout(new FlowLayout());
-            gridView.setLayout(new FlowLayout());
-            
-            detailsView.add(new NoResultsPanel());
-            listView.add(new NoResultsPanel());
-            gridView.add(new NoResultsPanel());
-            revalidate();
-            repaint();
-        }
-    }
+    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+        loadResult(2);
+    }//GEN-LAST:event_jLabel4MouseClicked
+
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel cardPanel;
     private javax.swing.JPanel detailsView;
     private javax.swing.JScrollPane detailsViewWrapper;
-    private javax.swing.JPanel flowpanel;
     private javax.swing.JPanel gridView;
     private javax.swing.JScrollPane gridViewWrapper;
     private javax.swing.JCheckBox groupCheckbox;
+    private javax.swing.JPanel headerPanel;
     private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel listView;
     private javax.swing.JScrollPane listViewWrapper;
-    private javax.swing.JTabbedPane tabPanel;
     // End of variables declaration//GEN-END:variables
 }

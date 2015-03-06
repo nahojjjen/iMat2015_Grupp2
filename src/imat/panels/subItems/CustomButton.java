@@ -53,6 +53,7 @@ public class CustomButton extends javax.swing.JPanel {
 
         thisButton = new javax.swing.JLabel();
 
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
         setLayout(new java.awt.BorderLayout());
 
         thisButton.setText("jLabel1");
@@ -77,6 +78,7 @@ public class CustomButton extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void thisButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thisButtonMousePressed
+       
         setIcon(pressed);// TODO add your handling code here:
         System.out.println("button: pressed");
     }//GEN-LAST:event_thisButtonMousePressed
