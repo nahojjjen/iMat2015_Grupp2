@@ -7,6 +7,8 @@ package imat.panels.contentPanels;
 
 import imat.models.CategoryImageLibrary;
 import imat.models.Model;
+import imat.models.sorters.Alphabetical;
+import imat.models.sorters.PriceDecending;
 import imat.panels.subItems.DetailItem;
 import imat.panels.subItems.GridItem;
 import imat.panels.subItems.ListItem;
@@ -28,6 +30,8 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
     private List<Product> products;
     private CardLayout card;
+    private boolean grouped = true;
+    private int sortingWay = 0;
     
     ////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////
@@ -124,15 +128,11 @@ public class PanelSearchResult extends javax.swing.JPanel {
      */
     private void showDetailsResults(List<Product> products) {
         clearPreviousItems();
-        detailsView.setLayout(new GridLayout(products.size(), 1));
-        int height = products.size() * 85;
-        Dimension dim = new Dimension(500, height);
-
-        detailsView.setPreferredSize(dim);
-
         for (Product product : products) {
             detailsView.add(new DetailItem(product));
         }
+          detailsView.add(new JLabel("                                                                                                                                                                       "));
+       
         this.revalidate();
     }
 
@@ -151,7 +151,6 @@ public class PanelSearchResult extends javax.swing.JPanel {
                 JLabel tmpLabel = new JLabel(CategoryImageLibrary.getPicture(category));
                 tmpLabel.setToolTipText(category.toString());
                 detailsView.add(tmpLabel);
-                //detailsView.add(new JLabel(category.toString()));
             }
             detailsView.add(new DetailItem(product));
         }
@@ -170,8 +169,6 @@ public class PanelSearchResult extends javax.swing.JPanel {
         clearPreviousItems();
 
         //Fixade att den löser sig självt. >> satte grid layout på grid panelen med columns = 4, rows = 0
-        //gridView.setLayout(new FlowLayout(FlowLayout.CENTER));
-        //gridView.setPreferredSize(new Dimension(500, 7000));
         for (Product product : products) {
             gridView.add(new GridItem(product));
         }
@@ -227,11 +224,17 @@ public class PanelSearchResult extends javax.swing.JPanel {
      * @param i which tab to load, starting at index 0
      */
     private void loadResult(int i) {
+        sort();
         if (products.size() > 0) {
             switch (i) {
                 case (0):
                     card.show(cardPanel, "detailsCard");
+                    if (grouped) {
+                        
                     showDetailsResultsGrouped(products);
+                    }else{
+                        showDetailsResults(products);
+                    }
                     break;
                 case (1):
                     card.show(cardPanel, "listCard");
@@ -258,6 +261,22 @@ public class PanelSearchResult extends javax.swing.JPanel {
         }
     }
 
+    private void sort(){
+        switch(sortingWay){
+            case(0): products.sort(new PriceDecending()); break;
+            case(1): products.sort(new Alphabetical()); break;
+            case(2):
+        }
+    }
+    private void toggleGrouped(){
+        grouped =  !grouped;
+        clearPreviousItems();
+        loadResult(0);
+    }
+    
+    private void setSortingMethod(){
+        sortingWay = sortingCombobox.getSelectedIndex();
+    }
     /**
      * Creates new form PanelSearchResult
      */
@@ -276,7 +295,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
         headerPanel = new javax.swing.JPanel();
         groupCheckbox = new javax.swing.JCheckBox();
-        jComboBox1 = new javax.swing.JComboBox();
+        sortingCombobox = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -298,10 +317,22 @@ public class PanelSearchResult extends javax.swing.JPanel {
         headerPanel.setBackground(imat.IMat.getAccentColor());
         headerPanel.setPreferredSize(new java.awt.Dimension(677, 40));
 
+        groupCheckbox.setSelected(true);
         groupCheckbox.setText("Gruppera kategorier");
         groupCheckbox.setOpaque(false);
+        groupCheckbox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                groupCheckboxActionPerformed(evt);
+            }
+        });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Populäritet", "Alfabetisk", "Pris" }));
+        sortingCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Pris", "Alfabetisk", "Relevans" }));
+        sortingCombobox.setSelectedIndex(2);
+        sortingCombobox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                sortingComboboxActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Sortera på");
 
@@ -337,7 +368,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
             .addGroup(headerPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 111, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 116, Short.MAX_VALUE)
                 .addComponent(groupCheckbox)
                 .addGap(54, 54, 54)
                 .addComponent(jLabel2)
@@ -348,7 +379,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(sortingCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         headerPanelLayout.setVerticalGroup(
@@ -360,7 +391,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
                     .addComponent(groupCheckbox)
                     .addComponent(jLabel3)
                     .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(sortingCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel1))
                     .addComponent(jLabel2)
                     .addComponent(jLabel4))
@@ -418,6 +449,16 @@ public class PanelSearchResult extends javax.swing.JPanel {
         loadResult(2);
     }//GEN-LAST:event_jLabel4MouseClicked
 
+    private void groupCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupCheckboxActionPerformed
+        toggleGrouped();
+    }//GEN-LAST:event_groupCheckboxActionPerformed
+
+    private void sortingComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortingComboboxActionPerformed
+        setSortingMethod();
+        clearPreviousItems();
+        loadResult(0);
+    }//GEN-LAST:event_sortingComboboxActionPerformed
+
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel cardPanel;
@@ -428,7 +469,6 @@ public class PanelSearchResult extends javax.swing.JPanel {
     private javax.swing.JScrollPane gridViewWrapper;
     private javax.swing.JCheckBox groupCheckbox;
     private javax.swing.JPanel headerPanel;
-    private javax.swing.JComboBox jComboBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -437,5 +477,6 @@ public class PanelSearchResult extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel listView;
     private javax.swing.JScrollPane listViewWrapper;
+    private javax.swing.JComboBox sortingCombobox;
     // End of variables declaration//GEN-END:variables
 }

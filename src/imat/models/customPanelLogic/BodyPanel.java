@@ -15,13 +15,21 @@ import javax.swing.JPanel;
  */
 public class BodyPanel extends JPanel{
     
-    int lineWidth = 4;
+    
+    
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-        int width = this.getWidth();
+         Color lineColor = new Color(200,230,200);
+       
+        drawStripes(g, lineColor, 4);
+    }
+    
+    private void drawStripes(Graphics g, Color c, int lineWidth){
+       
+            int width = this.getWidth();
         int height = this.getHeight();
-        g.setColor(new Color(200,230,200));
+        g.setColor(c);
        for (int x=0; x<width; x++){
            for (int y=0; y<height; y++){
                if ((x+y)%lineWidth == 1){

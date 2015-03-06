@@ -9,6 +9,7 @@ import imat.IMat;
 import imat.MainWindow;
 import imat.models.navPanelActionListeners.Debug2;
 import imat.models.navPanelActionListeners.ExpandCategories;
+import imat.models.navPanelActionListeners.GoToHistory;
 import imat.panels.subItems.CustomButton;
 import javax.swing.ImageIcon;
 
@@ -65,7 +66,7 @@ public class PanelNavigation2 extends javax.swing.JPanel {
     
     private void addStaticButtons1(){
         System.out.println("navpanel: trying to add static buttons 1");
-         CustomButton btn = new CustomButton(tt1, tt2, test1, new Debug2());
+         CustomButton btn = new CustomButton(tt1, tt2, test1, new GoToHistory());
         CustomButton btn2 = new CustomButton(tt1, tt2, test1, new Debug2());
         CustomButton btn3 = new CustomButton(tt1, tt2, test1, new Debug2());
         CustomButton btn4 = new CustomButton(tt1, tt2, test1, new ExpandCategories());
