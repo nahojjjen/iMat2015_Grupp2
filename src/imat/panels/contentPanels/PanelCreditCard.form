@@ -38,7 +38,7 @@
                       <Component id="visaMasterRadioButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="americanRadioButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="52" max="32767" attributes="0"/>
+                      <EmptySpace pref="53" max="32767" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -67,9 +67,9 @@
                       </Group>
                       <EmptySpace type="unrelated" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="cardNumberOkLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="holderNameOkLabel" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="secNumberOkLabel" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Component id="cardNumberOkLabel" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="holderNameOkLabel" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="secNumberOkLabel" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -91,14 +91,14 @@
                   <Component id="carNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="digitsInCardNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cardNumberTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cardNumberOkLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="cardNumberOkLabel" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="cardHolderLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cardHolderTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="cardHolderReminderLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="holderNameOkLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="holderNameOkLabel" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -111,7 +111,7 @@
                   <Component id="cardSecurityLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="securityReminderLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="securityNumberTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="secNumberOkLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="secNumberOkLabel" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="42" max="32767" attributes="0"/>
           </Group>
@@ -170,7 +170,6 @@
     </Component>
     <Component class="javax.swing.JTextField" name="cardHolderTextField">
       <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cardHolderTextFieldFocusGained"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cardHolderTextFieldKeyTyped"/>
       </Events>
     </Component>
@@ -209,6 +208,9 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="yearComboBoxActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="securityReminderLabel">
       <Properties>
@@ -233,7 +235,6 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cardNumberTextFieldFocusGained"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="cardNumberTextFieldKeyTyped"/>
       </Events>
     </Component>
@@ -244,7 +245,6 @@
         </Property>
       </Properties>
       <Events>
-        <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="securityNumberTextFieldFocusGained"/>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="securityNumberTextFieldKeyTyped"/>
       </Events>
     </Component>

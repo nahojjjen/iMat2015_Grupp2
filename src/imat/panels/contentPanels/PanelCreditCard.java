@@ -16,7 +16,10 @@ import javax.swing.JTextField;
  * @author Viktor
  */
 public class PanelCreditCard extends javax.swing.JPanel {
+
     private ImageIcon ok = new ImageIcon("src/resources/ok.png");
+    private ImageIcon notOk = new ImageIcon("src/resources/notOk.png");
+
     /**
      * Creates new form PanelCreditCard
      */
@@ -31,7 +34,10 @@ public class PanelCreditCard extends javax.swing.JPanel {
         cardTypeButtonGroup.add(visaMasterRadioButton);
         setSelectedCardType(CustomerModel.getCardType());
         setDigitsLabel(CustomerModel.getCardType());
-        
+        setOkLabel(isCardNumberCorrect(),cardNumberOkLabel); 
+        setOkLabel(isCardHolderNameCorrect(), holderNameOkLabel);  
+        setOkLabel(isSecNumberCorrect(), secNumberOkLabel);
+
     }
 
     /**
@@ -92,11 +98,6 @@ public class PanelCreditCard extends javax.swing.JPanel {
         digitsInCardNumberLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         digitsInCardNumberLabel.setText("16 siffror");
 
-        cardHolderTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                cardHolderTextFieldFocusGained(evt);
-            }
-        });
         cardHolderTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 cardHolderTextFieldKeyTyped(evt);
@@ -106,6 +107,11 @@ public class PanelCreditCard extends javax.swing.JPanel {
         monthComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December" }));
 
         yearComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
+        yearComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yearComboBoxActionPerformed(evt);
+            }
+        });
 
         securityReminderLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         securityReminderLabel.setText("Sista 3 siffrorna på kortets baksida");
@@ -114,11 +120,6 @@ public class PanelCreditCard extends javax.swing.JPanel {
         cardHolderReminderLabel.setText("Namn på kortet");
 
         cardNumberTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
-        cardNumberTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                cardNumberTextFieldFocusGained(evt);
-            }
-        });
         cardNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 cardNumberTextFieldKeyTyped(evt);
@@ -126,11 +127,6 @@ public class PanelCreditCard extends javax.swing.JPanel {
         });
 
         securityNumberTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
-        securityNumberTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                securityNumberTextFieldFocusGained(evt);
-            }
-        });
         securityNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 securityNumberTextFieldKeyTyped(evt);
@@ -155,7 +151,7 @@ public class PanelCreditCard extends javax.swing.JPanel {
                         .addComponent(visaMasterRadioButton)
                         .addGap(18, 18, 18)
                         .addComponent(americanRadioButton)
-                        .addContainerGap(52, Short.MAX_VALUE))
+                        .addContainerGap(53, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -177,9 +173,9 @@ public class PanelCreditCard extends javax.swing.JPanel {
                                 .addComponent(securityReminderLabel)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cardNumberOkLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(holderNameOkLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(secNumberOkLabel, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(cardNumberOkLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(holderNameOkLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(secNumberOkLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -195,13 +191,13 @@ public class PanelCreditCard extends javax.swing.JPanel {
                     .addComponent(carNumberLabel)
                     .addComponent(digitsInCardNumberLabel)
                     .addComponent(cardNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cardNumberOkLabel))
+                    .addComponent(cardNumberOkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cardHolderLabel)
                     .addComponent(cardHolderTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cardHolderReminderLabel)
-                    .addComponent(holderNameOkLabel))
+                    .addComponent(holderNameOkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cardExpireLabel)
@@ -212,7 +208,7 @@ public class PanelCreditCard extends javax.swing.JPanel {
                     .addComponent(cardSecurityLabel)
                     .addComponent(securityReminderLabel)
                     .addComponent(securityNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(secNumberOkLabel))
+                    .addComponent(secNumberOkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -227,41 +223,21 @@ public class PanelCreditCard extends javax.swing.JPanel {
         setDigitsLabel("American Express");
     }//GEN-LAST:event_americanRadioButtonActionPerformed
 
-    private void cardNumberTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cardNumberTextFieldFocusGained
-        cancelAllErrors(cardNumberTextField,digitsInCardNumberLabel);       
-    }//GEN-LAST:event_cardNumberTextFieldFocusGained
-
-    private void cardHolderTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cardHolderTextFieldFocusGained
-        cancelAllErrors(cardHolderTextField,cardHolderReminderLabel);
-    }//GEN-LAST:event_cardHolderTextFieldFocusGained
-
-    private void securityNumberTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_securityNumberTextFieldFocusGained
-        cancelAllErrors(securityNumberTextField,securityReminderLabel);
-    }//GEN-LAST:event_securityNumberTextFieldFocusGained
-
     private void cardNumberTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cardNumberTextFieldKeyTyped
-               if (CustomerModel.cardNumberTest(cardNumberTextField.getText())){
-            cardNumberOkLabel.setIcon(ok);
-        }else{
-            cardNumberOkLabel.setIcon(null);
-        }
+        setOkLabel(isCardNumberCorrect(),cardNumberOkLabel); 
     }//GEN-LAST:event_cardNumberTextFieldKeyTyped
 
     private void cardHolderTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cardHolderTextFieldKeyTyped
-                    if (CustomerModel.cardHolderNameTest(cardHolderTextField.getText())){
-            holderNameOkLabel.setIcon(ok);
-        }else{
-           holderNameOkLabel.setIcon(null);
-        }
+        setOkLabel(isCardHolderNameCorrect(), holderNameOkLabel);            
     }//GEN-LAST:event_cardHolderTextFieldKeyTyped
 
     private void securityNumberTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_securityNumberTextFieldKeyTyped
-                            if (CustomerModel.cardVerificationTest(securityNumberTextField.getText())){
-            secNumberOkLabel.setIcon(ok);
-        }else{
-           secNumberOkLabel.setIcon(null);
-        }
+        setOkLabel(isSecNumberCorrect(), secNumberOkLabel);
     }//GEN-LAST:event_securityNumberTextFieldKeyTyped
+
+    private void yearComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_yearComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_yearComboBoxActionPerformed
     /**
      * saves the checked card type
      */
@@ -315,47 +291,13 @@ public class PanelCreditCard extends javax.swing.JPanel {
     public boolean isCardHolderNameCorrect() {
         return (CustomerModel.cardHolderNameTest(cardHolderTextField.getText()));
     }
-
-    /**
-     * make a textinputbox show red
-     * @param input what textinputbox to make red.
-     */
-    public void showError(JTextField input) {
-        input.setBackground(new Color(240, 200, 200));        
+    private void setOkLabel(Boolean bool, JLabel label) {
+        if (bool) {
+            label.setIcon(ok);
+        } else {
+            label.setIcon(notOk);
+        }
     }
-    public void showLabelError(JLabel input){
-        input.setForeground(Color.red);
-    }
-    /** 
-     *make a textinputbox show white
-     * @param input what textinputbox to revert to white.
-     */
-    private void cancelError(JTextField input) {
-        input.setBackground(Color.WHITE);
-    }
-    private void cancelLabelError(JLabel input){
-        input.setForeground(Color.BLACK);
-    }
-    private void cancelAllErrors(JTextField textField, JLabel label){
-        cancelError(textField);
-        cancelLabelError(label);
-    }
-
-    public void showNameError() {
-        showError(cardHolderTextField);
-        showLabelError(cardHolderReminderLabel);
-    }
-
-    public void showSecNumberError() {
-        showError(securityNumberTextField);
-        showLabelError(securityReminderLabel);
-    }
-
-    public void showCardNumberError() {
-        showError(cardNumberTextField);
-        showLabelError(digitsInCardNumberLabel);
-    }
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JRadioButton americanRadioButton;

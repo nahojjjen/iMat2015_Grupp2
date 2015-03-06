@@ -7,6 +7,7 @@ package imat.panels.contentPanels;
 
 import imat.models.CustomerModel;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
@@ -15,6 +16,9 @@ import javax.swing.JTextField;
  * @author Viktor
  */
 public class PanelDeliveryInfo extends javax.swing.JPanel {
+
+    private ImageIcon ok = new ImageIcon("src/resources/ok.png");
+    private ImageIcon notOk = new ImageIcon("src/resources/notOk.png");
 
     /**
      * Creates new form PanelDeliveryInfo
@@ -27,7 +31,12 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         postCodeTextField.setText(CustomerModel.getPostCode());
         postAddressTextField.setText(CustomerModel.getPostAddress());
         phoneNumberTextField.setText(CustomerModel.getPhoneNumber());
-
+         setOkLabel(isFirstNameCorrect(), firstNameOk);
+        setOkLabel(isLastNameCorrect(), lastNameOk);
+        setOkLabel(isAddressCorrect(), addressOk);
+        setOkLabel(isPostCodeCorrect(), postCodeOk);
+        setOkLabel(isPostAddressCorrect(), postAddressOk);
+        setOkLabel(isPhoneNumberCorrect(), phoneOk);
     }
 
     /**
@@ -59,15 +68,15 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         mobileNumberTextField = new javax.swing.JFormattedTextField();
         mobileNumberLabel = new javax.swing.JLabel();
         infoTextLabel = new javax.swing.JLabel();
-        cardHolderReminderLabel = new javax.swing.JLabel();
-        firstNameErrorLabel = new javax.swing.JLabel();
-        addressErrorLabel = new javax.swing.JLabel();
-        postCodeErrorLabel = new javax.swing.JLabel();
-        phoneErrorLabel = new javax.swing.JLabel();
-        lastNameErrorLabel = new javax.swing.JLabel();
-        mobileErrorLabel = new javax.swing.JLabel();
-        postAddressErrorLabel = new javax.swing.JLabel();
-        careOfErrorLabel = new javax.swing.JLabel();
+        infoTipTextAreaLabel = new javax.swing.JLabel();
+        lastNameOk = new javax.swing.JLabel();
+        postAddressOk = new javax.swing.JLabel();
+        mobileOk = new javax.swing.JLabel();
+        careOfOk = new javax.swing.JLabel();
+        firstNameOk = new javax.swing.JLabel();
+        addressOk = new javax.swing.JLabel();
+        postCodeOk = new javax.swing.JLabel();
+        phoneOk = new javax.swing.JLabel();
 
         setOpaque(false);
 
@@ -77,17 +86,16 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
 
         lastNameLabel.setText("Efternamn:");
 
-        firstNameTextField.setText("Johan");
         firstNameTextField.setAutoscrolls(false);
-        firstNameTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                firstNameTextFieldFocusGained(evt);
+        firstNameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                firstNameTextFieldKeyTyped(evt);
             }
         });
 
-        lastNameTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                lastNameTextFieldFocusGained(evt);
+        lastNameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                lastNameTextFieldKeyTyped(evt);
             }
         });
 
@@ -95,9 +103,9 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
 
         careOfLabel.setText("C/O:");
 
-        addressTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                addressTextFieldFocusGained(evt);
+        addressTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                addressTextFieldKeyTyped(evt);
             }
         });
 
@@ -105,24 +113,24 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
 
         postAddressLabel.setText("Postort:");
 
-        postAddressTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                postAddressTextFieldFocusGained(evt);
+        postAddressTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                postAddressTextFieldKeyTyped(evt);
             }
         });
 
         phoneNumberLabel.setText("Telefon:");
 
         postCodeTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
-        postCodeTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                postCodeTextFieldFocusGained(evt);
+        postCodeTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                postCodeTextFieldKeyTyped(evt);
             }
         });
 
-        phoneNumberTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                phoneNumberTextFieldFocusGained(evt);
+        phoneNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                phoneNumberTextFieldKeyTyped(evt);
             }
         });
 
@@ -130,21 +138,12 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         informationTextArea.setRows(5);
         jScrollPane1.setViewportView(informationTextArea);
 
-        mobileNumberTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                mobileNumberTextFieldFocusGained(evt);
-            }
-        });
-
         mobileNumberLabel.setText("Mobil:");
 
         infoTextLabel.setText("Övrig information:");
 
-        cardHolderReminderLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
-        cardHolderReminderLabel.setText("T.ex portkod eller vånings-/lägenhetsnummer");
-
-        firstNameErrorLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
-        firstNameErrorLabel.setForeground(new java.awt.Color(255, 0, 0));
+        infoTipTextAreaLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
+        infoTipTextAreaLabel.setText("T.ex portkod eller vånings-/lägenhetsnummer");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -152,120 +151,103 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(phoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                         .addComponent(infoTextLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(cardHolderReminderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(infoTipTextAreaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(firstNameLabel)
-                                            .addComponent(addressLabel)
-                                            .addComponent(postCodeLabel)
-                                            .addComponent(phoneNumberLabel))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(phoneErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(postCodeErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(addressErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(firstNameErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addComponent(addressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(phoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(postCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(addressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(firstNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 9, Short.MAX_VALUE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(postCodeOk, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(phoneOk, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(addressOk, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(firstNameOk, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(mobileNumberTextField)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(careOfLabel)
-                                            .addComponent(mobileNumberLabel)
-                                            .addComponent(postAddressLabel)
-                                            .addComponent(lastNameLabel))
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                                .addGap(18, 18, 18)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(mobileErrorLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(postAddressErrorLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                                    .addComponent(lastNameErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addGap(9, 9, 9))
-                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(careOfErrorLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                                    .addComponent(lastNameTextField)
-                                    .addComponent(postAddressTextField)
-                                    .addComponent(careOfTextField)))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(firstNameTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(postCodeTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(164, 164, 164))))
+                                    .addComponent(mobileNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(careOfLabel)
+                                    .addComponent(mobileNumberLabel)
+                                    .addComponent(postAddressLabel)
+                                    .addComponent(lastNameLabel)
+                                    .addComponent(postAddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(careOfTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jScrollPane1)
+                            .addComponent(phoneNumberLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(addressLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(firstNameLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(postCodeLabel, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lastNameOk, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(postAddressOk, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(mobileOk, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(careOfOk, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(firstNameLabel)
-                            .addComponent(lastNameLabel)
-                            .addComponent(firstNameErrorLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(firstNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lastNameTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(addressLabel)
-                            .addComponent(careOfLabel)
-                            .addComponent(addressErrorLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(addressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(careOfTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(postCodeLabel)
-                            .addComponent(postAddressLabel)
-                            .addComponent(postCodeErrorLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(postAddressTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(postCodeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(phoneNumberLabel)
-                            .addComponent(mobileNumberLabel)
-                            .addComponent(phoneErrorLabel)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(lastNameErrorLabel)
-                        .addGap(42, 42, 42)
-                        .addComponent(careOfErrorLabel)
-                        .addGap(53, 53, 53)
-                        .addComponent(postAddressErrorLabel)
-                        .addGap(48, 48, 48)
-                        .addComponent(mobileErrorLabel)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(phoneNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mobileNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(firstNameLabel)
+                    .addComponent(lastNameLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(firstNameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lastNameTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lastNameOk, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(firstNameOk, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(addressLabel)
+                    .addComponent(careOfLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(addressTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(careOfTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(addressOk, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(careOfOk, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(postCodeLabel)
+                    .addComponent(postAddressLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(postAddressTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(postCodeTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(postAddressOk, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(postCodeOk, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED, 21, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(phoneNumberLabel)
+                    .addComponent(mobileNumberLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(phoneNumberTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(mobileNumberTextField, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(mobileOk, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(phoneOk, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(15, 15, 15)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(infoTextLabel)
-                    .addComponent(cardHolderReminderLabel))
+                    .addComponent(infoTipTextAreaLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(49, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -274,8 +256,8 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 440, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -286,33 +268,29 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void firstNameTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_firstNameTextFieldFocusGained
-        cancelError(firstNameTextField);
-    }//GEN-LAST:event_firstNameTextFieldFocusGained
+    private void firstNameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_firstNameTextFieldKeyTyped
+        setOkLabel(isFirstNameCorrect(), firstNameOk);
+    }//GEN-LAST:event_firstNameTextFieldKeyTyped
 
-    private void lastNameTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_lastNameTextFieldFocusGained
-        cancelError(lastNameTextField);
-    }//GEN-LAST:event_lastNameTextFieldFocusGained
+    private void addressTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addressTextFieldKeyTyped
+        setOkLabel(isAddressCorrect(), addressOk);
+    }//GEN-LAST:event_addressTextFieldKeyTyped
 
-    private void postAddressTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_postAddressTextFieldFocusGained
-        cancelError(postAddressTextField);
-    }//GEN-LAST:event_postAddressTextFieldFocusGained
+    private void postCodeTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_postCodeTextFieldKeyTyped
+        setOkLabel(isPostCodeCorrect(), postCodeOk);
+    }//GEN-LAST:event_postCodeTextFieldKeyTyped
 
-    private void postCodeTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_postCodeTextFieldFocusGained
-        cancelError(postCodeTextField);
-    }//GEN-LAST:event_postCodeTextFieldFocusGained
+    private void lastNameTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lastNameTextFieldKeyTyped
+       setOkLabel(isLastNameCorrect(), lastNameOk);
+    }//GEN-LAST:event_lastNameTextFieldKeyTyped
 
-    private void phoneNumberTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldFocusGained
-        cancelError(phoneNumberTextField);
-    }//GEN-LAST:event_phoneNumberTextFieldFocusGained
+    private void postAddressTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_postAddressTextFieldKeyTyped
+        setOkLabel(isPostAddressCorrect(), postAddressOk);
+    }//GEN-LAST:event_postAddressTextFieldKeyTyped
 
-    private void mobileNumberTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_mobileNumberTextFieldFocusGained
-        cancelError(mobileNumberTextField);
-    }//GEN-LAST:event_mobileNumberTextFieldFocusGained
-
-    private void addressTextFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_addressTextFieldFocusGained
-        cancelError(addressTextField);
-    }//GEN-LAST:event_addressTextFieldFocusGained
+    private void phoneNumberTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldKeyTyped
+        setOkLabel(isPhoneNumberCorrect(), phoneOk);
+    }//GEN-LAST:event_phoneNumberTextFieldKeyTyped
 
     public void save() {
         CustomerModel.setFirstName(firstNameTextField.getText());
@@ -347,96 +325,42 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         return (CustomerModel.phoneNumberTest(phoneNumberTextField.getText()));
     }
 
-    /**
-     * make a textinputbox show red
-     *
-     * @param input what textinputbox to make red.
-     */
-    public void showError(JTextField input) {
-        input.setBackground(new Color(240, 200, 200));
+    private void setOkLabel(Boolean bool, JLabel label) {
+        if (bool) {
+            label.setIcon(ok);
+        } else {
+            label.setIcon(notOk);
+        }
     }
-
-    public void showLabelError(JLabel input, String str) {
-        input.setText(str);
-    }
-
-    /**
-     * make a textinputbox show white
-     *
-     * @param input what textinputbox to revert to white.
-     */
-    private void cancelError(JTextField input) {
-        input.setBackground(Color.WHITE);
-    }
-
-    private void cancelLabelError(JLabel input) {
-        input.setText("");
-    }
-
-    private void cancelAllErrors(JTextField textField, JLabel label) {
-        cancelError(textField);
-        cancelLabelError(label);
-    }
-
-    public void showFirstNameError() {
-        showError(firstNameTextField);
-        showLabelError(firstNameErrorLabel, "Namn ej korrekt ifyllt.");
-    }
-
-    public void showLastNameError() {
-        showError(lastNameTextField);
-        showLabelError(lastNameErrorLabel, "Namn ej korrekt ifyllt.");
-    }
-
-    public void showAddressError() {
-        showError(addressTextField);
-        showLabelError(addressErrorLabel, "Adress ej korrekt ifyllt.");
-    }
-
-    public void showPostCodeError() {
-        showError(postCodeTextField);
-        showLabelError(postCodeErrorLabel, "Postnummer ej korrekt ifyllt.");
-    }
-
-    public void showPostAddressError() {
-        showError(postAddressTextField);
-        showLabelError(postAddressErrorLabel, "Postadress ej korrekt ifyllt.");
-    }
-
-    public void showPhoneError() {
-        showError(phoneNumberTextField);
-        showLabelError(phoneErrorLabel, "Telefonnummer ej korrekt ifyllt.");
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel addressErrorLabel;
     private javax.swing.JLabel addressLabel;
+    private javax.swing.JLabel addressOk;
     private javax.swing.JTextField addressTextField;
-    private javax.swing.JLabel cardHolderReminderLabel;
-    private javax.swing.JLabel careOfErrorLabel;
     private javax.swing.JLabel careOfLabel;
+    private javax.swing.JLabel careOfOk;
     private javax.swing.JTextField careOfTextField;
-    private javax.swing.JLabel firstNameErrorLabel;
     private javax.swing.JLabel firstNameLabel;
+    private javax.swing.JLabel firstNameOk;
     private javax.swing.JTextField firstNameTextField;
     private javax.swing.JLabel infoTextLabel;
+    private javax.swing.JLabel infoTipTextAreaLabel;
     private javax.swing.JTextArea informationTextArea;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JLabel lastNameErrorLabel;
     private javax.swing.JLabel lastNameLabel;
+    private javax.swing.JLabel lastNameOk;
     private javax.swing.JTextField lastNameTextField;
-    private javax.swing.JLabel mobileErrorLabel;
     private javax.swing.JLabel mobileNumberLabel;
     private javax.swing.JFormattedTextField mobileNumberTextField;
-    private javax.swing.JLabel phoneErrorLabel;
+    private javax.swing.JLabel mobileOk;
     private javax.swing.JLabel phoneNumberLabel;
     private javax.swing.JFormattedTextField phoneNumberTextField;
-    private javax.swing.JLabel postAddressErrorLabel;
+    private javax.swing.JLabel phoneOk;
     private javax.swing.JLabel postAddressLabel;
+    private javax.swing.JLabel postAddressOk;
     private javax.swing.JTextField postAddressTextField;
-    private javax.swing.JLabel postCodeErrorLabel;
     private javax.swing.JLabel postCodeLabel;
+    private javax.swing.JLabel postCodeOk;
     private javax.swing.JFormattedTextField postCodeTextField;
     // End of variables declaration//GEN-END:variables
 }

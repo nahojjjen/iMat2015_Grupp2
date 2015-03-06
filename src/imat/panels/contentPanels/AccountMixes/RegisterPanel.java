@@ -76,13 +76,6 @@ public class RegisterPanel extends javax.swing.JPanel {
             IMat.setLoggedin(true);
             IMat.getWindow().setContent(new PanelHome());
             
-        } else{
-            if(!accPanel.isEmailCorrect()){
-                accPanel.showEmailError();
-            }
-            if(!accPanel.isPasswordCorrect()){
-                accPanel.showPassError();
-            }
         }
     }//GEN-LAST:event_joinButtonActionPerformed
 

@@ -21,8 +21,8 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jPanel1" min="-2" pref="440" max="-2" attributes="0"/>
-              <EmptySpace max="32767" attributes="0"/>
+              <Component id="jPanel1" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -47,81 +47,55 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <Component id="phoneNumberTextField" min="-2" pref="156" max="-2" attributes="0"/>
-                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="infoTextLabel" min="-2" pref="119" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="cardHolderReminderLabel" min="-2" pref="210" max="-2" attributes="0"/>
+                          <Component id="infoTipTextAreaLabel" min="-2" pref="210" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jScrollPane1" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
+                              <Group type="102" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="firstNameLabel" min="-2" max="-2" attributes="0"/>
-                                              <Component id="addressLabel" min="-2" max="-2" attributes="0"/>
-                                              <Component id="postCodeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="phoneNumberLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="phoneErrorLabel" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                              <Component id="postCodeErrorLabel" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                              <Component id="addressErrorLabel" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                              <Component id="firstNameErrorLabel" alignment="0" min="-2" pref="100" max="-2" attributes="0"/>
-                                          </Group>
-                                      </Group>
-                                      <Component id="addressTextField" min="-2" pref="156" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="mobileNumberTextField" max="32767" attributes="0"/>
-                                      <Group type="102" attributes="0">
-                                          <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="careOfLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="mobileNumberLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="postAddressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                              <Component id="lastNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          </Group>
-                                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Group type="102" attributes="0">
-                                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                                  <Group type="103" groupAlignment="0" attributes="0">
-                                                      <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                                          <Component id="mobileErrorLabel" alignment="1" min="-2" pref="50" max="-2" attributes="0"/>
-                                                          <Component id="postAddressErrorLabel" alignment="1" max="32767" attributes="0"/>
-                                                      </Group>
-                                                      <Component id="lastNameErrorLabel" alignment="0" min="-2" pref="107" max="-2" attributes="0"/>
-                                                  </Group>
-                                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                              </Group>
-                                              <Group type="102" alignment="1" attributes="0">
-                                                  <EmptySpace max="32767" attributes="0"/>
-                                                  <Component id="careOfErrorLabel" min="-2" pref="115" max="-2" attributes="0"/>
-                                              </Group>
-                                          </Group>
-                                      </Group>
-                                      <Component id="lastNameTextField" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="postAddressTextField" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="careOfTextField" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
+                                      <Component id="phoneNumberTextField" min="-2" pref="156" max="-2" attributes="0"/>
+                                      <Component id="postCodeTextField" min="-2" pref="77" max="-2" attributes="0"/>
+                                      <Component id="addressTextField" alignment="0" min="-2" pref="156" max="-2" attributes="0"/>
                                       <Component id="firstNameTextField" alignment="0" min="-2" pref="156" max="-2" attributes="0"/>
-                                      <Component id="postCodeTextField" alignment="0" min="-2" pref="77" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  <EmptySpace pref="9" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="postCodeOk" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                                      <Component id="phoneOk" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                                      <Component id="addressOk" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                                      <Component id="firstNameOk" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace pref="13" max="32767" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="mobileNumberTextField" min="-2" pref="198" max="-2" attributes="0"/>
+                                      <Component id="careOfLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="mobileNumberLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="postAddressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="lastNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="postAddressTextField" alignment="0" min="-2" pref="198" max="-2" attributes="0"/>
+                                      <Component id="careOfTextField" alignment="0" min="-2" pref="198" max="-2" attributes="0"/>
+                                      <Component id="lastNameTextField" alignment="0" min="-2" pref="198" max="-2" attributes="0"/>
+                                  </Group>
                               </Group>
+                              <Component id="jScrollPane1" max="32767" attributes="0"/>
+                              <Component id="phoneNumberLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="addressLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="firstNameLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="postCodeLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lastNameOk" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="postAddressOk" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="mobileOk" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                              <Component id="careOfOk" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
@@ -131,70 +105,69 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="firstNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lastNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="firstNameErrorLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="firstNameTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="lastNameTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="addressLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="careOfLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="addressErrorLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="addressTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="careOfTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="postCodeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="postAddressLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="postCodeErrorLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="postAddressTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="postCodeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="phoneNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="mobileNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="phoneErrorLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Component id="lastNameErrorLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="42" pref="42" max="-2" attributes="0"/>
-                          <Component id="careOfErrorLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="53" pref="53" max="-2" attributes="0"/>
-                          <Component id="postAddressErrorLabel" min="-2" max="-2" attributes="0"/>
-                          <EmptySpace min="48" pref="48" max="-2" attributes="0"/>
-                          <Component id="mobileErrorLabel" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="firstNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="lastNameLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="firstNameTextField" alignment="3" max="-2" attributes="0"/>
+                          <Component id="lastNameTextField" alignment="3" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="lastNameOk" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="firstNameOk" min="-2" pref="25" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="15" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="phoneNumberTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="mobileNumberTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="addressLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="careOfLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="addressTextField" alignment="3" max="-2" attributes="0"/>
+                          <Component id="careOfTextField" alignment="3" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="addressOk" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="careOfOk" min="-2" pref="25" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="postCodeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="postAddressLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="postAddressTextField" alignment="3" max="-2" attributes="0"/>
+                          <Component id="postCodeTextField" alignment="3" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="postAddressOk" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="postCodeOk" min="-2" pref="25" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="unrelated" pref="21" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="phoneNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="mobileNumberLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="phoneNumberTextField" alignment="3" max="-2" attributes="0"/>
+                          <Component id="mobileNumberTextField" alignment="3" max="-2" attributes="0"/>
+                      </Group>
+                      <Component id="mobileOk" min="-2" pref="25" max="-2" attributes="0"/>
+                      <Component id="phoneOk" min="-2" pref="25" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="infoTextLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="cardHolderReminderLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="infoTipTextAreaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="44" max="32767" attributes="0"/>
+                  <EmptySpace pref="49" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -212,16 +185,15 @@
         </Component>
         <Component class="javax.swing.JTextField" name="firstNameTextField">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Johan"/>
             <Property name="autoscrolls" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="firstNameTextFieldFocusGained"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="firstNameTextFieldKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="lastNameTextField">
           <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="lastNameTextFieldFocusGained"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="lastNameTextFieldKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="addressLabel">
@@ -236,7 +208,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="addressTextField">
           <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="addressTextFieldFocusGained"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="addressTextFieldKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="careOfTextField">
@@ -253,7 +225,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="postAddressTextField">
           <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="postAddressTextFieldFocusGained"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="postAddressTextFieldKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="phoneNumberLabel">
@@ -268,12 +240,12 @@
             </Property>
           </Properties>
           <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="postCodeTextFieldFocusGained"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="postCodeTextFieldKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="phoneNumberTextField">
           <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="phoneNumberTextFieldFocusGained"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="phoneNumberTextFieldKeyTyped"/>
           </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -292,9 +264,6 @@
           </SubComponents>
         </Container>
         <Component class="javax.swing.JFormattedTextField" name="mobileNumberTextField">
-          <Events>
-            <EventHandler event="focusGained" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="mobileNumberTextFieldFocusGained"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="mobileNumberLabel">
           <Properties>
@@ -306,7 +275,7 @@
             <Property name="text" type="java.lang.String" value="&#xd6;vrig information:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="cardHolderReminderLabel">
+        <Component class="javax.swing.JLabel" name="infoTipTextAreaLabel">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Tahoma" size="10" style="2"/>
@@ -314,29 +283,21 @@
             <Property name="text" type="java.lang.String" value="T.ex portkod eller v&#xe5;nings-/l&#xe4;genhetsnummer"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="firstNameErrorLabel">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Tahoma" size="10" style="2"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="0" green="0" red="ff" type="rgb"/>
-            </Property>
-          </Properties>
+        <Component class="javax.swing.JLabel" name="lastNameOk">
         </Component>
-        <Component class="javax.swing.JLabel" name="addressErrorLabel">
+        <Component class="javax.swing.JLabel" name="postAddressOk">
         </Component>
-        <Component class="javax.swing.JLabel" name="postCodeErrorLabel">
+        <Component class="javax.swing.JLabel" name="mobileOk">
         </Component>
-        <Component class="javax.swing.JLabel" name="phoneErrorLabel">
+        <Component class="javax.swing.JLabel" name="careOfOk">
         </Component>
-        <Component class="javax.swing.JLabel" name="lastNameErrorLabel">
+        <Component class="javax.swing.JLabel" name="firstNameOk">
         </Component>
-        <Component class="javax.swing.JLabel" name="mobileErrorLabel">
+        <Component class="javax.swing.JLabel" name="addressOk">
         </Component>
-        <Component class="javax.swing.JLabel" name="postAddressErrorLabel">
+        <Component class="javax.swing.JLabel" name="postCodeOk">
         </Component>
-        <Component class="javax.swing.JLabel" name="careOfErrorLabel">
+        <Component class="javax.swing.JLabel" name="phoneOk">
         </Component>
       </SubComponents>
     </Container>

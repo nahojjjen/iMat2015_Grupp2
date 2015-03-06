@@ -21,57 +21,45 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="passwordErrorLabel" max="32767" attributes="0"/>
+                  <Component id="repeatEmailLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="102" attributes="0">
+                      <Component id="emailLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="mailErrorlabel" min="-2" pref="261" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="repeatEmailLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="passwordErrorLabel" max="32767" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" attributes="0">
-                                          <Component id="newPasswordTextField" min="-2" pref="149" max="-2" attributes="0"/>
-                                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                                          <Component id="repeatPasswordTextField" min="-2" pref="130" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="0" attributes="0">
-                                          <Component id="newPasswordLabel" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="87" max="-2" attributes="0"/>
-                                          <Component id="repeatPasswordLabel" min="-2" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" attributes="0">
-                                          <Component id="emailLabel" min="-2" max="-2" attributes="0"/>
-                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                          <Component id="mailErrorlabel" min="-2" pref="261" max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="newPasswordTextField" min="-2" pref="130" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+                              <Component id="passOk" min="-2" pref="25" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="newPasswordLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="84" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="emailTextField" alignment="0" max="32767" attributes="0"/>
-                          <Component id="repeatEmailTextField" max="32767" attributes="0"/>
+                      <EmptySpace min="10" pref="10" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="repeatPasswordLabel" min="-2" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="repeatPasswordTextField" min="-2" pref="130" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="repeatPassOk" min="-2" pref="25" max="-2" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="repeatEmailTextField" min="-2" pref="308" max="-2" attributes="0"/>
+                  <Component id="emailTextField" min="-2" pref="308" max="-2" attributes="0"/>
               </Group>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="passOk" min="-2" pref="49" max="-2" attributes="0"/>
-                      <EmptySpace max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="email2Ok" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="email1Ok" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="repeatEmailOk" alignment="1" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="emailOk" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
+              <EmptySpace min="-2" pref="136" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -85,28 +73,33 @@
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="email1Ok" max="32767" attributes="0"/>
+                  <Component id="emailOk" min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="emailTextField" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="repeatEmailLabel" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="email2Ok" max="32767" attributes="0"/>
+                  <Component id="repeatEmailOk" min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="repeatEmailTextField" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Component id="passwordErrorLabel" pref="5" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="newPasswordLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="repeatPasswordLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="newPasswordTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="repeatPasswordTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="passOk" alignment="3" min="-2" pref="20" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="newPasswordLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="repeatPasswordLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="newPasswordTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="repeatPasswordTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="passOk" alignment="0" min="-2" pref="25" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+                  <Component id="repeatPassOk" min="-2" pref="25" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
           </Group>
@@ -140,6 +133,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JPasswordField" name="newPasswordTextField">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="newPasswordTextFieldKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="repeatPasswordTextField">
       <Events>
@@ -158,9 +154,9 @@
     </Component>
     <Component class="javax.swing.JLabel" name="passwordErrorLabel">
     </Component>
-    <Component class="javax.swing.JLabel" name="email1Ok">
+    <Component class="javax.swing.JLabel" name="emailOk">
     </Component>
-    <Component class="javax.swing.JLabel" name="email2Ok">
+    <Component class="javax.swing.JLabel" name="repeatEmailOk">
     </Component>
     <Component class="javax.swing.JLabel" name="passOk">
     </Component>
@@ -168,6 +164,8 @@
       <Events>
         <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="emailTextFieldKeyTyped"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="repeatPassOk">
     </Component>
   </SubComponents>
 </Form>
