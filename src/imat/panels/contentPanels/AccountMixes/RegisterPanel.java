@@ -24,6 +24,16 @@ public class RegisterPanel extends javax.swing.JPanel {
         holderPanel.add(accPanel);
         this.revalidate();
     }
+    
+    private void registerPressed(){
+           if (accPanel.isEmailCorrect() && accPanel.isPasswordCorrect()){
+            accPanel.save();
+            IMat.setLoggedin(true);
+            IMat.getWindow().setContent(new PanelHome());
+    }else{
+               errorText.setText("Korrigera felmarkerade fält");
+           }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -34,55 +44,61 @@ public class RegisterPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
-        joinButton = new javax.swing.JButton();
+        asd = new javax.swing.JPanel();
         holderPanel = new javax.swing.JPanel();
+        jButton1 = new javax.swing.JButton();
+        errorText = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
+        setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
-        joinButton.setText("Gå med!");
-        joinButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                joinButtonActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(325, Short.MAX_VALUE)
-                .addComponent(joinButton, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(28, Short.MAX_VALUE)
-                .addComponent(joinButton, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(31, 31, 31))
-        );
-
-        add(jPanel1, java.awt.BorderLayout.PAGE_END);
+        asd.setOpaque(false);
 
         holderPanel.setLayout(new java.awt.BorderLayout());
-        add(holderPanel, java.awt.BorderLayout.CENTER);
+        asd.add(holderPanel);
+
+        jButton1.setBackground(imat.IMat.getAccentColor());
+        jButton1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(250, 250, 250));
+        jButton1.setText("Genomför registrering");
+        jButton1.setPreferredSize(new java.awt.Dimension(160, 40));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        asd.add(jButton1);
+        asd.add(errorText);
+
+        add(asd, java.awt.BorderLayout.CENTER);
+
+        jPanel1.setBackground(imat.IMat.getAccentColor());
+        jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        jPanel1.setForeground(new java.awt.Color(250, 250, 250));
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Registrering");
+        jPanel1.add(jLabel1, java.awt.BorderLayout.CENTER);
+
+        add(jPanel1, java.awt.BorderLayout.NORTH);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void joinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_joinButtonActionPerformed
-        if (accPanel.isEmailCorrect() && accPanel.isPasswordCorrect()){
-            accPanel.save();
-            IMat.setLoggedin(true);
-            IMat.getWindow().setContent(new PanelHome());
-            
-        }
-    }//GEN-LAST:event_joinButtonActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       registerPressed(); // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel asd;
+    private javax.swing.JLabel errorText;
     private javax.swing.JPanel holderPanel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JButton joinButton;
     // End of variables declaration//GEN-END:variables
 }

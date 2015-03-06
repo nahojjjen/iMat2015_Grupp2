@@ -103,6 +103,7 @@ public class loginDefault extends javax.swing.JPanel {
         formPanel.setLayout(new java.awt.GridLayout(2, 2, 5, 5));
 
         usernameInput.setText("Email");
+        usernameInput.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 1));
         usernameInput.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 usernameInputFocusGained(evt);
@@ -129,6 +130,7 @@ public class loginDefault extends javax.swing.JPanel {
         formPanel.add(filler);
 
         passwordInput.setText("Password");
+        passwordInput.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 5, 1, 1));
         passwordInput.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
                 passwordInputFocusGained(evt);
