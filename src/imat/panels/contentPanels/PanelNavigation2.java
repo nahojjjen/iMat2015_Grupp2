@@ -20,6 +20,8 @@ public class PanelNavigation2 extends javax.swing.JPanel {
     private ImageIcon test1 = new ImageIcon("src/resources/logoH.png");
     private ImageIcon test2 = new ImageIcon("src/resources/logoH.png");
     private ImageIcon test3 = new ImageIcon("src/resources/logoH.png");
+    private ImageIcon tt1 = new ImageIcon("src/resources/1.png");
+    private ImageIcon tt2 = new ImageIcon("src/resources/2.png");
     
     
     /**
@@ -33,7 +35,7 @@ public class PanelNavigation2 extends javax.swing.JPanel {
 
     private void addShowingButtons(){
         //debugg code:
-        CustomButton btn = new CustomButton(test1, test1, test1, new Debug2());
+        CustomButton btn = new CustomButton(tt1, tt2, test1, new Debug2());
         
         holder.add(btn);
          
