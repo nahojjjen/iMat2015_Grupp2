@@ -308,7 +308,7 @@ public class CustomerModel {
     }
 
     public static boolean addressTest(String str) {
-        return testAlphabeticalString(str);
+        return (str.length() > 4);
     }
 
     /**
