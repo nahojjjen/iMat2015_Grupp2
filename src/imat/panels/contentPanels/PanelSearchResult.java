@@ -6,7 +6,6 @@
 package imat.panels.contentPanels;
 
 import imat.models.Model;
-import imat.panels.modulePanels.PanelNavigation;
 import imat.panels.subItems.DetailItem;
 import imat.panels.subItems.GridItem;
 import imat.panels.subItems.ListItem;
@@ -14,13 +13,11 @@ import imat.panels.subItems.NoResultsPanel;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.util.List;
 import javax.swing.JLabel;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ProductCategory;
-import sun.org.mozilla.javascript.internal.ast.VariableDeclaration;
 
 /**
  *

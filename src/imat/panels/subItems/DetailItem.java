@@ -93,6 +93,7 @@ public class DetailItem extends javax.swing.JPanel {
         removeButton = new javax.swing.JButton();
 
         setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        setMinimumSize(new java.awt.Dimension(92, 90));
         setLayout(new java.awt.BorderLayout());
 
         jSplitPane1.setBorder(null);

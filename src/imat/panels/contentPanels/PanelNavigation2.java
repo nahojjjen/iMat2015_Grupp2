@@ -5,8 +5,10 @@
  */
 package imat.panels.contentPanels;
 
+import imat.IMat;
+import imat.MainWindow;
 import imat.models.navPanelActionListeners.Debug2;
-import imat.models.navPanelActionListeners.debug;
+import imat.models.navPanelActionListeners.ExpandCategories;
 import imat.panels.subItems.CustomButton;
 import javax.swing.ImageIcon;
 
@@ -16,6 +18,8 @@ import javax.swing.ImageIcon;
  */
 public class PanelNavigation2 extends javax.swing.JPanel {
 
+    private static boolean expanded = false;
+    
     //all icon declerations will be here:
     private ImageIcon test1 = new ImageIcon("src/resources/logoH.png");
     private ImageIcon test2 = new ImageIcon("src/resources/logoH.png");
@@ -35,37 +39,68 @@ public class PanelNavigation2 extends javax.swing.JPanel {
 
     private void addShowingButtons(){
         //debugg code:
-        CustomButton btn = new CustomButton(tt1, tt2, test1, new Debug2());
+       
+       
         
-        holder.add(btn);
-         
          //add static buttons (including giving them listeners)
          addStaticButtons1();
+         
          //add dynamic buttons, aka check if categories are expanded.
          addShowingCategoryButtons();
-         
+      
          //add last static buttons
          addStaticButtons2();
     }
     
     private void addShowingCategoryButtons(){
         System.out.println("navpanel: trying to add categoryButtons");
+        if (expanded) {
+            
+        CustomButton btn11 = new CustomButton(tt1, tt2, test1, new Debug2());
+        CustomButton btn12 = new CustomButton(tt1, tt2, test1, new Debug2());
+        holder.add(btn11);
+        holder.add(btn12);
+        }
     }
     
     private void addStaticButtons1(){
         System.out.println("navpanel: trying to add static buttons 1");
+         CustomButton btn = new CustomButton(tt1, tt2, test1, new Debug2());
+        CustomButton btn2 = new CustomButton(tt1, tt2, test1, new Debug2());
+        CustomButton btn3 = new CustomButton(tt1, tt2, test1, new Debug2());
+        CustomButton btn4 = new CustomButton(tt1, tt2, test1, new ExpandCategories());
+        
+        
+        holder.add(btn);
+        holder.add(btn2);
+        holder.add(btn3);
+        holder.add(btn4);
     }
     private void addStaticButtons2(){
         System.out.println("navpanel: trying to add static buttons 2");
+         CustomButton btn5 = new CustomButton(test2, tt2, test1, new Debug2());
+        CustomButton btn6 = new CustomButton(test2, tt2, test1, new Debug2());
+        CustomButton btn7 = new CustomButton(test1, test1, test1, new Debug2());
+          holder.add(btn5);
+        holder.add(btn6);
+        holder.add(btn7);
+        
     }
     /**
      * call this whenever the panel should force-update
      */
-    private void refresh(){
+    private  void refresh(){
         holder.removeAll();
         addShowingButtons();
         revalidate();
         repaint();
+        
+    }
+    
+    public static void toggleExpanded(){
+        expanded = !expanded;
+        System.out.println("expanded = " + expanded);
+        IMat.getWindow().refreshNavBox();
         
     }
     /**
@@ -81,6 +116,7 @@ public class PanelNavigation2 extends javax.swing.JPanel {
 
         setOpaque(false);
 
+        holder.setOpaque(false);
         holder.setLayout(new java.awt.GridLayout(10, 1));
         add(holder);
     }// </editor-fold>//GEN-END:initComponents

@@ -83,6 +83,13 @@ public class MainWindow extends javax.swing.JFrame {
         accountPanel.add(new loginDefault());
         
     }
+    
+    public void refreshNavBox(){
+        navigationPanel.removeAll();
+        navigationPanel.add(new PanelNavigation2());
+        revalidate();
+        repaint();
+    }
     /**
      * adds the logo in the upper left corner, and adds a mouse listener that
      * takes the user home if he presses the logo

@@ -54,6 +54,7 @@ public class CustomButton extends javax.swing.JPanel {
         thisButton = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createEmptyBorder(3, 3, 3, 3));
+        setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
         thisButton.setText("jLabel1");
