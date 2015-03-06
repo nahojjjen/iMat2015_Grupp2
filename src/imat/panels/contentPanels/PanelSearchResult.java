@@ -14,11 +14,13 @@ import imat.panels.subItems.NoResultsPanel;
 import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.util.List;
 import javax.swing.JLabel;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ProductCategory;
+import sun.org.mozilla.javascript.internal.ast.VariableDeclaration;
 
 /**
  *
@@ -147,28 +149,33 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
         card.show(cardPanel, "detailsViewWrapper");
 
-        int rows = products.size();
-        int amountOfCategories = 0;
         ProductCategory category = null;
+        boolean varyCat = true;
+       
 
         for (Product product : products) {
-
             if (!(category == product.getCategory())) {
                 category = product.getCategory();
+                varyCat = !varyCat;
+                if (varyCat){
+                    
+                detailsView2.add(new JLabel(category.toString()));
+                }else{
+                    
                 detailsView.add(new JLabel(category.toString()));
-                rows++;
-                amountOfCategories++;
+                }
+                
             }
-
+            if (varyCat){
+                
+            detailsView2.add(new DetailItem(product));
+            }else{
+                
             detailsView.add(new DetailItem(product));
+            }
         }
 
-        detailsView.setLayout(new GridLayout(rows, 1));
 
-        int height = products.size() * 90 + amountOfCategories * 90;
-        Dimension dim = new Dimension(500, height);
-
-        detailsView.setPreferredSize(dim);
         this.revalidate();
 
     }
@@ -296,8 +303,9 @@ public class PanelSearchResult extends javax.swing.JPanel {
         jLabel5 = new javax.swing.JLabel();
         cardPanel = new javax.swing.JPanel();
         detailsViewWrapper = new javax.swing.JScrollPane();
-        jPanel2 = new javax.swing.JPanel();
+        detailsPanelHolder = new javax.swing.JPanel();
         detailsView = new javax.swing.JPanel();
+        detailsView2 = new javax.swing.JPanel();
         listViewWrapper = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         listView = new javax.swing.JPanel();
@@ -385,10 +393,15 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
         detailsViewWrapper.setBorder(null);
 
-        detailsView.setLayout(new java.awt.GridLayout());
-        jPanel2.add(detailsView);
+        detailsPanelHolder.setLayout(new java.awt.GridLayout(0, 2));
 
-        detailsViewWrapper.setViewportView(jPanel2);
+        detailsView.setLayout(new java.awt.GridLayout(0, 1));
+        detailsPanelHolder.add(detailsView);
+
+        detailsView2.setLayout(new java.awt.GridLayout(0, 1));
+        detailsPanelHolder.add(detailsView2);
+
+        detailsViewWrapper.setViewportView(detailsPanelHolder);
 
         cardPanel.add(detailsViewWrapper, "detailsCard");
 
@@ -426,7 +439,9 @@ public class PanelSearchResult extends javax.swing.JPanel {
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel cardPanel;
+    private javax.swing.JPanel detailsPanelHolder;
     private javax.swing.JPanel detailsView;
+    private javax.swing.JPanel detailsView2;
     private javax.swing.JScrollPane detailsViewWrapper;
     private javax.swing.JPanel gridView;
     private javax.swing.JScrollPane gridViewWrapper;
@@ -438,7 +453,6 @@ public class PanelSearchResult extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel listView;
     private javax.swing.JScrollPane listViewWrapper;
