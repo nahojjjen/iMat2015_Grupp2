@@ -7,6 +7,8 @@ package imat.panels.subItems;
 
 import imat.models.Model;
 import imat.models.ModelAux;
+import java.awt.Color;
+import javax.swing.ImageIcon;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -18,6 +20,11 @@ public class GridItem extends javax.swing.JPanel {
 
     private Product product;
     
+    private ImageIcon favIcon = new ImageIcon("src/resources/fav.png");
+    private ImageIcon unFavIcon = new ImageIcon("src/resources/unfav.png");
+    private static boolean zebra = true;
+    private static Color blackStripe = new Color(120,120,120);
+    private static Color whiteStripe = new Color(80,80,80);
         /**
      * Creates new form DetailsItem
      */
@@ -27,6 +34,17 @@ public class GridItem extends javax.swing.JPanel {
         productName.setText(product.getName());
         imageLabel.setIcon(Model.getImage(product, 200 , 200));
         priceLabel.setText(String.valueOf(product.getPrice())+ " " + product.getUnit());
+        fixZebra();
+        
+    }
+    
+    private void fixZebra(){
+        zebra=!zebra;
+        if (zebra) {
+        zebraColorPane.setBackground(blackStripe);    
+        }else{
+            zebraColorPane.setBackground(whiteStripe);
+        }
         
     }
     
@@ -47,17 +65,17 @@ public class GridItem extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        productName = new javax.swing.JLabel();
         imageLabel = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         priceLabel = new javax.swing.JLabel();
         amountSpinner = new javax.swing.JSpinner();
         buyButton = new javax.swing.JButton();
+        fav = new javax.swing.JLabel();
+        zebraColorPane = new javax.swing.JPanel();
+        productName = new javax.swing.JLabel();
 
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
         setLayout(new java.awt.BorderLayout());
-
-        productName.setText("Produktnamn");
-        add(productName, java.awt.BorderLayout.NORTH);
 
         imageLabel.setText("  ");
         add(imageLabel, java.awt.BorderLayout.CENTER);
@@ -66,10 +84,19 @@ public class GridItem extends javax.swing.JPanel {
 
         amountSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 99, 1));
 
-        buyButton.setText("köp");
+        buyButton.setContentAreaFilled(false);
+        buyButton.setLabel("Lägg till");
+        buyButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
         buyButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 buyButtonActionPerformed(evt);
+            }
+        });
+
+        fav.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/unfav.png"))); // NOI18N
+        fav.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                favMouseClicked(evt);
             }
         });
 
@@ -80,8 +107,10 @@ public class GridItem extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(priceLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
-                .addComponent(amountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(fav)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addComponent(amountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buyButton)
                 .addContainerGap())
@@ -89,14 +118,31 @@ public class GridItem extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buyButton)
-                    .addComponent(amountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(amountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(priceLabel)
+                            .addComponent(fav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(buyButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap())
         );
 
         add(jPanel1, java.awt.BorderLayout.SOUTH);
+
+        zebraColorPane.setBackground(new java.awt.Color(102, 102, 102));
+        zebraColorPane.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
+        zebraColorPane.setLayout(new java.awt.BorderLayout());
+
+        productName.setForeground(new java.awt.Color(230, 230, 230));
+        productName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        productName.setText("productName");
+        zebraColorPane.add(productName, java.awt.BorderLayout.CENTER);
+
+        add(zebraColorPane, java.awt.BorderLayout.PAGE_START);
     }// </editor-fold>//GEN-END:initComponents
 
     private void buyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyButtonActionPerformed
@@ -110,13 +156,27 @@ public class GridItem extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_buyButtonActionPerformed
 
+    private void favMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_favMouseClicked
+        toggleFavorite();
+    }//GEN-LAST:event_favMouseClicked
 
+private void toggleFavorite(){
+        if (Model.isFavorited(product)) {
+            Model.removeFavorite(product);
+            fav.setIcon(unFavIcon);
+        } else {
+            Model.addFavorite(product);
+            fav.setIcon(favIcon);
+        }
+}
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JSpinner amountSpinner;
     private javax.swing.JButton buyButton;
+    private javax.swing.JLabel fav;
     private javax.swing.JLabel imageLabel;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel priceLabel;
     private javax.swing.JLabel productName;
+    private javax.swing.JPanel zebraColorPane;
     // End of variables declaration//GEN-END:variables
 }
