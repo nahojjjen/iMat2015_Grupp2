@@ -7,6 +7,7 @@ package imat.models;
 
 import java.util.ArrayList;
 import java.util.List;
+import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingCart;
 import se.chalmers.ait.dat215.project.ShoppingItem;
@@ -17,6 +18,15 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  */
 public class ModelAux {
 
+    public static double getPrice(Order order){
+        double total = 0;
+        List<ShoppingItem> items = order.getItems();
+        for(ShoppingItem item:items){
+            total+=item.getTotal();
+        }
+        
+        return total;
+    }
     /**
      * add an amount of items to the cart
      * this method is more intelligent than the backend method

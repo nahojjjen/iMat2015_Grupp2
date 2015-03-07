@@ -7,9 +7,14 @@ package imat.panels.subItems;
 
 import imat.IMat;
 import imat.models.Model;
+import imat.panels.DetailPopUp;
+import imat.panels.OrderHistoryPopup;
 import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JDialog;
 import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
@@ -208,15 +213,36 @@ public class CartHistory extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        List<ShoppingItem> items = order.getItems();
+      //showOldItemsAsSearch();
+        openOldItemsPopup(order);
+    }//GEN-LAST:event_jButton1ActionPerformed
+    private void openOldItemsPopup(Order order){
+          JDialog popup = new JDialog(IMat.getWindow());
+          int width = IMat.getWindow().getWidth();
+          int height =IMat.getWindow().getHeight();
+          popup.setLocation((width/2)-400, height/2 - 300);
+          popup.setUndecorated(true);
+          int size = order.getItems().size()*120;
+          if(size > 600){
+              size = 600;
+          }else if(size < 300){
+              size =300;
+          }
+          popup.setSize(600, size);
+          
+          popup.add(new OrderHistoryPopup(order, popup));
+          popup.setVisible(true);
+    }
+    
+    private void showOldItemsAsSearch(){
+          List<ShoppingItem> items = order.getItems();
         List<Product> prodItems = new ArrayList();
         
         for (ShoppingItem item:items){
             prodItems.add(item.getProduct());
         }
         IMat.getWindow().showSearch(prodItems);
-    }//GEN-LAST:event_jButton1ActionPerformed
-
+    }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        List <ShoppingItem> items = order.getItems();
        for(ShoppingItem item:items){
