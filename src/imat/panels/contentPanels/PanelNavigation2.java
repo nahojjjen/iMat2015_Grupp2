@@ -9,7 +9,13 @@ import imat.IMat;
 import imat.MainWindow;
 import imat.models.navPanelActionListeners.Debug2;
 import imat.models.navPanelActionListeners.ExpandCategories;
+import imat.models.navPanelActionListeners.GoToCategorySearch;
+import imat.models.navPanelActionListeners.GoToFaq;
 import imat.models.navPanelActionListeners.GoToHistory;
+import imat.models.navPanelActionListeners.GoToHome;
+import imat.models.navPanelActionListeners.GoToProfile;
+import imat.models.navPanelActionListeners.GoToSearch;
+import imat.panels.contentPanels.AccountMixes.MyProfilePanel;
 import imat.panels.subItems.CustomButton;
 import javax.swing.ImageIcon;
 
@@ -54,34 +60,28 @@ public class PanelNavigation2 extends javax.swing.JPanel {
     }
     
     private void addShowingCategoryButtons(){
-        System.out.println("navpanel: trying to add categoryButtons");
         if (expanded) {
-            
-        CustomButton btn11 = new CustomButton(tt1, tt2, test1, new Debug2());
-        CustomButton btn12 = new CustomButton(tt1, tt2, test1, new Debug2());
-        holder.add(btn11);
-        holder.add(btn12);
+            CustomButton btn11 = new CustomButton(tt1, tt2, test1, new Debug2());
+            CustomButton btn12 = new CustomButton(tt1, tt2, test1, new Debug2());
+            holder.add(btn11);
+            holder.add(btn12);
         }
     }
     
     private void addStaticButtons1(){
-        System.out.println("navpanel: trying to add static buttons 1");
-         CustomButton btn = new CustomButton(tt1, tt2, test1, new GoToHistory());
-        CustomButton btn2 = new CustomButton(tt1, tt2, test1, new Debug2());
-        CustomButton btn3 = new CustomButton(tt1, tt2, test1, new Debug2());
-        CustomButton btn4 = new CustomButton(tt1, tt2, test1, new ExpandCategories());
+         CustomButton btn = new CustomButton(tt1, tt2, test1, new GoToHome());
+        CustomButton btn2 = new CustomButton(tt1, tt2, test1, new GoToSearch());
+        CustomButton btn3 = new CustomButton(tt1, tt2, test1, new ExpandCategories());
         
         
         holder.add(btn);
         holder.add(btn2);
         holder.add(btn3);
-        holder.add(btn4);
     }
     private void addStaticButtons2(){
-        System.out.println("navpanel: trying to add static buttons 2");
-         CustomButton btn5 = new CustomButton(test2, tt2, test1, new Debug2());
-        CustomButton btn6 = new CustomButton(test2, tt2, test1, new Debug2());
-        CustomButton btn7 = new CustomButton(test1, test1, test1, new Debug2());
+         CustomButton btn5 = new CustomButton(test2, tt2, test1, new GoToProfile());
+        CustomButton btn6 = new CustomButton(test2, tt2, test1, new GoToHistory());
+        CustomButton btn7 = new CustomButton(test1, test1, test1, new GoToFaq());
           holder.add(btn5);
         holder.add(btn6);
         holder.add(btn7);

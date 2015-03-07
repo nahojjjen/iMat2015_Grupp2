@@ -53,6 +53,19 @@ public class PanelSearchResult extends javax.swing.JPanel {
         fixScroll();
         loadResult(0);
     }
+    
+        /**
+     * Creates new form PanelSearchResult
+     * @param list - products to show
+     */
+    public PanelSearchResult(List<Product> list, String string) {
+        products = list;
+        initComponents();
+        card = (CardLayout) cardPanel.getLayout();
+        fixScroll();
+        loadResult(0);
+        searchLabel.setText("Sökresultat: " + string);
+    }
 
     /**
      * load all items in several categories into products list
@@ -304,7 +317,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        searchLabel = new javax.swing.JLabel();
         cardPanel = new javax.swing.JPanel();
         detailsViewWrapper = new javax.swing.JScrollPane();
         detailsPanelHolder = new javax.swing.JPanel();
@@ -360,9 +373,9 @@ public class PanelSearchResult extends javax.swing.JPanel {
             }
         });
 
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(250, 250, 250));
-        jLabel5.setText("Sökresultat:");
+        searchLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        searchLabel.setForeground(new java.awt.Color(250, 250, 250));
+        searchLabel.setText("Sökresultat:");
 
         javax.swing.GroupLayout headerPanelLayout = new javax.swing.GroupLayout(headerPanel);
         headerPanel.setLayout(headerPanelLayout);
@@ -370,8 +383,8 @@ public class PanelSearchResult extends javax.swing.JPanel {
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 112, Short.MAX_VALUE)
+                .addComponent(searchLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(groupCheckbox)
                 .addGap(54, 54, 54)
                 .addComponent(jLabel2)
@@ -387,7 +400,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         );
         headerPanelLayout.setVerticalGroup(
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel5, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(searchLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(headerPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -476,10 +489,10 @@ public class PanelSearchResult extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel listView;
     private javax.swing.JScrollPane listViewWrapper;
+    private javax.swing.JLabel searchLabel;
     private javax.swing.JComboBox sortingCombobox;
     // End of variables declaration//GEN-END:variables
 }

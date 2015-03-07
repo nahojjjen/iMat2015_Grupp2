@@ -72,8 +72,6 @@ public class MainWindow extends javax.swing.JFrame {
         bodyPanel.setBackground(IMat.getBackgroundColor());
         contentPanel.setBackground(IMat.getAverageColor());
         
-        //behind body
-        //spacec.setBackground(IMat.getBackgroundColor());
         
     }
     
@@ -179,9 +177,17 @@ public class MainWindow extends javax.swing.JFrame {
         contentPanel.removeAll();
         contentPanel.add(new PanelSearchResult(input));
         this.revalidate();
-
     }
-
+    /**
+     * set the contentpanel to show the searchresults
+     * @param input 
+     */
+    public void showSearch(List<Product> input, String searchTerm) {
+        contentPanel.setLayout(new BorderLayout());
+        contentPanel.removeAll();
+        contentPanel.add(new PanelSearchResult(input, searchTerm));
+        this.revalidate();
+    }
     /**
      * show a panel by name
      *
@@ -334,7 +340,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         bodyPanel.add(navigationPanel, java.awt.BorderLayout.WEST);
 
-        spacec.setBorder(javax.swing.BorderFactory.createEmptyBorder(20, 50, 0, 50));
+        spacec.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 60, 0, 60));
         spacec.setOpaque(false);
         spacec.setLayout(new java.awt.BorderLayout());
 
@@ -344,11 +350,11 @@ public class MainWindow extends javax.swing.JFrame {
         contentPanel.setLayout(contentPanelLayout);
         contentPanelLayout.setHorizontalGroup(
             contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1058, Short.MAX_VALUE)
+            .addGap(0, 1038, Short.MAX_VALUE)
         );
         contentPanelLayout.setVerticalGroup(
             contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 859, Short.MAX_VALUE)
+            .addGap(0, 879, Short.MAX_VALUE)
         );
 
         spacec.add(contentPanel, java.awt.BorderLayout.CENTER);
