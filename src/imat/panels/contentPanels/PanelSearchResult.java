@@ -20,6 +20,8 @@ import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 import javax.swing.JLabel;
 import se.chalmers.ait.dat215.project.Product;
@@ -263,9 +265,9 @@ public class PanelSearchResult extends javax.swing.JPanel {
             }
         }else{
             switch(sortingWay){
-                case(0): products.sort(new ProductIDSort());break;
-                case(1): products.sort(new GroupedAlphabetical()); break;
-                case(2): products.sort(new GroupPriceSort()); break;
+                case(0): Collections.sort(products, new ProductIDSort());break;
+                case(1): Collections.sort(products, new GroupedAlphabetical()); break;
+                case(2): Collections.sort(products, new GroupPriceSort()); break;
             }
         }
         

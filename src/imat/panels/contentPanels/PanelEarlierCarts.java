@@ -7,8 +7,9 @@ package imat.panels.contentPanels;
 
 import imat.IMat;
 import imat.models.Model;
+import imat.models.sorters.OrderByDateSort;
 import imat.panels.subItems.CartHistory;
-import java.awt.GridLayout;
+import java.util.Collections;
 import java.util.List;
 import javax.swing.JLabel;
 import se.chalmers.ait.dat215.project.Order;
@@ -25,11 +26,11 @@ public class PanelEarlierCarts extends javax.swing.JPanel {
     public PanelEarlierCarts() {
         initComponents();
         List<Order> orders = Model.getOrders();
-        cartList.setLayout(new GridLayout(orders.size(),1));
+        Collections.sort(orders, new OrderByDateSort());
         for (Order order : orders) {
             cartList.add(new CartHistory(order));
         }
-        if (orders.size() == 0 ){
+        if (orders.isEmpty() ){
             cartList.add(new JLabel("Du har inga tidigare beställningar."));
             
         }
@@ -55,11 +56,12 @@ public class PanelEarlierCarts extends javax.swing.JPanel {
         setLayout(new java.awt.BorderLayout());
 
         jScrollPane1.setBorder(null);
+        jScrollPane1.setOpaque(false);
 
         filler.setBackground(new java.awt.Color(204, 204, 204));
         filler.setOpaque(false);
 
-        cartList.setLayout(new java.awt.GridLayout(1, 1));
+        cartList.setLayout(new java.awt.GridLayout(0, 1));
         filler.add(cartList);
 
         jScrollPane1.setViewportView(filler);
