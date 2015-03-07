@@ -6,10 +6,13 @@
 package imat.panels.contentPanels.homeSubContent;
 
 import imat.IMat;
+import imat.panels.contentPanels.AccountMixes.MyProfilePanel;
 import imat.panels.contentPanels.PanelAccountInfo;
 import imat.panels.contentPanels.PanelEarlierCarts;
 import imat.panels.contentPanels.PanelFAQ;
 import imat.panels.contentPanels.PanelHome;
+import imat.panels.contentPanels.PanelSearchResult;
+import se.chalmers.ait.dat215.project.ProductCategory;
 
 /**
  *
@@ -22,9 +25,6 @@ public class loggedInHome extends javax.swing.JPanel {
      */
     public loggedInHome() {
         initComponents();
-        currentOrders.setEnabled(false);
-        howTo.setEnabled(false);
-        offers.setEnabled(false);
     }
 
     /**
@@ -36,119 +36,135 @@ public class loggedInHome extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        currentOrders = new javax.swing.JButton();
-        jButtonAccoutInfo = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        howTo = new javax.swing.JButton();
-        offers = new javax.swing.JButton();
-        jButtonFAQ = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jPanel1 = new javax.swing.JPanel();
+        holder = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel7 = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jLabel9 = new javax.swing.JLabel();
+        jPanel5 = new javax.swing.JPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel11 = new javax.swing.JLabel();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel12 = new javax.swing.JLabel();
 
         setOpaque(false);
+        setLayout(new java.awt.BorderLayout());
 
-        currentOrders.setText("Pågående Beställning");
+        holder.setLayout(new java.awt.GridLayout(2, 3));
 
-        jButtonAccoutInfo.setText("Mitt Konto");
-        jButtonAccoutInfo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAccoutInfoActionPerformed(evt);
+        jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 1));
+        jPanel2.setLayout(new java.awt.BorderLayout());
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/homeButtons/currentorder.jpg"))); // NOI18N
+        jPanel2.add(jLabel7, java.awt.BorderLayout.CENTER);
+
+        holder.add(jPanel2);
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        jPanel3.setLayout(new java.awt.BorderLayout());
+
+        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/homeButtons/earlier.jpg"))); // NOI18N
+        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel8MouseClicked(evt);
             }
         });
+        jPanel3.add(jLabel8, java.awt.BorderLayout.CENTER);
 
-        jButton5.setText("Tidigare Beställningar");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+        holder.add(jPanel3);
+
+        jPanel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        jPanel4.setLayout(new java.awt.BorderLayout());
+
+        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/homeButtons/myaccount.jpg"))); // NOI18N
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
             }
         });
+        jPanel4.add(jLabel9, java.awt.BorderLayout.CENTER);
 
-        howTo.setText("Hur gör man?");
-        howTo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                howToActionPerformed(evt);
+        holder.add(jPanel4);
+
+        jPanel5.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        jPanel5.setLayout(new java.awt.BorderLayout());
+
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/homeButtons/help.jpg"))); // NOI18N
+        jPanel5.add(jLabel10, java.awt.BorderLayout.CENTER);
+
+        holder.add(jPanel5);
+
+        jPanel6.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        jPanel6.setLayout(new java.awt.BorderLayout());
+
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/homeButtons/faq.jpg"))); // NOI18N
+        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel11MouseClicked(evt);
             }
         });
+        jPanel6.add(jLabel11, java.awt.BorderLayout.CENTER);
 
-        offers.setText("Erbjudanden");
-        offers.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                offersActionPerformed(evt);
+        holder.add(jPanel6);
+
+        jPanel7.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        jPanel7.setLayout(new java.awt.BorderLayout());
+
+        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/homeButtons/offers.jpg"))); // NOI18N
+        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel12MouseClicked(evt);
             }
         });
+        jPanel7.add(jLabel12, java.awt.BorderLayout.CENTER);
 
-        jButtonFAQ.setText("Vanliga Frågor");
-        jButtonFAQ.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonFAQActionPerformed(evt);
-            }
-        });
+        holder.add(jPanel7);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(howTo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(currentOrders, javax.swing.GroupLayout.DEFAULT_SIZE, 181, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE)
-                    .addComponent(jButtonFAQ, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(offers, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
-                    .addComponent(jButtonAccoutInfo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonAccoutInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(currentOrders, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(howTo, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonFAQ, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(offers, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(170, Short.MAX_VALUE))
-        );
+        jPanel1.add(holder);
+
+        jScrollPane1.setViewportView(jPanel1);
+
+        add(jScrollPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonAccoutInfoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAccoutInfoActionPerformed
-        // TODO add your handling code here:
-        IMat.getWindow().setContent(new PanelAccountInfo());
-    }//GEN-LAST:event_jButtonAccoutInfoActionPerformed
-
-    private void jButtonFAQActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFAQActionPerformed
-        // TODO add your handling code here:
-        IMat.getWindow().setContent(new PanelFAQ());
-    }//GEN-LAST:event_jButtonFAQActionPerformed
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
         IMat.getWindow().setContent(new PanelEarlierCarts());        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+        System.out.println("clicked");
+    }//GEN-LAST:event_jLabel8MouseClicked
 
-    private void howToActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_howToActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_howToActionPerformed
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        IMat.getWindow().setContent(new MyProfilePanel());
+    }//GEN-LAST:event_jLabel9MouseClicked
 
-    private void offersActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_offersActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_offersActionPerformed
+    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
+        IMat.getWindow().setContent(new PanelFAQ());// TODO add your handling code here:
+    }//GEN-LAST:event_jLabel11MouseClicked
+
+    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
+        IMat.getWindow().setContent(new PanelSearchResult("a"));// TODO add your handling code here:
+    }//GEN-LAST:event_jLabel12MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton currentOrders;
-    private javax.swing.JButton howTo;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButtonAccoutInfo;
-    private javax.swing.JButton jButtonFAQ;
-    private javax.swing.JButton offers;
+    private javax.swing.JPanel holder;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }
