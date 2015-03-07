@@ -40,317 +40,236 @@ public class PanelFAQ extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel2 = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jLabel10 = new javax.swing.JLabel();
-        jLabel11 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel27 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabelLinkToOrders = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel38 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        jLabel40 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel42 = new javax.swing.JLabel();
+        jLabel43 = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        jLabel46 = new javax.swing.JLabel();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        jLabel53 = new javax.swing.JLabel();
+        jLabel54 = new javax.swing.JLabel();
+        jLabel55 = new javax.swing.JLabel();
+        jLabel56 = new javax.swing.JLabel();
+        jLabelLinkToOrders1 = new javax.swing.JLabel();
 
         setOpaque(false);
+        setLayout(new java.awt.BorderLayout());
 
-        jLabel2.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel2.setText("Betalningar");
+        jPanel1.setBackground(imat.IMat.getAccentColor());
+        jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        jPanel1.setForeground(new java.awt.Color(250, 250, 250));
+        jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jLabel1.setText("Hur betalar man?");
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Vanliga Frågor");
+        jPanel1.add(jLabel1, java.awt.BorderLayout.CENTER);
 
-        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        jLabel3.setText("Betalning sker direkt i applikation med bank- eller kontokort från Visa eller MasterCard. ");
+        add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
-        jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jLabel4.setText("Vilka kort tar ni?");
+        jPanel2.setOpaque(false);
+        jPanel2.setLayout(null);
 
-        jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        jLabel5.setText("Vi accepterar Visa samt MasterCard.");
+        jLabel29.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel29.setText("Betalningar");
+        jPanel2.add(jLabel29);
+        jLabel29.setBounds(23, 11, 100, 24);
 
-        jLabel6.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jLabel6.setText("När dras pengarna från mitt konto?");
+        jLabel30.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel30.setText("Hur betalar man?");
+        jPanel2.add(jLabel30);
+        jLabel30.setBounds(30, 40, 109, 19);
 
-        jLabel7.setText("Pengarna reserveras då din order är lagd. Först när maten har levererats");
+        jLabel31.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        jLabel31.setText("Betalning sker direkt i applikation med bank- eller kontokort från Visa eller MasterCard. ");
+        jPanel2.add(jLabel31);
+        jLabel31.setBounds(50, 60, 474, 16);
 
-        jLabel8.setText("så dras pengarna från ditt konto.");
+        jLabel32.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel32.setText("Vilka kort tar ni?");
+        jPanel2.add(jLabel32);
+        jLabel32.setBounds(30, 80, 102, 19);
 
-        jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jLabel9.setText("Kostar leveransen något? ");
+        jLabel33.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        jLabel33.setText("Vi accepterar Visa samt MasterCard.");
+        jPanel2.add(jLabel33);
+        jLabel33.setBounds(50, 100, 199, 16);
 
-        jLabel10.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        jLabel10.setText("Nej! Hos iMat kostar leveransen ingenting.");
+        jLabel34.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel34.setText("När dras pengarna från mitt konto?");
+        jPanel2.add(jLabel34);
+        jLabel34.setBounds(30, 120, 221, 19);
 
-        jLabel11.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel11.setText("Leverans");
+        jLabel35.setText("Pengarna reserveras då din order är lagd. Först när maten har levererats");
+        jPanel2.add(jLabel35);
+        jLabel35.setBounds(50, 140, 353, 14);
 
-        jLabel12.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jLabel12.setText("Vart levererar ni?");
+        jLabel36.setText("så dras pengarna från ditt konto.");
+        jPanel2.add(jLabel36);
+        jLabel36.setBounds(50, 160, 160, 14);
 
-        jLabel13.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        jLabel13.setText("Vi levererar varor över hela Sverige.");
+        jLabel37.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel37.setText("Kostar leveransen något? ");
+        jPanel2.add(jLabel37);
+        jLabel37.setBounds(30, 180, 167, 19);
 
-        jLabel14.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jLabel14.setText("När får jag mina varor? ");
+        jLabel38.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        jLabel38.setText("Nej! Hos iMat kostar leveransen ingenting.");
+        jPanel2.add(jLabel38);
+        jLabel38.setBounds(50, 200, 231, 16);
 
-        jLabel15.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        jLabel15.setText("Du får vanligtvis dina varor mellan 15-22 dagen efter du har lagt din beställning.");
+        jLabel39.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel39.setText("Leverans");
+        jPanel2.add(jLabel39);
+        jLabel39.setBounds(23, 230, 82, 24);
 
-        jLabel16.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jLabel16.setText("Hur transporteras mina varor?");
+        jLabel40.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel40.setText("Vart levererar ni?");
+        jPanel2.add(jLabel40);
+        jLabel40.setBounds(30, 260, 110, 19);
 
-        jLabel17.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        jLabel17.setText("Dina varor transporteras i världens bästa kylboxar och körs ut i våra snygga lastbilar.");
+        jLabel41.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        jLabel41.setText("Vi levererar varor över hela Sverige.");
+        jPanel2.add(jLabel41);
+        jLabel41.setBounds(40, 280, 191, 16);
 
-        jLabel18.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jLabel18.setText("Vad händer om jag missar en leverans?");
+        jLabel42.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel42.setText("När får jag mina varor? ");
+        jPanel2.add(jLabel42);
+        jLabel42.setBounds(30, 300, 149, 19);
 
-        jLabel19.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        jLabel19.setText("Då ställs de utanför din dörr.");
+        jLabel43.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        jLabel43.setText("Du får vanligtvis dina varor mellan 15-22 dagen efter du har lagt din beställning.");
+        jPanel2.add(jLabel43);
+        jLabel43.setBounds(40, 320, 432, 16);
 
-        jLabel20.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
-        jLabel20.setText("Beställningar");
+        jLabel44.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel44.setText("Hur transporteras mina varor?");
+        jPanel2.add(jLabel44);
+        jLabel44.setBounds(30, 340, 190, 19);
 
-        jLabel21.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jLabel21.setText("Hur avbokar jag eller ändrar leveranstid för en lagd beställning?");
+        jLabel45.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        jLabel45.setText("Dina varor transporteras i världens bästa kylboxar och körs ut i våra snygga lastbilar.");
+        jPanel2.add(jLabel45);
+        jLabel45.setBounds(40, 360, 458, 16);
 
-        jLabel22.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        jLabel22.setText("Du kan avboka eller ändra din beställning fram tills 23:59 dagen innan din beställning");
+        jLabel46.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel46.setText("Vad händer om jag missar en leverans?");
+        jPanel2.add(jLabel46);
+        jLabel46.setBounds(30, 380, 251, 19);
 
-        jLabel23.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        jLabel23.setText("ska levereras.");
+        jLabel47.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        jLabel47.setText("Då ställs de utanför din dörr.");
+        jPanel2.add(jLabel47);
+        jLabel47.setBounds(40, 400, 155, 16);
 
-        jLabel24.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        jLabel24.setText("Ja, du kan enkelt gå in och ändra i din beställning så länge den inte har levererats ännu.");
+        jLabel48.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
+        jLabel48.setText("Beställningar");
+        jPanel2.add(jLabel48);
+        jLabel48.setBounds(23, 424, 115, 24);
 
-        jLabel25.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jLabel25.setText("Kan jag ändra min beställning?");
+        jLabel49.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel49.setText("Hur avbokar jag eller ändrar leveranstid för en lagd beställning?");
+        jPanel2.add(jLabel49);
+        jLabel49.setBounds(30, 450, 402, 19);
 
-        jLabel26.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        jLabel26.setText("Du kan se över din beställning");
+        jLabel50.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        jLabel50.setText("Du kan avboka eller ändra din beställning fram tills 23:59 dagen innan din beställning");
+        jPanel2.add(jLabel50);
+        jLabel50.setBounds(50, 470, 467, 16);
 
-        jLabel27.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
-        jLabel27.setText("När plockar ni min beställning? ");
+        jLabel51.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        jLabel51.setText("ska levereras.");
+        jPanel2.add(jLabel51);
+        jLabel51.setBounds(50, 490, 77, 16);
 
-        jLabel28.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        jLabel28.setText("Din beställning plockas samma dag som den ska levereras.");
+        jLabel52.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        jLabel52.setText("Ja, du kan enkelt gå in och ändra i din beställning så länge den inte har levererats ännu.");
+        jPanel2.add(jLabel52);
+        jLabel52.setBounds(50, 530, 480, 16);
 
-        jLabelLinkToOrders.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
-        jLabelLinkToOrders.setText("här.");
-        jLabelLinkToOrders.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mousePressed(java.awt.event.MouseEvent evt) {
-                jLabelLinkToOrdersMousePressed(evt);
-            }
-        });
+        jLabel53.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel53.setText("Kan jag ändra min beställning?");
+        jPanel2.add(jLabel53);
+        jLabel53.setBounds(30, 510, 195, 19);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel5))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 572, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel6))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel10))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel9))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel11)
-                            .addComponent(jLabel12)
-                            .addComponent(jLabel14)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(jLabel15))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(40, 40, 40)
-                        .addComponent(jLabel13))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel16)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(jLabel17))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel18)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(jLabel19))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel20))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel21)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel23)
-                                    .addComponent(jLabel22)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel25)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabel26)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabelLinkToOrders))
-                                    .addComponent(jLabel24)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel27)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addComponent(jLabel28)))))
-                .addContainerGap(157, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel8)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel11)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel13)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel15)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel17)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel19)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel20)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel22)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel23)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel25, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel24)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel26)
-                    .addComponent(jLabelLinkToOrders))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel28)
-                .addContainerGap(57, Short.MAX_VALUE))
-        );
+        jLabel54.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        jLabel54.setText("Du kan se över din beställning");
+        jPanel2.add(jLabel54);
+        jLabel54.setBounds(50, 550, 166, 16);
+
+        jLabel55.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
+        jLabel55.setText("När plockar ni min beställning? ");
+        jPanel2.add(jLabel55);
+        jLabel55.setBounds(30, 570, 197, 19);
+
+        jLabel56.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        jLabel56.setText("Din beställning plockas samma dag som den ska levereras.");
+        jPanel2.add(jLabel56);
+        jLabel56.setBounds(50, 590, 331, 16);
+
+        jLabelLinkToOrders1.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
+        jLabelLinkToOrders1.setText("här.");
+        jPanel2.add(jLabelLinkToOrders1);
+        jLabelLinkToOrders1.setBounds(220, 550, 21, 16);
+
+        add(jPanel2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jLabelLinkToOrdersMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLinkToOrdersMousePressed
-        //Skickar vidare till dina beställningar.
-    }//GEN-LAST:event_jLabelLinkToOrdersMousePressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JLabel jLabelLinkToOrders;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel46;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
+    private javax.swing.JLabel jLabel49;
+    private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
+    private javax.swing.JLabel jLabel53;
+    private javax.swing.JLabel jLabel54;
+    private javax.swing.JLabel jLabel55;
+    private javax.swing.JLabel jLabel56;
+    private javax.swing.JLabel jLabelLinkToOrders1;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 }
