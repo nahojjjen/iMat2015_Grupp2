@@ -196,13 +196,14 @@ public class PanelSearchResult extends javax.swing.JPanel {
         for (Product product : products) {
             if (!(category == product.getCategory())) {
                 category = product.getCategory();
-                detailsView.add(new JLabel());
                 JLabel tmpLabel = new JLabel(CategoryImageLibrary.getPicture(category));
                 tmpLabel.setToolTipText(category.toString());
                 detailsView.add(tmpLabel);
             }
             detailsView.add(new DetailItem(product));
         }
+        
+                detailsView.add(new JLabel());
         detailsView.add(new JLabel("                                                                                                                                                                       "));
         this.revalidate();
     }
