@@ -9,6 +9,11 @@ import imat.IMat;
 import imat.models.Model;
 import imat.panels.contentPanels.PanelSearchResult;
 import imat.panels.modulePanels.PanelSearch;
+import imat.panels.subItems.BoughtItem;
+import imat.panels.subItems.ListItem;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
 import se.chalmers.ait.dat215.project.Product;
@@ -19,19 +24,59 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  * @author Johan
  */
 public class PanelConfirm extends javax.swing.JPanel {
-
+    
+     private List<Product> products;
+     private double totPrice;
     /**
      * Creates new form PanelConfirm
      */
+    public PanelConfirm(List<Product> list){
+        products = list;
+        initComponents();
+        cartViewer.setLayout(new GridLayout(products.size(), 1));
+        int height = products.size() * 95;
+        Dimension dim = new Dimension(500, height);
+        cartViewer.setPreferredSize(dim);
+        for(Product products : products){
+            
+            
+            ShoppingItem item = new ShoppingItem(Model.getProduct(products.getProductId()));
+            cartViewer.add(new BoughtItem(item));
+        
+        }
+        
+        this.setTotPrice(Model.getShoppingcart().getTotal());
+        
+        
+    }
+    public void setTotPrice(double totPrice){
+        totalPriceLabel.setText(String.valueOf((int) totPrice) + " kr");
+    }
     public PanelConfirm() {
         initComponents();
-             List<ShoppingItem> cartItems = Model.getShoppingcart().getItems();
-       List cartList = new ArrayList<Product>();
-       for(ShoppingItem item:cartItems){
-           cartList.add(item.getProduct());
-       }
-       
-        cartViewer.add(new PanelSearchResult(cartList));
+        jLabel3.setBackground(IMat.getAccentColor());
+        jLabel3.setForeground(Color.white);
+        
+        
+        List<ShoppingItem> cartItems = Model.getShoppingcart().getItems();
+        //for(int i=0; i<cartItems.size()-1; i++){
+        //    products.add(cartItems.get(i+1).getProduct());
+        //}
+        
+        
+        cartViewer.setLayout(new GridLayout(products.size(), 1));
+        int height = products.size() * 95;
+        Dimension dim = new Dimension(500, height);
+        cartViewer.setPreferredSize(dim);
+        for(int i=0; i<9; i++){
+            ShoppingItem item = new ShoppingItem(products.get(i));
+            cartViewer.add(new BoughtItem(item));
+        }
+       /* for (Product product : products) {
+            ShoppingItem item = new ShoppingItem(product);
+            cartViewer.add(new BoughtItem(item));
+        }*/
+        this.revalidate();
     }
 
     /**
@@ -43,23 +88,51 @@ public class PanelConfirm extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         holder = new javax.swing.JPanel();
+        jScrollPane1 = new javax.swing.JScrollPane();
         cartViewer = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        totalPriceLabel = new javax.swing.JLabel();
 
         setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
+        jPanel1.setPreferredSize(new java.awt.Dimension(500, 122));
+
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/s1.png"))); // NOI18N
-        add(jLabel1, java.awt.BorderLayout.PAGE_START);
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel3.setText("Tack för din beställning!");
+        jLabel3.setOpaque(true);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jLabel1)
+                .addGap(12, 12, 12)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
         holder.setOpaque(false);
 
         cartViewer.setOpaque(false);
-        cartViewer.setLayout(new java.awt.BorderLayout());
+        cartViewer.setLayout(new java.awt.GridLayout());
+        jScrollPane1.setViewportView(cartViewer);
 
         jButton1.setText("Nästa");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -71,27 +144,41 @@ public class PanelConfirm extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(102, 102, 102));
         jLabel2.setText("Nästa steg: välj betalning");
 
+        totalPriceLabel.setFont(new java.awt.Font("Lucida Grande", 0, 36)); // NOI18N
+        totalPriceLabel.setText("jLabel4");
+
         javax.swing.GroupLayout holderLayout = new javax.swing.GroupLayout(holder);
         holder.setLayout(holderLayout);
         holderLayout.setHorizontalGroup(
             holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(cartViewer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, holderLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGroup(holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(holderLayout.createSequentialGroup()
+                        .addContainerGap(346, Short.MAX_VALUE)
+                        .addComponent(jLabel2))
+                    .addGroup(holderLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(totalPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 512, Short.MAX_VALUE))
         );
         holderLayout.setVerticalGroup(
             holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(holderLayout.createSequentialGroup()
-                .addComponent(cartViewer, javax.swing.GroupLayout.DEFAULT_SIZE, 385, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addContainerGap(342, Short.MAX_VALUE)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(totalPriceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
+            .addGroup(holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(holderLayout.createSequentialGroup()
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 62, Short.MAX_VALUE)))
         );
 
         add(holder, java.awt.BorderLayout.CENTER);
@@ -115,5 +202,9 @@ public class PanelConfirm extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel totalPriceLabel;
     // End of variables declaration//GEN-END:variables
 }

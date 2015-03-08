@@ -65,6 +65,8 @@ public class PanelSelectPayment extends javax.swing.JPanel {
 
         jPanel2.setOpaque(false);
 
+        gridHolder.setOpaque(false);
+        gridHolder.setPreferredSize(new java.awt.Dimension(10, 10));
         gridHolder.setLayout(new java.awt.GridLayout(2, 1));
         jPanel2.add(gridHolder);
 

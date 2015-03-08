@@ -84,7 +84,10 @@
                       <Component id="buyButton" min="-2" pref="226" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Component id="scroller" alignment="1" min="-2" pref="665" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          <Component id="scroller" min="-2" pref="665" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -95,11 +98,7 @@
                       <Component id="buyButton" min="-2" pref="100" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" max="-2" attributes="0"/>
-                          <Component id="scroller" pref="423" max="32767" attributes="0"/>
-                          <EmptySpace min="-2" pref="106" max="-2" attributes="0"/>
-                      </Group>
+                      <Component id="scroller" alignment="0" pref="535" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

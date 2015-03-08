@@ -48,10 +48,10 @@ public class PanelDoneShopping extends javax.swing.JPanel {
         jTextArea1.setEditable(false);
         jTextArea1.setBackground(new java.awt.Color(245, 245, 245));
         jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        jTextArea1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jTextArea1.setLineWrap(true);
         jTextArea1.setRows(5);
-        jTextArea1.setText("Du kommer få ett kvitto mailat till dig kl 24:00 till email adressen du använde för att registrera ditt konto. Om du vill ändra din beställning kan du göra detta under \"Nuvarande beställning\". ");
+        jTextArea1.setText("Du kommer få ett kvitto mailat till dig kl 24:00 till email adressen du använde för att registrera ditt konto.\n\nOm du vill ändra din beställning kan du göra detta under \"Nuvarande beställning\". ");
         jTextArea1.setWrapStyleWord(true);
         jTextArea1.setBorder(null);
         jScrollPane1.setViewportView(jTextArea1);

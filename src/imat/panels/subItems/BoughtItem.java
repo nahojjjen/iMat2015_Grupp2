@@ -9,6 +9,7 @@ import imat.models.Model;
 import imat.models.ModelAux;
 import java.awt.Color;
 import se.chalmers.ait.dat215.project.ShoppingItem;
+import imat.panels.contentPanels.buyingPanels.PanelConfirm;
 
 /**
  *
@@ -173,6 +174,7 @@ public class BoughtItem extends javax.swing.JPanel {
         ShoppingItem item = new ShoppingItem(thisItem.getProduct(), amount);
         ModelAux.add(item);
         refreshRemoveButton();
+        
     }//GEN-LAST:event_addButtonActionPerformed
 
     private void refreshRemoveButton() {

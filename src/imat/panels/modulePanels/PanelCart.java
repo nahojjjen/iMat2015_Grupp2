@@ -191,7 +191,12 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
     }// </editor-fold>//GEN-END:initComponents
 
     private void buyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyButtonActionPerformed
-        IMat.getWindow().setContent(new PanelConfirm());
+        List<ShoppingItem> cartItems = Model.getShoppingcart().getItems();
+       List cart = new ArrayList<Product>();
+       for(ShoppingItem item:cartItems){
+           cart.add(item.getProduct());
+       }
+        IMat.getWindow().setContent(new PanelConfirm(cart));
     }//GEN-LAST:event_buyButtonActionPerformed
 
     private void detailButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_detailButtonActionPerformed
