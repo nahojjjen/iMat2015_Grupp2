@@ -5,6 +5,7 @@
  */
 package imat.panels.contentPanels;
 
+import imat.IMat;
 import imat.models.CategoryImageLibrary;
 import imat.models.Model;
 import imat.models.sorters.Alphabetical;
@@ -17,10 +18,9 @@ import imat.panels.subItems.GridItem;
 import imat.panels.subItems.ListItem;
 import imat.panels.subItems.NoResultsPanel;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.GridLayout;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import javax.swing.JLabel;
@@ -35,8 +35,8 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
     private List<Product> products;
     private CardLayout card;
-    private boolean grouped = true;
-    private int sortingWay = 0;
+    private static boolean grouped = true;
+    private static int sortingWay = 0;
     
     ////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////
@@ -154,27 +154,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         this.revalidate();
     }
 
-    /**
-     * create the list of detailitems and put them in the results
-     *
-     * @param products what products to show
-     */
-    private void showDetailsResultsGrouped(List<Product> products) {
-        clearPreviousItems();
-        ProductCategory category = null;
-        for (Product product : products) {
-            if (!(category == product.getCategory())) {
-                category = product.getCategory();
-                detailsView.add(new JLabel());
-                JLabel tmpLabel = new JLabel(CategoryImageLibrary.getPicture(category));
-                tmpLabel.setToolTipText(category.toString());
-                detailsView.add(tmpLabel);
-            }
-            detailsView.add(new DetailItem(product));
-        }
-        detailsView.add(new JLabel("                                                                                                                                                                       "));
-        this.revalidate();
-    }
+
 
     /**
      * create a list of gridresults and put them in results.
@@ -204,6 +184,50 @@ public class PanelSearchResult extends javax.swing.JPanel {
             listView.add(new ListItem(product));
         }
         this.revalidate();
+    }
+        /**
+     * create the list of detailitems and put them in the results
+     *
+     * @param products what products to show
+     */
+    private void showDetailsResultsGrouped(List<Product> products) {
+        clearPreviousItems();
+        ProductCategory category = null;
+        for (Product product : products) {
+            if (!(category == product.getCategory())) {
+                category = product.getCategory();
+                detailsView.add(new JLabel());
+                JLabel tmpLabel = new JLabel(CategoryImageLibrary.getPicture(category));
+                tmpLabel.setToolTipText(category.toString());
+                detailsView.add(tmpLabel);
+            }
+            detailsView.add(new DetailItem(product));
+        }
+        detailsView.add(new JLabel("                                                                                                                                                                       "));
+        this.revalidate();
+    }
+        /**
+     * create a list of listresultitems and put them in resultview
+     *
+     * @param products what products to show
+     */
+    private void showListResultsGrouped(List<Product> products) {
+    clearPreviousItems();
+    listView.setLayout(new GridLayout(0, 1));
+        ProductCategory category = null;
+        for (Product product : products) {
+            if (!(category == product.getCategory())) {
+                category = product.getCategory();
+                JLabel categoryLabel = new JLabel(category.toString());
+                categoryLabel.setBackground(CategoryImageLibrary.getColor(category));
+                categoryLabel.setOpaque(true);
+                categoryLabel.setForeground(new Color(250,250,250));
+                listView.add(new JLabel());
+                listView.add(categoryLabel);
+            }
+            listView.add(new ListItem(product));
+        }
+        revalidate();
     }
 
     ///////////////////////////////////////////////////////////////////
@@ -250,7 +274,11 @@ public class PanelSearchResult extends javax.swing.JPanel {
                     break;
                 case (1):
                     card.show(cardPanel, "listCard");
+                    if (grouped) {
+                        showListResultsGrouped(products);
+                    }else{
                     showListResults(products);
+                    }
                     break;
                 case (2):
                     
@@ -334,7 +362,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         headerPanel.setBackground(imat.IMat.getAccentColor());
         headerPanel.setPreferredSize(new java.awt.Dimension(677, 40));
 
-        groupCheckbox.setSelected(true);
+        groupCheckbox.setSelected(grouped);
         groupCheckbox.setText("Gruppera kategorier");
         groupCheckbox.setOpaque(false);
         groupCheckbox.addActionListener(new java.awt.event.ActionListener() {
@@ -344,6 +372,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         });
 
         sortingCombobox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Product ID", "Alfabetisk", "Pris" }));
+        sortingCombobox.setSelectedIndex(sortingWay);
         sortingCombobox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sortingComboboxActionPerformed(evt);
