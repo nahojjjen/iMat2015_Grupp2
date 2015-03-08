@@ -167,11 +167,13 @@ public class PanelCreditCard extends javax.swing.JPanel {
     private void visaMasterRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visaMasterRadioButtonActionPerformed
         CustomerModel.setCardType("VISA/MasterCard");
         setDigitsLabel("VISA/MasterCard");
+        setOkLabel(isCardNumberCorrect(), cardNumberOkLabel);
     }//GEN-LAST:event_visaMasterRadioButtonActionPerformed
 
     private void americanRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_americanRadioButtonActionPerformed
         CustomerModel.setCardType("American Express");
         setDigitsLabel("American Express");
+        setOkLabel(isCardNumberCorrect(), cardNumberOkLabel);
     }//GEN-LAST:event_americanRadioButtonActionPerformed
 
     private void cardNumberTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cardNumberTextFieldKeyReleased
@@ -194,10 +196,10 @@ public class PanelCreditCard extends javax.swing.JPanel {
         cardTypeButtonGroup.add(americanRadioButton);
         cardTypeButtonGroup.add(visaMasterRadioButton);
         setSelectedCardType(CustomerModel.getCardType());
-        if(CustomerModel.getCardNumber().length() < 14){
+        if(CustomerModel.getCardNumber().length() > 14){
             tempRealCardNbr = CustomerModel.getCardNumber();
             try{
-                tempFakeCardNbr = "**** **** **** " + tempRealCardNbr.substring(15);
+                tempFakeCardNbr = "**** **** **** " + tempRealCardNbr.substring(12);
             }catch(StringIndexOutOfBoundsException e){                
             }
             cardNumberTextField.setText(tempFakeCardNbr);

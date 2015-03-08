@@ -43,7 +43,7 @@ public class MyProfilePanel extends javax.swing.JPanel {
         jSplitPane2 = new javax.swing.JSplitPane();
         deliveryHolder = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        saveButton = new javax.swing.JButton();
 
         setLayout(new java.awt.GridLayout(2, 2));
 
@@ -65,10 +65,10 @@ public class MyProfilePanel extends javax.swing.JPanel {
         deliveryHolder.setLayout(new java.awt.BorderLayout());
         jSplitPane2.setLeftComponent(deliveryHolder);
 
-        jButton1.setText("Save changes");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        saveButton.setText("Save changes");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                saveButtonActionPerformed(evt);
             }
         });
 
@@ -78,14 +78,14 @@ public class MyProfilePanel extends javax.swing.JPanel {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(313, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(saveButton)
                 .addGap(61, 61, 61))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
                 .addContainerGap(356, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(saveButton)
                 .addGap(59, 59, 59))
         );
 
@@ -94,18 +94,18 @@ public class MyProfilePanel extends javax.swing.JPanel {
         add(jSplitPane2);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
+       cardPanel.save();
+    }//GEN-LAST:event_saveButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel accHolder;
     private javax.swing.JPanel deliveryHolder;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JPanel paymentHolder;
+    private javax.swing.JButton saveButton;
     // End of variables declaration//GEN-END:variables
 }
