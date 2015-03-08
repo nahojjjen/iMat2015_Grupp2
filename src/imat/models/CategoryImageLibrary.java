@@ -5,6 +5,7 @@
  */
 package imat.models;
 
+import java.awt.Color;
 import javax.swing.ImageIcon;
 import se.chalmers.ait.dat215.project.ProductCategory;
 
@@ -79,6 +80,53 @@ public class CategoryImageLibrary {
             return sweets;
         }else if (category == ProductCategory.VEGETABLE_FRUIT) {
             return vegetablefruit;
+        }
+        return null;
+    }
+    
+        public static Color getColor(ProductCategory category){
+        if(category == ProductCategory.HERB){
+            return new Color(100,200,100);
+        }else if (category == ProductCategory.BERRY) {
+            return new Color(100,100,250);
+        }else if (category == ProductCategory.BREAD) {
+            return new Color(160,160,100);
+        }else if (category == ProductCategory.CABBAGE) {
+            return new Color(120,200,80);
+        }else if (category == ProductCategory.CITRUS_FRUIT) {
+            return new Color(180,180,90);
+        }else if (category == ProductCategory.COLD_DRINKS) {
+            return new Color(150,100,230);
+        }else if (category == ProductCategory.DAIRIES) {
+            return new Color(150,150,150);
+        }else if (category == ProductCategory.EXOTIC_FRUIT) {
+            return new Color(150,100,150);
+        }else if (category == ProductCategory.FISH) {
+            return new Color(60,150,230);
+        }else if (category == ProductCategory.FLOUR_SUGAR_SALT) {
+            return new Color(150,150,150);
+        }else if (category == ProductCategory.FRUIT) {
+            return new Color(230,150,150);
+        }else if (category == ProductCategory.HOT_DRINKS) {
+            return new Color(200,100,100);
+        }else if (category == ProductCategory.MEAT) {
+            return new Color(200,100,100);
+        }else if (category == ProductCategory.MELONS) {
+            return new Color(200,100,100);
+        }else if (category == ProductCategory.NUTS_AND_SEEDS) {
+            return new Color(100,100,100);
+        }else if (category == ProductCategory.PASTA) {
+            return new Color(200,200,100);
+        }else if (category == ProductCategory.POD) {
+            return new Color(100,150,100);
+        }else if (category == ProductCategory.POTATO_RICE) {
+            return new Color(130,130,130);
+        }else if (category == ProductCategory.ROOT_VEGETABLE) {
+           return new Color(200,150,150); 
+        }else if (category == ProductCategory.SWEET) {
+            return new Color(160,100,180);
+        }else if (category == ProductCategory.VEGETABLE_FRUIT) {
+            return new Color(100,160,100);
         }
         return null;
     }
