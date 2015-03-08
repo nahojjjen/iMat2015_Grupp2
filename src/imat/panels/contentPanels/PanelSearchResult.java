@@ -37,6 +37,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
     private CardLayout card;
     private static boolean grouped = true;
     private static int sortingWay = 0;
+    private static int loadWay = 0;
     
     ////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////
@@ -51,7 +52,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         initComponents();
         card = (CardLayout) cardPanel.getLayout();
         fixScroll();
-        loadResult(0);
+        loadResult(loadWay);
     }
     
         /**
@@ -63,7 +64,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         initComponents();
         card = (CardLayout) cardPanel.getLayout();
         fixScroll();
-        loadResult(0);
+        loadResult(loadWay);
         searchLabel.setText("Sökresultat: " + string);
     }
 
@@ -88,7 +89,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         initComponents();
         card = (CardLayout) cardPanel.getLayout();
         fixScroll();
-        loadResult(0);
+        loadResult(loadWay);
 
     }
     /**
@@ -107,7 +108,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         initComponents();
         card = (CardLayout) cardPanel.getLayout();
         fixScroll();
-        loadResult(0);
+        loadResult(loadWay);
     }
 
 
@@ -129,7 +130,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         initComponents();
         card = (CardLayout) cardPanel.getLayout();
         fixScroll();
-        loadResult(0);
+        loadResult(loadWay);
 
     }
 
@@ -484,15 +485,18 @@ public class PanelSearchResult extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-        loadResult(0);
+        loadWay = 0;
+        loadResult(loadWay);
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
-        loadResult(1);
+        loadWay = 1;
+        loadResult(loadWay);
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        loadResult(2);
+        loadWay = 2;
+        loadResult(loadWay);
     }//GEN-LAST:event_jLabel4MouseClicked
 
     private void groupCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupCheckboxActionPerformed
@@ -502,7 +506,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
     private void sortingComboboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sortingComboboxActionPerformed
         setSortingMethod();
         clearPreviousItems();
-        loadResult(0);
+        loadResult(loadWay);
     }//GEN-LAST:event_sortingComboboxActionPerformed
 
  

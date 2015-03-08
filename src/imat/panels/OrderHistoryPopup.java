@@ -131,7 +131,7 @@ public class OrderHistoryPopup extends javax.swing.JPanel {
         totalPriceLabel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         totalPriceLabel.setText("1231kr");
 
-        jButton1.setText("Kopiera kundvagn");
+        jButton1.setText("Sätt till nuvarande kundvagn");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
