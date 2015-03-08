@@ -47,18 +47,21 @@ public class MyProfilePanel extends javax.swing.JPanel {
 
         setLayout(new java.awt.GridLayout(2, 2));
 
-        jSplitPane1.setDividerLocation(this.getWidth()/2);
+        jSplitPane1.setDividerLocation(500);
 
+        accHolder.setMinimumSize(new java.awt.Dimension(400, 230));
         accHolder.setLayout(new java.awt.BorderLayout());
         jSplitPane1.setLeftComponent(accHolder);
 
+        paymentHolder.setMinimumSize(new java.awt.Dimension(485, 300));
         paymentHolder.setLayout(new java.awt.BorderLayout());
         jSplitPane1.setRightComponent(paymentHolder);
 
         add(jSplitPane1);
 
-        jSplitPane2.setDividerLocation(this.getWidth()/2);
+        jSplitPane2.setDividerLocation(500);
 
+        deliveryHolder.setMinimumSize(new java.awt.Dimension(490, 440));
         deliveryHolder.setLayout(new java.awt.BorderLayout());
         jSplitPane2.setLeftComponent(deliveryHolder);
 
@@ -74,14 +77,14 @@ public class MyProfilePanel extends javax.swing.JPanel {
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(438, Short.MAX_VALUE)
+                .addContainerGap(313, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(61, 61, 61))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
-                .addContainerGap(153, Short.MAX_VALUE)
+                .addContainerGap(356, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(59, 59, 59))
         );

@@ -286,8 +286,8 @@ public class CustomerModel {
 
     public static boolean cardNumberTest(String str) {
         String cardType = getCardType();
-        return (cardType.equals("American Express") && str.length() == 19
-                || cardType.equals("VISA/MasterCard") && str.length() == 21);
+        return (cardType.equals("American Express") && str.length() == 15
+                || cardType.equals("VISA/MasterCard") && str.length() == 16);
     }
 
     public static boolean cardHolderNameTest(String str) {
@@ -322,7 +322,7 @@ public class CustomerModel {
     }
 
     public static boolean postCodeTest(String str) {
-        return (str.length() == 6);
+        return (str.length() == 5);
     }
 
     public static boolean postAddressTest(String str) {

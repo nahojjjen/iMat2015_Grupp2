@@ -50,6 +50,7 @@ public class PanelAccountInfo extends javax.swing.JPanel {
         emailTextField = new javax.swing.JTextField();
         repeatPassOk = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(400, 230));
         setOpaque(false);
         setLayout(null);
 

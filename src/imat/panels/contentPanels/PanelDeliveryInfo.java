@@ -68,6 +68,7 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
+        setMinimumSize(new java.awt.Dimension(490, 440));
         setOpaque(false);
         setLayout(null);
 
@@ -90,7 +91,7 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
             }
         });
         jPanel1.add(firstNameTextField);
-        firstNameTextField.setBounds(21, 36, 156, 22);
+        firstNameTextField.setBounds(21, 36, 156, 30);
 
         lastNameTextField.setToolTipText("Endast A-Z tillåtet");
         lastNameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -99,7 +100,7 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
             }
         });
         jPanel1.add(lastNameTextField);
-        lastNameTextField.setBounds(224, 36, 198, 22);
+        lastNameTextField.setBounds(224, 36, 198, 30);
 
         addressLabel.setText("Gaturadress:");
         jPanel1.add(addressLabel);
@@ -115,11 +116,11 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
             }
         });
         jPanel1.add(addressTextField);
-        addressTextField.setBounds(21, 102, 156, 22);
+        addressTextField.setBounds(21, 102, 156, 30);
 
         careOfTextField.setToolTipText("Valfritt");
         jPanel1.add(careOfTextField);
-        careOfTextField.setBounds(224, 102, 198, 22);
+        careOfTextField.setBounds(224, 102, 198, 30);
 
         postCodeLabel.setText("Postnummer:");
         jPanel1.add(postCodeLabel);
@@ -136,13 +137,13 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
             }
         });
         jPanel1.add(postAddressTextField);
-        postAddressTextField.setBounds(224, 165, 198, 22);
+        postAddressTextField.setBounds(224, 165, 198, 30);
 
         phoneNumberLabel.setText("Telefon:");
         jPanel1.add(phoneNumberLabel);
         phoneNumberLabel.setBounds(21, 208, 48, 16);
 
-        postCodeTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#####"))));
+        postCodeTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         postCodeTextField.setToolTipText("5 sifror");
         postCodeTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -150,9 +151,9 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
             }
         });
         jPanel1.add(postCodeTextField);
-        postCodeTextField.setBounds(21, 165, 77, 22);
+        postCodeTextField.setBounds(21, 165, 77, 30);
 
-        phoneNumberTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
+        phoneNumberTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         phoneNumberTextField.setToolTipText("Endast siffror");
         phoneNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -160,7 +161,7 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
             }
         });
         jPanel1.add(phoneNumberTextField);
-        phoneNumberTextField.setBounds(21, 234, 156, 22);
+        phoneNumberTextField.setBounds(21, 234, 156, 30);
 
         informationTextArea.setColumns(20);
         informationTextArea.setRows(5);
@@ -171,7 +172,7 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
 
         mobileNumberTextField.setToolTipText("Endast siffror");
         jPanel1.add(mobileNumberTextField);
-        mobileNumberTextField.setBounds(224, 234, 198, 22);
+        mobileNumberTextField.setBounds(224, 234, 198, 30);
 
         mobileNumberLabel.setText("Mobil:");
         jPanel1.add(mobileNumberLabel);

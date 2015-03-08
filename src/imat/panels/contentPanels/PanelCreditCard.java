@@ -51,13 +51,14 @@ public class PanelCreditCard extends javax.swing.JPanel {
         yearComboBox = new javax.swing.JComboBox();
         securityReminderLabel = new javax.swing.JLabel();
         cardHolderReminderLabel = new javax.swing.JLabel();
-        cardHolderTextField = new javax.swing.JFormattedTextField();
         securityNumberTextField = new javax.swing.JFormattedTextField();
         cardNumberOkLabel = new javax.swing.JLabel();
         holderNameOkLabel = new javax.swing.JLabel();
         secNumberOkLabel = new javax.swing.JLabel();
         cardNumberTextField = new javax.swing.JFormattedTextField();
+        cardHolderTextField = new javax.swing.JTextField();
 
+        setMinimumSize(new java.awt.Dimension(485, 300));
         setOpaque(false);
         setLayout(null);
 
@@ -102,7 +103,7 @@ public class PanelCreditCard extends javax.swing.JPanel {
         digitsInCardNumberLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         digitsInCardNumberLabel.setText("16 siffror");
         add(digitsInCardNumberLabel);
-        digitsInCardNumberLabel.setBounds(360, 90, 39, 13);
+        digitsInCardNumberLabel.setBounds(360, 100, 39, 13);
 
         monthComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December" }));
         add(monthComboBox);
@@ -120,21 +121,7 @@ public class PanelCreditCard extends javax.swing.JPanel {
         cardHolderReminderLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         cardHolderReminderLabel.setText("Namn på kortet");
         add(cardHolderReminderLabel);
-        cardHolderReminderLabel.setBounds(360, 130, 70, 13);
-
-        try {
-            cardHolderTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("??????????????????????????")));
-        } catch (java.text.ParseException ex) {
-            ex.printStackTrace();
-        }
-        cardHolderTextField.setToolTipText("Endast siffror");
-        cardHolderTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                cardHolderTextFieldKeyReleased(evt);
-            }
-        });
-        add(cardHolderTextField);
-        cardHolderTextField.setBounds(120, 130, 200, 22);
+        cardHolderReminderLabel.setBounds(360, 140, 70, 13);
 
         securityNumberTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###"))));
         securityNumberTextField.setToolTipText("Endast siffror");
@@ -144,7 +131,7 @@ public class PanelCreditCard extends javax.swing.JPanel {
             }
         });
         add(securityNumberTextField);
-        securityNumberTextField.setBounds(121, 211, 66, 22);
+        securityNumberTextField.setBounds(120, 211, 66, 30);
 
         cardNumberOkLabel.setToolTipText("Bara siffror, inga andra tecken");
         add(cardNumberOkLabel);
@@ -158,7 +145,7 @@ public class PanelCreditCard extends javax.swing.JPanel {
         add(secNumberOkLabel);
         secNumberOkLabel.setBounds(200, 210, 25, 25);
 
-        cardNumberTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("############,####"))));
+        cardNumberTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         cardNumberTextField.setToolTipText("Endast siffror");
         cardNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -166,7 +153,15 @@ public class PanelCreditCard extends javax.swing.JPanel {
             }
         });
         add(cardNumberTextField);
-        cardNumberTextField.setBounds(121, 91, 200, 22);
+        cardNumberTextField.setBounds(120, 91, 200, 30);
+
+        cardHolderTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                cardHolderTextFieldKeyPressed(evt);
+            }
+        });
+        add(cardHolderTextField);
+        cardHolderTextField.setBounds(120, 130, 200, 30);
     }// </editor-fold>//GEN-END:initComponents
 
     private void visaMasterRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visaMasterRadioButtonActionPerformed
@@ -183,13 +178,13 @@ public class PanelCreditCard extends javax.swing.JPanel {
         setOkLabel(isCardNumberCorrect(), cardNumberOkLabel);
     }//GEN-LAST:event_cardNumberTextFieldKeyReleased
 
-    private void cardHolderTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cardHolderTextFieldKeyReleased
-        setOkLabel(isCardHolderNameCorrect(), holderNameOkLabel);
-    }//GEN-LAST:event_cardHolderTextFieldKeyReleased
-
     private void securityNumberTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_securityNumberTextFieldKeyReleased
         setOkLabel(isSecNumberCorrect(), secNumberOkLabel);
     }//GEN-LAST:event_securityNumberTextFieldKeyReleased
+
+    private void cardHolderTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cardHolderTextFieldKeyPressed
+        setOkLabel(isCardHolderNameCorrect(), holderNameOkLabel);
+    }//GEN-LAST:event_cardHolderTextFieldKeyPressed
     private void setCardInfo() {
         
         cardHolderTextField.setText(CustomerModel.getCardHolderName());
@@ -201,7 +196,10 @@ public class PanelCreditCard extends javax.swing.JPanel {
         setSelectedCardType(CustomerModel.getCardType());
         if(CustomerModel.getCardNumber().length() < 14){
             tempRealCardNbr = CustomerModel.getCardNumber();
-            tempFakeCardNbr = "**** **** **** " + tempRealCardNbr.substring(15);
+            try{
+                tempFakeCardNbr = "**** **** **** " + tempRealCardNbr.substring(15);
+            }catch(StringIndexOutOfBoundsException e){                
+            }
             cardNumberTextField.setText(tempFakeCardNbr);
         }
         
@@ -290,7 +288,7 @@ public class PanelCreditCard extends javax.swing.JPanel {
     private javax.swing.JLabel cardExpireLabel;
     private javax.swing.JLabel cardHolderLabel;
     private javax.swing.JLabel cardHolderReminderLabel;
-    private javax.swing.JFormattedTextField cardHolderTextField;
+    private javax.swing.JTextField cardHolderTextField;
     private javax.swing.JLabel cardNumberOkLabel;
     private javax.swing.JFormattedTextField cardNumberTextField;
     private javax.swing.JLabel cardSecurityLabel;
