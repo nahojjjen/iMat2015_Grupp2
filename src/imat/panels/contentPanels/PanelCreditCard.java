@@ -59,7 +59,7 @@ public class PanelCreditCard extends javax.swing.JPanel {
         cardNumberTextField = new javax.swing.JFormattedTextField();
 
         setOpaque(false);
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setLayout(null);
 
         visaMasterRadioButton.setText("VISA/MasterCard");
         visaMasterRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -67,7 +67,8 @@ public class PanelCreditCard extends javax.swing.JPanel {
                 visaMasterRadioButtonActionPerformed(evt);
             }
         });
-        add(visaMasterRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(146, 42, -1, -1));
+        add(visaMasterRadioButton);
+        visaMasterRadioButton.setBounds(146, 42, 127, 25);
 
         americanRadioButton.setText("American Express");
         americanRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -75,40 +76,51 @@ public class PanelCreditCard extends javax.swing.JPanel {
                 americanRadioButtonActionPerformed(evt);
             }
         });
-        add(americanRadioButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(291, 42, -1, -1));
+        add(americanRadioButton);
+        americanRadioButton.setBounds(291, 42, 131, 25);
 
         cardTypeLabel.setText("Korttyp:");
-        add(cardTypeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(58, 46, -1, -1));
+        add(cardTypeLabel);
+        cardTypeLabel.setBounds(58, 46, 45, 16);
 
         carNumberLabel.setText("Kortnummer:");
-        add(carNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 94, -1, -1));
+        add(carNumberLabel);
+        carNumberLabel.setBounds(27, 94, 76, 16);
 
         cardHolderLabel.setText("Kortinnehavare:");
-        add(cardHolderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 131, -1, -1));
+        add(cardHolderLabel);
+        cardHolderLabel.setBounds(12, 131, 91, 16);
 
         cardExpireLabel.setText("Giltighetstid:");
-        add(cardExpireLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 174, -1, -1));
+        add(cardExpireLabel);
+        cardExpireLabel.setBounds(32, 174, 71, 16);
 
         cardSecurityLabel.setText("CVV2-nummer:");
-        add(cardSecurityLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 214, -1, -1));
+        add(cardSecurityLabel);
+        cardSecurityLabel.setBounds(14, 214, 89, 16);
 
         digitsInCardNumberLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         digitsInCardNumberLabel.setText("16 siffror");
-        add(digitsInCardNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 90, -1, -1));
+        add(digitsInCardNumberLabel);
+        digitsInCardNumberLabel.setBounds(360, 90, 39, 13);
 
         monthComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December" }));
-        add(monthComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 171, 80, -1));
+        add(monthComboBox);
+        monthComboBox.setBounds(121, 171, 80, 22);
 
         yearComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
-        add(yearComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(246, 171, 75, -1));
+        add(yearComboBox);
+        yearComboBox.setBounds(246, 171, 75, 22);
 
         securityReminderLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         securityReminderLabel.setText("Sista 3 siffrorna på kortets baksida");
-        add(securityReminderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 220, -1, -1));
+        add(securityReminderLabel);
+        securityReminderLabel.setBounds(230, 220, 153, 13);
 
         cardHolderReminderLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         cardHolderReminderLabel.setText("Namn på kortet");
-        add(cardHolderReminderLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 130, -1, -1));
+        add(cardHolderReminderLabel);
+        cardHolderReminderLabel.setBounds(360, 130, 70, 13);
 
         try {
             cardHolderTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.MaskFormatter("??????????????????????????")));
@@ -121,7 +133,8 @@ public class PanelCreditCard extends javax.swing.JPanel {
                 cardHolderTextFieldKeyReleased(evt);
             }
         });
-        add(cardHolderTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 130, 200, -1));
+        add(cardHolderTextField);
+        cardHolderTextField.setBounds(120, 130, 200, 22);
 
         securityNumberTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###"))));
         securityNumberTextField.setToolTipText("Endast siffror");
@@ -130,10 +143,20 @@ public class PanelCreditCard extends javax.swing.JPanel {
                 securityNumberTextFieldKeyReleased(evt);
             }
         });
-        add(securityNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 211, 66, -1));
-        add(cardNumberOkLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 25, 25));
-        add(holderNameOkLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 25, 25));
-        add(secNumberOkLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 210, 25, 25));
+        add(securityNumberTextField);
+        securityNumberTextField.setBounds(121, 211, 66, 22);
+
+        cardNumberOkLabel.setToolTipText("Bara siffror, inga andra tecken");
+        add(cardNumberOkLabel);
+        cardNumberOkLabel.setBounds(330, 90, 25, 25);
+
+        holderNameOkLabel.setToolTipText("Endast bokstäverna A-Z");
+        add(holderNameOkLabel);
+        holderNameOkLabel.setBounds(330, 130, 25, 25);
+
+        secNumberOkLabel.setToolTipText("Endast siffror");
+        add(secNumberOkLabel);
+        secNumberOkLabel.setBounds(200, 210, 25, 25);
 
         cardNumberTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("############,####"))));
         cardNumberTextField.setToolTipText("Endast siffror");
@@ -142,7 +165,8 @@ public class PanelCreditCard extends javax.swing.JPanel {
                 cardNumberTextFieldKeyReleased(evt);
             }
         });
-        add(cardNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(121, 91, 200, -1));
+        add(cardNumberTextField);
+        cardNumberTextField.setBounds(121, 91, 200, 22);
     }// </editor-fold>//GEN-END:initComponents
 
     private void visaMasterRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visaMasterRadioButtonActionPerformed

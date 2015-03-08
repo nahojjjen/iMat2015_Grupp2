@@ -43,7 +43,6 @@ public class PanelAccountInfo extends javax.swing.JPanel {
         repeatPasswordLabel = new javax.swing.JLabel();
         newPasswordTextField = new javax.swing.JPasswordField();
         repeatPasswordTextField = new javax.swing.JPasswordField();
-        mailErrorlabel = new javax.swing.JLabel();
         passwordErrorLabel = new javax.swing.JLabel();
         emailOk = new javax.swing.JLabel();
         repeatEmailOk = new javax.swing.JLabel();
@@ -52,26 +51,31 @@ public class PanelAccountInfo extends javax.swing.JPanel {
         repeatPassOk = new javax.swing.JLabel();
 
         setOpaque(false);
-        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setLayout(null);
 
         emailLabel.setText("E-post:");
-        add(emailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 13, -1, -1));
+        add(emailLabel);
+        emailLabel.setBounds(12, 13, 41, 16);
 
         repeatEmailLabel.setText("Repetera e-post:");
-        add(repeatEmailLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 68, -1, -1));
+        add(repeatEmailLabel);
+        repeatEmailLabel.setBounds(12, 68, 97, 16);
 
         repeatEmailTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 repeatEmailTextFieldKeyReleased(evt);
             }
         });
-        add(repeatEmailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 91, 308, 25));
+        add(repeatEmailTextField);
+        repeatEmailTextField.setBounds(12, 91, 308, 30);
 
         newPasswordLabel.setText("Nytt lösenord:");
-        add(newPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 149, -1, -1));
+        add(newPasswordLabel);
+        newPasswordLabel.setBounds(12, 149, 80, 16);
 
         repeatPasswordLabel.setText("Repetera lösenord:");
-        add(repeatPasswordLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 149, -1, -1));
+        add(repeatPasswordLabel);
+        repeatPasswordLabel.setBounds(186, 149, 110, 16);
 
         newPasswordTextField.setToolTipText("Minst 4 tecken långt");
         newPasswordTextField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -79,7 +83,8 @@ public class PanelAccountInfo extends javax.swing.JPanel {
                 newPasswordTextFieldKeyReleased(evt);
             }
         });
-        add(newPasswordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(14, 172, 130, -1));
+        add(newPasswordTextField);
+        newPasswordTextField.setBounds(12, 170, 130, 30);
 
         repeatPasswordTextField.setToolTipText("Minst 4 tecken långt");
         repeatPasswordTextField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -87,25 +92,34 @@ public class PanelAccountInfo extends javax.swing.JPanel {
                 repeatPasswordTextFieldKeyReleased(evt);
             }
         });
-        add(repeatPasswordTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 172, 130, -1));
-
-        mailErrorlabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
-        mailErrorlabel.setForeground(java.awt.Color.red);
-        add(mailErrorlabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(65, 13, 261, -1));
+        add(repeatPasswordTextField);
+        repeatPasswordTextField.setBounds(186, 172, 130, 30);
 
         passwordErrorLabel.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
-        add(passwordErrorLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 137, 334, 5));
-        add(emailOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 40, 25, 25));
-        add(repeatEmailOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 90, 25, 25));
-        add(passOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(151, 172, 25, 25));
+        add(passwordErrorLabel);
+        passwordErrorLabel.setBounds(12, 137, 334, 5);
+
+        emailOk.setToolTipText("Måste innehålla @ och . samt vara minst 7 tecken långt");
+        add(emailOk);
+        emailOk.setBounds(330, 40, 25, 25);
+
+        repeatEmailOk.setToolTipText("Måste innehålla @ och . samt vara minst 7 tecken långt");
+        add(repeatEmailOk);
+        repeatEmailOk.setBounds(330, 90, 25, 25);
+        add(passOk);
+        passOk.setBounds(151, 172, 25, 25);
 
         emailTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 emailTextFieldKeyReleased(evt);
             }
         });
-        add(emailTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 36, 308, 25));
-        add(repeatPassOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(321, 172, 25, 25));
+        add(emailTextField);
+        emailTextField.setBounds(12, 36, 308, 30);
+
+        repeatPassOk.setToolTipText("Minst 4 tecken långt");
+        add(repeatPassOk);
+        repeatPassOk.setBounds(321, 172, 25, 25);
     }// </editor-fold>//GEN-END:initComponents
 
     private void emailTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_emailTextFieldKeyReleased
@@ -196,7 +210,6 @@ public class PanelAccountInfo extends javax.swing.JPanel {
     private javax.swing.JLabel emailLabel;
     private javax.swing.JLabel emailOk;
     private javax.swing.JTextField emailTextField;
-    private javax.swing.JLabel mailErrorlabel;
     private javax.swing.JLabel newPasswordLabel;
     private javax.swing.JPasswordField newPasswordTextField;
     private javax.swing.JLabel passOk;

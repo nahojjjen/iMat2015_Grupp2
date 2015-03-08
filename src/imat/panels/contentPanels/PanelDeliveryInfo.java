@@ -69,15 +69,18 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
 
         setOpaque(false);
+        setLayout(null);
 
         jPanel1.setOpaque(false);
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        jPanel1.setLayout(null);
 
         firstNameLabel.setText("Förnamn:");
-        jPanel1.add(firstNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 13, -1, -1));
+        jPanel1.add(firstNameLabel);
+        firstNameLabel.setBounds(21, 13, 56, 16);
 
         lastNameLabel.setText("Efternamn:");
-        jPanel1.add(lastNameLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 13, -1, -1));
+        jPanel1.add(lastNameLabel);
+        lastNameLabel.setBounds(224, 13, 64, 16);
 
         firstNameTextField.setToolTipText("Endast A-Z tillåtet");
         firstNameTextField.setAutoscrolls(false);
@@ -86,7 +89,8 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
                 firstNameTextFieldKeyReleased(evt);
             }
         });
-        jPanel1.add(firstNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 36, 156, -1));
+        jPanel1.add(firstNameTextField);
+        firstNameTextField.setBounds(21, 36, 156, 22);
 
         lastNameTextField.setToolTipText("Endast A-Z tillåtet");
         lastNameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -94,40 +98,49 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
                 lastNameTextFieldKeyReleased(evt);
             }
         });
-        jPanel1.add(lastNameTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 36, 198, -1));
+        jPanel1.add(lastNameTextField);
+        lastNameTextField.setBounds(224, 36, 198, 22);
 
         addressLabel.setText("Gaturadress:");
-        jPanel1.add(addressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 76, -1, -1));
+        jPanel1.add(addressLabel);
+        addressLabel.setBounds(21, 76, 74, 16);
 
         careOfLabel.setText("C/O:");
-        jPanel1.add(careOfLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 76, -1, -1));
+        jPanel1.add(careOfLabel);
+        careOfLabel.setBounds(224, 76, 27, 16);
 
         addressTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 addressTextFieldKeyReleased(evt);
             }
         });
-        jPanel1.add(addressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 102, 156, -1));
+        jPanel1.add(addressTextField);
+        addressTextField.setBounds(21, 102, 156, 22);
 
         careOfTextField.setToolTipText("Valfritt");
-        jPanel1.add(careOfTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 102, 198, -1));
+        jPanel1.add(careOfTextField);
+        careOfTextField.setBounds(224, 102, 198, 22);
 
         postCodeLabel.setText("Postnummer:");
-        jPanel1.add(postCodeLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 139, -1, -1));
+        jPanel1.add(postCodeLabel);
+        postCodeLabel.setBounds(21, 139, 77, 16);
 
         postAddressLabel.setText("Postort:");
-        jPanel1.add(postAddressLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 139, -1, -1));
+        jPanel1.add(postAddressLabel);
+        postAddressLabel.setBounds(224, 139, 45, 16);
 
-        postAddressTextField.setToolTipText("Endast A-Z tillåtet");
+        postAddressTextField.setToolTipText("Endast bokstäverna A-Z");
         postAddressTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 postAddressTextFieldKeyReleased(evt);
             }
         });
-        jPanel1.add(postAddressTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 165, 198, -1));
+        jPanel1.add(postAddressTextField);
+        postAddressTextField.setBounds(224, 165, 198, 22);
 
         phoneNumberLabel.setText("Telefon:");
-        jPanel1.add(phoneNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 208, -1, -1));
+        jPanel1.add(phoneNumberLabel);
+        phoneNumberLabel.setBounds(21, 208, 48, 16);
 
         postCodeTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#####"))));
         postCodeTextField.setToolTipText("5 sifror");
@@ -136,7 +149,8 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
                 postCodeTextFieldKeyReleased(evt);
             }
         });
-        jPanel1.add(postCodeTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 165, 77, -1));
+        jPanel1.add(postCodeTextField);
+        postCodeTextField.setBounds(21, 165, 77, 22);
 
         phoneNumberTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
         phoneNumberTextField.setToolTipText("Endast siffror");
@@ -145,59 +159,73 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
                 phoneNumberTextFieldKeyReleased(evt);
             }
         });
-        jPanel1.add(phoneNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 234, 156, -1));
+        jPanel1.add(phoneNumberTextField);
+        phoneNumberTextField.setBounds(21, 234, 156, 22);
 
         informationTextArea.setColumns(20);
         informationTextArea.setRows(5);
         jScrollPane1.setViewportView(informationTextArea);
 
-        jPanel1.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 300, 401, -1));
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(21, 300, 401, 96);
 
         mobileNumberTextField.setToolTipText("Endast siffror");
-        jPanel1.add(mobileNumberTextField, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 234, 198, -1));
+        jPanel1.add(mobileNumberTextField);
+        mobileNumberTextField.setBounds(224, 234, 198, 22);
 
         mobileNumberLabel.setText("Mobil:");
-        jPanel1.add(mobileNumberLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(224, 208, -1, -1));
+        jPanel1.add(mobileNumberLabel);
+        mobileNumberLabel.setBounds(224, 208, 35, 16);
 
         infoTextLabel.setText("Övrig information:");
-        jPanel1.add(infoTextLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(21, 271, 119, -1));
+        jPanel1.add(infoTextLabel);
+        infoTextLabel.setBounds(21, 271, 119, 16);
 
         infoTipTextAreaLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         infoTipTextAreaLabel.setText("T.ex portkod eller vånings-/lägenhetsnummer");
-        jPanel1.add(infoTipTextAreaLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(147, 274, 210, -1));
-        jPanel1.add(lastNameOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 36, 25, 25));
-        jPanel1.add(postAddressOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 162, 25, 25));
-        jPanel1.add(mobileOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 231, 25, 25));
-        jPanel1.add(careOfOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(427, 99, 25, 25));
-        jPanel1.add(firstNameOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 36, 25, 25));
-        jPanel1.add(addressOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 99, 25, 25));
-        jPanel1.add(postCodeOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 160, 25, 25));
-        jPanel1.add(phoneOk, new org.netbeans.lib.awtextra.AbsoluteConstraints(186, 231, 25, 25));
+        jPanel1.add(infoTipTextAreaLabel);
+        infoTipTextAreaLabel.setBounds(147, 274, 210, 13);
+
+        lastNameOk.setToolTipText("Endast bokstäverna A-Z");
+        jPanel1.add(lastNameOk);
+        lastNameOk.setBounds(427, 36, 25, 25);
+
+        postAddressOk.setToolTipText("Endast bokstäverna A-Z");
+        jPanel1.add(postAddressOk);
+        postAddressOk.setBounds(427, 162, 25, 25);
+        jPanel1.add(mobileOk);
+        mobileOk.setBounds(427, 231, 25, 25);
+        jPanel1.add(careOfOk);
+        careOfOk.setBounds(427, 99, 25, 25);
+
+        firstNameOk.setToolTipText("Endast bokstäverna A-Z");
+        jPanel1.add(firstNameOk);
+        firstNameOk.setBounds(186, 36, 25, 25);
+
+        addressOk.setToolTipText("Endast bokstäver och siffror");
+        jPanel1.add(addressOk);
+        addressOk.setBounds(186, 99, 25, 25);
+
+        postCodeOk.setToolTipText("Endast siffror");
+        jPanel1.add(postCodeOk);
+        postCodeOk.setBounds(110, 160, 25, 25);
+
+        phoneOk.setToolTipText("Endast siffror, inga tecken");
+        jPanel1.add(phoneOk);
+        phoneOk.setBounds(186, 231, 25, 25);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         jLabel1.setText("Krävs ej");
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 210, 80, -1));
+        jPanel1.add(jLabel1);
+        jLabel1.setBounds(290, 210, 80, 13);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         jLabel2.setText("Krävs ej");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 80, 80, -1));
+        jPanel1.add(jLabel2);
+        jLabel2.setBounds(290, 80, 80, 13);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 414, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
+        add(jPanel1);
+        jPanel1.setBounds(12, 13, 452, 414);
     }// </editor-fold>//GEN-END:initComponents
 
     private void firstNameTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_firstNameTextFieldKeyReleased
