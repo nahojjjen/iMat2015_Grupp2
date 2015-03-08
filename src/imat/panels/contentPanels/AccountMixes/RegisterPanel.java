@@ -8,6 +8,7 @@ package imat.panels.contentPanels.AccountMixes;
 import imat.IMat;
 import imat.panels.contentPanels.PanelAccountInfo;
 import imat.panels.contentPanels.PanelHome;
+import javax.swing.KeyStroke;
 
 /**
  *
@@ -22,7 +23,6 @@ public class RegisterPanel extends javax.swing.JPanel {
     public RegisterPanel() {
         initComponents();
         holderPanel.add(accPanel);
-        this.revalidate();
     }
     
     private void registerPressed(){
@@ -56,6 +56,9 @@ public class RegisterPanel extends javax.swing.JPanel {
 
         asd.setOpaque(false);
 
+        holderPanel.setMinimumSize(new java.awt.Dimension(500, 300));
+        holderPanel.setOpaque(false);
+        holderPanel.setPreferredSize(new java.awt.Dimension(500, 300));
         holderPanel.setLayout(new java.awt.BorderLayout());
         asd.add(holderPanel);
 
