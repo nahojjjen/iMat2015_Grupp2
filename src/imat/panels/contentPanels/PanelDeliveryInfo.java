@@ -303,6 +303,13 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         return (CustomerModel.phoneNumberTest(phoneNumberTextField.getText()));
     }
 
+    public boolean isAllCorrect(){
+        if(isPhoneNumberCorrect() && isPostAddressCorrect() && isPostCodeCorrect()
+                && isAddressCorrect() && isLastNameCorrect() && isFirstNameCorrect()){
+            return true;
+        }
+        return false;
+    }
     private void setOkLabel(Boolean bool, JLabel label) {
         if (bool) {
             label.setIcon(ok);

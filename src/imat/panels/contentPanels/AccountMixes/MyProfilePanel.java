@@ -5,9 +5,12 @@
  */
 package imat.panels.contentPanels.AccountMixes;
 
+import imat.IMat;
+import imat.models.CustomerModel;
 import imat.panels.contentPanels.PanelAccountInfo;
 import imat.panels.contentPanels.PanelCreditCard;
 import imat.panels.contentPanels.PanelDeliveryInfo;
+import imat.panels.contentPanels.PanelHome;
 
 /**
  *
@@ -95,9 +98,37 @@ public class MyProfilePanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
-       cardPanel.save();
+       performConfirmButton();
     }//GEN-LAST:event_saveButtonActionPerformed
 
+    private void performConfirmButton(){
+        cardPanelConfirm();
+        deliveryPanelConfirm();
+        accountPanelConfirm();
+        cardPanel.save();
+    }
+    
+    private void cardPanelConfirm(){
+        if(cardPanel.isAllCorrect()){
+            cardPanel.save();
+        }else{
+            System.out.println("didnt save card");
+            System.out.println(CustomerModel.getCardType());
+        }
+    }
+    private void deliveryPanelConfirm(){
+        if (deliveryPanel.isAllCorrect()){
+            deliveryPanel.save();
+        }else{
+            System.out.println("didnt save delivery info");
+        }
+    }
+    private void accountPanelConfirm(){
+        if (accPanel.isEmailCorrect() && accPanel.isPasswordCorrect()){
+            accPanel.save();
+    }else{ 
+            System.out.println("didnt save acc info");}
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel accHolder;

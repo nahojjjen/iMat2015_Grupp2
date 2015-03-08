@@ -276,6 +276,12 @@ public class PanelCreditCard extends javax.swing.JPanel {
         return (CustomerModel.cardHolderNameTest(cardHolderTextField.getText()));
     }
 
+    public boolean isAllCorrect(){
+        if(isSecNumberCorrect() && isCardHolderNameCorrect() && isCardNumberCorrect()){
+            return true;
+        }
+        return false;
+    }
     private void setOkLabel(Boolean bool, JLabel label) {
         if (bool) {
             label.setIcon(ok);
