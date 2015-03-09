@@ -8,7 +8,7 @@ package imat.panels.subItems;
 import imat.IMat;
 import imat.models.Model;
 import imat.models.ModelAux;
-import java.awt.Dimension;
+import java.awt.Color;
 import javax.swing.ImageIcon;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
@@ -22,6 +22,7 @@ public class DetailItem extends javax.swing.JPanel {
     private Product product;
     private ImageIcon favIcon = new ImageIcon("src/resources/fav.png");
     private ImageIcon unFavIcon = new ImageIcon("src/resources/unfav.png");
+    private static boolean zebra = true;
 
     /**
      * Creates new form DetailItem
@@ -33,6 +34,17 @@ public class DetailItem extends javax.swing.JPanel {
         fixColor();
         fixFav();
         refreshRemoveButton();
+        fixZebra();
+    }
+    
+    private void fixZebra(){
+        if (zebra) {
+            zebra=!zebra;
+            colorBackground.setBackground(new Color(250,250,250));
+        }else{
+            zebra=!zebra;
+            colorBackground.setBackground(new Color(245,245,245));
+        }
     }
 
     private void fixFav() {
@@ -53,7 +65,7 @@ public class DetailItem extends javax.swing.JPanel {
 
     private void fixColor() {
         jPanel1.setBackground(IMat.getForegroundColor());
-        jPanel2.setBackground(IMat.getForegroundColor());
+        colorBackground.setBackground(IMat.getForegroundColor());
     }
 
     private void initiate() {
@@ -82,7 +94,7 @@ public class DetailItem extends javax.swing.JPanel {
         jSplitPane1 = new javax.swing.JSplitPane();
         jPanel1 = new javax.swing.JPanel();
         imageLabel = new javax.swing.JLabel();
-        jPanel2 = new javax.swing.JPanel();
+        colorBackground = new javax.swing.JPanel();
         priceLabel = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
         descriptionLabel = new javax.swing.JLabel();
@@ -92,8 +104,6 @@ public class DetailItem extends javax.swing.JPanel {
         favoriteLabel = new javax.swing.JLabel();
         removeButton = new javax.swing.JButton();
 
-        setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        setMinimumSize(new java.awt.Dimension(92, 90));
         setLayout(new java.awt.BorderLayout());
 
         jSplitPane1.setBorder(null);
@@ -110,27 +120,27 @@ public class DetailItem extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+            .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
         );
 
         jSplitPane1.setLeftComponent(jPanel1);
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        jPanel2.setLayout(null);
+        colorBackground.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        colorBackground.setLayout(null);
 
         priceLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         priceLabel.setText("jLabel1");
-        jPanel2.add(priceLabel);
+        colorBackground.add(priceLabel);
         priceLabel.setBounds(260, 10, 130, 14);
 
         nameLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         nameLabel.setText("jLabel1");
-        jPanel2.add(nameLabel);
-        nameLabel.setBounds(10, 10, 75, 17);
+        colorBackground.add(nameLabel);
+        nameLabel.setBounds(10, 10, 190, 17);
 
         descriptionLabel.setForeground(new java.awt.Color(102, 102, 102));
         descriptionLabel.setText("Produktens beskrivning ...");
-        jPanel2.add(descriptionLabel);
+        colorBackground.add(descriptionLabel);
         descriptionLabel.setBounds(10, 33, 157, 24);
 
         addButton.setText("Lägg till");
@@ -139,15 +149,15 @@ public class DetailItem extends javax.swing.JPanel {
                 addButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(addButton);
+        colorBackground.add(addButton);
         addButton.setBounds(310, 50, 90, 33);
 
         inputField.setModel(new javax.swing.SpinnerNumberModel(1, 1, 99, 1));
-        jPanel2.add(inputField);
+        colorBackground.add(inputField);
         inputField.setBounds(270, 50, 39, 33);
 
         warningLabel.setText("   ");
-        jPanel2.add(warningLabel);
+        colorBackground.add(warningLabel);
         warningLabel.setBounds(195, 47, 9, 33);
 
         favoriteLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/unfav.png"))); // NOI18N
@@ -157,7 +167,7 @@ public class DetailItem extends javax.swing.JPanel {
                 favoriteLabelMouseClicked(evt);
             }
         });
-        jPanel2.add(favoriteLabel);
+        colorBackground.add(favoriteLabel);
         favoriteLabel.setBounds(10, 64, 15, 20);
 
         removeButton.setText("Ta Bort");
@@ -166,10 +176,10 @@ public class DetailItem extends javax.swing.JPanel {
                 removeButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(removeButton);
+        colorBackground.add(removeButton);
         removeButton.setBounds(180, 50, 90, 30);
 
-        jSplitPane1.setRightComponent(jPanel2);
+        jSplitPane1.setRightComponent(colorBackground);
 
         add(jSplitPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
@@ -226,12 +236,12 @@ public class DetailItem extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton addButton;
+    private javax.swing.JPanel colorBackground;
     private javax.swing.JLabel descriptionLabel;
     private javax.swing.JLabel favoriteLabel;
     private javax.swing.JLabel imageLabel;
     private javax.swing.JSpinner inputField;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel priceLabel;

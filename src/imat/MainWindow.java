@@ -5,6 +5,7 @@
  */
 package imat;
 
+import imat.models.CustomerModel;
 import imat.models.Model;
 import imat.panels.contentPanels.PanelAccountInfo;
 import imat.panels.contentPanels.PanelHome;
@@ -50,6 +51,9 @@ public class MainWindow extends javax.swing.JFrame {
         fixColors();
         setIcons();
         this.setTitle("iMat");
+        System.out.println(CustomerModel.getUser());
+        System.out.println(CustomerModel.getEmail());
+        System.out.println(CustomerModel.getPassword());
 
     }
     

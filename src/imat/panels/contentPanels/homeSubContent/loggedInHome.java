@@ -55,6 +55,8 @@ public class loggedInHome extends javax.swing.JPanel {
         setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
+        jScrollPane1.setBorder(null);
+
         holder.setLayout(new java.awt.GridLayout(2, 3));
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 1));

@@ -5,7 +5,6 @@
  */
 package imat.panels.contentPanels;
 
-import imat.IMat;
 import imat.models.CategoryImageLibrary;
 import imat.models.Model;
 import imat.models.sorters.Alphabetical;
@@ -23,6 +22,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.Collections;
 import java.util.List;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ProductCategory;
@@ -38,6 +38,12 @@ public class PanelSearchResult extends javax.swing.JPanel {
     private static boolean grouped = true;
     private static int sortingWay = 0;
     private static int loadWay = 0;
+    private ImageIcon grid1= new ImageIcon("src/resources/views/grid1.png");
+    private ImageIcon grid2= new ImageIcon("src/resources/views/grid2.png");
+    private ImageIcon list1= new ImageIcon("src/resources/views/list1.png");
+    private ImageIcon list2= new ImageIcon("src/resources/views/list2.png");
+    private ImageIcon details1= new ImageIcon("src/resources/views/details1.png");
+    private ImageIcon details2= new ImageIcon("src/resources/views/details2.png");
     
     ////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////
@@ -196,10 +202,12 @@ public class PanelSearchResult extends javax.swing.JPanel {
         ProductCategory category = null;
         for (Product product : products) {
             if (!(category == product.getCategory())) {
+                detailsView.add(new JLabel(""));
                 category = product.getCategory();
                 JLabel tmpLabel = new JLabel(CategoryImageLibrary.getPicture(category));
                 tmpLabel.setToolTipText(category.toString());
                 detailsView.add(tmpLabel);
+                
             }
             detailsView.add(new DetailItem(product));
         }
@@ -302,9 +310,9 @@ public class PanelSearchResult extends javax.swing.JPanel {
     private void sortProductList(){
         if (!grouped){
             switch(sortingWay){
-            case(0): products.sort(new ProductIDSort());break;
-            case(1): products.sort(new Alphabetical()); break;
-            case(2): products.sort(new PriceDecending()); break;
+            case(0): Collections.sort(products, new ProductIDSort());break;
+            case(1): Collections.sort(products, new Alphabetical()); break;
+            case(2): Collections.sort(products, new PriceDecending()); break;
             }
         }else{
             switch(sortingWay){
@@ -320,7 +328,11 @@ public class PanelSearchResult extends javax.swing.JPanel {
         clearPreviousItems();
         loadResult(0);
     }
-    
+    private void resetViewIcons(){
+        listLabel.setIcon(list1);
+        gridLabel.setIcon(grid1);
+        detailsLabel.setIcon(details1);
+    }
     private void setSortingMethod(){
         sortingWay = sortingCombobox.getSelectedIndex();
     }
@@ -344,9 +356,9 @@ public class PanelSearchResult extends javax.swing.JPanel {
         groupCheckbox = new javax.swing.JCheckBox();
         sortingCombobox = new javax.swing.JComboBox();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        detailsLabel = new javax.swing.JLabel();
+        listLabel = new javax.swing.JLabel();
+        gridLabel = new javax.swing.JLabel();
         searchLabel = new javax.swing.JLabel();
         cardPanel = new javax.swing.JPanel();
         detailsViewWrapper = new javax.swing.JScrollPane();
@@ -383,24 +395,24 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
         jLabel1.setText("Sortera på");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/detailsViewIcon.png"))); // NOI18N
-        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+        detailsLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/views/details1.png"))); // NOI18N
+        detailsLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel2MouseClicked(evt);
+                detailsLabelMouseClicked(evt);
             }
         });
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/listViewIcon.png"))); // NOI18N
-        jLabel3.addMouseListener(new java.awt.event.MouseAdapter() {
+        listLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/views/list1.png"))); // NOI18N
+        listLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel3MouseClicked(evt);
+                listLabelMouseClicked(evt);
             }
         });
 
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/gridViewIcon.png"))); // NOI18N
-        jLabel4.addMouseListener(new java.awt.event.MouseAdapter() {
+        gridLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/views/grid1.png"))); // NOI18N
+        gridLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel4MouseClicked(evt);
+                gridLabelMouseClicked(evt);
             }
         });
 
@@ -414,16 +426,16 @@ public class PanelSearchResult extends javax.swing.JPanel {
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(searchLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 267, Short.MAX_VALUE)
+                .addComponent(searchLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(groupCheckbox)
-                .addGap(54, 54, 54)
-                .addComponent(jLabel2)
+                .addGap(46, 46, 46)
+                .addComponent(detailsLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel3)
+                .addComponent(listLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(gridLabel)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sortingCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -433,16 +445,19 @@ public class PanelSearchResult extends javax.swing.JPanel {
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(searchLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(headerPanelLayout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(15, 15, 15)
                 .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(groupCheckbox)
-                    .addComponent(jLabel3)
                     .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(sortingCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1))
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel4))
-                .addGap(0, 9, Short.MAX_VALUE))
+                        .addComponent(jLabel1)))
+                .addGap(0, 2, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerPanelLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(listLabel)
+                    .addComponent(detailsLabel)
+                    .addComponent(gridLabel)))
         );
 
         add(headerPanel, java.awt.BorderLayout.PAGE_START);
@@ -476,7 +491,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         gridViewWrapper.setBorder(null);
         gridViewWrapper.setOpaque(false);
 
-        gridView.setLayout(new java.awt.GridLayout(0, 4));
+        gridView.setLayout(new java.awt.GridLayout(0, 5));
         gridViewWrapper.setViewportView(gridView);
 
         cardPanel.add(gridViewWrapper, "gridCard");
@@ -484,20 +499,26 @@ public class PanelSearchResult extends javax.swing.JPanel {
         add(cardPanel, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+    private void detailsLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_detailsLabelMouseClicked
+        resetViewIcons();
+        detailsLabel.setIcon(details2);
         loadWay = 0;
         loadResult(loadWay);
-    }//GEN-LAST:event_jLabel2MouseClicked
+    }//GEN-LAST:event_detailsLabelMouseClicked
 
-    private void jLabel3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel3MouseClicked
+    private void listLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_listLabelMouseClicked
+        resetViewIcons();
+        listLabel.setIcon(list2);
         loadWay = 1;
         loadResult(loadWay);
-    }//GEN-LAST:event_jLabel3MouseClicked
+    }//GEN-LAST:event_listLabelMouseClicked
 
-    private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
+    private void gridLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_gridLabelMouseClicked
+        resetViewIcons();
+        gridLabel.setIcon(grid2);
         loadWay = 2;
         loadResult(loadWay);
-    }//GEN-LAST:event_jLabel4MouseClicked
+    }//GEN-LAST:event_gridLabelMouseClicked
 
     private void groupCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_groupCheckboxActionPerformed
         toggleGrouped();
@@ -512,18 +533,18 @@ public class PanelSearchResult extends javax.swing.JPanel {
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel cardPanel;
+    private javax.swing.JLabel detailsLabel;
     private javax.swing.JPanel detailsPanelHolder;
     private javax.swing.JPanel detailsView;
     private javax.swing.JScrollPane detailsViewWrapper;
+    private javax.swing.JLabel gridLabel;
     private javax.swing.JPanel gridView;
     private javax.swing.JScrollPane gridViewWrapper;
     private javax.swing.JCheckBox groupCheckbox;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JLabel listLabel;
     private javax.swing.JPanel listView;
     private javax.swing.JScrollPane listViewWrapper;
     private javax.swing.JLabel searchLabel;
