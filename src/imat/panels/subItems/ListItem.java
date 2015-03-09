@@ -224,12 +224,12 @@ public class ListItem extends javax.swing.JPanel {
         // TODO add your handling code here:
         JDialog popup = new JDialog(IMat.getWindow());
         
-          int width = IMat.getWindow().getWidth();
-          int height =IMat.getWindow().getHeight();
-    popup.setLocation((width/2)-400, height/2 - 300);
-          popup.setUndecorated(true);
+        int width = IMat.getWindow().getWidth();
+        int height =IMat.getWindow().getHeight();
+        popup.setLocation((width/2)-400, height/2 - 300);
+        popup.setUndecorated(true);
           
-          popup.setSize(764,720);
+        popup.setSize(766, 700);
       
         popup.add(new ProductDetailPopUp(product, popup));
         popup.setVisible(true);

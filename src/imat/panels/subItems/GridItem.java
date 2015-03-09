@@ -9,6 +9,8 @@ import imat.models.Model;
 import imat.models.ModelAux;
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -33,9 +35,10 @@ public class GridItem extends javax.swing.JPanel {
         this.product = product;
         productName.setText(product.getName());
         imageLabel.setIcon(Model.getImage(product, 200 , 200));
+        imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
         priceLabel.setText(String.valueOf(product.getPrice())+ " " + product.getUnit());
         fixZebra();
-        
+        refreshRemoveButton();
     }
     
     private void fixZebra(){
@@ -45,7 +48,14 @@ public class GridItem extends javax.swing.JPanel {
         }else{
             zebraColorPane.setBackground(whiteStripe);
         }
-        
+    }
+    
+    private void refreshRemoveButton() {
+        if (ModelAux.getAmountInCart(product) == 0) {
+            removeButton.setEnabled(false);
+        } else {
+            removeButton.setEnabled(true);
+        }
     }
     
     /**
@@ -69,21 +79,30 @@ public class GridItem extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         priceLabel = new javax.swing.JLabel();
         amountSpinner = new javax.swing.JSpinner();
-        buyButton = new javax.swing.JButton();
         fav = new javax.swing.JLabel();
+        buyButton = new javax.swing.JButton();
+        removeButton = new javax.swing.JButton();
         zebraColorPane = new javax.swing.JPanel();
         productName = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        setLayout(new java.awt.BorderLayout());
+        setSize(new java.awt.Dimension(250, 334));
 
         imageLabel.setText("  ");
-        add(imageLabel, java.awt.BorderLayout.CENTER);
 
         priceLabel.setText("Pris kr/kg");
 
         amountSpinner.setModel(new javax.swing.SpinnerNumberModel(1, 1, 99, 1));
 
+        fav.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/unfav.png"))); // NOI18N
+        fav.setToolTipText("Favorite");
+        fav.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                favMouseClicked(evt);
+            }
+        });
+
+        buyButton.setToolTipText("Lägg till i kundvagn");
         buyButton.setContentAreaFilled(false);
         buyButton.setLabel("Lägg till");
         buyButton.setMargin(new java.awt.Insets(0, 0, 0, 0));
@@ -93,10 +112,11 @@ public class GridItem extends javax.swing.JPanel {
             }
         });
 
-        fav.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/unfav.png"))); // NOI18N
-        fav.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                favMouseClicked(evt);
+        removeButton.setText("Ta bort");
+        removeButton.setToolTipText("Ta bort från kundvagn");
+        removeButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                removeButtonActionPerformed(evt);
             }
         });
 
@@ -105,33 +125,33 @@ public class GridItem extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(14, 14, 14)
-                .addComponent(priceLabel)
-                .addGap(32, 32, 32)
+                .addGap(31, 31, 31)
                 .addComponent(fav)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
+                .addGap(30, 30, 30)
+                .addComponent(priceLabel)
+                .addGap(18, 18, 18)
                 .addComponent(amountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(removeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(buyButton)
-                .addContainerGap())
+                .addComponent(buyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(amountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(priceLabel)
-                            .addComponent(fav, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(buyButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(fav, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(amountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(priceLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(removeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buyButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
-
-        add(jPanel1, java.awt.BorderLayout.SOUTH);
 
         zebraColorPane.setBackground(new java.awt.Color(102, 102, 102));
         zebraColorPane.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
@@ -142,7 +162,23 @@ public class GridItem extends javax.swing.JPanel {
         productName.setText("productName");
         zebraColorPane.add(productName, java.awt.BorderLayout.CENTER);
 
-        add(zebraColorPane, java.awt.BorderLayout.PAGE_START);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(zebraColorPane, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(imageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(zebraColorPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void buyButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buyButtonActionPerformed
@@ -154,11 +190,21 @@ public class GridItem extends javax.swing.JPanel {
         }else{
             //Lämpligt felmeddelande. Men vi ska inte behöva komma då spinner bara tar ints mellan 1-99
         }
+        refreshRemoveButton();
     }//GEN-LAST:event_buyButtonActionPerformed
 
     private void favMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_favMouseClicked
         toggleFavorite();
     }//GEN-LAST:event_favMouseClicked
+
+    private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
+        // TODO add your handling code here:
+        int amount = (int) amountSpinner.getValue();
+        
+        ModelAux.remove(product, amount);
+        
+        refreshRemoveButton();
+    }//GEN-LAST:event_removeButtonActionPerformed
 
 private void toggleFavorite(){
         if (Model.isFavorited(product)) {
@@ -177,6 +223,7 @@ private void toggleFavorite(){
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel priceLabel;
     private javax.swing.JLabel productName;
+    private javax.swing.JButton removeButton;
     private javax.swing.JPanel zebraColorPane;
     // End of variables declaration//GEN-END:variables
 }
