@@ -8,8 +8,14 @@ package imat.panels.subItems;
 import imat.IMat;
 import imat.models.Model;
 import imat.models.ModelAux;
+import imat.panels.ProductDetailPopUp;
 import java.awt.Color;
+import java.awt.Font;
+import java.awt.font.TextAttribute;
+import java.util.Map;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -72,7 +78,14 @@ public class DetailItem extends javax.swing.JPanel {
         imageLabel.setIcon(Model.getImage(product, 80, 80));
         nameLabel.setText(Model.getName(product));
         priceLabel.setText(String.valueOf(product.getPrice() + " " + product.getUnit()));
-
+        setJLabelUnderlined(nameLabel);
+    }
+    
+    private void setJLabelUnderlined(JLabel label){
+        Font font = label.getFont();
+        Map attributes = font.getAttributes();
+        attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
+        label.setFont(font.deriveFont(attributes));
     }
 
     /**
@@ -110,6 +123,12 @@ public class DetailItem extends javax.swing.JPanel {
         jSplitPane1.setDividerLocation(90);
         jSplitPane1.setDividerSize(0);
 
+        imageLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imageLabelMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -131,10 +150,21 @@ public class DetailItem extends javax.swing.JPanel {
         priceLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         priceLabel.setText("jLabel1");
         colorBackground.add(priceLabel);
-        priceLabel.setBounds(260, 10, 130, 14);
+        priceLabel.setBounds(260, 10, 130, 16);
 
         nameLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         nameLabel.setText("jLabel1");
+        nameLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imageLabelMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                nameLabelMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                nameLabelMouseEntered(evt);
+            }
+        });
         colorBackground.add(nameLabel);
         nameLabel.setBounds(10, 10, 190, 17);
 
@@ -154,11 +184,11 @@ public class DetailItem extends javax.swing.JPanel {
 
         inputField.setModel(new javax.swing.SpinnerNumberModel(1, 1, 99, 1));
         colorBackground.add(inputField);
-        inputField.setBounds(270, 50, 39, 33);
+        inputField.setBounds(270, 50, 53, 33);
 
         warningLabel.setText("   ");
         colorBackground.add(warningLabel);
-        warningLabel.setBounds(195, 47, 9, 33);
+        warningLabel.setBounds(195, 47, 12, 33);
 
         favoriteLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/unfav.png"))); // NOI18N
         favoriteLabel.setToolTipText("Favorite");
@@ -229,6 +259,31 @@ public class DetailItem extends javax.swing.JPanel {
         refreshRemoveButton();
 
     }//GEN-LAST:event_removeButtonActionPerformed
+
+    private void imageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageLabelMouseClicked
+        // TODO add your handling code here:
+        JDialog popup = new JDialog(IMat.getWindow());
+        
+        int width = IMat.getWindow().getWidth();
+        int height =IMat.getWindow().getHeight();
+        popup.setLocation((width/2)-400, height/2 - 300);
+        popup.setUndecorated(true);
+          
+        popup.setSize(766, 700);
+      
+        popup.add(new ProductDetailPopUp(product, popup));
+        popup.setVisible(true);
+    }//GEN-LAST:event_imageLabelMouseClicked
+
+    private void nameLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameLabelMouseEntered
+        // TODO add your handling code here:
+        this.nameLabel.setForeground(Color.BLUE);
+    }//GEN-LAST:event_nameLabelMouseEntered
+
+    private void nameLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameLabelMouseExited
+        // TODO add your handling code here:
+        this.nameLabel.setForeground(Color.BLACK);
+    }//GEN-LAST:event_nameLabelMouseExited
 
     private void showRemoveButton(boolean is) {
         removeButton.setVisible(is);

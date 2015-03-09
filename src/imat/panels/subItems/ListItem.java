@@ -127,6 +127,7 @@ public class ListItem extends javax.swing.JPanel {
 
         ammountSpinner.setModel(new javax.swing.SpinnerNumberModel(Integer.valueOf(1), Integer.valueOf(1), null, Integer.valueOf(1)));
 
+        buyButton.setBackground(new java.awt.Color(255, 255, 255));
         buyButton.setToolTipText("Lägg till i kundvagn");
         buyButton.setLabel("Lägg till");
         buyButton.setMargin(new java.awt.Insets(0, 0, 0, 0));

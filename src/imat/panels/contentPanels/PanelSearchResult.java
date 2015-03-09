@@ -386,7 +386,6 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
         groupCheckbox.setSelected(grouped);
         groupCheckbox.setText("Gruppera kategorier");
-        groupCheckbox.setOpaque(false);
         groupCheckbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 groupCheckboxActionPerformed(evt);
@@ -459,7 +458,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
                     .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(sortingCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel1)))
-                .addGap(0, 2, Short.MAX_VALUE))
+                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -499,7 +498,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         gridViewWrapper.setBorder(null);
         gridViewWrapper.setOpaque(false);
 
-        gridView.setLayout(new java.awt.GridLayout(0, 5));
+        gridView.setLayout(new java.awt.GridLayout(0, 4));
         gridViewWrapper.setViewportView(gridView);
 
         cardPanel.add(gridViewWrapper, "gridCard");

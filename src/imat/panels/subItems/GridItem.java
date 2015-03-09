@@ -5,10 +5,13 @@
  */
 package imat.panels.subItems;
 
+import imat.IMat;
 import imat.models.Model;
 import imat.models.ModelAux;
+import imat.panels.ProductDetailPopUp;
 import java.awt.Color;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import se.chalmers.ait.dat215.project.Product;
@@ -89,6 +92,11 @@ public class GridItem extends javax.swing.JPanel {
         setSize(new java.awt.Dimension(250, 334));
 
         imageLabel.setText("  ");
+        imageLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                productNameMouseClicked(evt);
+            }
+        });
 
         priceLabel.setText("Pris kr/kg");
 
@@ -160,6 +168,11 @@ public class GridItem extends javax.swing.JPanel {
         productName.setForeground(new java.awt.Color(230, 230, 230));
         productName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         productName.setText("productName");
+        productName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                productNameMouseClicked(evt);
+            }
+        });
         zebraColorPane.add(productName, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -205,6 +218,21 @@ public class GridItem extends javax.swing.JPanel {
         
         refreshRemoveButton();
     }//GEN-LAST:event_removeButtonActionPerformed
+
+    private void productNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_productNameMouseClicked
+        // TODO add your handling code here:
+        JDialog popup = new JDialog(IMat.getWindow());
+        
+        int width = IMat.getWindow().getWidth();
+        int height =IMat.getWindow().getHeight();
+        popup.setLocation((width/2)-400, height/2 - 300);
+        popup.setUndecorated(true);
+          
+        popup.setSize(766, 700);
+      
+        popup.add(new ProductDetailPopUp(product, popup));
+        popup.setVisible(true);
+    }//GEN-LAST:event_productNameMouseClicked
 
 private void toggleFavorite(){
         if (Model.isFavorited(product)) {
