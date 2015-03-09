@@ -25,30 +25,18 @@ public class PanelPurchaseConfirm extends javax.swing.JPanel {
      */
     public PanelPurchaseConfirm() {
         initComponents();
-        /*nameLabel.setText("Hej " + CustomerModel.getFirstName());
-        addressLabel.setText("Dina varor kommer att skickas till " + CustomerModel.getAddress());
-        String kortNummer;
-        kortNummer = CustomerModel.getCardNumber();
-        String doltKortNummer = "XXXX XXXX XXXX ";
-        for(int i = kortNummer.length()-4; i<kortNummer.length(); i++){
-            System.out.println(kortNummer.charAt(i));
-            doltKortNummer = doltKortNummer + kortNummer.charAt(i);
         }
-        
-        
-        cardLabel.setText("Du har valt att betala med " + doltKortNummer);
-        */
-    }
-    public PanelPurchaseConfirm(String name, String address, String cardNumber) {
+    public PanelPurchaseConfirm(String name, String address, String cardNumber, int totPrice) {
         initComponents();
         nameLabel.setText("Hej " + name);
-        addressLabel.setText("Dina varor kommer att skickas till " + address);
+        addressLabel.setText("Dina varor kommer att skickas till " + address + ".");
         String hiddenCardNumber = "XXXX XXXX XXXX ";
         for(int i = cardNumber.length()-4; i<cardNumber.length(); i++){
             hiddenCardNumber = hiddenCardNumber + cardNumber.charAt(i);
         }
         
-        cardLabel.setText("Du har valt att betala med " + hiddenCardNumber);
+        cardLabel.setText("Du har valt att betala med " + hiddenCardNumber + ".");
+        priceLabel.setText("Totalt pris " + totPrice + " kr");
     }
 
     /**
@@ -70,6 +58,7 @@ public class PanelPurchaseConfirm extends javax.swing.JPanel {
         addressLabel = new javax.swing.JLabel();
         cardLabel = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
+        priceLabel = new javax.swing.JLabel();
 
         setOpaque(false);
         setLayout(new java.awt.BorderLayout());
@@ -124,6 +113,9 @@ public class PanelPurchaseConfirm extends javax.swing.JPanel {
             }
         });
 
+        priceLabel.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        priceLabel.setText("jLabel4");
+
         javax.swing.GroupLayout holderLayout = new javax.swing.GroupLayout(holder);
         holder.setLayout(holderLayout);
         holderLayout.setHorizontalGroup(
@@ -131,14 +123,17 @@ public class PanelPurchaseConfirm extends javax.swing.JPanel {
             .addGroup(holderLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(addressLabel)
-                    .addComponent(nameLabel)
-                    .addComponent(cardLabel))
-                .addContainerGap(78, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, holderLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(holderLayout.createSequentialGroup()
+                        .addGroup(holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(addressLabel)
+                            .addComponent(nameLabel)
+                            .addComponent(cardLabel))
+                        .addContainerGap(78, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, holderLayout.createSequentialGroup()
+                        .addComponent(priceLabel)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         holderLayout.setVerticalGroup(
             holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -152,7 +147,9 @@ public class PanelPurchaseConfirm extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(cardLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(priceLabel)))
         );
 
         jPanel3.add(holder, java.awt.BorderLayout.CENTER);
@@ -179,5 +176,6 @@ public class PanelPurchaseConfirm extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel priceLabel;
     // End of variables declaration//GEN-END:variables
 }

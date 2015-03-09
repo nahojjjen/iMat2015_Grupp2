@@ -197,7 +197,7 @@ public class PanelFillInInfo extends javax.swing.JPanel {
 
 private void finishOrder() {
        if (!(Model.getShoppingcart().getItems().isEmpty()) && CustomerModel.isPaymentFilledIn()) {
-           IMat.getWindow().setContent(new PanelPurchaseConfirm(infoPanel.getFirstName(), infoPanel.getAddress(), infoPanel.getCardNumber()));
+           IMat.getWindow().setContent(new PanelPurchaseConfirm(infoPanel.getFirstName(), infoPanel.getAddress(), infoPanel.getCardNumber(), (int) Model.getShoppingcart().getTotal()));
         } else{
             System.out.println("theres nothing in the cart to buy! Something went wrong");
         }
