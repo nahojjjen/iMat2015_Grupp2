@@ -7,24 +7,30 @@ package imat.panels.contentPanels.buyingPanels;
 
 import imat.models.CustomerModel;
 import imat.IMat;
-import imat.models.Model;
+import imat.models.*;
+import imat.panels.contentPanels.AccountMixes.RegisterPanel;
 import imat.panels.contentPanels.PanelCreditCard;
 import imat.panels.contentPanels.PanelDeliveryInfo;
+import imat.panels.contentPanels.PanelHome;
 import se.chalmers.ait.dat215.project.Customer;
 
 /**
  *
  * @author Johan Swanberg
  */
-public class PanelSelectPayment extends javax.swing.JPanel {
-
+public class PanelFillInInfo extends javax.swing.JPanel {
+    private PanelInfoForm infoPanel;
     /**
      * Creates new form PanelSelectPayment
      */
-    public PanelSelectPayment() {
+    public PanelFillInInfo() {
         initComponents();
-        gridHolder.add(new PanelCreditCard());
-        gridHolder.add(new PanelDeliveryInfo());
+        jLabel2.setVisible(false);
+        jLabel3.setVisible(false);
+        jTextField1.setVisible(false);
+        jTextField2.setVisible(false);
+        infoPanel = new PanelInfoForm();
+        jPanel2.add(infoPanel);
     }
 
     /**
@@ -41,7 +47,11 @@ public class PanelSelectPayment extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         scroller = new javax.swing.JScrollPane();
         jPanel2 = new javax.swing.JPanel();
-        gridHolder = new javax.swing.JPanel();
+        jCheckBoxReg = new javax.swing.JCheckBox();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setOpaque(false);
         setLayout(new java.awt.BorderLayout());
@@ -51,6 +61,7 @@ public class PanelSelectPayment extends javax.swing.JPanel {
         add(jLabel1, java.awt.BorderLayout.PAGE_START);
 
         jPanel1.setOpaque(false);
+        jPanel1.setPreferredSize(new java.awt.Dimension(500, 474));
 
         jButton1.setText("Bekräfta köp");
         jButton1.setPreferredSize(new java.awt.Dimension(75, 25));
@@ -64,41 +75,123 @@ public class PanelSelectPayment extends javax.swing.JPanel {
         scroller.setOpaque(false);
 
         jPanel2.setOpaque(false);
-
-        gridHolder.setOpaque(false);
-        gridHolder.setPreferredSize(new java.awt.Dimension(10, 10));
-        gridHolder.setLayout(new java.awt.GridLayout(2, 1));
-        jPanel2.add(gridHolder);
-
         scroller.setViewportView(jPanel2);
+
+        jCheckBoxReg.setText("Spara mina uppgifter");
+        jCheckBoxReg.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jCheckBoxRegItemStateChanged(evt);
+            }
+        });
+        jCheckBoxReg.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jCheckBoxRegActionPerformed(evt);
+            }
+        });
+
+        jTextField1.setEnabled(false);
+
+        jTextField2.setEnabled(false);
+
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        jLabel2.setText("Välj Lösenord");
+        jLabel2.setEnabled(false);
+
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        jLabel3.setText("Repetera Lösenord");
+        jLabel3.setEnabled(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(390, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
             .addComponent(scroller)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 122, Short.MAX_VALUE)
+                .addComponent(jCheckBoxReg)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scroller, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(scroller, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
+                .addGap(9, 9, 9)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jCheckBoxReg)))
         );
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        finishOrder();
+        if (jCheckBoxReg.isSelected() == true){
+            
+            if (jTextField1.getText().equals(jTextField2.getText())){
+                CustomerModel.setEmail(infoPanel.getMail());
+                CustomerModel.setPassword(jTextField1.getText());
+                CustomerModel.setAddress(infoPanel.getAddress());
+                CustomerModel.setFirstName(infoPanel.getFirstName());
+                CustomerModel.setLastName(infoPanel.getLastName());
+                CustomerModel.setPhoneNumber(infoPanel.getPhoneNumber());
+                CustomerModel.setPostAddress(infoPanel.getPostAddress());
+                CustomerModel.setPostCode(infoPanel.getPostCode());
+                CustomerModel.setCardType(infoPanel.getCardType());
+                CustomerModel.setCardNumber(infoPanel.getCardNumber());
+                CustomerModel.setCardMonth(infoPanel.getCardMonth());
+                CustomerModel.setCardYear(infoPanel.getCardYear());
+                CustomerModel.setCardHolderName(infoPanel.getCardHolderName());
+                CustomerModel.setCardVerification(infoPanel.getCardVerification());
+            }
+            
+        }
+        //finishOrder();
+        
         
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jCheckBoxRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxRegActionPerformed
+        
+    }//GEN-LAST:event_jCheckBoxRegActionPerformed
+
+    private void jCheckBoxRegItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBoxRegItemStateChanged
+        if(jLabel2.isEnabled() == false){
+            jLabel2.setEnabled(true);
+            jLabel3.setEnabled(true);
+            jTextField1.setEnabled(true);
+            jTextField2.setEnabled(true);
+            jLabel2.setVisible(true);
+            jLabel3.setVisible(true);
+            jTextField1.setVisible(true);
+            jTextField2.setVisible(true);
+        }else{
+            jLabel2.setEnabled(false);
+            jLabel3.setEnabled(false);
+            jTextField1.setEnabled(false);
+            jTextField2.setEnabled(false);
+            jLabel2.setVisible(false);
+            jLabel3.setVisible(false);
+            jTextField1.setVisible(false);
+            jTextField2.setVisible(false);
+        }
+        
+    }//GEN-LAST:event_jCheckBoxRegItemStateChanged
 
 private void finishOrder() {
        if (!(Model.getShoppingcart().getItems().isEmpty()) && CustomerModel.isPaymentFilledIn()) {
@@ -111,11 +204,15 @@ private void finishOrder() {
         }
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel gridHolder;
     private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBox jCheckBoxReg;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     private javax.swing.JScrollPane scroller;
     // End of variables declaration//GEN-END:variables
 }

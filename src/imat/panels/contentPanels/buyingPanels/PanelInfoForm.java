@@ -16,17 +16,58 @@ import se.chalmers.ait.dat215.project.Customer;
  *
  * @author Johan Swanberg
  */
-public class PanelSelectPayment extends javax.swing.JPanel {
+public class PanelInfoForm extends javax.swing.JPanel {
 
     /**
      * Creates new form PanelSelectPayment
      */
-    public PanelSelectPayment() {
+    public PanelInfoForm() {
         initComponents();
-        gridHolder.add(new PanelCreditCard());
-        gridHolder.add(new PanelDeliveryInfo());
+        
     }
-
+    public String getMail(){
+        return mailTextField.getText();
+    }
+    public String getAddress(){
+        return addressTextField.getText();
+    }
+    public String getFirstName(){
+        return firstNameTextField.getText();
+    }
+    public String getLastName(){
+        return lastNameTextField.getText();
+    }
+    public String getPhoneNumber(){
+        return phoneNumberTextField.getText();
+    }
+    public String getPostAddress(){
+        return postAddressTextField.getText();
+    }
+    public String getPostCode(){
+        return postCodeTextField.getText();
+    }
+    public String getCardType(){
+        if (visaMasterRadioButton.isSelected() == true){
+            return "VISA/MasterCard";
+        }else{
+            return "American Express";
+        }
+    }
+    public String getCardNumber(){
+        return cardNumberTextField.getText();
+    }
+    public int getCardMonth(){
+        return monthComboBox.getSelectedIndex();
+    }
+    public int getCardYear(){
+        return yearComboBox.getSelectedIndex();
+    }
+    public String getCardHolderName(){
+        return cardHolderTextField.getText();
+    }
+    public int getCardVerification(){
+        return Integer.parseInt(securityNumberTextField.getText());
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,69 +77,378 @@ public class PanelSelectPayment extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
+        visaMasterRadioButton = new javax.swing.JRadioButton();
+        americanRadioButton = new javax.swing.JRadioButton();
+        cardTypeLabel = new javax.swing.JLabel();
+        carNumberLabel = new javax.swing.JLabel();
+        cardHolderLabel = new javax.swing.JLabel();
+        cardExpireLabel = new javax.swing.JLabel();
+        cardSecurityLabel = new javax.swing.JLabel();
+        digitsInCardNumberLabel = new javax.swing.JLabel();
+        cardNumberOkLabel = new javax.swing.JLabel();
+        holderNameOkLabel = new javax.swing.JLabel();
+        secNumberOkLabel = new javax.swing.JLabel();
+        monthComboBox = new javax.swing.JComboBox();
+        yearComboBox = new javax.swing.JComboBox();
+        securityReminderLabel = new javax.swing.JLabel();
+        cardHolderReminderLabel = new javax.swing.JLabel();
+        securityNumberTextField = new javax.swing.JFormattedTextField();
+        cardNumberTextField = new javax.swing.JFormattedTextField();
+        cardHolderTextField = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        scroller = new javax.swing.JScrollPane();
-        jPanel2 = new javax.swing.JPanel();
-        gridHolder = new javax.swing.JPanel();
+        firstNameLabel = new javax.swing.JLabel();
+        lastNameLabel = new javax.swing.JLabel();
+        firstNameTextField = new javax.swing.JTextField();
+        lastNameTextField = new javax.swing.JTextField();
+        addressLabel = new javax.swing.JLabel();
+        careOfLabel = new javax.swing.JLabel();
+        addressTextField = new javax.swing.JTextField();
+        careOfTextField = new javax.swing.JTextField();
+        postCodeLabel = new javax.swing.JLabel();
+        postAddressLabel = new javax.swing.JLabel();
+        postAddressTextField = new javax.swing.JTextField();
+        phoneNumberLabel = new javax.swing.JLabel();
+        postCodeTextField = new javax.swing.JFormattedTextField();
+        phoneNumberTextField = new javax.swing.JFormattedTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        informationTextArea = new javax.swing.JTextArea();
+        mailTextField = new javax.swing.JFormattedTextField();
+        mailLabel = new javax.swing.JLabel();
+        infoTextLabel = new javax.swing.JLabel();
+        infoTipTextAreaLabel = new javax.swing.JLabel();
+        lastNameOk = new javax.swing.JLabel();
+        postAddressOk = new javax.swing.JLabel();
+        mobileOk = new javax.swing.JLabel();
+        careOfOk = new javax.swing.JLabel();
+        firstNameOk = new javax.swing.JLabel();
+        addressOk = new javax.swing.JLabel();
+        postCodeOk = new javax.swing.JLabel();
+        phoneOk = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setOpaque(false);
-        setLayout(new java.awt.BorderLayout());
+        setPreferredSize(new java.awt.Dimension(500, 650));
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/s2.png"))); // NOI18N
-        add(jLabel1, java.awt.BorderLayout.PAGE_START);
+        visaMasterRadioButton.setText("VISA/MasterCard");
+
+        americanRadioButton.setText("American Express");
+
+        cardTypeLabel.setText("Korttyp:");
+
+        carNumberLabel.setText("Kortnummer:");
+
+        cardHolderLabel.setText("Kortinnehavare:");
+
+        cardExpireLabel.setText("Giltighetstid:");
+
+        cardSecurityLabel.setText("CVV2-nummer:");
+
+        digitsInCardNumberLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
+        digitsInCardNumberLabel.setText("16 siffror");
+
+        cardNumberOkLabel.setToolTipText("Bara siffror, inga andra tecken");
+
+        holderNameOkLabel.setToolTipText("Endast bokstäverna A-Z");
+
+        secNumberOkLabel.setToolTipText("Endast siffror");
+
+        monthComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December" }));
+
+        yearComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
+
+        securityReminderLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
+        securityReminderLabel.setText("Sista 3 siffrorna på kortets baksida");
+
+        cardHolderReminderLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
+        cardHolderReminderLabel.setText("Namn på kortet");
+
+        securityNumberTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###"))));
+        securityNumberTextField.setToolTipText("Endast siffror");
+
+        cardNumberTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        cardNumberTextField.setToolTipText("Endast siffror");
+
+        jLabel2.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel2.setText("Betalningsinformation");
+
+        jLabel3.setFont(new java.awt.Font("Lucida Grande", 0, 18)); // NOI18N
+        jLabel3.setText("Leveransuppgifter");
 
         jPanel1.setOpaque(false);
+        jPanel1.setLayout(null);
 
-        jButton1.setText("Bekräfta köp");
-        jButton1.setPreferredSize(new java.awt.Dimension(75, 25));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+        firstNameLabel.setText("Förnamn:");
+        jPanel1.add(firstNameLabel);
+        firstNameLabel.setBounds(0, 0, 59, 16);
+
+        lastNameLabel.setText("Efternamn:");
+        jPanel1.add(lastNameLabel);
+        lastNameLabel.setBounds(200, 0, 68, 16);
+
+        firstNameTextField.setToolTipText("Endast A-Z tillåtet");
+        firstNameTextField.setAutoscrolls(false);
+        firstNameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                firstNameTextFieldKeyReleased(evt);
             }
         });
+        jPanel1.add(firstNameTextField);
+        firstNameTextField.setBounds(0, 20, 156, 30);
 
-        scroller.setBorder(null);
-        scroller.setOpaque(false);
+        lastNameTextField.setToolTipText("Endast A-Z tillåtet");
+        lastNameTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                lastNameTextFieldKeyReleased(evt);
+            }
+        });
+        jPanel1.add(lastNameTextField);
+        lastNameTextField.setBounds(200, 20, 198, 30);
 
-        jPanel2.setOpaque(false);
+        addressLabel.setText("Gaturadress:");
+        jPanel1.add(addressLabel);
+        addressLabel.setBounds(0, 60, 79, 16);
 
-        gridHolder.setOpaque(false);
-        gridHolder.setPreferredSize(new java.awt.Dimension(10, 10));
-        gridHolder.setLayout(new java.awt.GridLayout(2, 1));
-        jPanel2.add(gridHolder);
+        careOfLabel.setText("C/O:");
+        jPanel1.add(careOfLabel);
+        careOfLabel.setBounds(200, 60, 30, 16);
 
-        scroller.setViewportView(jPanel2);
+        addressTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                addressTextFieldKeyReleased(evt);
+            }
+        });
+        jPanel1.add(addressTextField);
+        addressTextField.setBounds(0, 80, 156, 30);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(390, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addComponent(scroller)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        careOfTextField.setToolTipText("Valfritt");
+        jPanel1.add(careOfTextField);
+        careOfTextField.setBounds(200, 80, 198, 30);
+
+        postCodeLabel.setText("Postnummer:");
+        jPanel1.add(postCodeLabel);
+        postCodeLabel.setBounds(0, 120, 83, 16);
+
+        postAddressLabel.setText("Postort:");
+        jPanel1.add(postAddressLabel);
+        postAddressLabel.setBounds(200, 120, 49, 16);
+
+        postAddressTextField.setToolTipText("Endast bokstäverna A-Z");
+        postAddressTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                postAddressTextFieldKeyReleased(evt);
+            }
+        });
+        jPanel1.add(postAddressTextField);
+        postAddressTextField.setBounds(200, 150, 198, 30);
+
+        phoneNumberLabel.setText("Telefon:");
+        jPanel1.add(phoneNumberLabel);
+        phoneNumberLabel.setBounds(0, 190, 51, 16);
+
+        postCodeTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        postCodeTextField.setToolTipText("5 sifror");
+        postCodeTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                postCodeTextFieldKeyReleased(evt);
+            }
+        });
+        jPanel1.add(postCodeTextField);
+        postCodeTextField.setBounds(0, 150, 77, 30);
+
+        phoneNumberTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
+        phoneNumberTextField.setToolTipText("Endast siffror");
+        phoneNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                phoneNumberTextFieldKeyReleased(evt);
+            }
+        });
+        jPanel1.add(phoneNumberTextField);
+        phoneNumberTextField.setBounds(0, 220, 156, 30);
+
+        informationTextArea.setColumns(20);
+        informationTextArea.setRows(5);
+        jScrollPane1.setViewportView(informationTextArea);
+
+        jPanel1.add(jScrollPane1);
+        jScrollPane1.setBounds(0, 280, 401, 84);
+
+        mailTextField.setToolTipText("Endast siffror");
+        jPanel1.add(mailTextField);
+        mailTextField.setBounds(200, 220, 198, 30);
+
+        mailLabel.setText("E-post");
+        jPanel1.add(mailLabel);
+        mailLabel.setBounds(200, 190, 50, 16);
+
+        infoTextLabel.setText("Övrig information:");
+        jPanel1.add(infoTextLabel);
+        infoTextLabel.setBounds(0, 250, 119, 16);
+
+        infoTipTextAreaLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
+        infoTipTextAreaLabel.setText("T.ex portkod eller vånings-/lägenhetsnummer");
+        jPanel1.add(infoTipTextAreaLabel);
+        infoTipTextAreaLabel.setBounds(120, 260, 210, 13);
+
+        lastNameOk.setToolTipText("Endast bokstäverna A-Z");
+        jPanel1.add(lastNameOk);
+        lastNameOk.setBounds(430, 20, 25, 25);
+
+        postAddressOk.setToolTipText("Endast bokstäverna A-Z");
+        jPanel1.add(postAddressOk);
+        postAddressOk.setBounds(430, 140, 25, 25);
+        jPanel1.add(mobileOk);
+        mobileOk.setBounds(430, 210, 25, 25);
+        jPanel1.add(careOfOk);
+        careOfOk.setBounds(430, 80, 25, 25);
+
+        firstNameOk.setToolTipText("Endast bokstäverna A-Z");
+        jPanel1.add(firstNameOk);
+        firstNameOk.setBounds(190, 20, 25, 25);
+
+        addressOk.setToolTipText("Endast bokstäver och siffror");
+        jPanel1.add(addressOk);
+        addressOk.setBounds(190, 80, 25, 25);
+
+        postCodeOk.setToolTipText("Endast siffror");
+        jPanel1.add(postCodeOk);
+        postCodeOk.setBounds(110, 140, 25, 25);
+
+        phoneOk.setToolTipText("Endast siffror, inga tecken");
+        jPanel1.add(phoneOk);
+        phoneOk.setBounds(190, 210, 25, 25);
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
+        jLabel4.setText("Krävs ej");
+        jPanel1.add(jLabel4);
+        jLabel4.setBounds(270, 60, 80, 13);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(scroller, javax.swing.GroupLayout.PREFERRED_SIZE, 405, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(carNumberLabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(cardNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(digitsInCardNumberLabel)
+                            .addContainerGap())
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(cardExpireLabel)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(monthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(yearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(cardSecurityLabel)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(securityNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(securityReminderLabel)))
+                            .addGap(134, 134, 134)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addGap(467, 467, 467)
+                                .addComponent(cardNumberOkLabel)
+                                .addGap(5, 5, 5)
+                                .addComponent(holderNameOkLabel)
+                                .addGap(5, 5, 5)
+                                .addComponent(secNumberOkLabel))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cardHolderLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cardHolderTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 163, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(cardHolderReminderLabel))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(cardTypeLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(visaMasterRadioButton)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(americanRadioButton))
+                            .addComponent(jLabel3)
+                            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(71, 71, 71))))
         );
-
-        add(jPanel1, java.awt.BorderLayout.CENTER);
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cardNumberOkLabel)
+                            .addComponent(holderNameOkLabel)
+                            .addComponent(secNumberOkLabel)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cardTypeLabel)
+                    .addComponent(visaMasterRadioButton)
+                    .addComponent(americanRadioButton))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(carNumberLabel)
+                    .addComponent(cardNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(digitsInCardNumberLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cardExpireLabel)
+                    .addComponent(monthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(yearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cardHolderLabel)
+                    .addComponent(cardHolderTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cardHolderReminderLabel))
+                .addGap(1, 1, 1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cardSecurityLabel)
+                    .addComponent(securityNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(securityReminderLabel))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 422, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        finishOrder();
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void firstNameTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_firstNameTextFieldKeyReleased
+        //setOkLabel(isFirstNameCorrect(), firstNameOk);
+    }//GEN-LAST:event_firstNameTextFieldKeyReleased
+
+    private void lastNameTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_lastNameTextFieldKeyReleased
+        //setOkLabel(isLastNameCorrect(), lastNameOk);
+    }//GEN-LAST:event_lastNameTextFieldKeyReleased
+
+    private void addressTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_addressTextFieldKeyReleased
+        //setOkLabel(isAddressCorrect(), addressOk);
+    }//GEN-LAST:event_addressTextFieldKeyReleased
+
+    private void postAddressTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_postAddressTextFieldKeyReleased
+        //setOkLabel(isPostAddressCorrect(), postAddressOk);
+    }//GEN-LAST:event_postAddressTextFieldKeyReleased
+
+    private void postCodeTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_postCodeTextFieldKeyReleased
+        //setOkLabel(isPostCodeCorrect(), postCodeOk);
+    }//GEN-LAST:event_postCodeTextFieldKeyReleased
+
+    private void phoneNumberTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldKeyReleased
+        //setOkLabel(isPhoneNumberCorrect(), phoneOk);
+    }//GEN-LAST:event_phoneNumberTextFieldKeyReleased
 
 private void finishOrder() {
        if (!(Model.getShoppingcart().getItems().isEmpty()) && CustomerModel.isPaymentFilledIn()) {
@@ -111,11 +461,55 @@ private void finishOrder() {
         }
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel gridHolder;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel addressLabel;
+    private javax.swing.JLabel addressOk;
+    private javax.swing.JTextField addressTextField;
+    private javax.swing.JRadioButton americanRadioButton;
+    private javax.swing.JLabel carNumberLabel;
+    private javax.swing.JLabel cardExpireLabel;
+    private javax.swing.JLabel cardHolderLabel;
+    private javax.swing.JLabel cardHolderReminderLabel;
+    private javax.swing.JTextField cardHolderTextField;
+    private javax.swing.JLabel cardNumberOkLabel;
+    private javax.swing.JFormattedTextField cardNumberTextField;
+    private javax.swing.JLabel cardSecurityLabel;
+    private javax.swing.JLabel cardTypeLabel;
+    private javax.swing.JLabel careOfLabel;
+    private javax.swing.JLabel careOfOk;
+    private javax.swing.JTextField careOfTextField;
+    private javax.swing.JLabel digitsInCardNumberLabel;
+    private javax.swing.JLabel firstNameLabel;
+    private javax.swing.JLabel firstNameOk;
+    private javax.swing.JTextField firstNameTextField;
+    private javax.swing.JLabel holderNameOkLabel;
+    private javax.swing.JLabel infoTextLabel;
+    private javax.swing.JLabel infoTipTextAreaLabel;
+    private javax.swing.JTextArea informationTextArea;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JScrollPane scroller;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel lastNameLabel;
+    private javax.swing.JLabel lastNameOk;
+    private javax.swing.JTextField lastNameTextField;
+    private javax.swing.JLabel mailLabel;
+    private javax.swing.JFormattedTextField mailTextField;
+    private javax.swing.JLabel mobileOk;
+    private javax.swing.JComboBox monthComboBox;
+    private javax.swing.JLabel phoneNumberLabel;
+    private javax.swing.JFormattedTextField phoneNumberTextField;
+    private javax.swing.JLabel phoneOk;
+    private javax.swing.JLabel postAddressLabel;
+    private javax.swing.JLabel postAddressOk;
+    private javax.swing.JTextField postAddressTextField;
+    private javax.swing.JLabel postCodeLabel;
+    private javax.swing.JLabel postCodeOk;
+    private javax.swing.JFormattedTextField postCodeTextField;
+    private javax.swing.JLabel secNumberOkLabel;
+    private javax.swing.JFormattedTextField securityNumberTextField;
+    private javax.swing.JLabel securityReminderLabel;
+    private javax.swing.JRadioButton visaMasterRadioButton;
+    private javax.swing.JComboBox yearComboBox;
     // End of variables declaration//GEN-END:variables
 }
