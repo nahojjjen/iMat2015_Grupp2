@@ -74,23 +74,25 @@ public class PanelConfirm extends javax.swing.JPanel {
         setLayout(new java.awt.BorderLayout());
 
         jPanel1.setOpaque(false);
-        jPanel1.setPreferredSize(new java.awt.Dimension(500, 122));
+        jPanel1.setPreferredSize(new java.awt.Dimension(500, 70));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
         jPanel4.setBackground(imat.IMat.getAccentColor());
-        jPanel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(15, 15, 15, 15));
+        jPanel4.setPreferredSize(new java.awt.Dimension(100, 30));
         jPanel4.setLayout(new java.awt.BorderLayout());
 
         jLabel3.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(250, 250, 250));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Bekräfta Kundvagn");
-        jPanel4.add(jLabel3, java.awt.BorderLayout.NORTH);
+        jPanel4.add(jLabel3, java.awt.BorderLayout.CENTER);
 
         jPanel1.add(jPanel4, java.awt.BorderLayout.CENTER);
 
+        jLabel1.setBackground(imat.IMat.getAccentColor());
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/s1.png"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/wizardsteps/1.png"))); // NOI18N
+        jLabel1.setOpaque(true);
         jPanel1.add(jLabel1, java.awt.BorderLayout.SOUTH);
 
         add(jPanel1, java.awt.BorderLayout.PAGE_START);
@@ -160,7 +162,7 @@ public class PanelConfirm extends javax.swing.JPanel {
         holderLayout.setVerticalGroup(
             holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(holderLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 331, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
