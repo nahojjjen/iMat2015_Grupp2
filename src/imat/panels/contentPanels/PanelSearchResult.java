@@ -334,7 +334,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
     private void toggleGrouped(){
         grouped =  !grouped;
         clearPreviousItems();
-        loadResult(0);
+        loadResult(loadWay);
     }
     private void resetViewIcons(){
         listLabel.setIcon(list1);

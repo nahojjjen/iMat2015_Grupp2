@@ -11,6 +11,7 @@ import imat.models.navPanelActionListeners.Debug2;
 import imat.models.navPanelActionListeners.ExpandCategories;
 import imat.models.navPanelActionListeners.GoToCategorySearch;
 import imat.models.navPanelActionListeners.GoToFaq;
+import imat.models.navPanelActionListeners.GoToFavorites;
 import imat.models.navPanelActionListeners.GoToHistory;
 import imat.models.navPanelActionListeners.GoToHome;
 import imat.models.navPanelActionListeners.GoToProfile;
@@ -28,12 +29,40 @@ public class PanelNavigation2 extends javax.swing.JPanel {
     private static boolean expanded = false;
     
     //all icon declerations will be here:
-    private ImageIcon test1 = new ImageIcon("src/resources/logoH.png");
-    private ImageIcon test2 = new ImageIcon("src/resources/logoH.png");
-    private ImageIcon test3 = new ImageIcon("src/resources/logoH.png");
+    private ImageIcon test1 = new ImageIcon("src/resources/1.png");
+    private ImageIcon test2 = new ImageIcon("src/resources/1.png");
+    private ImageIcon test3 = new ImageIcon("src/resources/1.png");
     private ImageIcon tt1 = new ImageIcon("src/resources/1.png");
     private ImageIcon tt2 = new ImageIcon("src/resources/2.png");
     
+    private ImageIcon home = new ImageIcon("src/resources/navButtons/hem.png");
+    private ImageIcon homeP = new ImageIcon("src/resources/navButtons/hem.png");
+    private ImageIcon homeH = new ImageIcon("src/resources/navButtons/hemHovered.png");
+    
+    private ImageIcon category = new ImageIcon("src/resources/navButtons/kategori.png");
+    private ImageIcon categoryH = new ImageIcon("src/resources/navButtons/kategoriHovered.png");
+    private ImageIcon categoryP = new ImageIcon("src/resources/navButtons/kategori.png");
+    
+    private ImageIcon search = new ImageIcon("src/resources/navButtons/search.png");
+    private ImageIcon searchH = new ImageIcon("src/resources/navButtons/searchH.png");
+    private ImageIcon searchP = new ImageIcon("src/resources/navButtons/searchP.png");
+    
+     private ImageIcon favorites = new ImageIcon("src/resources/navButtons/favorites.png");
+    private ImageIcon favoritesH = new ImageIcon("src/resources/navButtons/favoritesh.png");
+    private ImageIcon favoritesP = new ImageIcon("src/resources/navButtons/favoritesp.png");
+    
+     private ImageIcon profile = new ImageIcon("src/resources/navButtons/profile.png");
+    private ImageIcon profileH = new ImageIcon("src/resources/navButtons/profilh.png");
+    private ImageIcon profileP = new ImageIcon("src/resources/navButtons/profilp.png");
+    
+     private ImageIcon earlier = new ImageIcon("src/resources/navButtons/earlier.png");
+    private ImageIcon earlierH = new ImageIcon("src/resources/navButtons/earlierH.png");
+    private ImageIcon earlierP = new ImageIcon("src/resources/navButtons/earlierP.png");
+    
+    
+     private ImageIcon faq = new ImageIcon("src/resources/navButtons/faq.png");
+    private ImageIcon faqh = new ImageIcon("src/resources/navButtons/faqh.png");
+    private ImageIcon faqp = new ImageIcon("src/resources/navButtons/faqp.png");
     
     /**
      * Creates new form PanelNavigation2
@@ -58,7 +87,18 @@ public class PanelNavigation2 extends javax.swing.JPanel {
          //add last static buttons
          addStaticButtons2();
     }
-    
+        private void addStaticButtons1(){
+         CustomButton homebutton = new CustomButton(home, homeH, homeP, new GoToHome());
+        CustomButton searchButton = new CustomButton(search, searchH, searchP, new GoToSearch());
+        CustomButton categoryButton = new CustomButton(category, categoryH, categoryP, new ExpandCategories());
+        
+        
+        holder.add(homebutton);
+        holder.add(searchButton);
+        holder.add(categoryButton);
+    }
+        
+        
     private void addShowingCategoryButtons(){
         if (expanded) {
             CustomButton btn11 = new CustomButton(tt1, tt2, test1, new Debug2());
@@ -68,23 +108,17 @@ public class PanelNavigation2 extends javax.swing.JPanel {
         }
     }
     
-    private void addStaticButtons1(){
-         CustomButton btn = new CustomButton(tt1, tt2, test1, new GoToHome());
-        CustomButton btn2 = new CustomButton(tt1, tt2, test1, new GoToSearch());
-        CustomButton btn3 = new CustomButton(tt1, tt2, test1, new ExpandCategories());
-        
-        
-        holder.add(btn);
-        holder.add(btn2);
-        holder.add(btn3);
-    }
+
     private void addStaticButtons2(){
-         CustomButton btn5 = new CustomButton(test2, tt2, test1, new GoToProfile());
-        CustomButton btn6 = new CustomButton(test2, tt2, test1, new GoToHistory());
-        CustomButton btn7 = new CustomButton(test1, test1, test1, new GoToFaq());
-          holder.add(btn5);
-        holder.add(btn6);
-        holder.add(btn7);
+         CustomButton favoritesButton = new CustomButton(favorites, favoritesH, favoritesP, new GoToFavorites());
+         CustomButton profileButton = new CustomButton(profile, profileH, profileP, new GoToProfile());
+        CustomButton historyButton = new CustomButton(earlier, earlierH, earlierP, new GoToHistory());
+        CustomButton faqButton = new CustomButton(faq, faqh, faqp, new GoToFaq());
+       
+        holder.add(historyButton);  
+        holder.add(favoritesButton);
+        holder.add(profileButton);
+        holder.add(faqButton);
         
     }
     /**

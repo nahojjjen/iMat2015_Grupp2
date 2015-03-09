@@ -18,9 +18,13 @@ public class CustomButton extends javax.swing.JPanel {
     private ImageIcon hover;
     private ImageIcon pressed;
     private ActionCommand strategy;
-      /**
-     * Creates new form CustomButton
-     */
+/**
+ * create a custom button
+ * @param normali normal icon
+ * @param hoveri hover icon
+ * @param pressedi pressed icon
+ * @param strategy  what the button should do
+ */
     public CustomButton(ImageIcon normali, ImageIcon hoveri, ImageIcon pressedi, ActionCommand strategy) {
         initComponents();
         normal=normali;
