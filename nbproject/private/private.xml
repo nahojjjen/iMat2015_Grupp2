@@ -3,6 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
             <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/panels/contentPanels/PanelSearchResult.java</file>
             <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/panels/subItems/CartHistory.java</file>
             <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/panels/contentPanels/PanelEarlierCarts.java</file>
@@ -11,6 +12,11 @@
             <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/panels/contentPanels/buyingPanels/PanelFillInInfo.java</file>
             <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/models/CategoryImageLibrary.java</file>
             <file>file:/C:/Users/Johan%20Swanberg/Documents/NetBeansProjects/iMat2015_Grupp2/src/imat/panels/subItems/ListItem.java</file>
+=======
+            <file>file:/Users/filiplarsson/Documents/Chalmers/iMat2015_Grupp2/src/imat/panels/contentPanels/buyingPanels/PanelFillInInfo.java</file>
+            <file>file:/Users/filiplarsson/Documents/Chalmers/iMat2015_Grupp2/src/imat/panels/contentPanels/buyingPanels/PanelConfirm.java</file>
+            <file>file:/Users/filiplarsson/Documents/Chalmers/iMat2015_Grupp2/src/imat/panels/contentPanels/buyingPanels/PanelPurchaseConfirm.java</file>
+>>>>>>> origin/master
         </group>
     </open-files>
 </project-private>
