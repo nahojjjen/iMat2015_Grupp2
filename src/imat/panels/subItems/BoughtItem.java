@@ -85,8 +85,7 @@ public class BoughtItem extends javax.swing.JPanel {
         totalCostLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         totalCostLabel.setText("45 kr (15/förp)");
 
-        bigNumberLabel.setFont(new java.awt.Font("Verdana", 0, 36)); // NOI18N
-        bigNumberLabel.setForeground(new java.awt.Color(0, 102, 51));
+        bigNumberLabel.setFont(new java.awt.Font("Verdana", 0, 18)); // NOI18N
         bigNumberLabel.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         bigNumberLabel.setText("3");
 
@@ -102,8 +101,8 @@ public class BoughtItem extends javax.swing.JPanel {
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(6, 6, 6)
                         .addComponent(totalCostLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 84, Short.MAX_VALUE)
-                .addComponent(bigNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 106, Short.MAX_VALUE)
+                .addComponent(bigNumberLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         colorPanelLayout.setVerticalGroup(

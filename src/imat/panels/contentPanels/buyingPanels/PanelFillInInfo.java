@@ -8,11 +8,6 @@ package imat.panels.contentPanels.buyingPanels;
 import imat.models.CustomerModel;
 import imat.IMat;
 import imat.models.*;
-import imat.panels.contentPanels.AccountMixes.RegisterPanel;
-import imat.panels.contentPanels.PanelCreditCard;
-import imat.panels.contentPanels.PanelDeliveryInfo;
-import imat.panels.contentPanels.PanelHome;
-import se.chalmers.ait.dat215.project.Customer;
 
 /**
  *

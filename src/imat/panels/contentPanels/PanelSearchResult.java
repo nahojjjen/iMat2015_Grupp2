@@ -59,6 +59,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         card = (CardLayout) cardPanel.getLayout();
         fixScroll();
         loadResult(loadWay);
+            searchLabel.setText("");
     }
     
         /**
@@ -72,6 +73,9 @@ public class PanelSearchResult extends javax.swing.JPanel {
         fixScroll();
         loadResult(loadWay);
         searchLabel.setText("Sökresultat: " + string);
+        if (string.equals("")){
+            searchLabel.setText("");
+        }
     }
 
     /**
@@ -96,6 +100,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         card = (CardLayout) cardPanel.getLayout();
         fixScroll();
         loadResult(loadWay);
+            searchLabel.setText("Kategorier");
 
     }
     /**
@@ -115,6 +120,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         card = (CardLayout) cardPanel.getLayout();
         fixScroll();
         loadResult(loadWay);
+            searchLabel.setText("Favoriter");
     }
 
 
@@ -137,6 +143,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         card = (CardLayout) cardPanel.getLayout();
         fixScroll();
         loadResult(loadWay);
+            searchLabel.setText("Kategori: " + category.toString());
 
     }
 
@@ -255,6 +262,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         listViewWrapper.getVerticalScrollBar().setUnitIncrement(scrollSpeed);
     }
 
+    
     /**
      * clears all previous items in the searchresults
      */
