@@ -223,8 +223,14 @@ public class ListItem extends javax.swing.JPanel {
     private void mouseClickedHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseClickedHandler
         // TODO add your handling code here:
         JDialog popup = new JDialog(IMat.getWindow());
-        popup.setLocationRelativeTo(null);
-        popup.setResizable(false);
+        
+          int width = IMat.getWindow().getWidth();
+          int height =IMat.getWindow().getHeight();
+    popup.setLocation((width/2)-400, height/2 - 300);
+          popup.setUndecorated(true);
+          
+          popup.setSize(764,720);
+      
         popup.add(new ProductDetailPopUp(product, popup));
         popup.setVisible(true);
     }//GEN-LAST:event_mouseClickedHandler
