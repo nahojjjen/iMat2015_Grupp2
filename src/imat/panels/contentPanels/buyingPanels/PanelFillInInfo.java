@@ -158,10 +158,12 @@ public class PanelFillInInfo extends javax.swing.JPanel {
                 CustomerModel.setCardYear(infoPanel.getCardYear());
                 CustomerModel.setCardHolderName(infoPanel.getCardHolderName());
                 CustomerModel.setCardVerification(infoPanel.getCardVerification());
+            }else{
+                System.out.println("password incorrect");
             }
             
         }
-        //finishOrder();
+        finishOrder();
         
         
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -195,10 +197,7 @@ public class PanelFillInInfo extends javax.swing.JPanel {
 
 private void finishOrder() {
        if (!(Model.getShoppingcart().getItems().isEmpty()) && CustomerModel.isPaymentFilledIn()) {
-            Model.placeOrder();
-            Model.getShoppingcart().clear();
-            IMat.getWindow().refreshCart();
-            IMat.getWindow().setContent(new PanelDoneShopping());
+           IMat.getWindow().setContent(new PanelPurchaseConfirm(infoPanel.getFirstName(), infoPanel.getAddress(), infoPanel.getCardNumber()));
         } else{
             System.out.println("theres nothing in the cart to buy! Something went wrong");
         }
