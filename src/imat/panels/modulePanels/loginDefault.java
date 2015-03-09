@@ -10,6 +10,7 @@ import imat.IMat;
 import imat.panels.contentPanels.AccountMixes.MyProfilePanel;
 import imat.panels.contentPanels.AccountMixes.RegisterPanel;
 import java.awt.Color;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -18,6 +19,11 @@ import java.awt.Color;
 public class loginDefault extends javax.swing.JPanel {
 
     private boolean visible = true;
+    private ImageIcon joinB = new ImageIcon("src/resources/loginButtons/joinButton.jpg");
+    private ImageIcon loginB = new ImageIcon("src/resources/loginButtons/loginButton.jpg");
+    private ImageIcon profileB = new ImageIcon("src/resources/loginButtons/profileButton.jpg");
+    private ImageIcon logoutB = new ImageIcon("src/resources/loginButtons/logoutButton.jpg");
+    
 
     /**
      * Creates new form loginDefault
@@ -63,8 +69,8 @@ public class loginDefault extends javax.swing.JPanel {
     private void initComponents() {
 
         buttonPanel = new javax.swing.JPanel();
-        joinButton = new javax.swing.JButton();
-        loginButton = new javax.swing.JButton();
+        joinButton = new javax.swing.JLabel();
+        loginButton = new javax.swing.JLabel();
         formPanel = new javax.swing.JPanel();
         usernameInput = new javax.swing.JTextField();
         filler = new javax.swing.JPanel();
@@ -79,18 +85,16 @@ public class loginDefault extends javax.swing.JPanel {
         buttonPanel.setPreferredSize(new java.awt.Dimension(300, 40));
         buttonPanel.setLayout(new java.awt.GridLayout(1, 2, 20, 10));
 
-        joinButton.setText("Gå med");
-        joinButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                joinButtonActionPerformed(evt);
+        joinButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                joinButtonMouseClicked(evt);
             }
         });
         buttonPanel.add(joinButton);
 
-        loginButton.setText("Logga in");
-        loginButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                loginButtonActionPerformed(evt);
+        loginButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginButtonMouseClicked(evt);
             }
         });
         buttonPanel.add(loginButton);
@@ -149,33 +153,14 @@ public class loginDefault extends javax.swing.JPanel {
         add(formPanel, java.awt.BorderLayout.SOUTH);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
-        if (IMat.isLoggedin()){
-            IMat.setLoggedin(false);
-            dynamicTextChange();
-            IMat.getWindow().revalidate();
-            IMat.getWindow().repaint();
-        }else{
-           toggleVisibleButtons(); 
-        }
-    }//GEN-LAST:event_loginButtonActionPerformed
-
-    private void joinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_joinButtonActionPerformed
-        if(!IMat.isLoggedin()){
-            IMat.getWindow().setContent(new RegisterPanel());
-        }else{
-            IMat.getWindow().setContent(new MyProfilePanel());
-        }
-    }//GEN-LAST:event_joinButtonActionPerformed
-
     private void okLoginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_okLoginButtonActionPerformed
 
         if(usernameInput.getText().equals(CustomerModel.getEmail()) && passwordInput.getText().equals(CustomerModel.getPassword())){
            usernameInput.setBackground(Color.white);
            passwordInput.setBackground(Color.white);
            toggleVisibleButtons();
-           loginButton.setText("Logout");
-           joinButton.setText("Profil");
+           loginButton.setIcon(logoutB);
+           joinButton.setIcon(profileB);
            IMat.setLoggedin(true);
            
        }else{
@@ -201,13 +186,34 @@ public class loginDefault extends javax.swing.JPanel {
         passwordInput.setText("");        // TODO add your handling code here:
     }//GEN-LAST:event_passwordInputFocusGained
 
+    private void joinButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_joinButtonMouseClicked
+        // TODO add your handling code here:
+        if(!IMat.isLoggedin()){
+            IMat.getWindow().setContent(new RegisterPanel());
+        }else{
+            IMat.getWindow().setContent(new MyProfilePanel());
+        }
+    }//GEN-LAST:event_joinButtonMouseClicked
+
+    private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMouseClicked
+        // TODO add your handling code here:
+        if (IMat.isLoggedin()){
+            IMat.setLoggedin(false);
+            dynamicTextChange();
+            IMat.getWindow().revalidate();
+            IMat.getWindow().repaint();
+        }else{
+           toggleVisibleButtons();
+        }
+    }//GEN-LAST:event_loginButtonMouseClicked
+
     private void dynamicTextChange(){
         if(IMat.isLoggedin()){
-            loginButton.setText("Logout");
-        joinButton.setText("Profil");
+            loginButton.setIcon(logoutB);
+        joinButton.setIcon(profileB);
         }else{
-        loginButton.setText("Logga in");
-        joinButton.setText("Gå med");
+        loginButton.setIcon(loginB);
+        joinButton.setIcon(joinB);
     }
         this.revalidate();
         
@@ -218,8 +224,8 @@ public class loginDefault extends javax.swing.JPanel {
     private javax.swing.JPanel buttonPanel;
     private javax.swing.JPanel filler;
     private javax.swing.JPanel formPanel;
-    private javax.swing.JButton joinButton;
-    private javax.swing.JButton loginButton;
+    private javax.swing.JLabel joinButton;
+    private javax.swing.JLabel loginButton;
     private javax.swing.JButton okLoginButton;
     private javax.swing.JPasswordField passwordInput;
     private javax.swing.JTextField usernameInput;

@@ -43,7 +43,7 @@ private static boolean zebra = false;
         initComponents();
         this.product = product;
         productName.setText(product.getName());
-        setJLabelUnderlined();
+        setJLabelUnderlined(productName);
         productPrice.setText(String.valueOf(product.getPrice())+ " " + product.getUnit());
         fixFav();
         refreshRemoveButton();
@@ -83,11 +83,11 @@ private static boolean zebra = false;
         }
     }
     
-    private void setJLabelUnderlined(){
-        Font font = productName.getFont();
+    private void setJLabelUnderlined(JLabel label){
+        Font font = label.getFont();
         Map attributes = font.getAttributes();
         attributes.put(TextAttribute.UNDERLINE, TextAttribute.UNDERLINE_ON);
-        productName.setFont(font.deriveFont(attributes));
+        label.setFont(font.deriveFont(attributes));
     }
     
     /**
@@ -163,15 +163,15 @@ private static boolean zebra = false;
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(productName)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
-                .addComponent(favoriteLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(productPrice)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(35, 35, 35)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(favoriteLabel)
+                .addGap(18, 18, 18)
+                .addComponent(productPrice)
+                .addGap(8, 8, 8)
                 .addComponent(ammountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(removeButton)
@@ -183,16 +183,16 @@ private static boolean zebra = false;
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(favoriteLabel)
-                    .addComponent(productPrice)
-                    .addComponent(productName)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(ammountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(removeButton)
-                        .addComponent(buyButton)))
+                        .addComponent(buyButton)
+                        .addComponent(productPrice))
+                    .addComponent(favoriteLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(productName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
