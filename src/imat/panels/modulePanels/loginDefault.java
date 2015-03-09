@@ -19,11 +19,14 @@ import javax.swing.ImageIcon;
 public class loginDefault extends javax.swing.JPanel {
 
     private boolean visible = true;
-    private ImageIcon joinB = new ImageIcon("src/resources/loginButtons/joinButton.jpg");
-    private ImageIcon loginB = new ImageIcon("src/resources/loginButtons/loginButton.jpg");
-    private ImageIcon profileB = new ImageIcon("src/resources/loginButtons/profileButton.jpg");
-    private ImageIcon logoutB = new ImageIcon("src/resources/loginButtons/logoutButton.jpg");
-    
+    private ImageIcon joinB = new ImageIcon("src/resources/loginButtons/join.jpg");
+    private ImageIcon loginB = new ImageIcon("src/resources/loginButtons/login.jpg");
+    private ImageIcon profileB = new ImageIcon("src/resources/loginButtons/profil.jpg");
+    private ImageIcon logoutB = new ImageIcon("src/resources/loginButtons/logout.jpg");
+    private ImageIcon joinHov = new ImageIcon("src/resources/loginButtons/joinHov.jpg");
+    private ImageIcon loginHov = new ImageIcon("src/resources/loginButtons/loginHov.jpg");
+    private ImageIcon profileHov = new ImageIcon("src/resources/loginButtons/profilHov.jpg");
+    private ImageIcon logoutHov = new ImageIcon("src/resources/loginButtons/logoutHov.jpg");
 
     /**
      * Creates new form loginDefault
@@ -89,12 +92,24 @@ public class loginDefault extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 joinButtonMouseClicked(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                joinButtonExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                joinButtonEntered(evt);
+            }
         });
         buttonPanel.add(joinButton);
 
         loginButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 loginButtonMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                loginButtonExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                loginButtonEntered(evt);
             }
         });
         buttonPanel.add(loginButton);
@@ -207,14 +222,54 @@ public class loginDefault extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_loginButtonMouseClicked
 
+    private void joinButtonEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_joinButtonEntered
+        // TODO add your handling code here:
+        if(IMat.isLoggedin()){
+            joinButton.setIcon(profileHov);
+        }else{
+            joinButton.setIcon(joinHov);
+        }
+        this.revalidate();
+    }//GEN-LAST:event_joinButtonEntered
+
+    private void loginButtonEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonEntered
+        // TODO add your handling code here:
+        if(IMat.isLoggedin()){
+            loginButton.setIcon(logoutHov);
+        }else{
+            loginButton.setIcon(loginHov);
+        }
+        this.revalidate();
+    }//GEN-LAST:event_loginButtonEntered
+
+    private void joinButtonExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_joinButtonExited
+        // TODO add your handling code here:
+        if(IMat.isLoggedin()){
+            joinButton.setIcon(profileB);
+        }else{
+            joinButton.setIcon(joinB);
+        }
+        this.revalidate();
+    }//GEN-LAST:event_joinButtonExited
+
+    private void loginButtonExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonExited
+        // TODO add your handling code here:
+        if(IMat.isLoggedin()){
+            loginButton.setIcon(logoutB);
+        }else{
+            loginButton.setIcon(loginB);
+        }
+        this.revalidate();
+    }//GEN-LAST:event_loginButtonExited
+
     private void dynamicTextChange(){
         if(IMat.isLoggedin()){
             loginButton.setIcon(logoutB);
-        joinButton.setIcon(profileB);
+            joinButton.setIcon(profileB);
         }else{
-        loginButton.setIcon(loginB);
-        joinButton.setIcon(joinB);
-    }
+            loginButton.setIcon(loginB);
+            joinButton.setIcon(joinB);
+        }
         this.revalidate();
         
         

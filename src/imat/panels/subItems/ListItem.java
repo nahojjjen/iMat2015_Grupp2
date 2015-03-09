@@ -9,6 +9,7 @@ import imat.IMat;
 import imat.models.Model;
 import imat.models.ModelAux;
 import imat.panels.DetailPopUp;
+import imat.panels.ProductDetailPopUp;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Frame;
@@ -27,7 +28,7 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  * @author Morpheus
  */
 public class ListItem extends javax.swing.JPanel {
-private static boolean zebra = false;
+    private static boolean zebra = false;
     private Product product;
     private Frame MainWindow = IMat.getWindow();
     private ImageIcon favIcon = new ImageIcon("src/resources/fav.png");
@@ -221,8 +222,11 @@ private static boolean zebra = false;
 
     private void mouseClickedHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseClickedHandler
         // TODO add your handling code here:
-        DetailPopUp detailPopUp = new DetailPopUp(MainWindow, product);
-        detailPopUp.setVisible(true);
+        JDialog popup = new JDialog(IMat.getWindow());
+        popup.setLocationRelativeTo(null);
+        popup.setResizable(false);
+        popup.add(new ProductDetailPopUp(product, popup));
+        popup.setVisible(true);
     }//GEN-LAST:event_mouseClickedHandler
 
     private void favoriteLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_favoriteLabelMouseClicked
