@@ -193,12 +193,8 @@ public class PanelConfirm extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void goToNext(){
+        IMat.getWindow().setContent(new PanelInfoFill());
         
-        if (IMat.isLoggedin()){
-            IMat.getWindow().setContent(new PanelSelectPayment());
-        } else{
-            IMat.getWindow().setContent(new PanelInfoFill());
-        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

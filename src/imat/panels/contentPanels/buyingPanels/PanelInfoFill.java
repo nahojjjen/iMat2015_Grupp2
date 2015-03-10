@@ -30,7 +30,10 @@ public class PanelInfoFill extends javax.swing.JPanel {
     public PanelInfoFill(){
         
         initComponents();
-        cartViewer.add(new BuyForm());
+        BuyForm buyPanel = new BuyForm();
+        
+        cartViewer.add(buyPanel);
+        
         //cartViewer.add(new PanelCreditCard());
         //cartViewer.add(new PanelDeliveryInfo());
         
