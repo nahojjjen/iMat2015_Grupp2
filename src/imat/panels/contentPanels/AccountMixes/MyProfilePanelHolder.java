@@ -5,19 +5,72 @@
  */
 package imat.panels.contentPanels.AccountMixes;
 
+import imat.models.CustomerModel;
+import imat.panels.contentPanels.PanelAccountInfo;
+import imat.panels.contentPanels.PanelCreditCard;
+import imat.panels.contentPanels.PanelDeliveryInfo;
+import java.awt.Color;
+
 /**
  *
  * @author Morpheus
  */
 public class MyProfilePanelHolder extends javax.swing.JPanel {
 
+    private static Color blackStripe = new Color(120,120,120);
+    private static Color whiteStripe = new Color(80,80,80);
+    
+    private PanelAccountInfo accountCard = new PanelAccountInfo();
+    private PanelCreditCard cardCard = new PanelCreditCard();
+    private PanelDeliveryInfo deliveryCard = new PanelDeliveryInfo();
+    
     /**
      * Creates new form MyProfilePanelHolder
      */
     public MyProfilePanelHolder() {
         initComponents();
+        initiate();
+    }
+    
+    private void initiate(){
+        cardPanel.setBackground(blackStripe);
+        profilePanel.setBackground(whiteStripe);
+        deliveryPanel.setBackground(whiteStripe);
+        holderPanel = accountCard;
+        holderPanel.setVisible(true);
+        
     }
 
+    private void performConfirmButton(){
+        cardPanelConfirm();
+        deliveryPanelConfirm();
+        accountPanelConfirm();
+        cardCard.save();
+    }
+    
+    private void cardPanelConfirm(){
+        if(cardCard.isAllCorrect()){
+            cardCard.save();
+        }else{
+            System.out.println("didnt save card");
+            System.out.println(CustomerModel.getCardType());
+        }
+    }
+    private void deliveryPanelConfirm(){
+        if (deliveryCard.isAllCorrect()){
+            deliveryCard.save();
+        }else{
+            System.out.println("didnt save delivery info");
+        }
+    }
+    private void accountPanelConfirm(){
+        if (accountCard.isEmailCorrect() && accountCard.isPasswordCorrect()){
+            accountCard.save();
+    }else{ 
+            System.out.println("didnt save acc info");}
+    }
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,41 +80,168 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        headerPanel = new javax.swing.JPanel();
+        headerText = new javax.swing.JLabel();
+        choicePanel = new javax.swing.JPanel();
+        profilePanel = new javax.swing.JPanel();
+        profileImage = new javax.swing.JLabel();
+        profilLabel = new javax.swing.JLabel();
+        deliveryPanel = new javax.swing.JPanel();
+        deliveryImage = new javax.swing.JLabel();
+        deliveryLabel = new javax.swing.JLabel();
+        cardPanel = new javax.swing.JPanel();
+        cardImage = new javax.swing.JLabel();
+        cardLabel = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+        holderPanel = new javax.swing.JPanel();
 
-        jPanel1.setPreferredSize(new java.awt.Dimension(581, 75));
+        headerPanel.setBackground(imat.IMat.getAccentColor());
+        headerPanel.setPreferredSize(new java.awt.Dimension(581, 75));
+        headerPanel.setLayout(new java.awt.BorderLayout());
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 581, Short.MAX_VALUE)
+        headerText.setBackground(imat.IMat.getAccentColor());
+        headerText.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
+        headerText.setForeground(new java.awt.Color(255, 255, 255));
+        headerText.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        headerText.setText("Min Profil");
+        headerPanel.add(headerText, java.awt.BorderLayout.CENTER);
+
+        choicePanel.setPreferredSize(new java.awt.Dimension(50, 535));
+        choicePanel.setLayout(new java.awt.GridLayout());
+
+        profilePanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                profilePanelMouseClicked(evt);
+            }
+        });
+
+        profileImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/userPic.png"))); // NOI18N
+        profilePanel.add(profileImage);
+
+        profilLabel.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        profilLabel.setForeground(new java.awt.Color(255, 255, 255));
+        profilLabel.setText("Profil");
+        profilePanel.add(profilLabel);
+
+        choicePanel.add(profilePanel);
+
+        deliveryPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                deliveryPanelMouseClicked(evt);
+            }
+        });
+
+        deliveryImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/truckImage.png"))); // NOI18N
+        deliveryPanel.add(deliveryImage);
+
+        deliveryLabel.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        deliveryLabel.setForeground(new java.awt.Color(255, 255, 255));
+        deliveryLabel.setText("Leverans");
+        deliveryPanel.add(deliveryLabel);
+
+        choicePanel.add(deliveryPanel);
+
+        cardPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                cardPanelMouseClicked(evt);
+            }
+        });
+
+        cardImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/cardImage.png"))); // NOI18N
+        cardPanel.add(cardImage);
+
+        cardLabel.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        cardLabel.setForeground(new java.awt.Color(255, 255, 255));
+        cardLabel.setText("Kort");
+        cardPanel.add(cardLabel);
+
+        choicePanel.add(cardPanel);
+
+        jButton1.setText("Spara ändringar");
+
+        javax.swing.GroupLayout holderPanelLayout = new javax.swing.GroupLayout(holderPanel);
+        holderPanel.setLayout(holderPanelLayout);
+        holderPanelLayout.setHorizontalGroup(
+            holderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 600, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 75, Short.MAX_VALUE)
+        holderPanelLayout.setVerticalGroup(
+            holderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 581, Short.MAX_VALUE)
+            .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addContainerGap())
+            .addComponent(choicePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(holderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 616, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(choicePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 410, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(46, 46, 46))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 541, Short.MAX_VALUE)))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addContainerGap(138, Short.MAX_VALUE)
+                    .addComponent(holderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(78, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void deliveryPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveryPanelMouseClicked
+        // TODO add your handling code here:
+        holderPanel = deliveryCard;
+        cardPanel.setBackground(whiteStripe);
+        profilePanel.setBackground(whiteStripe);
+        deliveryPanel.setBackground(blackStripe);
+    }//GEN-LAST:event_deliveryPanelMouseClicked
+
+    private void profilePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profilePanelMouseClicked
+        // TODO add your handling code here:
+        holderPanel = accountCard;
+        cardPanel.setBackground(whiteStripe);
+        profilePanel.setBackground(blackStripe);
+        deliveryPanel.setBackground(whiteStripe);
+    }//GEN-LAST:event_profilePanelMouseClicked
+
+    private void cardPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardPanelMouseClicked
+        // TODO add your handling code here:
+        holderPanel = cardCard;
+        cardPanel.setBackground(blackStripe);
+        profilePanel.setBackground(whiteStripe);
+        deliveryPanel.setBackground(whiteStripe);
+    }//GEN-LAST:event_cardPanelMouseClicked
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel cardImage;
+    private javax.swing.JLabel cardLabel;
+    private javax.swing.JPanel cardPanel;
+    private javax.swing.JPanel choicePanel;
+    private javax.swing.JLabel deliveryImage;
+    private javax.swing.JLabel deliveryLabel;
+    private javax.swing.JPanel deliveryPanel;
+    private javax.swing.JPanel headerPanel;
+    private javax.swing.JLabel headerText;
+    private javax.swing.JPanel holderPanel;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel profilLabel;
+    private javax.swing.JLabel profileImage;
+    private javax.swing.JPanel profilePanel;
     // End of variables declaration//GEN-END:variables
 }

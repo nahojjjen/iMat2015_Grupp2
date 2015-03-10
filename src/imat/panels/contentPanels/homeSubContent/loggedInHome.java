@@ -7,6 +7,7 @@ package imat.panels.contentPanels.homeSubContent;
 
 import imat.IMat;
 import imat.panels.contentPanels.AccountMixes.MyProfilePanel;
+import imat.panels.contentPanels.AccountMixes.MyProfilePanelHolder;
 import imat.panels.contentPanels.PanelAccountInfo;
 import imat.panels.contentPanels.PanelEarlierCarts;
 import imat.panels.contentPanels.PanelFAQ;
@@ -140,7 +141,7 @@ public class loggedInHome extends javax.swing.JPanel {
     }//GEN-LAST:event_jLabel8MouseClicked
 
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        IMat.getWindow().setContent(new MyProfilePanel());
+        IMat.getWindow().setContent(new MyProfilePanelHolder());
     }//GEN-LAST:event_jLabel9MouseClicked
 
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked

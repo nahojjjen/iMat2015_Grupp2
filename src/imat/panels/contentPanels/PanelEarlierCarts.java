@@ -72,7 +72,7 @@ public class PanelEarlierCarts extends javax.swing.JPanel {
         earlierOrderLabel.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         earlierOrderLabel.setForeground(new java.awt.Color(255, 255, 255));
         earlierOrderLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        earlierOrderLabel.setText("Tidigare beställningar:");
+        earlierOrderLabel.setText("Tidigare beställningar");
         earlierOrderLabel.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         earlierOrderLabel.setOpaque(true);
         earlierOrderLabel.setPreferredSize(new java.awt.Dimension(250, 75));
