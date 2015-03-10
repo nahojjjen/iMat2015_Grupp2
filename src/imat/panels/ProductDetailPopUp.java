@@ -46,9 +46,9 @@ public class ProductDetailPopUp extends javax.swing.JPanel {
         productName.setText(product.getName());
         priceLabel.setText(String.valueOf(product.getPrice())+ " " + product.getUnit());
         //productList = Model.doSearch("");
-        relatedItemsPane.add(new GridItem(Model.getProduct(33)));
-        relatedItemsPane.add(new GridItem(Model.getProduct(12)));
-        relatedItemsPane.add(new GridItem(Model.getProduct(14)));
+        relatedItemsPane.add(new GridItem(Model.getProduct( (int)(Math.random()*140) )));
+        relatedItemsPane.add(new GridItem(Model.getProduct( (int)(Math.random()*140) )));
+        relatedItemsPane.add(new GridItem(Model.getProduct((int)(Math.random()*140)  )));
         
     }
     

@@ -6,6 +6,7 @@
 package imat.panels.subItems;
 
 import imat.IMat;
+import imat.models.CategoryImageLibrary;
 import imat.models.Model;
 import imat.models.ModelAux;
 import imat.panels.ProductDetailPopUp;
@@ -40,7 +41,8 @@ public class GridItem extends javax.swing.JPanel {
         imageLabel.setIcon(Model.getImage(product, 200 , 200));
         imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
         priceLabel.setText(String.valueOf(product.getPrice())+ " " + product.getUnit());
-        fixZebra();
+        //fixZebra();
+        zebraColorPane.setBackground(CategoryImageLibrary.getColor(product.getCategory()));
         refreshRemoveButton();
     }
     

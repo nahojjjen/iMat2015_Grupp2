@@ -344,7 +344,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         bodyPanel.add(navigationPanel, java.awt.BorderLayout.WEST);
 
-        spacec.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 60, 0, 60));
+        spacec.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         spacec.setOpaque(false);
         spacec.setLayout(new java.awt.BorderLayout());
 
@@ -354,11 +354,11 @@ public class MainWindow extends javax.swing.JFrame {
         contentPanel.setLayout(contentPanelLayout);
         contentPanelLayout.setHorizontalGroup(
             contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1038, Short.MAX_VALUE)
+            .addGap(0, 1138, Short.MAX_VALUE)
         );
         contentPanelLayout.setVerticalGroup(
             contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 879, Short.MAX_VALUE)
+            .addGap(0, 859, Short.MAX_VALUE)
         );
 
         spacec.add(contentPanel, java.awt.BorderLayout.CENTER);

@@ -150,9 +150,10 @@ public class PanelNavigation2 extends javax.swing.JPanel {
         holder = new javax.swing.JPanel();
 
         setOpaque(false);
+        setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
 
         holder.setOpaque(false);
-        holder.setLayout(new java.awt.GridLayout(10, 1));
+        holder.setLayout(new java.awt.GridLayout(16, 1));
         add(holder);
     }// </editor-fold>//GEN-END:initComponents
 

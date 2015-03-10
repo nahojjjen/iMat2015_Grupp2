@@ -113,7 +113,6 @@ public class DetailItem extends javax.swing.JPanel {
         descriptionLabel = new javax.swing.JLabel();
         addButton = new javax.swing.JButton();
         inputField = new javax.swing.JSpinner();
-        warningLabel = new javax.swing.JLabel();
         favoriteLabel = new javax.swing.JLabel();
         removeButton = new javax.swing.JButton();
 
@@ -150,7 +149,7 @@ public class DetailItem extends javax.swing.JPanel {
         priceLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         priceLabel.setText("jLabel1");
         colorBackground.add(priceLabel);
-        priceLabel.setBounds(260, 10, 130, 16);
+        priceLabel.setBounds(260, 10, 130, 14);
 
         nameLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         nameLabel.setText("jLabel1");
@@ -158,11 +157,11 @@ public class DetailItem extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 imageLabelMouseClicked(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                nameLabelMouseExited(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 nameLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                nameLabelMouseExited(evt);
             }
         });
         colorBackground.add(nameLabel);
@@ -174,6 +173,7 @@ public class DetailItem extends javax.swing.JPanel {
         descriptionLabel.setBounds(10, 33, 157, 24);
 
         addButton.setText("Lägg till");
+        addButton.setPreferredSize(new java.awt.Dimension(70, 20));
         addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addButtonActionPerformed(evt);
@@ -184,11 +184,7 @@ public class DetailItem extends javax.swing.JPanel {
 
         inputField.setModel(new javax.swing.SpinnerNumberModel(1, 1, 99, 1));
         colorBackground.add(inputField);
-        inputField.setBounds(270, 50, 53, 33);
-
-        warningLabel.setText("   ");
-        colorBackground.add(warningLabel);
-        warningLabel.setBounds(195, 47, 12, 33);
+        inputField.setBounds(260, 50, 39, 30);
 
         favoriteLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/unfav.png"))); // NOI18N
         favoriteLabel.setToolTipText("Favorite");
@@ -201,13 +197,14 @@ public class DetailItem extends javax.swing.JPanel {
         favoriteLabel.setBounds(10, 64, 15, 20);
 
         removeButton.setText("Ta Bort");
+        removeButton.setPreferredSize(new java.awt.Dimension(70, 20));
         removeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 removeButtonActionPerformed(evt);
             }
         });
         colorBackground.add(removeButton);
-        removeButton.setBounds(180, 50, 90, 30);
+        removeButton.setBounds(160, 50, 90, 30);
 
         jSplitPane1.setRightComponent(colorBackground);
 
@@ -222,7 +219,7 @@ public class DetailItem extends javax.swing.JPanel {
             ShoppingItem item = new ShoppingItem(product, amount);
             ModelAux.add(item);
         } else {
-            warningLabel.setText("t.ex. 1");
+            //warningLabel.setText("t.ex. 1");
         }
         refreshRemoveButton();
 
@@ -301,6 +298,5 @@ public class DetailItem extends javax.swing.JPanel {
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel priceLabel;
     private javax.swing.JButton removeButton;
-    private javax.swing.JLabel warningLabel;
     // End of variables declaration//GEN-END:variables
 }

@@ -20,9 +20,12 @@ public class BodyPanel extends JPanel{
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
-         Color lineColor = new Color(200,230,200);
+        g.setColor(new Color(210,220,210));
+        g.fillRect(0, 0, 2000, 2000);
+         Color lineColor = new Color(210,210,200);
        
         drawStripes(g, lineColor, 4);
+        
     }
     
     private void drawStripes(Graphics g, Color c, int lineWidth){

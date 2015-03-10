@@ -60,7 +60,6 @@ public class PanelCreditCard extends javax.swing.JPanel {
 
         setMinimumSize(new java.awt.Dimension(485, 300));
         setOpaque(false);
-        setLayout(null);
 
         visaMasterRadioButton.setText("VISA/MasterCard");
         visaMasterRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -68,8 +67,6 @@ public class PanelCreditCard extends javax.swing.JPanel {
                 visaMasterRadioButtonActionPerformed(evt);
             }
         });
-        add(visaMasterRadioButton);
-        visaMasterRadioButton.setBounds(146, 42, 127, 25);
 
         americanRadioButton.setText("American Express");
         americanRadioButton.addActionListener(new java.awt.event.ActionListener() {
@@ -77,51 +74,33 @@ public class PanelCreditCard extends javax.swing.JPanel {
                 americanRadioButtonActionPerformed(evt);
             }
         });
-        add(americanRadioButton);
-        americanRadioButton.setBounds(291, 42, 131, 25);
 
         cardTypeLabel.setText("Korttyp:");
-        add(cardTypeLabel);
-        cardTypeLabel.setBounds(58, 46, 45, 16);
 
+        carNumberLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         carNumberLabel.setText("Kortnummer:");
-        add(carNumberLabel);
-        carNumberLabel.setBounds(27, 94, 76, 16);
 
+        cardHolderLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         cardHolderLabel.setText("Kortinnehavare:");
-        add(cardHolderLabel);
-        cardHolderLabel.setBounds(12, 131, 91, 16);
 
+        cardExpireLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         cardExpireLabel.setText("Giltighetstid:");
-        add(cardExpireLabel);
-        cardExpireLabel.setBounds(32, 174, 71, 16);
 
+        cardSecurityLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         cardSecurityLabel.setText("CVV2-nummer:");
-        add(cardSecurityLabel);
-        cardSecurityLabel.setBounds(14, 214, 89, 16);
 
         digitsInCardNumberLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         digitsInCardNumberLabel.setText("16 siffror");
-        add(digitsInCardNumberLabel);
-        digitsInCardNumberLabel.setBounds(360, 100, 39, 13);
 
         monthComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Januari", "Februari", "Mars", "April", "Maj", "Juni", "Juli", "Augusti", "September", "Oktober", "November", "December" }));
-        add(monthComboBox);
-        monthComboBox.setBounds(121, 171, 80, 22);
 
         yearComboBox.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "2015", "2016", "2017", "2018", "2019", "2020", "2021", "2022" }));
-        add(yearComboBox);
-        yearComboBox.setBounds(246, 171, 75, 22);
 
         securityReminderLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         securityReminderLabel.setText("Sista 3 siffrorna på kortets baksida");
-        add(securityReminderLabel);
-        securityReminderLabel.setBounds(230, 220, 153, 13);
 
         cardHolderReminderLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         cardHolderReminderLabel.setText("Namn på kortet");
-        add(cardHolderReminderLabel);
-        cardHolderReminderLabel.setBounds(360, 140, 70, 13);
 
         securityNumberTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("###"))));
         securityNumberTextField.setToolTipText("Endast siffror");
@@ -130,20 +109,12 @@ public class PanelCreditCard extends javax.swing.JPanel {
                 securityNumberTextFieldKeyReleased(evt);
             }
         });
-        add(securityNumberTextField);
-        securityNumberTextField.setBounds(120, 211, 66, 30);
 
         cardNumberOkLabel.setToolTipText("Bara siffror, inga andra tecken");
-        add(cardNumberOkLabel);
-        cardNumberOkLabel.setBounds(330, 90, 25, 25);
 
         holderNameOkLabel.setToolTipText("Endast bokstäverna A-Z");
-        add(holderNameOkLabel);
-        holderNameOkLabel.setBounds(330, 130, 25, 25);
 
         secNumberOkLabel.setToolTipText("Endast siffror");
-        add(secNumberOkLabel);
-        secNumberOkLabel.setBounds(200, 210, 25, 25);
 
         cardNumberTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         cardNumberTextField.setToolTipText("Endast siffror");
@@ -152,16 +123,116 @@ public class PanelCreditCard extends javax.swing.JPanel {
                 cardNumberTextFieldKeyReleased(evt);
             }
         });
-        add(cardNumberTextField);
-        cardNumberTextField.setBounds(120, 91, 200, 30);
 
         cardHolderTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 cardHolderTextFieldKeyPressed(evt);
             }
         });
-        add(cardHolderTextField);
-        cardHolderTextField.setBounds(120, 130, 200, 30);
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cardSecurityLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cardExpireLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cardHolderLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(carNumberLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(cardNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(cardNumberOkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(5, 5, 5)
+                                .addComponent(digitsInCardNumberLabel))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(cardHolderTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(10, 10, 10)
+                                .addComponent(holderNameOkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(5, 5, 5)
+                                .addComponent(cardHolderReminderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(9, 9, 9)
+                                .addComponent(monthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(9, 9, 9)
+                                .addComponent(yearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(securityNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(14, 14, 14)
+                                .addComponent(secNumberOkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(5, 5, 5)
+                                .addComponent(securityReminderLabel))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(cardTypeLabel)
+                        .addGap(48, 48, 48)
+                        .addComponent(visaMasterRadioButton)
+                        .addGap(36, 36, 36)
+                        .addComponent(americanRadioButton)))
+                .addGap(24, 24, 24))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(cardTypeLabel))
+                    .addComponent(visaMasterRadioButton)
+                    .addComponent(americanRadioButton))
+                .addGap(25, 25, 25)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(carNumberLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(cardNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cardNumberOkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(digitsInCardNumberLabel)))
+                .addGap(9, 9, 9)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(cardHolderLabel))
+                    .addComponent(cardHolderTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(holderNameOkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(cardHolderReminderLabel)))
+                .addGap(10, 10, 10)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(cardExpireLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(monthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(yearComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(4, 4, 4)
+                        .addComponent(cardSecurityLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(1, 1, 1)
+                        .addComponent(securityNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(secNumberOkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(securityReminderLabel))))
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void visaMasterRadioButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_visaMasterRadioButtonActionPerformed
