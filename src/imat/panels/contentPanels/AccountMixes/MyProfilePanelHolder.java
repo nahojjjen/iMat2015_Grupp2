@@ -29,6 +29,8 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
 
+        jPanel1.setPreferredSize(new java.awt.Dimension(581, 75));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -37,7 +39,7 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 64, Short.MAX_VALUE)
+            .addGap(0, 75, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -54,7 +56,7 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 552, Short.MAX_VALUE)))
+                    .addGap(0, 541, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
