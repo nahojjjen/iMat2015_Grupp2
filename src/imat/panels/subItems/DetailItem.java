@@ -266,7 +266,7 @@ public class DetailItem extends javax.swing.JPanel {
         popup.setLocation((width/2)-400, height/2 - 350);
         popup.setUndecorated(true);
           
-        popup.setSize(800, 800);
+        popup.setSize(766, 770);
       
         popup.add(new ProductDetailPopUp(product, popup));
         popup.setVisible(true);

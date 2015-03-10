@@ -51,6 +51,7 @@ public class PanelNavigation extends javax.swing.JPanel {
         setLayout(new java.awt.GridLayout(8, 0));
 
         jButton1.setText("Hem");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);

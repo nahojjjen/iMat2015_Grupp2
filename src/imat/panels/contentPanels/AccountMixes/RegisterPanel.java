@@ -80,12 +80,14 @@ public class RegisterPanel extends javax.swing.JPanel {
         jPanel1.setBackground(imat.IMat.getAccentColor());
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         jPanel1.setForeground(new java.awt.Color(250, 250, 250));
+        jPanel1.setPreferredSize(new java.awt.Dimension(146, 75));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(250, 250, 250));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Registrering");
+        jLabel1.setPreferredSize(new java.awt.Dimension(126, 75));
         jPanel1.add(jLabel1, java.awt.BorderLayout.CENTER);
 
         add(jPanel1, java.awt.BorderLayout.NORTH);

@@ -47,17 +47,18 @@ public class PanelHome extends javax.swing.JPanel {
         setLayout(new java.awt.BorderLayout());
 
         jSplitPane1.setBorder(null);
-        jSplitPane1.setDividerLocation(60);
+        jSplitPane1.setDividerLocation(75);
         jSplitPane1.setDividerSize(0);
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
         jSplitPane1.setOpaque(false);
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI Semibold", 0, 18)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Välkommen till iMat!");
+        jLabel1.setPreferredSize(new java.awt.Dimension(207, 75));
         jPanel1.add(jLabel1, java.awt.BorderLayout.CENTER);
 
         jSplitPane1.setTopComponent(jPanel1);

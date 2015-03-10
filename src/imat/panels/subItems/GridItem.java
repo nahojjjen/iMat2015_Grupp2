@@ -230,7 +230,7 @@ public class GridItem extends javax.swing.JPanel {
         popup.setLocation((width/2)-400, height/2 - 300);
         popup.setUndecorated(true);
           
-        popup.setSize(766, 700);
+        popup.setSize(766, 770);
       
         popup.add(new ProductDetailPopUp(product, popup));
         popup.setVisible(true);

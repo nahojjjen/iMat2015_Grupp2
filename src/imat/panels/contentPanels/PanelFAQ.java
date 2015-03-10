@@ -79,6 +79,7 @@ public class PanelFAQ extends javax.swing.JPanel {
         jPanel1.setBackground(imat.IMat.getAccentColor());
         jPanel1.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
         jPanel1.setForeground(new java.awt.Color(250, 250, 250));
+        jPanel1.setPreferredSize(new java.awt.Dimension(169, 75));
         jPanel1.setLayout(new java.awt.BorderLayout());
 
         jLabel1.setFont(new java.awt.Font("Verdana", 1, 18)); // NOI18N
@@ -95,145 +96,145 @@ public class PanelFAQ extends javax.swing.JPanel {
         jLabel29.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel29.setText("Betalningar");
         jPanel2.add(jLabel29);
-        jLabel29.setBounds(23, 11, 100, 24);
+        jLabel29.setBounds(23, 11, 107, 22);
 
         jLabel30.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jLabel30.setText("Hur betalar man?");
         jPanel2.add(jLabel30);
-        jLabel30.setBounds(30, 40, 109, 19);
+        jLabel30.setBounds(30, 40, 117, 17);
 
         jLabel31.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         jLabel31.setText("Betalning sker direkt i applikation med bank- eller kontokort från Visa eller MasterCard. ");
         jPanel2.add(jLabel31);
-        jLabel31.setBounds(50, 60, 474, 16);
+        jLabel31.setBounds(50, 60, 515, 15);
 
         jLabel32.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jLabel32.setText("Vilka kort tar ni?");
         jPanel2.add(jLabel32);
-        jLabel32.setBounds(30, 80, 102, 19);
+        jLabel32.setBounds(30, 80, 111, 17);
 
         jLabel33.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         jLabel33.setText("Vi accepterar Visa samt MasterCard.");
         jPanel2.add(jLabel33);
-        jLabel33.setBounds(50, 100, 199, 16);
+        jLabel33.setBounds(50, 100, 212, 15);
 
         jLabel34.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jLabel34.setText("När dras pengarna från mitt konto?");
         jPanel2.add(jLabel34);
-        jLabel34.setBounds(30, 120, 221, 19);
+        jLabel34.setBounds(30, 120, 241, 17);
 
         jLabel35.setText("Pengarna reserveras då din order är lagd. Först när maten har levererats");
         jPanel2.add(jLabel35);
-        jLabel35.setBounds(50, 140, 353, 14);
+        jLabel35.setBounds(50, 140, 448, 16);
 
         jLabel36.setText("så dras pengarna från ditt konto.");
         jPanel2.add(jLabel36);
-        jLabel36.setBounds(50, 160, 160, 14);
+        jLabel36.setBounds(50, 160, 207, 16);
 
         jLabel37.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jLabel37.setText("Kostar leveransen något? ");
         jPanel2.add(jLabel37);
-        jLabel37.setBounds(30, 180, 167, 19);
+        jLabel37.setBounds(30, 180, 176, 17);
 
         jLabel38.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         jLabel38.setText("Nej! Hos iMat kostar leveransen ingenting.");
         jPanel2.add(jLabel38);
-        jLabel38.setBounds(50, 200, 231, 16);
+        jLabel38.setBounds(50, 200, 244, 15);
 
         jLabel39.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel39.setText("Leverans");
         jPanel2.add(jLabel39);
-        jLabel39.setBounds(23, 230, 82, 24);
+        jLabel39.setBounds(23, 230, 84, 22);
 
         jLabel40.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jLabel40.setText("Vart levererar ni?");
         jPanel2.add(jLabel40);
-        jLabel40.setBounds(30, 260, 110, 19);
+        jLabel40.setBounds(30, 260, 116, 17);
 
         jLabel41.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         jLabel41.setText("Vi levererar varor över hela Sverige.");
         jPanel2.add(jLabel41);
-        jLabel41.setBounds(40, 280, 191, 16);
+        jLabel41.setBounds(40, 280, 207, 15);
 
         jLabel42.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jLabel42.setText("När får jag mina varor? ");
         jPanel2.add(jLabel42);
-        jLabel42.setBounds(30, 300, 149, 19);
+        jLabel42.setBounds(30, 300, 160, 17);
 
         jLabel43.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         jLabel43.setText("Du får vanligtvis dina varor mellan 15-22 dagen efter du har lagt din beställning.");
         jPanel2.add(jLabel43);
-        jLabel43.setBounds(40, 320, 432, 16);
+        jLabel43.setBounds(40, 320, 470, 15);
 
         jLabel44.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jLabel44.setText("Hur transporteras mina varor?");
         jPanel2.add(jLabel44);
-        jLabel44.setBounds(30, 340, 190, 19);
+        jLabel44.setBounds(30, 340, 206, 17);
 
         jLabel45.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         jLabel45.setText("Dina varor transporteras i världens bästa kylboxar och körs ut i våra snygga lastbilar.");
         jPanel2.add(jLabel45);
-        jLabel45.setBounds(40, 360, 458, 16);
+        jLabel45.setBounds(40, 360, 494, 15);
 
         jLabel46.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jLabel46.setText("Vad händer om jag missar en leverans?");
         jPanel2.add(jLabel46);
-        jLabel46.setBounds(30, 380, 251, 19);
+        jLabel46.setBounds(30, 380, 267, 17);
 
         jLabel47.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         jLabel47.setText("Då ställs de utanför din dörr.");
         jPanel2.add(jLabel47);
-        jLabel47.setBounds(40, 400, 155, 16);
+        jLabel47.setBounds(40, 400, 168, 15);
 
         jLabel48.setFont(new java.awt.Font("Lucida Grande", 1, 18)); // NOI18N
         jLabel48.setText("Beställningar");
         jPanel2.add(jLabel48);
-        jLabel48.setBounds(23, 424, 115, 24);
+        jLabel48.setBounds(23, 424, 123, 22);
 
         jLabel49.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jLabel49.setText("Hur avbokar jag eller ändrar leveranstid för en lagd beställning?");
         jPanel2.add(jLabel49);
-        jLabel49.setBounds(30, 450, 402, 19);
+        jLabel49.setBounds(30, 450, 437, 17);
 
         jLabel50.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         jLabel50.setText("Du kan avboka eller ändra din beställning fram tills 23:59 dagen innan din beställning");
         jPanel2.add(jLabel50);
-        jLabel50.setBounds(50, 470, 467, 16);
+        jLabel50.setBounds(50, 470, 499, 15);
 
         jLabel51.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         jLabel51.setText("ska levereras.");
         jPanel2.add(jLabel51);
-        jLabel51.setBounds(50, 490, 77, 16);
+        jLabel51.setBounds(50, 490, 81, 15);
 
         jLabel52.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         jLabel52.setText("Ja, du kan enkelt gå in och ändra i din beställning så länge den inte har levererats ännu.");
         jPanel2.add(jLabel52);
-        jLabel52.setBounds(50, 530, 480, 16);
+        jLabel52.setBounds(50, 530, 510, 15);
 
         jLabel53.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jLabel53.setText("Kan jag ändra min beställning?");
         jPanel2.add(jLabel53);
-        jLabel53.setBounds(30, 510, 195, 19);
+        jLabel53.setBounds(30, 510, 211, 17);
 
         jLabel54.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         jLabel54.setText("Du kan se över din beställning");
         jPanel2.add(jLabel54);
-        jLabel54.setBounds(50, 550, 166, 16);
+        jLabel54.setBounds(50, 550, 175, 15);
 
         jLabel55.setFont(new java.awt.Font("Lucida Grande", 0, 14)); // NOI18N
         jLabel55.setText("När plockar ni min beställning? ");
         jPanel2.add(jLabel55);
-        jLabel55.setBounds(30, 570, 197, 19);
+        jLabel55.setBounds(30, 570, 216, 17);
 
         jLabel56.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         jLabel56.setText("Din beställning plockas samma dag som den ska levereras.");
         jPanel2.add(jLabel56);
-        jLabel56.setBounds(50, 590, 331, 16);
+        jLabel56.setBounds(50, 590, 344, 15);
 
         jLabelLinkToOrders1.setFont(new java.awt.Font("Lucida Grande", 0, 12)); // NOI18N
         jLabelLinkToOrders1.setText("här.");
         jPanel2.add(jLabelLinkToOrders1);
-        jLabelLinkToOrders1.setBounds(220, 550, 21, 16);
+        jLabelLinkToOrders1.setBounds(220, 550, 23, 15);
 
         add(jPanel2, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
