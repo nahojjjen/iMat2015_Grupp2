@@ -266,10 +266,10 @@ public class DetailItem extends javax.swing.JPanel {
         
         int width = IMat.getWindow().getWidth();
         int height =IMat.getWindow().getHeight();
-        popup.setLocation((width/2)-400, height/2 - 300);
+        popup.setLocation((width/2)-400, height/2 - 350);
         popup.setUndecorated(true);
           
-        popup.setSize(766, 700);
+        popup.setSize(800, 800);
       
         popup.add(new ProductDetailPopUp(product, popup));
         popup.setVisible(true);
