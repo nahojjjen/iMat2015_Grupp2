@@ -35,16 +35,16 @@ public class CartItem extends javax.swing.JPanel {
         this.item = item;
         amountInput.setText(String.valueOf((int)item.getAmount() + " " + item.getProduct().getUnitSuffix()));
         nameLabel.setText(item.getProduct().getName());
-        Color zebra1 = IMat.getAverageColor();
-        Color zebra2 = IMat.getBackgroundColor();
+        priceLabel.setText(String.valueOf((int)item.getTotal()) + " kr");
+        Color zebra1 = new Color(250,250,250);
+        Color zebra2 = new Color(230,230,230);
+        
         if(zebra){
-            
-            
             this.setBackground(zebra1);
             amountInput.setBackground(zebra1);
             zebra=false;
         }else{
-               this.setBackground(zebra2);
+            this.setBackground(zebra2);
             amountInput.setBackground(zebra2);
             zebra=true;
         }
@@ -63,6 +63,7 @@ public class CartItem extends javax.swing.JPanel {
         amountInput = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
+        priceLabel = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         setMaximumSize(new java.awt.Dimension(30, 100));
@@ -84,6 +85,12 @@ public class CartItem extends javax.swing.JPanel {
         });
         add(jLabel1);
         jLabel1.setBounds(180, 0, 20, 30);
+
+        priceLabel.setForeground(new java.awt.Color(102, 102, 102));
+        priceLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        priceLabel.setText("13kr");
+        add(priceLabel);
+        priceLabel.setBounds(120, 10, 50, 14);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
@@ -95,5 +102,6 @@ public class CartItem extends javax.swing.JPanel {
     private javax.swing.JLabel amountInput;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel nameLabel;
+    private javax.swing.JLabel priceLabel;
     // End of variables declaration//GEN-END:variables
 }
