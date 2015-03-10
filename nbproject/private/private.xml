@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/Morpheus/Git/iMat2015_Grupp2/src/imat/panels/subItems/ListItem.java</file>
-            <file>file:/Users/Morpheus/Git/iMat2015_Grupp2/src/imat/panels/subItems/GridItem.java</file>
-            <file>file:/Users/Morpheus/Git/iMat2015_Grupp2/src/imat/panels/contentPanels/AccountMixes/MyProfilePanelHolder.java</file>
-            <file>file:/Users/Morpheus/Git/iMat2015_Grupp2/src/imat/panels/subItems/DetailItem.java</file>
-            <file>file:/Users/Morpheus/Git/iMat2015_Grupp2/src/imat/panels/contentPanels/PanelSearchResult.java</file>
-            <file>file:/Users/Morpheus/Git/iMat2015_Grupp2/src/imat/panels/contentPanels/AccountMixes/MyProfilePanel.java</file>
+            <file>file:/Users/filiplarsson/Documents/Chalmers/iMat2015_Grupp2/src/imat/panels/contentPanels/buyingPanels/Panelhej.java</file>
+            <file>file:/Users/filiplarsson/Documents/Chalmers/iMat2015_Grupp2/src/imat/panels/contentPanels/buyingPanels/BuyForm.java</file>
+            <file>file:/Users/filiplarsson/Documents/Chalmers/iMat2015_Grupp2/src/imat/panels/contentPanels/buyingPanels/PanelFillInInfo.java</file>
+            <file>file:/Users/filiplarsson/Documents/Chalmers/iMat2015_Grupp2/src/imat/panels/contentPanels/buyingPanels/PanelConfirm.java</file>
         </group>
     </open-files>
 </project-private>
