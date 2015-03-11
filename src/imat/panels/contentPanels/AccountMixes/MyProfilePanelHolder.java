@@ -17,12 +17,17 @@ import java.awt.Color;
  */
 public class MyProfilePanelHolder extends javax.swing.JPanel {
 
+    private static Color hoverStripe = new Color(160, 160, 160);
     private static Color blackStripe = new Color(120,120,120);
     private static Color whiteStripe = new Color(80,80,80);
     
     private PanelAccountInfo accountCard = new PanelAccountInfo();
     private PanelCreditCard cardCard = new PanelCreditCard();
     private PanelDeliveryInfo deliveryCard = new PanelDeliveryInfo();
+    
+    private Boolean profileIsClicked = false; 
+    private Boolean deliveryIsClicked = false;
+    private Boolean cardIsClicked = false;
     
     /**
      * Creates new form MyProfilePanelHolder
@@ -33,12 +38,13 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
     }
     
     private void initiate(){
-        cardPanel.setBackground(blackStripe);
-        profilePanel.setBackground(whiteStripe);
+        cardPanel.setBackground(whiteStripe);
+        profilePanel.setBackground(blackStripe);
+        profileIsClicked = true;
         deliveryPanel.setBackground(whiteStripe);
-        holderPanel = accountCard;
-        holderPanel.setVisible(true);
-        
+        holderPanel.setBackground(Color.GREEN);
+        holderPanel.add(accountCard);
+        revalidate();
     }
 
     private void performConfirmButton(){
@@ -66,9 +72,11 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
     private void accountPanelConfirm(){
         if (accountCard.isEmailCorrect() && accountCard.isPasswordCorrect()){
             accountCard.save();
-    }else{ 
-            System.out.println("didnt save acc info");}
+        }else{ 
+            System.out.println("didnt save acc info");
+        }
     }
+
     
     
     /**
@@ -92,7 +100,7 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
         cardPanel = new javax.swing.JPanel();
         cardImage = new javax.swing.JLabel();
         cardLabel = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        saveButton = new javax.swing.JButton();
         holderPanel = new javax.swing.JPanel();
 
         headerPanel.setBackground(imat.IMat.getAccentColor());
@@ -113,6 +121,12 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 profilePanelMouseClicked(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                profilePanelMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                profilePanelMouseEntered(evt);
+            }
         });
 
         profileImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/userPic.png"))); // NOI18N
@@ -128,6 +142,12 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
         deliveryPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 deliveryPanelMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                deliveryPanelMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                deliveryPanelMouseEntered(evt);
             }
         });
 
@@ -145,6 +165,12 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 cardPanelMouseClicked(evt);
             }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                cardPanelMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                cardPanelMouseEntered(evt);
+            }
         });
 
         cardImage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/cardImage.png"))); // NOI18N
@@ -157,7 +183,14 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
 
         choicePanel.add(cardPanel);
 
-        jButton1.setText("Spara ändringar");
+        saveButton.setText("Spara ändringar");
+        saveButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                saveButtonMouseClicked(evt);
+            }
+        });
+
+        holderPanel.setSize(new java.awt.Dimension(0, 400));
 
         javax.swing.GroupLayout holderPanelLayout = new javax.swing.GroupLayout(holderPanel);
         holderPanel.setLayout(holderPanelLayout);
@@ -177,7 +210,7 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
             .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(saveButton)
                 .addContainerGap())
             .addComponent(choicePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,9 +225,9 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
                 .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(choicePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 410, Short.MAX_VALUE)
-                .addComponent(jButton1)
-                .addGap(46, 46, 46))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 412, Short.MAX_VALUE)
+                .addComponent(saveButton)
+                .addGap(44, 44, 44))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addContainerGap(138, Short.MAX_VALUE)
@@ -205,18 +238,24 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
 
     private void deliveryPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveryPanelMouseClicked
         // TODO add your handling code here:
-        holderPanel = deliveryCard;
         cardPanel.setBackground(whiteStripe);
         profilePanel.setBackground(whiteStripe);
         deliveryPanel.setBackground(blackStripe);
+        
+        profileIsClicked = false; 
+        deliveryIsClicked = true;
+        cardIsClicked = false;
     }//GEN-LAST:event_deliveryPanelMouseClicked
 
     private void profilePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profilePanelMouseClicked
         // TODO add your handling code here:
-        holderPanel = accountCard;
         cardPanel.setBackground(whiteStripe);
         profilePanel.setBackground(blackStripe);
         deliveryPanel.setBackground(whiteStripe);
+        
+        profileIsClicked = true; 
+        deliveryIsClicked = false;
+        cardIsClicked = false;
     }//GEN-LAST:event_profilePanelMouseClicked
 
     private void cardPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardPanelMouseClicked
@@ -225,7 +264,58 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
         cardPanel.setBackground(blackStripe);
         profilePanel.setBackground(whiteStripe);
         deliveryPanel.setBackground(whiteStripe);
+        
+        profileIsClicked = false; 
+        deliveryIsClicked = false;
+        cardIsClicked = true;
     }//GEN-LAST:event_cardPanelMouseClicked
+
+    private void profilePanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profilePanelMouseEntered
+        // TODO add your handling code here:
+        profilePanel.setBackground(hoverStripe);
+    }//GEN-LAST:event_profilePanelMouseEntered
+
+    private void profilePanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profilePanelMouseExited
+        // TODO add your handling code here:
+        if (profileIsClicked){
+            profilePanel.setBackground(blackStripe);
+        }else{
+            profilePanel.setBackground(whiteStripe);
+        }
+    }//GEN-LAST:event_profilePanelMouseExited
+
+    private void deliveryPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveryPanelMouseEntered
+        // TODO add your handling code here:
+        deliveryPanel.setBackground(hoverStripe);
+    }//GEN-LAST:event_deliveryPanelMouseEntered
+
+    private void deliveryPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_deliveryPanelMouseExited
+        // TODO add your handling code here:
+        if (deliveryIsClicked){
+            deliveryPanel.setBackground(blackStripe);
+        }else{
+            deliveryPanel.setBackground(whiteStripe);
+        }
+    }//GEN-LAST:event_deliveryPanelMouseExited
+
+    private void cardPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardPanelMouseEntered
+        // TODO add your handling code here:
+        cardPanel.setBackground(hoverStripe);
+    }//GEN-LAST:event_cardPanelMouseEntered
+
+    private void cardPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardPanelMouseExited
+        // TODO add your handling code here:
+        if (cardIsClicked){
+            cardPanel.setBackground(blackStripe);
+        }else{
+            cardPanel.setBackground(whiteStripe);
+        }
+    }//GEN-LAST:event_cardPanelMouseExited
+
+    private void saveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveButtonMouseClicked
+        // TODO add your handling code here:
+        performConfirmButton();
+    }//GEN-LAST:event_saveButtonMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -239,9 +329,9 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
     private javax.swing.JPanel headerPanel;
     private javax.swing.JLabel headerText;
     private javax.swing.JPanel holderPanel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel profilLabel;
     private javax.swing.JLabel profileImage;
     private javax.swing.JPanel profilePanel;
+    private javax.swing.JButton saveButton;
     // End of variables declaration//GEN-END:variables
 }
