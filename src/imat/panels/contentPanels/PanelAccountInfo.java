@@ -133,12 +133,21 @@ public class PanelAccountInfo extends javax.swing.JPanel {
 
     private void newPasswordTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_newPasswordTextFieldKeyReleased
         setOkLabel(isPasswordCorrect(), passOk);
+        
+         setOkLabel(isBothPasswordCorrect(), repeatPassOk);
+        if(!isBothPasswordCorrect()){
+            passwordErrorLabel.setText("Lösenorden stämmer inte överrens");
+        }else{
+            passwordErrorLabel.setText("");
+        }
     }//GEN-LAST:event_newPasswordTextFieldKeyReleased
 
     private void repeatPasswordTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_repeatPasswordTextFieldKeyReleased
-               setOkLabel(isBothPasswordCorrect(), repeatPassOk);
+        setOkLabel(isBothPasswordCorrect(), repeatPassOk);
         if(!isBothPasswordCorrect()){
             passwordErrorLabel.setText("Lösenorden stämmer inte överrens");
+        }else{
+            passwordErrorLabel.setText("");
         }
     }//GEN-LAST:event_repeatPasswordTextFieldKeyReleased
     private void setLabels() {
@@ -176,8 +185,7 @@ public class PanelAccountInfo extends javax.swing.JPanel {
      * @return true if both emails are correct
      */
     public boolean isBothEmailCorrect() {
-        return (CustomerModel.emailTest(emailTextField.getText())
-                && emailTextField.getText().equals(repeatEmailTextField.getText()));
+        return (isEmailCorrect() && emailTextField.getText().equals(repeatEmailTextField.getText()));
     }
 
     /**
@@ -186,7 +194,7 @@ public class PanelAccountInfo extends javax.swing.JPanel {
      * @return true if correct
      */
     public boolean isPasswordCorrect() {
-        return (CustomerModel.passwordTest(newPasswordTextField.getText()));
+        return (CustomerModel.passwordTest(new String(newPasswordTextField.getPassword())));
     }
 
     /**
@@ -195,8 +203,12 @@ public class PanelAccountInfo extends javax.swing.JPanel {
      * @return true if both are correct and matching
      */
     public boolean isBothPasswordCorrect() {
-        return (newPasswordTextField.getText().equals(repeatPasswordTextField.getText())
-                && CustomerModel.passwordTest(newPasswordTextField.getText()));
+        
+        String pass1 = new String(newPasswordTextField.getPassword());
+        String pass2 = new String(repeatPasswordTextField.getPassword());
+        
+        
+        return (pass1.equals(pass2) && isPasswordCorrect());
     }
 
     private void setOkLabel(Boolean bool, JLabel label) {

@@ -26,7 +26,7 @@ public class RegisterPanel extends javax.swing.JPanel {
     }
     
     private void registerPressed(){
-           if (accPanel.isEmailCorrect() && accPanel.isPasswordCorrect()){
+           if (accPanel.isBothEmailCorrect()&& accPanel.isBothPasswordCorrect()){
             accPanel.save();
             IMat.setLoggedin(true);
             IMat.getWindow().setContent(new PanelHome());

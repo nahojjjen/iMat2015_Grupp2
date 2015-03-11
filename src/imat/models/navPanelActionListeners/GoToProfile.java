@@ -6,10 +6,8 @@
 package imat.models.navPanelActionListeners;
 
 import imat.IMat;
-import imat.panels.contentPanels.AccountMixes.MyProfilePanel;
 import imat.panels.contentPanels.AccountMixes.MyProfilePanelHolder;
 import imat.panels.contentPanels.AccountMixes.RegisterPanel;
-import imat.panels.contentPanels.PanelAccountInfo;
 
 /**
  *

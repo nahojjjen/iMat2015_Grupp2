@@ -77,11 +77,11 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
 
         firstNameLabel.setText("Förnamn:");
         jPanel1.add(firstNameLabel);
-        firstNameLabel.setBounds(21, 13, 56, 16);
+        firstNameLabel.setBounds(21, 13, 160, 14);
 
         lastNameLabel.setText("Efternamn:");
         jPanel1.add(lastNameLabel);
-        lastNameLabel.setBounds(224, 13, 64, 16);
+        lastNameLabel.setBounds(224, 13, 170, 14);
 
         firstNameTextField.setToolTipText("Endast A-Z tillåtet");
         firstNameTextField.setAutoscrolls(false);
@@ -104,11 +104,11 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
 
         addressLabel.setText("Gaturadress:");
         jPanel1.add(addressLabel);
-        addressLabel.setBounds(21, 76, 74, 16);
+        addressLabel.setBounds(21, 76, 140, 14);
 
         careOfLabel.setText("C/O:");
         jPanel1.add(careOfLabel);
-        careOfLabel.setBounds(224, 76, 27, 16);
+        careOfLabel.setBounds(224, 76, 23, 14);
 
         addressTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -118,17 +118,17 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         jPanel1.add(addressTextField);
         addressTextField.setBounds(21, 102, 156, 30);
 
-        careOfTextField.setToolTipText("Valfritt");
+        careOfTextField.setToolTipText(" ”care of”, används då den som skall sändas till en tredje person för att vidarebefordras till den tänkte adressaten.");
         jPanel1.add(careOfTextField);
         careOfTextField.setBounds(224, 102, 198, 30);
 
         postCodeLabel.setText("Postnummer:");
         jPanel1.add(postCodeLabel);
-        postCodeLabel.setBounds(21, 139, 77, 16);
+        postCodeLabel.setBounds(21, 139, 63, 14);
 
         postAddressLabel.setText("Postort:");
         jPanel1.add(postAddressLabel);
-        postAddressLabel.setBounds(224, 139, 45, 16);
+        postAddressLabel.setBounds(224, 139, 39, 14);
 
         postAddressTextField.setToolTipText("Endast bokstäverna A-Z");
         postAddressTextField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -141,7 +141,7 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
 
         phoneNumberLabel.setText("Telefon:");
         jPanel1.add(phoneNumberLabel);
-        phoneNumberLabel.setBounds(21, 208, 48, 16);
+        phoneNumberLabel.setBounds(21, 208, 40, 14);
 
         postCodeTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         postCodeTextField.setToolTipText("5 sifror");
@@ -176,11 +176,11 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
 
         mobileNumberLabel.setText("Mobil:");
         jPanel1.add(mobileNumberLabel);
-        mobileNumberLabel.setBounds(224, 208, 35, 16);
+        mobileNumberLabel.setBounds(224, 208, 28, 14);
 
         infoTextLabel.setText("Övrig information:");
         jPanel1.add(infoTextLabel);
-        infoTextLabel.setBounds(21, 271, 119, 16);
+        infoTextLabel.setBounds(21, 271, 119, 14);
 
         infoTipTextAreaLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         infoTipTextAreaLabel.setText("T.ex portkod eller vånings-/lägenhetsnummer");

@@ -10,6 +10,8 @@ import imat.panels.contentPanels.PanelAccountInfo;
 import imat.panels.contentPanels.PanelCreditCard;
 import imat.panels.contentPanels.PanelDeliveryInfo;
 import java.awt.Color;
+import java.awt.Dimension;
+import javax.swing.JPanel;
 
 /**
  *
@@ -35,6 +37,7 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
     public MyProfilePanelHolder() {
         initComponents();
         initiate();
+        
     }
     
     private void initiate(){
@@ -42,41 +45,67 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
         profilePanel.setBackground(blackStripe);
         profileIsClicked = true;
         deliveryPanel.setBackground(whiteStripe);
-        holderPanel.setBackground(Color.GREEN);
-        holderPanel.add(accountCard);
-        revalidate();
+        setContent(accountCard);
+        accountCard.setPreferredSize(new Dimension(401, 229));
+        deliveryCard.setPreferredSize(new Dimension(486, 437));
     }
 
+    private void clear(){
+        holderPanel.removeAll();
+    }
+    
     private void performConfirmButton(){
-        cardPanelConfirm();
-        deliveryPanelConfirm();
-        accountPanelConfirm();
-        cardCard.save();
+        if (cardIsClicked){
+            cardPanelConfirm();
+        }else if (deliveryIsClicked){
+            deliveryPanelConfirm();
+        }else{
+            accountPanelConfirm();
+        }
+        
+        
+        
     }
     
     private void cardPanelConfirm(){
         if(cardCard.isAllCorrect()){
             cardCard.save();
+            feedbackLabel.setForeground(Color.green);
+            feedbackLabel.setText("Kort sparat!");
         }else{
-            System.out.println("didnt save card");
-            System.out.println(CustomerModel.getCardType());
+           feedbackLabel.setForeground(Color.red);
+            feedbackLabel.setText("Kort ej sparat!");
         }
     }
     private void deliveryPanelConfirm(){
         if (deliveryCard.isAllCorrect()){
             deliveryCard.save();
+            feedbackLabel.setForeground(Color.green);
+            feedbackLabel.setText("Leveransupg sparat!");
         }else{
-            System.out.println("didnt save delivery info");
+            feedbackLabel.setForeground(Color.red);
+            feedbackLabel.setText("leverans ej sparat!");
         }
     }
     private void accountPanelConfirm(){
-        if (accountCard.isEmailCorrect() && accountCard.isPasswordCorrect()){
+        if (accountCard.isBothEmailCorrect()&& accountCard.isBothPasswordCorrect()){
             accountCard.save();
+            feedbackLabel.setForeground(Color.green);
+            feedbackLabel.setText("Kontoupg sparat!");
         }else{ 
-            System.out.println("didnt save acc info");
+            feedbackLabel.setForeground(Color.red);
+            feedbackLabel.setText("konto ej sparat!");
         }
     }
 
+    private void setContent(JPanel panel){
+                    clear();
+                holderPanel.add(panel);
+                revalidate();
+                repaint();
+        }
+        
+        
     
     
     /**
@@ -102,6 +131,9 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
         cardLabel = new javax.swing.JLabel();
         saveButton = new javax.swing.JButton();
         holderPanel = new javax.swing.JPanel();
+        feedbackLabel = new javax.swing.JLabel();
+
+        setOpaque(false);
 
         headerPanel.setBackground(imat.IMat.getAccentColor());
         headerPanel.setPreferredSize(new java.awt.Dimension(581, 75));
@@ -114,8 +146,9 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
         headerText.setText("Min Profil");
         headerPanel.add(headerText, java.awt.BorderLayout.CENTER);
 
+        choicePanel.setOpaque(false);
         choicePanel.setPreferredSize(new java.awt.Dimension(50, 535));
-        choicePanel.setLayout(new java.awt.GridLayout());
+        choicePanel.setLayout(new java.awt.GridLayout(1, 0));
 
         profilePanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -184,55 +217,48 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
         choicePanel.add(cardPanel);
 
         saveButton.setText("Spara ändringar");
-        saveButton.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                saveButtonMouseClicked(evt);
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
             }
         });
 
-        holderPanel.setSize(new java.awt.Dimension(0, 400));
+        holderPanel.setOpaque(false);
 
-        javax.swing.GroupLayout holderPanelLayout = new javax.swing.GroupLayout(holderPanel);
-        holderPanel.setLayout(holderPanelLayout);
-        holderPanelLayout.setHorizontalGroup(
-            holderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 600, Short.MAX_VALUE)
-        );
-        holderPanelLayout.setVerticalGroup(
-            holderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
+        feedbackLabel.setBackground(new java.awt.Color(0, 204, 0));
+        feedbackLabel.setForeground(new java.awt.Color(0, 204, 0));
+        feedbackLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(saveButton)
-                .addContainerGap())
+            .addComponent(headerPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 620, Short.MAX_VALUE)
             .addComponent(choicePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(holderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(feedbackLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(holderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(headerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(0, 0, 0)
                 .addComponent(choicePanel, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 412, Short.MAX_VALUE)
-                .addComponent(saveButton)
-                .addGap(44, 44, 44))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addContainerGap(138, Short.MAX_VALUE)
-                    .addComponent(holderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(78, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(holderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 423, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(saveButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(feedbackLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -245,6 +271,7 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
         profileIsClicked = false; 
         deliveryIsClicked = true;
         cardIsClicked = false;
+        setContent(deliveryCard);
     }//GEN-LAST:event_deliveryPanelMouseClicked
 
     private void profilePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profilePanelMouseClicked
@@ -256,11 +283,13 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
         profileIsClicked = true; 
         deliveryIsClicked = false;
         cardIsClicked = false;
+        setContent(accountCard);
     }//GEN-LAST:event_profilePanelMouseClicked
-
+        
+    
     private void cardPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cardPanelMouseClicked
         // TODO add your handling code here:
-        holderPanel = cardCard;
+        //holderPanel = cardCard;
         cardPanel.setBackground(blackStripe);
         profilePanel.setBackground(whiteStripe);
         deliveryPanel.setBackground(whiteStripe);
@@ -268,6 +297,7 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
         profileIsClicked = false; 
         deliveryIsClicked = false;
         cardIsClicked = true;
+        setContent(cardCard);
     }//GEN-LAST:event_cardPanelMouseClicked
 
     private void profilePanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profilePanelMouseEntered
@@ -312,10 +342,9 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_cardPanelMouseExited
 
-    private void saveButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_saveButtonMouseClicked
-        // TODO add your handling code here:
+    private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed
         performConfirmButton();
-    }//GEN-LAST:event_saveButtonMouseClicked
+    }//GEN-LAST:event_saveButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -326,6 +355,7 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
     private javax.swing.JLabel deliveryImage;
     private javax.swing.JLabel deliveryLabel;
     private javax.swing.JPanel deliveryPanel;
+    private javax.swing.JLabel feedbackLabel;
     private javax.swing.JPanel headerPanel;
     private javax.swing.JLabel headerText;
     private javax.swing.JPanel holderPanel;
