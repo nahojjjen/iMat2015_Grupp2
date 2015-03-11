@@ -110,7 +110,7 @@ public class PanelConfirm extends javax.swing.JPanel {
         jPanel3.setOpaque(false);
 
         cartViewer.setOpaque(false);
-        cartViewer.setLayout(new java.awt.GridLayout(0, 1));
+        cartViewer.setLayout(new javax.swing.BoxLayout(cartViewer, javax.swing.BoxLayout.Y_AXIS));
         jPanel3.add(cartViewer);
         jPanel3.add(jSeparator1);
 
