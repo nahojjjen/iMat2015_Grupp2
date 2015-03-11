@@ -17,18 +17,14 @@ import imat.panels.contentPanels.PanelDeliveryInfo;
  */
 public class PanelFillInInfo extends javax.swing.JPanel {
     private PanelInfoForm infoPanel;
+    private PanelCreditCard card =  new PanelCreditCard();
+    PanelDeliveryInfo delivery = new PanelDeliveryInfo();
+    
     /**
      * Creates new form PanelSelectPayment
      */
     public PanelFillInInfo() {
         initComponents();
-        //jLabel2.setVisible(false);
-        //jLabel3.setVisible(false);
-        //jTextField1.setVisible(false);
-        //jTextField2.setVisible(false);
-        
-        PanelCreditCard card = new PanelCreditCard();
-        PanelDeliveryInfo delivery = new PanelDeliveryInfo();
         card.setSize(500,300);
         delivery.setSize(500, 790);
         jPanel13.add(card);
@@ -48,12 +44,13 @@ public class PanelFillInInfo extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel7 = new javax.swing.JPanel();
-        jTextField8 = new javax.swing.JTextField();
+        tog4 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
-        jCheckBoxReg3 = new javax.swing.JCheckBox();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
-        jLabel10 = new javax.swing.JLabel();
+        regCheck = new javax.swing.JCheckBox();
+        tog2 = new javax.swing.JLabel();
+        tog3 = new javax.swing.JTextField();
+        tog1 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jPanel11 = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
         jPanel12 = new javax.swing.JPanel();
@@ -75,7 +72,7 @@ public class PanelFillInInfo extends javax.swing.JPanel {
         jPanel1.setOpaque(false);
         jPanel1.setPreferredSize(new java.awt.Dimension(500, 474));
 
-        jTextField8.setEnabled(false);
+        tog4.setEnabled(false);
 
         jButton4.setText("Bekräfta betalningsinfo");
         jButton4.setPreferredSize(new java.awt.Dimension(75, 25));
@@ -85,63 +82,81 @@ public class PanelFillInInfo extends javax.swing.JPanel {
             }
         });
 
-        jCheckBoxReg3.setText("Spara mina uppgifter");
-        jCheckBoxReg3.addItemListener(new java.awt.event.ItemListener() {
+        regCheck.setText("Spara mina uppgifter");
+        regCheck.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 jCheckBoxRegItemStateChanged(evt);
             }
         });
-        jCheckBoxReg3.addActionListener(new java.awt.event.ActionListener() {
+        regCheck.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jCheckBoxRegActionPerformed(evt);
             }
         });
 
-        jLabel9.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        jLabel9.setText("Repetera Lösenord");
-        jLabel9.setEnabled(false);
+        tog2.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        tog2.setText("Repetera Lösenord");
+        tog2.setEnabled(false);
 
-        jTextField7.setEnabled(false);
+        tog3.setEnabled(false);
 
-        jLabel10.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        jLabel10.setText("Välj Lösenord");
-        jLabel10.setEnabled(false);
+        tog1.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
+        tog1.setText("Välj Lösenord");
+        tog1.setEnabled(false);
+
+        jButton1.setText("Tillbaka");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed1(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel10)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(jPanel7Layout.createSequentialGroup()
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
-                .addComponent(jCheckBoxReg3)
+                .addContainerGap()
+                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 99, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(tog3, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tog1)
+                        .addGap(24, 24, 24))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addComponent(tog4, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tog2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(regCheck)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel7Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jCheckBoxReg3))
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(0, 7, Short.MAX_VALUE)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tog3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tog1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(tog4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tog2)
+                            .addComponent(regCheck)))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
         jPanel11.setLayout(new java.awt.BorderLayout());
+
+        jScrollPane2.setBorder(null);
 
         jPanel13.setLayout(new javax.swing.BoxLayout(jPanel13, javax.swing.BoxLayout.Y_AXIS));
         jPanel12.add(jPanel13);
@@ -155,7 +170,7 @@ public class PanelFillInInfo extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
@@ -163,9 +178,9 @@ public class PanelFillInInfo extends javax.swing.JPanel {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, 316, Short.MAX_VALUE)
+                .addComponent(jPanel11, javax.swing.GroupLayout.DEFAULT_SIZE, 391, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         add(jPanel1, java.awt.BorderLayout.CENTER);
@@ -190,7 +205,7 @@ public class PanelFillInInfo extends javax.swing.JPanel {
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 641, Short.MAX_VALUE)
+            .addGap(0, 620, Short.MAX_VALUE)
             .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel4Layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -213,12 +228,11 @@ public class PanelFillInInfo extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        IMat.getWindow().setContent(new ConfirmOrderInfo());
-        if (jCheckBoxReg.isSelected() == true){
-
-            if (jTextField1.getText().equals(jTextField2.getText())){
+        
+        if (regCheck.isSelected() == true){
+            if (tog2.getText().equals(tog4.getText()) && (card.isAllCorrect() && delivery.isAllCorrect())){
                 CustomerModel.setEmail(infoPanel.getMail());
-                CustomerModel.setPassword(jTextField1.getText());
+                CustomerModel.setPassword(tog2.getText());
                 CustomerModel.setAddress(infoPanel.getAddress());
                 CustomerModel.setFirstName(infoPanel.getFirstName());
                 CustomerModel.setLastName(infoPanel.getLastName());
@@ -231,70 +245,69 @@ public class PanelFillInInfo extends javax.swing.JPanel {
                 CustomerModel.setCardYear(infoPanel.getCardYear());
                 CustomerModel.setCardHolderName(infoPanel.getCardHolderName());
                 CustomerModel.setCardVerification(infoPanel.getCardVerification());
+                 finishOrder();
+                 IMat.getWindow().setContent(new ConfirmOrderInfo());
             }else{
-                System.out.println("password incorrect");
+                System.out.println("something wasnt filled in right");
             }
 
+        }else{
+             if ((card.isAllCorrect() && delivery.isAllCorrect())){
+                CustomerModel.setEmail(infoPanel.getMail());
+                CustomerModel.setAddress(infoPanel.getAddress());
+                CustomerModel.setFirstName(infoPanel.getFirstName());
+                CustomerModel.setLastName(infoPanel.getLastName());
+                CustomerModel.setPhoneNumber(infoPanel.getPhoneNumber());
+                CustomerModel.setPostAddress(infoPanel.getPostAddress());
+                CustomerModel.setPostCode(infoPanel.getPostCode());
+                CustomerModel.setCardType(infoPanel.getCardType());
+                CustomerModel.setCardNumber(infoPanel.getCardNumber());
+                CustomerModel.setCardMonth(infoPanel.getCardMonth());
+                CustomerModel.setCardYear(infoPanel.getCardYear());
+                CustomerModel.setCardHolderName(infoPanel.getCardHolderName());
+                CustomerModel.setCardVerification(infoPanel.getCardVerification());
+                 finishOrder();
+                 IMat.getWindow().setContent(new ConfirmOrderInfo());
+                }   
         }
-        finishOrder();
 
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton1ActionPerformed1(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed1
+        IMat.getWindow().setContent(new PanelConfirm());
+    }//GEN-LAST:event_jButton1ActionPerformed1
+
+    private void jCheckBoxRegItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBoxRegItemStateChanged
+        if(tog1.isEnabled() == false){
+            tog1.setEnabled(true);
+            tog2.setEnabled(true);
+            tog3.setEnabled(true);
+            tog4.setEnabled(true);
+        }else{
+            tog1.setEnabled(false);
+            tog2.setEnabled(false);
+            tog3.setEnabled(false);
+            tog4.setEnabled(false);
+        }
+    }//GEN-LAST:event_jCheckBoxRegItemStateChanged
 
     private void jCheckBoxRegActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBoxRegActionPerformed
 
     }//GEN-LAST:event_jCheckBoxRegActionPerformed
 
-    private void jCheckBoxRegItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jCheckBoxRegItemStateChanged
-        if(jLabel2.isEnabled() == false){
-            jLabel2.setEnabled(true);
-            jLabel3.setEnabled(true);
-            jTextField1.setEnabled(true);
-            jTextField2.setEnabled(true);
-            jLabel2.setVisible(true);
-            jLabel3.setVisible(true);
-            jTextField1.setVisible(true);
-            jTextField2.setVisible(true);
-        }else{
-            jLabel2.setEnabled(false);
-            jLabel3.setEnabled(false);
-            jTextField1.setEnabled(false);
-            jTextField2.setEnabled(false);
-            jLabel2.setVisible(false);
-            jLabel3.setVisible(false);
-            jTextField1.setVisible(false);
-            jTextField2.setVisible(false);
-        }
-
-    }//GEN-LAST:event_jCheckBoxRegItemStateChanged
-
 private void finishOrder() {
        if (!(Model.getShoppingcart().getItems().isEmpty()) && CustomerModel.isPaymentFilledIn()) {
-           IMat.getWindow().setContent(new PanelPurchaseConfirm(infoPanel.getFirstName(), infoPanel.getAddress(), infoPanel.getCardNumber(), (int) Model.getShoppingcart().getTotal()));
+           IMat.getWindow().setContent(new ConfirmOrderInfo());
         } else{
             System.out.println("theres nothing in the cart to buy! Something went wrong");
         }
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JCheckBox jCheckBoxReg;
-    private javax.swing.JCheckBox jCheckBoxReg1;
-    private javax.swing.JCheckBox jCheckBoxReg2;
-    private javax.swing.JCheckBox jCheckBoxReg3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
     private javax.swing.JPanel jPanel11;
     private javax.swing.JPanel jPanel12;
     private javax.swing.JPanel jPanel13;
@@ -302,17 +315,12 @@ private void finishOrder() {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
-    private javax.swing.JTextField jTextField5;
-    private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
+    private javax.swing.JCheckBox regCheck;
     private javax.swing.JScrollPane scroller;
+    private javax.swing.JLabel tog1;
+    private javax.swing.JLabel tog2;
+    private javax.swing.JTextField tog3;
+    private javax.swing.JTextField tog4;
     // End of variables declaration//GEN-END:variables
 }

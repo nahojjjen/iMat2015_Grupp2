@@ -6,6 +6,7 @@
 package imat.panels.contentPanels.buyingPanels;
 
 import imat.IMat;
+import imat.models.Model;
 import imat.panels.contentPanels.PanelCreditCard;
 import imat.panels.contentPanels.PanelDeliveryInfo;
 
@@ -16,17 +17,27 @@ import imat.panels.contentPanels.PanelDeliveryInfo;
 public class BuyForm extends javax.swing.JPanel {
         PanelCreditCard cardPanel = new PanelCreditCard();
         PanelDeliveryInfo deliveryPanel = new PanelDeliveryInfo();
+        private static boolean firstVisit = true;
     /**
      * Creates new form BuyForm
      */
     public BuyForm() {
         initComponents();
-        if(IMat.isLoggedin() == false){
+        
+        if(firstVisit && !IMat.isLoggedin()){
             clearPanels();
+            System.out.println("clearPanels");
         }
+        firstVisit = false;
         
         jPanel1.add(cardPanel);
         jPanel1.add(deliveryPanel);
+    }
+    public PanelCreditCard getCardPanel(){
+        return cardPanel;
+    }
+    public PanelDeliveryInfo getDeliveryPanel(){
+        return deliveryPanel;
     }
     public void clearPanels(){
         cardPanel.clearCardInfo();
