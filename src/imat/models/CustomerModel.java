@@ -286,8 +286,10 @@ public class CustomerModel {
 
     public static boolean cardNumberTest(String str) {
         String cardType = getCardType();
+        return (str.length() > 12);
+        /**
         return (cardType.equals("American Express") && str.length() == 15
-                || cardType.equals("VISA/MasterCard") && str.length() == 16);
+                || cardType.equals("VISA/MasterCard") && str.length() == 16);**/
     }
 
     public static boolean cardHolderNameTest(String str) {

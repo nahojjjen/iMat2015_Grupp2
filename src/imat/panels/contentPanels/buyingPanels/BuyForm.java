@@ -6,9 +6,9 @@
 package imat.panels.contentPanels.buyingPanels;
 
 import imat.IMat;
-import imat.models.Model;
 import imat.panels.contentPanels.PanelCreditCard;
 import imat.panels.contentPanels.PanelDeliveryInfo;
+import javax.swing.JLabel;
 
 /**
  *
@@ -31,6 +31,7 @@ public class BuyForm extends javax.swing.JPanel {
         firstVisit = false;
         
         jPanel1.add(cardPanel);
+        jPanel1.add(new JLabel(" "));
         jPanel1.add(deliveryPanel);
     }
     public PanelCreditCard getCardPanel(){

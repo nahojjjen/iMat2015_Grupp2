@@ -56,11 +56,11 @@ public class PanelAccountInfo extends javax.swing.JPanel {
 
         emailLabel.setText("E-post:");
         add(emailLabel);
-        emailLabel.setBounds(12, 13, 41, 16);
+        emailLabel.setBounds(12, 13, 90, 14);
 
         repeatEmailLabel.setText("Repetera e-post:");
         add(repeatEmailLabel);
-        repeatEmailLabel.setBounds(12, 68, 97, 16);
+        repeatEmailLabel.setBounds(12, 68, 210, 14);
 
         repeatEmailTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -72,11 +72,11 @@ public class PanelAccountInfo extends javax.swing.JPanel {
 
         newPasswordLabel.setText("Nytt lösenord:");
         add(newPasswordLabel);
-        newPasswordLabel.setBounds(12, 149, 80, 16);
+        newPasswordLabel.setBounds(12, 149, 120, 14);
 
         repeatPasswordLabel.setText("Repetera lösenord:");
         add(repeatPasswordLabel);
-        repeatPasswordLabel.setBounds(186, 149, 110, 16);
+        repeatPasswordLabel.setBounds(186, 149, 140, 14);
 
         newPasswordTextField.setToolTipText("Minst 4 tecken långt");
         newPasswordTextField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -98,7 +98,7 @@ public class PanelAccountInfo extends javax.swing.JPanel {
 
         passwordErrorLabel.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         add(passwordErrorLabel);
-        passwordErrorLabel.setBounds(12, 137, 334, 5);
+        passwordErrorLabel.setBounds(12, 132, 334, 20);
 
         emailOk.setToolTipText("Måste innehålla @ och . samt vara minst 7 tecken långt");
         add(emailOk);
@@ -157,7 +157,7 @@ public class PanelAccountInfo extends javax.swing.JPanel {
      * Saves both fields
      */
     public void save() {
-        CustomerModel.setPassword(newPasswordTextField.getText());
+        CustomerModel.setPassword(new String(newPasswordTextField.getPassword()));
         CustomerModel.setEmail(emailTextField.getText());
     }
 

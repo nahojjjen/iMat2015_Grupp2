@@ -7,6 +7,7 @@ package imat.panels.contentPanels.buyingPanels;
 
 import imat.IMat;
 import imat.models.CustomerModel;
+import imat.panels.contentPanels.PanelAccountInfo;
 import imat.panels.contentPanels.PanelCreditCard;
 import imat.panels.contentPanels.PanelDeliveryInfo;
 
@@ -18,6 +19,8 @@ public class PanelInfoFill extends javax.swing.JPanel {
 
     private PanelCreditCard card;
     private PanelDeliveryInfo delivery;
+    private boolean accEnabled = false;
+    private PanelAccountInfo acc = new PanelAccountInfo();
 
     /**
      * Creates new form PanelConfirm
@@ -33,6 +36,8 @@ public class PanelInfoFill extends javax.swing.JPanel {
         }
 
         cartViewer.add(buyPanel);
+        cartViewer.add(acc);
+        acc.setVisible(false);
 
     }
 
@@ -223,7 +228,8 @@ public class PanelInfoFill extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
 
-        if (jCheckBox1.isEnabled() && jTextField1.getText().equals(jTextField2.getText())) {
+        //if (jCheckBox1.isEnabled() && jTextField1.getText().equals(jTextField2.getText())) {
+          if (jCheckBox1.isEnabled() && acc.isPasswordCorrect() && acc.isEmailCorrect()) {
             IMat.setLoggedin(true);
             if (card.isAllCorrect() && delivery.isAllCorrect()) {
                 CustomerModel.setPassword(jTextField1.getText());
@@ -248,7 +254,10 @@ public class PanelInfoFill extends javax.swing.JPanel {
     }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-        if (jCheckBox1.isSelected() == true) {
+       accEnabled = !accEnabled;
+        acc.setVisible(accEnabled);
+       
+        /**if (jCheckBox1.isSelected() == true) {
             jLabel4.setEnabled(true);
             jLabel5.setEnabled(true);
             jTextField1.setEnabled(true);
@@ -258,7 +267,7 @@ public class PanelInfoFill extends javax.swing.JPanel {
             jLabel5.setEnabled(false);
             jTextField1.setEnabled(false);
             jTextField2.setEnabled(false);
-        }
+        }**/
     }//GEN-LAST:event_jCheckBox1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

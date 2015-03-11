@@ -55,8 +55,8 @@ public class PanelCreditCard extends javax.swing.JPanel {
         cardNumberOkLabel = new javax.swing.JLabel();
         holderNameOkLabel = new javax.swing.JLabel();
         secNumberOkLabel = new javax.swing.JLabel();
-        cardNumberTextField = new javax.swing.JFormattedTextField();
         cardHolderTextField = new javax.swing.JTextField();
+        cardNumberTextField = new javax.swing.JTextField();
 
         setMinimumSize(new java.awt.Dimension(485, 300));
         setOpaque(false);
@@ -116,17 +116,15 @@ public class PanelCreditCard extends javax.swing.JPanel {
 
         secNumberOkLabel.setToolTipText("Endast siffror");
 
-        cardNumberTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
-        cardNumberTextField.setToolTipText("Endast siffror");
-        cardNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                cardNumberTextFieldKeyReleased(evt);
-            }
-        });
-
         cardHolderTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 cardHolderTextFieldKeyPressed(evt);
+            }
+        });
+
+        cardNumberTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                cardNumberTextFieldKeyTyped(evt);
             }
         });
 
@@ -145,20 +143,6 @@ public class PanelCreditCard extends javax.swing.JPanel {
                             .addComponent(carNumberLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(cardNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(cardNumberOkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)
-                                .addComponent(digitsInCardNumberLabel))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(8, 8, 8)
-                                .addComponent(cardHolderTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(holderNameOkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(5, 5, 5)
-                                .addComponent(cardHolderReminderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
                                 .addGap(9, 9, 9)
                                 .addComponent(monthComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(9, 9, 9)
@@ -169,7 +153,22 @@ public class PanelCreditCard extends javax.swing.JPanel {
                                 .addGap(14, 14, 14)
                                 .addComponent(secNumberOkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(5, 5, 5)
-                                .addComponent(securityReminderLabel))))
+                                .addComponent(securityReminderLabel))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cardNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(cardNumberOkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(5, 5, 5)
+                                        .addComponent(digitsInCardNumberLabel))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(cardHolderTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(10, 10, 10)
+                                        .addComponent(holderNameOkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(5, 5, 5)
+                                        .addComponent(cardHolderReminderLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(58, 58, 58)
                         .addComponent(cardTypeLabel)
@@ -189,19 +188,21 @@ public class PanelCreditCard extends javax.swing.JPanel {
                         .addComponent(cardTypeLabel))
                     .addComponent(visaMasterRadioButton)
                     .addComponent(americanRadioButton))
-                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(carNumberLabel))
+                        .addGap(25, 25, 25)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(4, 4, 4)
+                                .addComponent(carNumberLabel))
+                            .addComponent(cardNumberOkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(digitsInCardNumberLabel))))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(1, 1, 1)
-                        .addComponent(cardNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(cardNumberOkLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(digitsInCardNumberLabel)))
-                .addGap(9, 9, 9)
+                        .addGap(18, 18, 18)
+                        .addComponent(cardNumberTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(15, 15, 15)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(1, 1, 1)
@@ -247,10 +248,6 @@ public class PanelCreditCard extends javax.swing.JPanel {
         setOkLabel(isCardNumberCorrect(), cardNumberOkLabel);
     }//GEN-LAST:event_americanRadioButtonActionPerformed
 
-    private void cardNumberTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cardNumberTextFieldKeyReleased
-        setOkLabel(isCardNumberCorrect(), cardNumberOkLabel);
-    }//GEN-LAST:event_cardNumberTextFieldKeyReleased
-
     private void securityNumberTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_securityNumberTextFieldKeyReleased
         setOkLabel(isSecNumberCorrect(), secNumberOkLabel);
     }//GEN-LAST:event_securityNumberTextFieldKeyReleased
@@ -258,6 +255,14 @@ public class PanelCreditCard extends javax.swing.JPanel {
     private void cardHolderTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cardHolderTextFieldKeyPressed
         setOkLabel(isCardHolderNameCorrect(), holderNameOkLabel);
     }//GEN-LAST:event_cardHolderTextFieldKeyPressed
+
+    private void cardNumberTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cardNumberTextFieldKeyTyped
+       if (CustomerModel.cardNumberTest(cardNumberTextField.getText())){
+           cardNumberOkLabel.setIcon(ok);
+       }else{
+           cardNumberOkLabel.setIcon(notOk);
+       }
+    }//GEN-LAST:event_cardNumberTextFieldKeyTyped
     private void setCardInfo() {
         
         cardHolderTextField.setText(CustomerModel.getCardHolderName());
@@ -381,7 +386,7 @@ public class PanelCreditCard extends javax.swing.JPanel {
     private javax.swing.JLabel cardHolderReminderLabel;
     private javax.swing.JTextField cardHolderTextField;
     private javax.swing.JLabel cardNumberOkLabel;
-    private javax.swing.JFormattedTextField cardNumberTextField;
+    private javax.swing.JTextField cardNumberTextField;
     private javax.swing.JLabel cardSecurityLabel;
     private javax.swing.ButtonGroup cardTypeButtonGroup;
     private javax.swing.JLabel cardTypeLabel;
