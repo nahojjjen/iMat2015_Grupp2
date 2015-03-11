@@ -42,7 +42,17 @@ public class PanelConfirm extends javax.swing.JPanel {
         totalPriceLabel.setText(String.valueOf((int) totPrice) + " kr");
     }
     public PanelConfirm() {
+        //List<Product> list = Model.getShoppingcart().getItems();
+         //products = list;
         initComponents();
+        ShoppingCart cart = Model.getShoppingcart();
+            List<ShoppingItem> cartList = cart.getItems();
+        for(ShoppingItem item :cartList){
+            cartViewer.add(new BoughtItem(item));
+        }
+        
+        this.setTotPrice(Model.getShoppingcart().getTotal());
+        
     }
 
     /**
