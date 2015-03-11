@@ -7,7 +7,9 @@ package imat.panels.subItems;
 
 import imat.IMat;
 import imat.models.ModelAux;
+import imat.panels.ProductDetailPopUp;
 import java.awt.Color;
+import javax.swing.JDialog;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
 /**
@@ -78,6 +80,11 @@ public class CartItem extends javax.swing.JPanel {
         amountInput.setBounds(10, 10, 50, 14);
 
         nameLabel.setText("Köttfärs");
+        nameLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nameLabelMouseClicked(evt);
+            }
+        });
         add(nameLabel);
         nameLabel.setBounds(60, 10, 90, 14);
 
@@ -102,6 +109,20 @@ public class CartItem extends javax.swing.JPanel {
     private void imageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageLabelMouseClicked
     pressedX();        // TODO add your handling code here:
     }//GEN-LAST:event_imageLabelMouseClicked
+
+    private void nameLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameLabelMouseClicked
+         JDialog popup = new JDialog(IMat.getWindow());
+        
+        int width = IMat.getWindow().getWidth();
+        int height =IMat.getWindow().getHeight();
+        popup.setLocation((width/2)-400, height/2 - 350);
+        popup.setUndecorated(true);
+          
+        popup.setSize(766, 850);
+      
+        popup.add(new ProductDetailPopUp(item.getProduct(), popup));
+        popup.setVisible(true);
+    }//GEN-LAST:event_nameLabelMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

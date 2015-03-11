@@ -10,6 +10,7 @@ import imat.models.Model;
 import imat.models.ModelAux;
 import imat.models.sorters.OrderByDateSort;
 import imat.panels.subItems.BoughtItem;
+import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
 import se.chalmers.ait.dat215.project.Order;
@@ -40,7 +41,6 @@ public class PanelLastCart extends javax.swing.JPanel {
         for (ShoppingItem item : items){
             holder.add(new BoughtItem(item));
         }
-        
         
     }
 

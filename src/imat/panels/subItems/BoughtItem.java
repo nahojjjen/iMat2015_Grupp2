@@ -5,11 +5,14 @@
  */
 package imat.panels.subItems;
 
+import imat.IMat;
 import imat.models.Model;
 import imat.models.ModelAux;
+import imat.panels.ProductDetailPopUp;
 import java.awt.Color;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 import imat.panels.contentPanels.buyingPanels.PanelConfirm;
+import javax.swing.JDialog;
 
 /**
  *
@@ -70,6 +73,12 @@ public class BoughtItem extends javax.swing.JPanel {
 
         jPanel1.setOpaque(false);
         jPanel1.setLayout(new java.awt.BorderLayout());
+
+        imageLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                imageLabelMouseClicked(evt);
+            }
+        });
         jPanel1.add(imageLabel, java.awt.BorderLayout.CENTER);
 
         jSplitPane1.setLeftComponent(jPanel1);
@@ -79,6 +88,11 @@ public class BoughtItem extends javax.swing.JPanel {
 
         nameLabel.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         nameLabel.setText("The name of the product bought");
+        nameLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                nameLabelMouseClicked(evt);
+            }
+        });
 
         jLabel3.setText("Total kostnad:");
 
@@ -125,6 +139,34 @@ public class BoughtItem extends javax.swing.JPanel {
 
         add(jSplitPane1, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void imageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageLabelMouseClicked
+        JDialog popup = new JDialog(IMat.getWindow());
+        
+        int width = IMat.getWindow().getWidth();
+        int height =IMat.getWindow().getHeight();
+        popup.setLocation((width/2)-400, height/2 - 350);
+        popup.setUndecorated(true);
+          
+        popup.setSize(766, 850);
+      
+        popup.add(new ProductDetailPopUp(thisItem.getProduct(), popup));
+        popup.setVisible(true);
+    }//GEN-LAST:event_imageLabelMouseClicked
+
+    private void nameLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameLabelMouseClicked
+         JDialog popup = new JDialog(IMat.getWindow());
+        
+        int width = IMat.getWindow().getWidth();
+        int height =IMat.getWindow().getHeight();
+        popup.setLocation((width/2)-400, height/2 - 350);
+        popup.setUndecorated(true);
+          
+        popup.setSize(766, 850);
+      
+        popup.add(new ProductDetailPopUp(thisItem.getProduct(), popup));
+        popup.setVisible(true);
+    }//GEN-LAST:event_nameLabelMouseClicked
 
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
