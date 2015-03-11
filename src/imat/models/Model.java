@@ -114,6 +114,15 @@ public class Model {
     public static List<Product> getAllFavorites() {
         return data.favorites();
     }
+    
+    /**
+     * get the current user
+     * @return user
+     */
+    public static User getUser(){
+        return data.getUser();
+        
+    }
 
     /**
      * remove the product from favorites.

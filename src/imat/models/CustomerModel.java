@@ -17,7 +17,7 @@ import se.chalmers.ait.dat215.project.User;
 public class CustomerModel {
 
     //User and customer instance
-    public static User user = new User();
+    public static User user = Model.getUser();
     public static Customer customer = data.getCustomer();
     public static CreditCard creditCard = data.getCreditCard();
 
@@ -40,9 +40,11 @@ public class CustomerModel {
         try {
             password = user.getPassword();
         } catch (NullPointerException e) {
+            System.out.println("couldnt get password from user");
         } finally {
             return password;
         }
+      
     }
 
     //todo

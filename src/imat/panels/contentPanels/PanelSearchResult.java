@@ -130,6 +130,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
      * @param category
      */
     public PanelSearchResult(ProductCategory category) {
+        initComponents();
         clearPreviousItems();
         List<Product> list = Model.doSearch("");
         List<Product> categoryList = Model.doSearch("dirtyhacksaredirty!!!");
@@ -139,7 +140,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
             }
         }
         products = categoryList;
-        initComponents();
+        
         card = (CardLayout) cardPanel.getLayout();
         fixScroll();
         loadResult(loadWay);
@@ -386,6 +387,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
         groupCheckbox.setSelected(grouped);
         groupCheckbox.setText("Gruppera kategorier");
+        groupCheckbox.setOpaque(false);
         groupCheckbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 groupCheckboxActionPerformed(evt);
@@ -434,9 +436,9 @@ public class PanelSearchResult extends javax.swing.JPanel {
             .addGroup(headerPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(searchLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(40, 40, 40)
                 .addComponent(groupCheckbox)
-                .addGap(46, 46, 46)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(detailsLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(listLabel)
@@ -450,21 +452,20 @@ public class PanelSearchResult extends javax.swing.JPanel {
         );
         headerPanelLayout.setVerticalGroup(
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(searchLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(headerPanelLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(groupCheckbox)
-                    .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(sortingCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel1)))
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(sortingCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1))
+                .addGap(0, 2, Short.MAX_VALUE))
+            .addComponent(searchLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerPanelLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(listLabel)
-                    .addComponent(detailsLabel)
-                    .addComponent(gridLabel)))
+                .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(groupCheckbox, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(listLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(detailsLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(gridLabel, javax.swing.GroupLayout.Alignment.TRAILING)))
         );
 
         add(headerPanel, java.awt.BorderLayout.PAGE_START);

@@ -5,14 +5,12 @@
  */
 package imat;
 
-import imat.models.CustomerModel;
 import imat.models.Model;
 import imat.panels.contentPanels.PanelAccountInfo;
 import imat.panels.contentPanels.PanelHome;
 import imat.panels.contentPanels.PanelNavigation2;
 import imat.panels.contentPanels.PanelSearchResult;
 import imat.panels.modulePanels.PanelCart;
-import imat.panels.modulePanels.PanelNavigation;
 import imat.panels.modulePanels.PanelSearch;
 import imat.panels.modulePanels.loginDefault;
 import java.awt.BorderLayout;
@@ -24,7 +22,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import javax.imageio.ImageIO;
-import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -33,7 +30,7 @@ import se.chalmers.ait.dat215.project.Product;
 
 /**
  *
- * @author Johan
+ * @author Johan Swanberg
  */
 public class MainWindow extends javax.swing.JFrame {
 
@@ -42,7 +39,7 @@ public class MainWindow extends javax.swing.JFrame {
     private ImageIcon logoH;
     private PanelCart cartModule = new PanelCart();
     /**
-     * Creates new form MainWindowdr
+     * Creates new form MainWindow
      */
     public MainWindow() {
         initComponents();
@@ -63,20 +60,29 @@ public class MainWindow extends javax.swing.JFrame {
         showSearch(Model.doSearch(""));
     }
 
-    
+    /**
+     * set the icon in the program decoration and tasbar 
+     */
     private void setIcons(){
         ImageIcon icon = new ImageIcon("src/resources/Icon.png");
         this.setIconImage(icon.getImage());
     }
+    
+    /**
+     * set the colors of the program to the defined palette, unused
+     */
     private void fixColors(){
         //header
         headerPanel.setBackground(IMat.getHeaderColor());
         bodyPanel.setBackground(IMat.getBackgroundColor());
         contentPanel.setBackground(IMat.getAverageColor());
-        
-        
     }
     
+    
+    /**
+     * removes and creates a new logged in panel in the upper right corner, 
+     * the panel changes depending on if the user is logged in or not
+     */
     public  void refreshLoggedin(){
         accountPanel.removeAll();
         accountPanel.setLayout(new BorderLayout());
@@ -84,12 +90,16 @@ public class MainWindow extends javax.swing.JFrame {
         
     }
     
+    /**
+     * removes and creates a new nav-box, used when expanding categories
+     */
     public void refreshNavBox(){
         navigationPanel.removeAll();
         navigationPanel.add(new PanelNavigation2());
         revalidate();
         repaint();
     }
+    
     /**
      * adds the logo in the upper left corner, and adds a mouse listener that
      * takes the user home if he presses the logo
@@ -112,7 +122,7 @@ public class MainWindow extends javax.swing.JFrame {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                IMat.getWindow().setContent("Home");
+                IMat.getWindow().setContent(new PanelHome());
             }
 
             @Override
@@ -137,7 +147,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     /**
-     * show the updated cart content
+     * show the updated cart content by removing and creating a new cart
      */
     public void refreshCart() {
         cartPanel.removeAll();
@@ -145,9 +155,14 @@ public class MainWindow extends javax.swing.JFrame {
         cartPanel.add(cartPanel);
     }
 
+    /**
+     * get the current cart module
+     * @return 
+     */
     public PanelCart getCart(){
         return cartModule;
     }
+    
     /**
      * add all the default start modules to the window when starting
      */
@@ -174,7 +189,7 @@ public class MainWindow extends javax.swing.JFrame {
     }
 
     /**
-     * set the contentpanel to show the searchresults
+     * set the contentpanel to show a searchresultpane with the specified items
      * @param input 
      */
     public void showSearch(List<Product> input) {
@@ -184,35 +199,13 @@ public class MainWindow extends javax.swing.JFrame {
         this.revalidate();
     }
     /**
-     * set the contentpanel to show the searchresults
+     * set the contentpanel to show a searchresultpane with the specified items, and changes the title
      * @param input 
      */
     public void showSearch(List<Product> input, String searchTerm) {
         contentPanel.setLayout(new BorderLayout());
         contentPanel.removeAll();
         contentPanel.add(new PanelSearchResult(input, searchTerm));
-        this.revalidate();
-    }
-    /**
-     * show a panel by name
-     *
-     * @param input
-     */
-    public void setContent(String input) {
-        contentPanel.setLayout(new BorderLayout());
-        contentPanel.removeAll();
-        switch (input) {
-            case ("Home"):
-                contentPanel.add(new PanelHome());
-                break;
-            case ("Profile"):
-                contentPanel.add(new PanelAccountInfo());
-                break;
-            case ("Debugg"):
-                contentPanel.add(new PanelSearchResult());
-                break;
-
-        }
         this.revalidate();
     }
     
@@ -264,7 +257,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         headerPanel.setBackground(new java.awt.Color(102, 153, 255));
         headerPanel.setMinimumSize(new java.awt.Dimension(100, 120));
-        headerPanel.setPreferredSize(new java.awt.Dimension(733, 80));
+        headerPanel.setPreferredSize(new java.awt.Dimension(733, 120));
         headerPanel.setLayout(new java.awt.BorderLayout());
 
         accountPanel.setBackground(new java.awt.Color(102, 153, 255));

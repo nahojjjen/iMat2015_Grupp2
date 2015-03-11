@@ -7,8 +7,6 @@ package imat;
 
 import imat.models.Model;
 import java.awt.Color;
-import java.util.List;
-import se.chalmers.ait.dat215.project.*;
 
 
 
@@ -41,18 +39,31 @@ public class IMat {
         
         Runtime.getRuntime().addShutdownHook(new Thread(new Runnable() {
                 public void run() {
-                    
                     Model.shutDown();
                 }
             }, "SaveOnShutDown"));
     }
+    
+    /**
+     * get the current running Mainwindow
+     * @return MainWindow currently running
+     */
     public static MainWindow getWindow(){
         return program;
     }
     
+    /**
+     * get whether the user has logged in or not
+     * @return true if user is logged in
+     */
     public static boolean isLoggedin(){
         return loggedIn;
     }
+    
+    /**
+     * log in or log out the user
+     * @param isLoggedin true if user logged in
+     */
     public static void setLoggedin(boolean isLoggedin){
         loggedIn = isLoggedin;
         program.refreshLoggedin();
@@ -64,8 +75,6 @@ public class IMat {
     public static Color getHeaderColor() {
         return headerColor;
     }
-
-
 
     /**
      * @return the backgroundColor

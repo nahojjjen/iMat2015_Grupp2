@@ -23,7 +23,7 @@ public class HeaderPanel extends JPanel{
 
     public HeaderPanel() {
          try {                
-          image = ImageIO.read(new File("src/resources/header.jpg"));
+          image = ImageIO.read(new File("src/resources/header5.jpg"));
        } catch (IOException ex) {
              System.out.println("cannot find header image");
        }

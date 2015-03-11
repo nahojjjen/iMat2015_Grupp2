@@ -17,6 +17,8 @@ import imat.models.navPanelActionListeners.GoToHome;
 import imat.models.navPanelActionListeners.GoToLastOrder;
 import imat.models.navPanelActionListeners.GoToProfile;
 import imat.models.navPanelActionListeners.GoToSearch;
+import imat.models.navPanelActionListeners.categories.GoToCategorySweets;
+import imat.models.navPanelActionListeners.categories.GoToFish;
 import imat.panels.contentPanels.AccountMixes.MyProfilePanel;
 import imat.panels.subItems.CustomButton;
 import javax.swing.ImageIcon;
@@ -102,8 +104,12 @@ public class PanelNavigation2 extends javax.swing.JPanel {
         
     private void addShowingCategoryButtons(){
         if (expanded) {
-            CustomButton btn11 = new CustomButton(tt1, tt2, test1, new Debug2());
-            CustomButton btn12 = new CustomButton(tt1, tt2, test1, new Debug2());
+            CustomButton btn11 = new CustomButton(tt1, tt2, test1, new GoToCategorySweets());
+            CustomButton btn12 = new CustomButton(tt1, tt2, test1, new GoToFish());
+            CustomButton btn13 = new CustomButton(tt1, tt2, test1, new Debug2());
+            CustomButton btn14 = new CustomButton(tt1, tt2, test1, new Debug2());
+            CustomButton btn15 = new CustomButton(tt1, tt2, test1, new Debug2());
+            CustomButton btn16 = new CustomButton(tt1, tt2, test1, new Debug2());
             holder.add(btn11);
             holder.add(btn12);
         }

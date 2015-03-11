@@ -147,7 +147,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(detailButton, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
+                        .addComponent(detailButton, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(buyButton))
                     .addGroup(layout.createSequentialGroup()
@@ -180,7 +180,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
                         .addComponent(clearCartLabel)
                         .addComponent(regretLabel)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 266, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(totalLabel)
                 .addGap(4, 4, 4)
@@ -209,7 +209,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
        for(ShoppingItem item:cartItems){
            cart.add(item.getProduct());
        }
-        IMat.getWindow().showSearch(cart);
+        IMat.getWindow().showSearch(cart, "Din nuvarande kundvagn");
     }//GEN-LAST:event_detailButtonActionPerformed
 
     private void clearCartLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearCartLabelMouseClicked

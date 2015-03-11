@@ -36,6 +36,8 @@ public class CustomButton extends javax.swing.JPanel {
         
     }
     
+     
+    
     private void setIcon(ImageIcon icon){
         thisButton.setIcon(icon);
     }
@@ -84,23 +86,19 @@ public class CustomButton extends javax.swing.JPanel {
 
     private void thisButtonMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thisButtonMousePressed
        
-        setIcon(pressed);// TODO add your handling code here:
-        System.out.println("button: pressed");
+        setIcon(pressed);
     }//GEN-LAST:event_thisButtonMousePressed
 
     private void thisButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thisButtonMouseReleased
-        setIcon(normal); // TODO add your handling code here:
-        System.out.println("button: released");
+        setIcon(normal); 
     }//GEN-LAST:event_thisButtonMouseReleased
 
     private void thisButtonMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thisButtonMouseExited
-        setIcon(normal);        // TODO add your handling code here:
-        System.out.println("button: exited");
+        setIcon(normal);      
     }//GEN-LAST:event_thisButtonMouseExited
 
     private void thisButtonMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thisButtonMouseEntered
-        setIcon(hover);        // TODO add your handling code here:
-        System.out.println("button: entered");
+        setIcon(hover);        
     }//GEN-LAST:event_thisButtonMouseEntered
 
     private void thisButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_thisButtonMouseClicked
