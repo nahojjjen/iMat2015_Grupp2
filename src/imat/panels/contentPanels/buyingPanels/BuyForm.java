@@ -24,15 +24,29 @@ public class BuyForm extends javax.swing.JPanel {
     public BuyForm() {
         initComponents();
         
+            System.out.println(firstVisit + " <- firstvisit");
+            System.out.println(IMat.isLoggedin() + " is logged in?");
         if(firstVisit && !IMat.isLoggedin()){
             clearPanels();
             System.out.println("clearPanels");
+        }else{
+            System.out.println("wont clear panels");
+            System.out.println(firstVisit + " <- firstvisit");
+            System.out.println(IMat.isLoggedin() + " is logged in?");
         }
-        firstVisit = false;
+        
         
         jPanel1.add(cardPanel);
         jPanel1.add(new JLabel(" "));
         jPanel1.add(deliveryPanel);
+      
+        
+            System.out.println(firstVisit + " <- firstvisit");
+            System.out.println(IMat.isLoggedin() + " is logged in?");
+    }
+    
+    public void setFirstVisit(boolean is){
+        firstVisit = is;
     }
     public PanelCreditCard getCardPanel(){
         return cardPanel;

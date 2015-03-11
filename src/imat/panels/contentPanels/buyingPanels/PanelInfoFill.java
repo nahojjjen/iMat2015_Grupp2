@@ -10,6 +10,7 @@ import imat.models.CustomerModel;
 import imat.panels.contentPanels.PanelAccountInfo;
 import imat.panels.contentPanels.PanelCreditCard;
 import imat.panels.contentPanels.PanelDeliveryInfo;
+import java.util.Locale;
 
 /**
  *
@@ -19,9 +20,9 @@ public class PanelInfoFill extends javax.swing.JPanel {
 
     private PanelCreditCard card;
     private PanelDeliveryInfo delivery;
-    private boolean accEnabled = false;
     private PanelAccountInfo acc = new PanelAccountInfo();
-
+    private BuyForm buyPanel = new BuyForm();
+    private boolean accVisible = false;
     /**
      * Creates new form PanelConfirm
      */
@@ -32,7 +33,7 @@ public class PanelInfoFill extends javax.swing.JPanel {
         card = buyPanel.getCardPanel();
         delivery = buyPanel.getDeliveryPanel();
         if(IMat.isLoggedin()){
-            jCheckBox1.setEnabled(false);
+            registerCheckbox.setEnabled(false);
         }
 
         cartViewer.add(buyPanel);
@@ -63,11 +64,7 @@ public class PanelInfoFill extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jSeparator2 = new javax.swing.JSeparator();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        registerCheckbox = new javax.swing.JCheckBox();
         jButton2 = new javax.swing.JButton();
 
         setMinimumSize(new java.awt.Dimension(500, 44));
@@ -131,28 +128,11 @@ public class PanelInfoFill extends javax.swing.JPanel {
             }
         });
 
-        jTextField1.setEnabled(false);
-
-        jTextField2.setEnabled(false);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        registerCheckbox.setFont(new java.awt.Font("Lucida Grande", 0, 11)); // NOI18N
+        registerCheckbox.setText("Spara mina uppgifter");
+        registerCheckbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-
-        jLabel4.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        jLabel4.setText("Välj lösenord");
-        jLabel4.setEnabled(false);
-
-        jLabel5.setFont(new java.awt.Font("Lucida Grande", 0, 10)); // NOI18N
-        jLabel5.setText("Repetera lösenord");
-        jLabel5.setEnabled(false);
-
-        jCheckBox1.setFont(new java.awt.Font("Lucida Grande", 0, 11)); // NOI18N
-        jCheckBox1.setText("Spara mina uppgifter");
-        jCheckBox1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jCheckBox1ActionPerformed(evt);
+                registerCheckboxActionPerformed(evt);
             }
         });
 
@@ -175,103 +155,73 @@ public class PanelInfoFill extends javax.swing.JPanel {
                     .addGroup(holderLayout.createSequentialGroup()
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(registerCheckbox, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(58, 58, 58)
                         .addGroup(holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, holderLayout.createSequentialGroup()
-                                .addGroup(holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel4))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel5))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, holderLayout.createSequentialGroup()
-                                .addComponent(jCheckBox1)
-                                .addGap(81, 81, 81)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(1, 1, 1)))
                 .addContainerGap())
         );
         holderLayout.setVerticalGroup(
             holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(holderLayout.createSequentialGroup()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 375, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 371, Short.MAX_VALUE)
                 .addGap(0, 0, 0)
                 .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(18, 18, 18)
                 .addGroup(holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, holderLayout.createSequentialGroup()
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap())
                     .addGroup(holderLayout.createSequentialGroup()
-                        .addGroup(holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(holderLayout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(holderLayout.createSequentialGroup()
-                                .addGroup(holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jCheckBox1)))
-                        .addGap(4, 4, 4))))
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(holderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(registerCheckbox, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap())
         );
 
         add(holder, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-
-        //if (jCheckBox1.isEnabled() && jTextField1.getText().equals(jTextField2.getText())) {
-          if (jCheckBox1.isEnabled() && acc.isPasswordCorrect() && acc.isEmailCorrect()) {
-            IMat.setLoggedin(true);
+          if (registerCheckbox.isSelected()&& acc.isBothPasswordCorrect()&& acc.isBothEmailCorrect()) {
             if (card.isAllCorrect() && delivery.isAllCorrect()) {
-                CustomerModel.setPassword(jTextField1.getText());
-                card.save();
-                delivery.save();
-                   
-                goToNext();
+                unloggedinCheckout();
+                buyPanel.setFirstVisit(false);
             }
-        } else if (jCheckBox1.isEnabled()==false){
+        } else if (registerCheckbox.isSelected()==false){
             if (card.isAllCorrect() && delivery.isAllCorrect()) {
-                card.save();
-                delivery.save();
-
-                goToNext();
+                loggedinCheckout();
+                buyPanel.setFirstVisit(false);
             }
         }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
-
-    private void jCheckBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCheckBox1ActionPerformed
-       accEnabled = !accEnabled;
-        acc.setVisible(accEnabled);
+    private void unloggedinCheckout(){
+         IMat.setLoggedin(true);
+          card.save();
+                delivery.save();
+                acc.save();
+                IMat.getWindow().refreshLoggedin();
+                goToNext();
+    }
+    
+    private void loggedinCheckout(){
+        card.save();
+        delivery.save();
+        goToNext();
+    }
+    private void registerCheckboxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerCheckboxActionPerformed
+         
+        acc.setVisible(registerCheckbox.isSelected());
        
-        /**if (jCheckBox1.isSelected() == true) {
-            jLabel4.setEnabled(true);
-            jLabel5.setEnabled(true);
-            jTextField1.setEnabled(true);
-            jTextField2.setEnabled(true);
-        } else {
-            jLabel4.setEnabled(false);
-            jLabel5.setEnabled(false);
-            jTextField1.setEnabled(false);
-            jTextField2.setEnabled(false);
-        }**/
-    }//GEN-LAST:event_jCheckBox1ActionPerformed
+    }//GEN-LAST:event_registerCheckboxActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         IMat.getWindow().setContent(new PanelConfirm());
+        buyPanel.setFirstVisit(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void goToNext() {
@@ -284,12 +234,9 @@ public class PanelInfoFill extends javax.swing.JPanel {
     private javax.swing.JPanel holder;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -297,7 +244,6 @@ public class PanelInfoFill extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JCheckBox registerCheckbox;
     // End of variables declaration//GEN-END:variables
 }

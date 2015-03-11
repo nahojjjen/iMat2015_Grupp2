@@ -108,7 +108,7 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
 
         careOfLabel.setText("C/O:");
         jPanel1.add(careOfLabel);
-        careOfLabel.setBounds(224, 76, 23, 14);
+        careOfLabel.setBounds(224, 76, 50, 14);
 
         addressTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -124,11 +124,11 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
 
         postCodeLabel.setText("Postnummer:");
         jPanel1.add(postCodeLabel);
-        postCodeLabel.setBounds(21, 139, 63, 14);
+        postCodeLabel.setBounds(21, 139, 190, 14);
 
         postAddressLabel.setText("Postort:");
         jPanel1.add(postAddressLabel);
-        postAddressLabel.setBounds(224, 139, 39, 14);
+        postAddressLabel.setBounds(224, 139, 120, 14);
 
         postAddressTextField.setToolTipText("Endast bokstäverna A-Z");
         postAddressTextField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -141,7 +141,7 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
 
         phoneNumberLabel.setText("Telefon:");
         jPanel1.add(phoneNumberLabel);
-        phoneNumberLabel.setBounds(21, 208, 40, 14);
+        phoneNumberLabel.setBounds(21, 208, 130, 14);
 
         postCodeTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         postCodeTextField.setToolTipText("5 sifror");
@@ -176,7 +176,7 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
 
         mobileNumberLabel.setText("Mobil:");
         jPanel1.add(mobileNumberLabel);
-        mobileNumberLabel.setBounds(224, 208, 28, 14);
+        mobileNumberLabel.setBounds(224, 208, 60, 14);
 
         infoTextLabel.setText("Övrig information:");
         jPanel1.add(infoTextLabel);
@@ -185,7 +185,7 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         infoTipTextAreaLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         infoTipTextAreaLabel.setText("T.ex portkod eller vånings-/lägenhetsnummer");
         jPanel1.add(infoTipTextAreaLabel);
-        infoTipTextAreaLabel.setBounds(147, 274, 210, 13);
+        infoTipTextAreaLabel.setBounds(147, 274, 280, 13);
 
         lastNameOk.setToolTipText("Endast bokstäverna A-Z");
         jPanel1.add(lastNameOk);
