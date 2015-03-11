@@ -67,6 +67,11 @@ public class PanelNavigation2 extends javax.swing.JPanel {
     private ImageIcon faqh = new ImageIcon("src/resources/navButtons/faqh.png");
     private ImageIcon faqp = new ImageIcon("src/resources/navButtons/faqp.png");
     
+     private ImageIcon showAll = new ImageIcon("src/resources/navButtons/showall.jpg");
+    private ImageIcon showAllH = new ImageIcon("src/resources/navButtons/showallH.jpg");
+    private ImageIcon showAllP = new ImageIcon("src/resources/navButtons/showallP.jpg");
+    
+    
     /**
      * Creates new form PanelNavigation2
      */
@@ -92,12 +97,12 @@ public class PanelNavigation2 extends javax.swing.JPanel {
     }
         private void addStaticButtons1(){
          CustomButton homebutton = new CustomButton(home, homeH, homeP, new GoToHome());
-        //CustomButton searchButton = new CustomButton(search, searchH, searchP, new GoToSearch());
+        CustomButton showAllButton = new CustomButton(showAll, showAllH, showAllP, new GoToSearch());
         CustomButton categoryButton = new CustomButton(category, categoryH, categoryP, new ExpandCategories());
         
         
         holder.add(homebutton);
-        //holder.add(searchButton);
+        holder.add(showAllButton);
         holder.add(categoryButton);
     }
         

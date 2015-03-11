@@ -84,6 +84,7 @@ public class PanelSearch extends javax.swing.JPanel {
 
     private void SearchInputKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_SearchInputKeyReleased
        List<Product> results =  Model.doSearch(SearchInput.getText());
+       
        IMat.getWindow().showSearch(results, SearchInput.getText());
     }//GEN-LAST:event_SearchInputKeyReleased
 
