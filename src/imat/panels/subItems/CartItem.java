@@ -6,7 +6,6 @@
 package imat.panels.subItems;
 
 import imat.IMat;
-import imat.models.Model;
 import imat.models.ModelAux;
 import java.awt.Color;
 import se.chalmers.ait.dat215.project.ShoppingItem;
@@ -17,8 +16,6 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  */
 public class CartItem extends javax.swing.JPanel {
     private static boolean zebra = true;
-    
-
     private ShoppingItem item;
     /**
      * Creates new form cartItem
@@ -29,6 +26,7 @@ public class CartItem extends javax.swing.JPanel {
     
       /**
      * Creates new form cartItem
+     * @param item a shoppingitem
      */
     public CartItem(ShoppingItem item) {
         initComponents();
@@ -50,6 +48,11 @@ public class CartItem extends javax.swing.JPanel {
         }
     }
 
+
+    private void pressedX() {
+      ModelAux.removeAllOfProductFromCart(item);
+    }
+
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -62,8 +65,9 @@ public class CartItem extends javax.swing.JPanel {
 
         amountInput = new javax.swing.JLabel();
         nameLabel = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        imageLabel = new javax.swing.JLabel();
         priceLabel = new javax.swing.JLabel();
+        regretLabel = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         setMaximumSize(new java.awt.Dimension(30, 100));
@@ -77,31 +81,34 @@ public class CartItem extends javax.swing.JPanel {
         add(nameLabel);
         nameLabel.setBounds(60, 10, 90, 14);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/removeIcon.png"))); // NOI18N
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        imageLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/removeIcon.png"))); // NOI18N
+        imageLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                imageLabelMouseClicked(evt);
             }
         });
-        add(jLabel1);
-        jLabel1.setBounds(180, 0, 20, 30);
+        add(imageLabel);
+        imageLabel.setBounds(180, 0, 20, 30);
 
         priceLabel.setForeground(new java.awt.Color(102, 102, 102));
         priceLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         priceLabel.setText("13kr");
         add(priceLabel);
         priceLabel.setBounds(120, 10, 50, 14);
+        add(regretLabel);
+        regretLabel.setBounds(110, 10, 0, 0);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-    ModelAux.removeAllOfProductFromCart(item);        // TODO add your handling code here:
-    }//GEN-LAST:event_jLabel1MouseClicked
+    private void imageLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_imageLabelMouseClicked
+    pressedX();        // TODO add your handling code here:
+    }//GEN-LAST:event_imageLabelMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel amountInput;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel imageLabel;
     private javax.swing.JLabel nameLabel;
     private javax.swing.JLabel priceLabel;
+    private javax.swing.JLabel regretLabel;
     // End of variables declaration//GEN-END:variables
 }

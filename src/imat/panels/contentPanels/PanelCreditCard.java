@@ -277,8 +277,20 @@ public class PanelCreditCard extends javax.swing.JPanel {
         }
         
     }
+    public void clearCardInfo() {
+        
+        cardHolderTextField.setText("");
+        securityNumberTextField.setText("");
+        monthComboBox.setSelectedIndex(0);
+        yearComboBox.setSelectedIndex(0);
+        cardTypeButtonGroup.add(americanRadioButton);
+        cardTypeButtonGroup.add(visaMasterRadioButton);
+        //setSelectedCardType(CustomerModel.getCardType());
+        cardNumberTextField.setText("");
+        
+    }
 
-    private void setLabels() {
+    public void setLabels() {
         setOkLabel(isCardNumberCorrect(), cardNumberOkLabel);
         setOkLabel(isCardHolderNameCorrect(), holderNameOkLabel);
         setOkLabel(isSecNumberCorrect(), secNumberOkLabel);

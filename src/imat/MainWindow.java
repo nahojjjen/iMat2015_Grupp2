@@ -40,6 +40,7 @@ public class MainWindow extends javax.swing.JFrame {
     private  JLabel imageLabel;
     private ImageIcon logo;
     private ImageIcon logoH;
+    private PanelCart cartModule = new PanelCart();
     /**
      * Creates new form MainWindowdr
      */
@@ -51,9 +52,6 @@ public class MainWindow extends javax.swing.JFrame {
         fixColors();
         setIcons();
         this.setTitle("iMat");
-        System.out.println(CustomerModel.getUser());
-        System.out.println(CustomerModel.getEmail());
-        System.out.println(CustomerModel.getPassword());
 
     }
     
@@ -144,9 +142,12 @@ public class MainWindow extends javax.swing.JFrame {
     public void refreshCart() {
         cartPanel.removeAll();
         cartPanel.setLayout(new BorderLayout());
-        cartPanel.add(new PanelCart());
+        cartPanel.add(cartPanel);
     }
 
+    public PanelCart getCart(){
+        return cartModule;
+    }
     /**
      * add all the default start modules to the window when starting
      */
@@ -158,7 +159,7 @@ public class MainWindow extends javax.swing.JFrame {
         searchPanel.add(new PanelSearch());
 
         cartPanel.setLayout(new java.awt.BorderLayout());
-        cartPanel.add(new PanelCart());
+        cartPanel.add(cartModule);
 
         logoPanel.setLayout(new GridLayout());
 

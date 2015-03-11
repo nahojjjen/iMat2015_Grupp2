@@ -412,7 +412,7 @@ public class ConfirmOrderInfo extends javax.swing.JPanel {
              if (IMat.isLoggedin()){
             IMat.getWindow().setContent(new PanelSelectPayment());
         } else{
-            IMat.getWindow().setContent(new PanelFillInInfo());
+            IMat.getWindow().setContent(new PanelInfoFill());
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 

@@ -10,16 +10,15 @@ import imat.models.Model;
 import imat.models.ModelAux;
 import imat.panels.contentPanels.buyingPanels.PanelConfirm;
 import imat.panels.subItems.CartItem;
-import imat.panels.subItems.FillerItem;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import se.chalmers.ait.dat215.project.CartEvent;
 import se.chalmers.ait.dat215.project.Product;
-import se.chalmers.ait.dat215.project.ShoppingCart;
 import se.chalmers.ait.dat215.project.ShoppingCartListener;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -47,6 +46,10 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         this.setBackground(IMat.getAverageColor());
         
     }
+    
+    public JPanel getContentPanel(){
+        return contentPanel;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -62,7 +65,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         filler = new javax.swing.JPanel();
         totalLabel = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
+        contentPanel = new javax.swing.JPanel();
         cartContent = new javax.swing.JPanel();
         clearCartLabel = new javax.swing.JLabel();
         regretLabel = new javax.swing.JLabel();
@@ -115,9 +118,9 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
             .addGap(0, 100, Short.MAX_VALUE)
         );
 
-        jPanel1.add(cartContent);
+        contentPanel.add(cartContent);
 
-        jScrollPane2.setViewportView(jPanel1);
+        jScrollPane2.setViewportView(contentPanel);
 
         clearCartLabel.setForeground(new java.awt.Color(51, 102, 255));
         clearCartLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
@@ -156,7 +159,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
                         .addComponent(clearCartLabel))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(filler, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(filler, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -217,11 +220,7 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         for (ShoppingItem sci:currentCart){
             previousCart.add(sci);
         }
-        
-        System.out.println(previousCart + "what is in previouscart step 1");
-        
         Model.getShoppingcart().clear();
-           System.out.println(previousCart + "what is in previouscart step 1");
         regretLabel.setVisible(true);
         }
     }//GEN-LAST:event_clearCartLabelMouseClicked
@@ -236,10 +235,10 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
     private javax.swing.JButton buyButton;
     private javax.swing.JPanel cartContent;
     private javax.swing.JLabel clearCartLabel;
+    private javax.swing.JPanel contentPanel;
     private javax.swing.JButton detailButton;
     private javax.swing.JPanel filler;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel regretLabel;
     private javax.swing.JLabel totalLabel;
@@ -264,7 +263,6 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
             CartItem adder = new CartItem(item);
             cartContent.add(adder);
         }
-        
         double price = Model.getShoppingcart().getTotal();
         totalLabel.setText("Total: " + String.valueOf((int)price) + " kr");
         

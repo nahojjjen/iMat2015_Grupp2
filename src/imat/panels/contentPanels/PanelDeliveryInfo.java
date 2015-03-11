@@ -252,7 +252,7 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
     private void phoneNumberTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_phoneNumberTextFieldKeyReleased
         setOkLabel(isPhoneNumberCorrect(), phoneOk);
     }//GEN-LAST:event_phoneNumberTextFieldKeyReleased
-    private void setLabels() {
+    public void setLabels() {
         setOkLabel(isFirstNameCorrect(), firstNameOk);
         setOkLabel(isLastNameCorrect(), lastNameOk);
         setOkLabel(isAddressCorrect(), addressOk);
@@ -268,6 +268,14 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         postCodeTextField.setText(CustomerModel.getPostCode());
         postAddressTextField.setText(CustomerModel.getPostAddress());
         phoneNumberTextField.setText(CustomerModel.getPhoneNumber());
+    }
+    public void clearTextFields() {
+        firstNameTextField.setText("");
+        lastNameTextField.setText("");
+        addressTextField.setText("");
+        postCodeTextField.setText("");
+        postAddressTextField.setText("");
+        phoneNumberTextField.setText("");
     }
 
     public void save() {

@@ -8,6 +8,7 @@ package imat.panels.modulePanels;
 import imat.models.CustomerModel;
 import imat.IMat;
 import imat.panels.contentPanels.AccountMixes.MyProfilePanel;
+import imat.panels.contentPanels.AccountMixes.MyProfilePanelHolder;
 import imat.panels.contentPanels.AccountMixes.RegisterPanel;
 import java.awt.Color;
 import javax.swing.ImageIcon;
@@ -222,7 +223,7 @@ public class loginDefault extends javax.swing.JPanel {
         if(!IMat.isLoggedin()){
             IMat.getWindow().setContent(new RegisterPanel());
         }else{
-            IMat.getWindow().setContent(new MyProfilePanel());
+            IMat.getWindow().setContent(new MyProfilePanelHolder());
         }
     }//GEN-LAST:event_joinButtonMouseClicked
 

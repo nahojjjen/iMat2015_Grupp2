@@ -110,7 +110,7 @@ public class PanelConfirm extends javax.swing.JPanel {
         jPanel3.setOpaque(false);
 
         cartViewer.setOpaque(false);
-        cartViewer.setLayout(new java.awt.GridLayout(0, 1));
+        cartViewer.setLayout(new javax.swing.BoxLayout(cartViewer, javax.swing.BoxLayout.Y_AXIS));
         jPanel3.add(cartViewer);
         jPanel3.add(jSeparator1);
 
@@ -193,12 +193,8 @@ public class PanelConfirm extends javax.swing.JPanel {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void goToNext(){
+        IMat.getWindow().setContent(new PanelInfoFill());
         
-        if (IMat.isLoggedin()){
-            IMat.getWindow().setContent(new PanelSelectPayment());
-        } else{
-            IMat.getWindow().setContent(new PanelInfoFill());
-        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

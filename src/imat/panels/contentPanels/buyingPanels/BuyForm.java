@@ -5,6 +5,7 @@
  */
 package imat.panels.contentPanels.buyingPanels;
 
+import imat.IMat;
 import imat.panels.contentPanels.PanelCreditCard;
 import imat.panels.contentPanels.PanelDeliveryInfo;
 
@@ -13,16 +14,26 @@ import imat.panels.contentPanels.PanelDeliveryInfo;
  * @author filiplarsson
  */
 public class BuyForm extends javax.swing.JPanel {
-
+        PanelCreditCard cardPanel = new PanelCreditCard();
+        PanelDeliveryInfo deliveryPanel = new PanelDeliveryInfo();
     /**
      * Creates new form BuyForm
      */
     public BuyForm() {
         initComponents();
-        jPanel1.add(new PanelCreditCard());
-        jPanel1.add(new PanelDeliveryInfo());
+        if(IMat.isLoggedin() == false){
+            clearPanels();
+        }
+        
+        jPanel1.add(cardPanel);
+        jPanel1.add(deliveryPanel);
     }
-
+    public void clearPanels(){
+        cardPanel.clearCardInfo();
+        deliveryPanel.clearTextFields();
+        cardPanel.setLabels();
+        deliveryPanel.setLabels();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

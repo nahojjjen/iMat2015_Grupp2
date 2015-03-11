@@ -14,6 +14,7 @@ import imat.models.navPanelActionListeners.GoToFaq;
 import imat.models.navPanelActionListeners.GoToFavorites;
 import imat.models.navPanelActionListeners.GoToHistory;
 import imat.models.navPanelActionListeners.GoToHome;
+import imat.models.navPanelActionListeners.GoToLastOrder;
 import imat.models.navPanelActionListeners.GoToProfile;
 import imat.models.navPanelActionListeners.GoToSearch;
 import imat.panels.contentPanels.AccountMixes.MyProfilePanel;
@@ -89,12 +90,12 @@ public class PanelNavigation2 extends javax.swing.JPanel {
     }
         private void addStaticButtons1(){
          CustomButton homebutton = new CustomButton(home, homeH, homeP, new GoToHome());
-        CustomButton searchButton = new CustomButton(search, searchH, searchP, new GoToSearch());
+        //CustomButton searchButton = new CustomButton(search, searchH, searchP, new GoToSearch());
         CustomButton categoryButton = new CustomButton(category, categoryH, categoryP, new ExpandCategories());
         
         
         holder.add(homebutton);
-        holder.add(searchButton);
+        //holder.add(searchButton);
         holder.add(categoryButton);
     }
         
@@ -112,12 +113,14 @@ public class PanelNavigation2 extends javax.swing.JPanel {
     private void addStaticButtons2(){
          CustomButton favoritesButton = new CustomButton(favorites, favoritesH, favoritesP, new GoToFavorites());
          CustomButton profileButton = new CustomButton(profile, profileH, profileP, new GoToProfile());
+         CustomButton lastOrderButton = new CustomButton(tt1,tt1,tt1,new GoToLastOrder());
         CustomButton historyButton = new CustomButton(earlier, earlierH, earlierP, new GoToHistory());
         CustomButton faqButton = new CustomButton(faq, faqh, faqp, new GoToFaq());
        
         holder.add(historyButton);  
         holder.add(favoritesButton);
         holder.add(profileButton);
+        holder.add(lastOrderButton);
         holder.add(faqButton);
         
     }
