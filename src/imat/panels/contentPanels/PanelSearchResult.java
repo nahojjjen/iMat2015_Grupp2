@@ -191,10 +191,8 @@ public class PanelSearchResult extends javax.swing.JPanel {
      */
     private void showListResults(List<Product> products) {
         clearPreviousItems();
-        listView.setLayout(new GridLayout(products.size(), 1));
+        listView.setLayout(new GridLayout(0, 1));
         int height = products.size() * 50;
-        Dimension dim = new Dimension(500, height);
-        listView.setPreferredSize(dim);
         for (Product product : products) {
             listView.add(new ListItem(product));
         }
@@ -281,6 +279,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
      */
     private void loadResult(int i) {
         sortProductList();
+        i = loadWay;
         if (products.size() > 0) {
             switch (i) {
                 case (0):
@@ -314,6 +313,8 @@ public class PanelSearchResult extends javax.swing.JPanel {
             revalidate();
             repaint();
         }
+        revalidate();
+        repaint();
     }
 
     private void sortProductList(){

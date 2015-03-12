@@ -26,6 +26,7 @@ public class CartHistory extends javax.swing.JPanel {
     private Color zebra1 = new Color(245,245,245);
     private Color zebra2 = new Color(250,250,250);
     private Order order;
+    private boolean buzy = false;
     private static boolean zebra = false;
     /**
      * Creates new form CartHistory
@@ -253,9 +254,15 @@ public class CartHistory extends javax.swing.JPanel {
     }
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        List <ShoppingItem> items = order.getItems();
-       for(ShoppingItem item:items){
-           ModelAux.add(item);
+       if(buzy == false){
+           buzy = true;
+            for(ShoppingItem item:items){
+                ModelAux.add(item);
+            }    
+       buzy = false;
        }
+       
+       
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveButtonActionPerformed

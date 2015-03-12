@@ -12,6 +12,7 @@ import imat.panels.contentPanels.PanelAccountInfo;
 import imat.panels.contentPanels.PanelEarlierCarts;
 import imat.panels.contentPanels.PanelFAQ;
 import imat.panels.contentPanels.PanelHome;
+import imat.panels.contentPanels.PanelLastCart;
 import imat.panels.contentPanels.PanelSearchResult;
 import se.chalmers.ait.dat215.project.ProductCategory;
 
@@ -64,6 +65,11 @@ public class loggedInHome extends javax.swing.JPanel {
         jPanel2.setLayout(new java.awt.BorderLayout());
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/homeButtons/currentorder.jpg"))); // NOI18N
+        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel7MouseClicked(evt);
+            }
+        });
         jPanel2.add(jLabel7, java.awt.BorderLayout.CENTER);
 
         holder.add(jPanel2);
@@ -151,6 +157,10 @@ public class loggedInHome extends javax.swing.JPanel {
     private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
         IMat.getWindow().setContent(new PanelSearchResult("a"));// TODO add your handling code here:
     }//GEN-LAST:event_jLabel12MouseClicked
+
+    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+        IMat.getWindow().setContent(new PanelLastCart());
+    }//GEN-LAST:event_jLabel7MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

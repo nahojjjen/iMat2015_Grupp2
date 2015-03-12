@@ -13,11 +13,11 @@ import imat.panels.contentPanels.PanelSearchResult;
  *
  * @author Johan Swanberg
  */
-public class GoToSearch implements ActionCommand{
+public class GoToShowAll implements ActionCommand{
 
     @Override
     public void doCommand() {
-        IMat.getWindow().setContent(new PanelSearchResult(Model.doSearch("")));
+        IMat.getWindow().setContent(new PanelSearchResult(Model.doSearch(""), "Alla produkter"));
     }
     
 }

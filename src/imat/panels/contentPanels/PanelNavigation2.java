@@ -16,7 +16,7 @@ import imat.models.navPanelActionListeners.GoToHistory;
 import imat.models.navPanelActionListeners.GoToHome;
 import imat.models.navPanelActionListeners.GoToLastOrder;
 import imat.models.navPanelActionListeners.GoToProfile;
-import imat.models.navPanelActionListeners.GoToSearch;
+import imat.models.navPanelActionListeners.GoToShowAll;
 import imat.models.navPanelActionListeners.categories.GoToCategorySweets;
 import imat.models.navPanelActionListeners.categories.GoToFish;
 import imat.panels.contentPanels.AccountMixes.MyProfilePanel;
@@ -97,7 +97,7 @@ public class PanelNavigation2 extends javax.swing.JPanel {
     }
         private void addStaticButtons1(){
          CustomButton homebutton = new CustomButton(home, homeH, homeP, new GoToHome());
-        CustomButton showAllButton = new CustomButton(showAll, showAllH, showAllP, new GoToSearch());
+        CustomButton showAllButton = new CustomButton(showAll, showAllH, showAllP, new GoToShowAll());
         CustomButton categoryButton = new CustomButton(category, categoryH, categoryP, new ExpandCategories());
         
         

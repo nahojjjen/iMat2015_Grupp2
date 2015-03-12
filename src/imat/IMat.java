@@ -7,6 +7,7 @@ package imat;
 
 import imat.models.Model;
 import java.awt.Color;
+import se.chalmers.ait.dat215.project.IMatDataHandler;
 
 
 
@@ -32,7 +33,6 @@ public class IMat {
      * @param args unused
      */
     public static void main(String[] args) {
-
      //Starts the program
         program = new MainWindow();
         program.setVisible(true);  
