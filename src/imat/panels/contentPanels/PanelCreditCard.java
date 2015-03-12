@@ -264,7 +264,7 @@ public class PanelCreditCard extends javax.swing.JPanel {
     private void setCardInfo() {
         
         cardHolderTextField.setText(CustomerModel.getCardHolderName());
-        securityNumberTextField.setText("" + CustomerModel.getCardVerification());
+        //securityNumberTextField.setText("" + CustomerModel.getCardVerification());
         monthComboBox.setSelectedIndex(CustomerModel.getCardMonth());
         yearComboBox.setSelectedIndex(CustomerModel.getCardYear());
         cardTypeButtonGroup.add(americanRadioButton);
@@ -274,10 +274,10 @@ public class PanelCreditCard extends javax.swing.JPanel {
         if(Integer.toString(CustomerModel.getCardVerification()).length() == 3) {
             tempRealSecNbr = Integer.toString(CustomerModel.getCardVerification());
             try{
-                tempFakeSecNbr = "**" + tempRealSecNbr.substring(3);
+                tempFakeSecNbr = "**" + tempRealSecNbr.substring(2);
             }catch(StringIndexOutOfBoundsException e){                
             }
-            cardNumberTextField.setText(tempFakeSecNbr);
+            securityNumberTextField.setText(tempFakeSecNbr);
         }        
         if(CustomerModel.getCardNumber().length() > 14){
             tempRealCardNbr = CustomerModel.getCardNumber();
