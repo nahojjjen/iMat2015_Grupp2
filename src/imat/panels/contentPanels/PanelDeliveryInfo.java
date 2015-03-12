@@ -25,6 +25,10 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         initComponents();
         setTextFields();
         setLabels();
+        
+        //careOfTextField.setVisible(false);
+      //  jLabel2.setVisible(false);
+       // careOfLabel.setVisible(false);
     }
 
     /**
@@ -42,9 +46,7 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         firstNameTextField = new javax.swing.JTextField();
         lastNameTextField = new javax.swing.JTextField();
         addressLabel = new javax.swing.JLabel();
-        careOfLabel = new javax.swing.JLabel();
         addressTextField = new javax.swing.JTextField();
-        careOfTextField = new javax.swing.JTextField();
         postCodeLabel = new javax.swing.JLabel();
         postAddressLabel = new javax.swing.JLabel();
         postAddressTextField = new javax.swing.JTextField();
@@ -66,7 +68,6 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         postCodeOk = new javax.swing.JLabel();
         phoneOk = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
 
         setMinimumSize(new java.awt.Dimension(490, 440));
         setOpaque(false);
@@ -77,11 +78,11 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
 
         firstNameLabel.setText("Förnamn:");
         jPanel1.add(firstNameLabel);
-        firstNameLabel.setBounds(21, 13, 160, 14);
+        firstNameLabel.setBounds(21, 13, 160, 16);
 
         lastNameLabel.setText("Efternamn:");
         jPanel1.add(lastNameLabel);
-        lastNameLabel.setBounds(224, 13, 170, 14);
+        lastNameLabel.setBounds(224, 13, 170, 16);
 
         firstNameTextField.setToolTipText("Endast A-Z tillåtet");
         firstNameTextField.setAutoscrolls(false);
@@ -104,11 +105,7 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
 
         addressLabel.setText("Gaturadress:");
         jPanel1.add(addressLabel);
-        addressLabel.setBounds(21, 76, 140, 14);
-
-        careOfLabel.setText("C/O:");
-        jPanel1.add(careOfLabel);
-        careOfLabel.setBounds(224, 76, 50, 14);
+        addressLabel.setBounds(21, 76, 140, 16);
 
         addressTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -118,17 +115,13 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         jPanel1.add(addressTextField);
         addressTextField.setBounds(21, 102, 156, 30);
 
-        careOfTextField.setToolTipText(" ”care of”, används då den som skall sändas till en tredje person för att vidarebefordras till den tänkte adressaten.");
-        jPanel1.add(careOfTextField);
-        careOfTextField.setBounds(224, 102, 198, 30);
-
         postCodeLabel.setText("Postnummer:");
         jPanel1.add(postCodeLabel);
-        postCodeLabel.setBounds(21, 139, 190, 14);
+        postCodeLabel.setBounds(21, 139, 190, 16);
 
         postAddressLabel.setText("Postort:");
         jPanel1.add(postAddressLabel);
-        postAddressLabel.setBounds(224, 139, 120, 14);
+        postAddressLabel.setBounds(224, 139, 120, 16);
 
         postAddressTextField.setToolTipText("Endast bokstäverna A-Z");
         postAddressTextField.addKeyListener(new java.awt.event.KeyAdapter() {
@@ -141,7 +134,7 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
 
         phoneNumberLabel.setText("Telefon:");
         jPanel1.add(phoneNumberLabel);
-        phoneNumberLabel.setBounds(21, 208, 130, 14);
+        phoneNumberLabel.setBounds(21, 208, 130, 16);
 
         postCodeTextField.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(new java.text.DecimalFormat("#0"))));
         postCodeTextField.setToolTipText("5 sifror");
@@ -176,11 +169,11 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
 
         mobileNumberLabel.setText("Mobil:");
         jPanel1.add(mobileNumberLabel);
-        mobileNumberLabel.setBounds(224, 208, 60, 14);
+        mobileNumberLabel.setBounds(224, 208, 60, 16);
 
         infoTextLabel.setText("Övrig information:");
         jPanel1.add(infoTextLabel);
-        infoTextLabel.setBounds(21, 271, 119, 14);
+        infoTextLabel.setBounds(21, 271, 119, 16);
 
         infoTipTextAreaLabel.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
         infoTipTextAreaLabel.setText("T.ex portkod eller vånings-/lägenhetsnummer");
@@ -219,11 +212,6 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
         jLabel1.setText("Krävs ej");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(290, 210, 80, 13);
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 2, 10)); // NOI18N
-        jLabel2.setText("Krävs ej");
-        jPanel1.add(jLabel2);
-        jLabel2.setBounds(290, 80, 80, 13);
 
         add(jPanel1);
         jPanel1.setBounds(12, 13, 452, 414);
@@ -329,9 +317,7 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
     private javax.swing.JLabel addressLabel;
     private javax.swing.JLabel addressOk;
     private javax.swing.JTextField addressTextField;
-    private javax.swing.JLabel careOfLabel;
     private javax.swing.JLabel careOfOk;
-    private javax.swing.JTextField careOfTextField;
     private javax.swing.JLabel firstNameLabel;
     private javax.swing.JLabel firstNameOk;
     private javax.swing.JTextField firstNameTextField;
@@ -339,7 +325,6 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
     private javax.swing.JLabel infoTipTextAreaLabel;
     private javax.swing.JTextArea informationTextArea;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lastNameLabel;

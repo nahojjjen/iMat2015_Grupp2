@@ -48,10 +48,7 @@ public class CustomerModel {
     }
 
     //todo
-    public static boolean isPaymentFilledIn(){
-    
-        
-        
+    public static boolean isPaymentFilledIn(){   
         return true;
     }
     /**
@@ -295,7 +292,7 @@ public class CustomerModel {
     }
 
     public static boolean cardHolderNameTest(String str) {
-        return testAlphabeticalString(str);
+        return (str.length() > 1);
 
     }
 
@@ -304,11 +301,11 @@ public class CustomerModel {
     }
 
     public static boolean firstNameTest(String str) {
-        return testAlphabeticalString(str);
+        return (str.length() > 1);
     }
 
     public static boolean lastNameTest(String str) {
-        return testAlphabeticalString(str);
+        return (str.length() > 1);
     }
 
     public static boolean addressTest(String str) {
@@ -330,7 +327,7 @@ public class CustomerModel {
     }
 
     public static boolean postAddressTest(String str) {
-        return testAlphabeticalString(str);
+        return (str.length() > 1);
     }
 
     public static boolean phoneNumberTest(String str) {

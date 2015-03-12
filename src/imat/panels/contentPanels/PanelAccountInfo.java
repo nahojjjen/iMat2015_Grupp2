@@ -132,9 +132,8 @@ public class PanelAccountInfo extends javax.swing.JPanel {
     }//GEN-LAST:event_repeatEmailTextFieldKeyReleased
 
     private void newPasswordTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_newPasswordTextFieldKeyReleased
-        setOkLabel(isPasswordCorrect(), passOk);
-        
-         setOkLabel(isBothPasswordCorrect(), repeatPassOk);
+        setOkLabel(isPasswordCorrect(), passOk);        
+        setOkLabel(isBothPasswordCorrect(), repeatPassOk);
         if(!isBothPasswordCorrect()){
             passwordErrorLabel.setText("Lösenorden stämmer inte överrens");
         }else{
@@ -202,11 +201,9 @@ public class PanelAccountInfo extends javax.swing.JPanel {
      *
      * @return true if both are correct and matching
      */
-    public boolean isBothPasswordCorrect() {
-        
+    public boolean isBothPasswordCorrect() {        
         String pass1 = new String(newPasswordTextField.getPassword());
-        String pass2 = new String(repeatPasswordTextField.getPassword());
-        
+        String pass2 = new String(repeatPasswordTextField.getPassword());        
         
         return (pass1.equals(pass2) && isPasswordCorrect());
     }

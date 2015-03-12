@@ -19,6 +19,8 @@ public class PanelCreditCard extends javax.swing.JPanel {
     private ImageIcon notOk = new ImageIcon("src/resources/notOk.png");
     private String tempRealCardNbr;
     private String tempFakeCardNbr;
+    private String tempRealSecNbr;
+    private String tempFakeSecNbr;
 
     /**
      * Creates new form PanelCreditCard
@@ -257,11 +259,7 @@ public class PanelCreditCard extends javax.swing.JPanel {
     }//GEN-LAST:event_cardHolderTextFieldKeyPressed
 
     private void cardNumberTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cardNumberTextFieldKeyTyped
-       if (CustomerModel.cardNumberTest(cardNumberTextField.getText())){
-           cardNumberOkLabel.setIcon(ok);
-       }else{
-           cardNumberOkLabel.setIcon(notOk);
-       }
+       setOkLabel(isCardNumberCorrect(), cardNumberOkLabel);
     }//GEN-LAST:event_cardNumberTextFieldKeyTyped
     private void setCardInfo() {
         
@@ -272,6 +270,15 @@ public class PanelCreditCard extends javax.swing.JPanel {
         cardTypeButtonGroup.add(americanRadioButton);
         cardTypeButtonGroup.add(visaMasterRadioButton);
         setSelectedCardType(CustomerModel.getCardType());
+        
+        if(Integer.toString(CustomerModel.getCardVerification()).length() == 3) {
+            tempRealSecNbr = Integer.toString(CustomerModel.getCardVerification());
+            try{
+                tempFakeSecNbr = "**" + tempRealSecNbr.substring(3);
+            }catch(StringIndexOutOfBoundsException e){                
+            }
+            cardNumberTextField.setText(tempFakeSecNbr);
+        }        
         if(CustomerModel.getCardNumber().length() > 14){
             tempRealCardNbr = CustomerModel.getCardNumber();
             try{
@@ -282,8 +289,7 @@ public class PanelCreditCard extends javax.swing.JPanel {
         }
         
     }
-    public void clearCardInfo() {
-        
+    public void clearCardInfo() {        
         cardHolderTextField.setText("");
         securityNumberTextField.setText("");
         monthComboBox.setSelectedIndex(0);
@@ -291,8 +297,7 @@ public class PanelCreditCard extends javax.swing.JPanel {
         cardTypeButtonGroup.add(americanRadioButton);
         cardTypeButtonGroup.add(visaMasterRadioButton);
         //setSelectedCardType(CustomerModel.getCardType());
-        cardNumberTextField.setText("");
-        
+        cardNumberTextField.setText("");        
     }
 
     public void setLabels() {
