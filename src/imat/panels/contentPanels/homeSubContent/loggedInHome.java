@@ -56,12 +56,12 @@ public class loggedInHome extends javax.swing.JPanel {
         faqPanel.add(faq);
         offerPanel.add(offers);
         
-        onGoingPanel.setBackground(whiteStripe);
-        earlierPanel.setBackground(whiteStripe);
-        profilePanel.setBackground(whiteStripe);
-        howToPanel.setBackground(almostWhite);
-        faqPanel.setBackground(whiteStripe);
-        offerPanel.setBackground(almostWhite);
+        onGoingOrder.setBackground(blackStripe);
+        earlierOrders.setBackground(blackStripe);
+        myAccount.setBackground(blackStripe);
+        howTo.setBackground(blackStripe);
+        faq.setBackground(blackStripe);
+        offers.setBackground(blackStripe);
     }
 
     /**
@@ -85,6 +85,8 @@ public class loggedInHome extends javax.swing.JPanel {
 
         holder.setLayout(new java.awt.GridLayout(2, 3, 5, 5));
 
+        onGoingPanel.setBackground(new java.awt.Color(0, 0, 0));
+        onGoingPanel.setOpaque(false);
         onGoingPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 onGoingPanelMouseClicked(evt);
@@ -93,6 +95,8 @@ public class loggedInHome extends javax.swing.JPanel {
         onGoingPanel.setLayout(new java.awt.BorderLayout());
         holder.add(onGoingPanel);
 
+        earlierPanel.setBackground(new java.awt.Color(0, 0, 0));
+        earlierPanel.setOpaque(false);
         earlierPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 earlierPanelMouseClicked(evt);
@@ -101,6 +105,8 @@ public class loggedInHome extends javax.swing.JPanel {
         earlierPanel.setLayout(new java.awt.BorderLayout());
         holder.add(earlierPanel);
 
+        profilePanel.setBackground(new java.awt.Color(0, 0, 0));
+        profilePanel.setOpaque(false);
         profilePanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 profilePanelMouseClicked(evt);
@@ -109,9 +115,13 @@ public class loggedInHome extends javax.swing.JPanel {
         profilePanel.setLayout(new java.awt.BorderLayout());
         holder.add(profilePanel);
 
+        howToPanel.setBackground(new java.awt.Color(0, 0, 0));
+        howToPanel.setOpaque(false);
         howToPanel.setLayout(new java.awt.BorderLayout());
         holder.add(howToPanel);
 
+        faqPanel.setBackground(new java.awt.Color(0, 0, 0));
+        faqPanel.setOpaque(false);
         faqPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 faqPanelMouseClicked(evt);
@@ -120,6 +130,8 @@ public class loggedInHome extends javax.swing.JPanel {
         faqPanel.setLayout(new java.awt.BorderLayout());
         holder.add(faqPanel);
 
+        offerPanel.setBackground(new java.awt.Color(0, 0, 0));
+        offerPanel.setOpaque(false);
         offerPanel.setLayout(new java.awt.BorderLayout());
         holder.add(offerPanel);
 
