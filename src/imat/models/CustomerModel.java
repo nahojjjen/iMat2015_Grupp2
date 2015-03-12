@@ -273,10 +273,10 @@ public class CustomerModel {
         }
     }
 
-    public static int getCardVerification() {
-        int cardVerification = 0;
+    public static String getCardVerification() {
+        String cardVerification = "";
         try {
-            cardVerification = creditCard.getVerificationCode();
+            cardVerification = String.valueOf(creditCard.getVerificationCode());
         } catch (NullPointerException e) {
         } finally {
             return cardVerification;
@@ -342,7 +342,7 @@ public class CustomerModel {
      * @return true if something, unknown
      */
     public static boolean emailTest(String str) {
-        if (str.contains("@") && str.contains(".") && str.length() > 6) {
+        if (str.contains("@") && str.contains(".") && str.length() > 5) {
             return true;
         }
         return false;

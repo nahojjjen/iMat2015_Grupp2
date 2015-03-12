@@ -19,8 +19,6 @@ public class PanelCreditCard extends javax.swing.JPanel {
     private ImageIcon notOk = new ImageIcon("src/resources/notOk.png");
     private String tempRealCardNbr;
     private String tempFakeCardNbr;
-    private String tempRealSecNbr;
-    private String tempFakeSecNbr;
 
     /**
      * Creates new form PanelCreditCard
@@ -271,14 +269,9 @@ public class PanelCreditCard extends javax.swing.JPanel {
         cardTypeButtonGroup.add(visaMasterRadioButton);
         setSelectedCardType(CustomerModel.getCardType());
         
-        if(Integer.toString(CustomerModel.getCardVerification()).length() == 3) {
-            tempRealSecNbr = Integer.toString(CustomerModel.getCardVerification());
-            try{
-                tempFakeSecNbr = "**" + tempRealSecNbr.substring(2);
-            }catch(StringIndexOutOfBoundsException e){                
-            }
-            securityNumberTextField.setText(tempFakeSecNbr);
-        }        
+        securityNumberTextField.setText(CustomerModel.getCardVerification());
+
+              
         if(CustomerModel.getCardNumber().length() > 14){
             tempRealCardNbr = CustomerModel.getCardNumber();
             try{
