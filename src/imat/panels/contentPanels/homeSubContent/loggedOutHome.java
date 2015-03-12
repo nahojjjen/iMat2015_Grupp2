@@ -7,6 +7,9 @@ package imat.panels.contentPanels.homeSubContent;
 
 import imat.IMat;
 import imat.panels.contentPanels.PanelFAQ;
+import java.awt.Color;
+import javax.swing.ImageIcon;
+import resources.homeButtons.PanelHomeButtons;
 
 /**
  *
@@ -14,14 +17,34 @@ import imat.panels.contentPanels.PanelFAQ;
  */
 public class loggedOutHome extends javax.swing.JPanel {
 
+    
+    private static Color almostWhite = new Color(200, 200, 200);
+    private static Color hoverStripe = new Color(160, 160, 160);
+    private static Color whiteStripe = new Color(120,120,120);
+    private static Color blackStripe = new Color(80,80,80);
+    
+    private ImageIcon howToImage = new ImageIcon("src/resources/homeButtons/howToImage.png");
+    private ImageIcon faqImage = new ImageIcon("src/resources/homeButtons/faqImage.png");
+    
+    private PanelHomeButtons howTo = new PanelHomeButtons(howToImage ,"Hur gör man?");
+    private PanelHomeButtons faq = new PanelHomeButtons(faqImage ,"Frågor och Svar");
+    private PanelHomeButtons offers = new PanelHomeButtons(faqImage ,"Erbjudanden");
+   
     /**
      * Creates new form loggedOutHome
      */
     public loggedOutHome() {
         initComponents();
-        howTo.setEnabled(false);
-        offers.setEnabled(false);
+        howToPanel.add(howTo);
+        faqPanel.add(faq);
+        offerPanel.add(offers);
+        
+        howTo.setBackground(almostWhite);
+        faq.setBackground(whiteStripe);
+        offers.setBackground(almostWhite);
     }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,55 +55,58 @@ public class loggedOutHome extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        offers = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        howTo = new javax.swing.JButton();
+        holder = new javax.swing.JPanel();
+        howToPanel = new javax.swing.JPanel();
+        faqPanel = new javax.swing.JPanel();
+        offerPanel = new javax.swing.JPanel();
 
         setOpaque(false);
+        setLayout(new java.awt.BorderLayout());
 
-        offers.setText("Erbjudanden");
+        howToPanel.setLayout(new java.awt.BorderLayout());
+        holder.add(howToPanel);
 
-        jButton6.setText("Vanliga Frågor");
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+        faqPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                faqPanelMouseClicked(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                faqPanelMouseExited(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                faqPanelMouseEntered(evt);
             }
         });
+        faqPanel.setLayout(new java.awt.BorderLayout());
+        holder.add(faqPanel);
 
-        howTo.setText("Hur gör man?");
+        offerPanel.setLayout(new java.awt.BorderLayout());
+        holder.add(offerPanel);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(howTo, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(offers, javax.swing.GroupLayout.DEFAULT_SIZE, 184, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(howTo, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(offers, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(285, Short.MAX_VALUE))
-        );
+        add(holder, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void faqPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_faqPanelMouseClicked
+        // TODO add your handling code here:
+        faqPanel.setBackground(blackStripe);
         IMat.getWindow().setContent(new PanelFAQ());
-    }//GEN-LAST:event_jButton6ActionPerformed
+    }//GEN-LAST:event_faqPanelMouseClicked
+
+    private void faqPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_faqPanelMouseEntered
+        // TODO add your handling code here:
+        faqPanel.setBackground(hoverStripe);
+    }//GEN-LAST:event_faqPanelMouseEntered
+
+    private void faqPanelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_faqPanelMouseExited
+        // TODO add your handling code here:
+        faqPanel.setBackground(whiteStripe);
+    }//GEN-LAST:event_faqPanelMouseExited
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton howTo;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton offers;
+    private javax.swing.JPanel faqPanel;
+    private javax.swing.JPanel holder;
+    private javax.swing.JPanel howToPanel;
+    private javax.swing.JPanel offerPanel;
     // End of variables declaration//GEN-END:variables
 }

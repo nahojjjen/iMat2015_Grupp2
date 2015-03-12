@@ -14,6 +14,9 @@ import imat.panels.contentPanels.PanelFAQ;
 import imat.panels.contentPanels.PanelHome;
 import imat.panels.contentPanels.PanelLastCart;
 import imat.panels.contentPanels.PanelSearchResult;
+import java.awt.Color;
+import javax.swing.ImageIcon;
+import resources.homeButtons.PanelHomeButtons;
 import se.chalmers.ait.dat215.project.ProductCategory;
 
 /**
@@ -21,12 +24,44 @@ import se.chalmers.ait.dat215.project.ProductCategory;
  * @author Johan
  */
 public class loggedInHome extends javax.swing.JPanel {
-
+    
+    private static Color almostWhite = new Color(200, 200, 200);
+    private static Color hoverStripe = new Color(160, 160, 160);
+    private static Color whiteStripe = new Color(120,120,120);
+    private static Color blackStripe = new Color(80,80,80);
+    
+    private ImageIcon onGoingImage = new ImageIcon("src/resources/homeButtons/onGoingImage.png");
+    private ImageIcon earlierImage = new ImageIcon("src/resources/homeButtons/earlierImage.png");
+    private ImageIcon profileImage = new ImageIcon("src/resources/homeButtons/profileImage.png");
+    private ImageIcon howToImage = new ImageIcon("src/resources/homeButtons/howToImage.png");
+    private ImageIcon faqImage = new ImageIcon("src/resources/homeButtons/faqImage.png");
+    
+    private PanelHomeButtons onGoingOrder = new PanelHomeButtons(onGoingImage, "Nuvarande beställning");
+    private PanelHomeButtons earlierOrders = new PanelHomeButtons(earlierImage ,"Tidigare beställningar");
+    private PanelHomeButtons myAccount = new PanelHomeButtons(profileImage ,"Mitt konto");
+    private PanelHomeButtons howTo = new PanelHomeButtons(howToImage ,"Hur gör man?");
+    private PanelHomeButtons faq = new PanelHomeButtons(faqImage ,"Frågor och Svar");
+    private PanelHomeButtons offers = new PanelHomeButtons(faqImage ,"Erbjudanden");
+    
     /**
      * Creates new form loggedInHome
      */
     public loggedInHome() {
         initComponents();
+        
+        onGoingPanel.add(onGoingOrder);
+        earlierPanel.add(earlierOrders);
+        profilePanel.add(myAccount);
+        howToPanel.add(howTo);
+        faqPanel.add(faq);
+        offerPanel.add(offers);
+        
+        onGoingPanel.setBackground(whiteStripe);
+        earlierPanel.setBackground(whiteStripe);
+        profilePanel.setBackground(whiteStripe);
+        howToPanel.setBackground(almostWhite);
+        faqPanel.setBackground(whiteStripe);
+        offerPanel.setBackground(almostWhite);
     }
 
     /**
@@ -38,146 +73,91 @@ public class loggedInHome extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel1 = new javax.swing.JPanel();
         holder = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel7 = new javax.swing.JLabel();
-        jPanel3 = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
-        jPanel4 = new javax.swing.JPanel();
-        jLabel9 = new javax.swing.JLabel();
-        jPanel5 = new javax.swing.JPanel();
-        jLabel10 = new javax.swing.JLabel();
-        jPanel6 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel12 = new javax.swing.JLabel();
+        onGoingPanel = new javax.swing.JPanel();
+        earlierPanel = new javax.swing.JPanel();
+        profilePanel = new javax.swing.JPanel();
+        howToPanel = new javax.swing.JPanel();
+        faqPanel = new javax.swing.JPanel();
+        offerPanel = new javax.swing.JPanel();
 
         setOpaque(false);
-        setLayout(new java.awt.BorderLayout());
 
-        jScrollPane1.setBorder(null);
+        holder.setLayout(new java.awt.GridLayout(2, 3, 5, 5));
 
-        holder.setLayout(new java.awt.GridLayout(2, 3));
-
-        jPanel2.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 1));
-        jPanel2.setLayout(new java.awt.BorderLayout());
-
-        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/homeButtons/currentorder.jpg"))); // NOI18N
-        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
+        onGoingPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel7MouseClicked(evt);
+                onGoingPanelMouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel7, java.awt.BorderLayout.CENTER);
+        onGoingPanel.setLayout(new java.awt.BorderLayout());
+        holder.add(onGoingPanel);
 
-        holder.add(jPanel2);
-
-        jPanel3.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        jPanel3.setLayout(new java.awt.BorderLayout());
-
-        jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/homeButtons/earlier.jpg"))); // NOI18N
-        jLabel8.addMouseListener(new java.awt.event.MouseAdapter() {
+        earlierPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel8MouseClicked(evt);
+                earlierPanelMouseClicked(evt);
             }
         });
-        jPanel3.add(jLabel8, java.awt.BorderLayout.CENTER);
+        earlierPanel.setLayout(new java.awt.BorderLayout());
+        holder.add(earlierPanel);
 
-        holder.add(jPanel3);
-
-        jPanel4.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        jPanel4.setLayout(new java.awt.BorderLayout());
-
-        jLabel9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/homeButtons/myaccount.jpg"))); // NOI18N
-        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+        profilePanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel9MouseClicked(evt);
+                profilePanelMouseClicked(evt);
             }
         });
-        jPanel4.add(jLabel9, java.awt.BorderLayout.CENTER);
+        profilePanel.setLayout(new java.awt.BorderLayout());
+        holder.add(profilePanel);
 
-        holder.add(jPanel4);
+        howToPanel.setLayout(new java.awt.BorderLayout());
+        holder.add(howToPanel);
 
-        jPanel5.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        jPanel5.setLayout(new java.awt.BorderLayout());
-
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/homeButtons/help.jpg"))); // NOI18N
-        jPanel5.add(jLabel10, java.awt.BorderLayout.CENTER);
-
-        holder.add(jPanel5);
-
-        jPanel6.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        jPanel6.setLayout(new java.awt.BorderLayout());
-
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/homeButtons/faq.jpg"))); // NOI18N
-        jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
+        faqPanel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel11MouseClicked(evt);
+                faqPanelMouseClicked(evt);
             }
         });
-        jPanel6.add(jLabel11, java.awt.BorderLayout.CENTER);
+        faqPanel.setLayout(new java.awt.BorderLayout());
+        holder.add(faqPanel);
 
-        holder.add(jPanel6);
+        offerPanel.setLayout(new java.awt.BorderLayout());
+        holder.add(offerPanel);
 
-        jPanel7.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
-        jPanel7.setLayout(new java.awt.BorderLayout());
-
-        jLabel12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/homeButtons/offers.jpg"))); // NOI18N
-        jLabel12.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel12MouseClicked(evt);
-            }
-        });
-        jPanel7.add(jLabel12, java.awt.BorderLayout.CENTER);
-
-        holder.add(jPanel7);
-
-        jPanel1.add(holder);
-
-        jScrollPane1.setViewportView(jPanel1);
-
-        add(jScrollPane1, java.awt.BorderLayout.CENTER);
+        add(holder);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jLabel8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel8MouseClicked
-        IMat.getWindow().setContent(new PanelEarlierCarts());        // TODO add your handling code here:
-        System.out.println("clicked");
-    }//GEN-LAST:event_jLabel8MouseClicked
-
-    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
-        IMat.getWindow().setContent(new MyProfilePanelHolder());
-    }//GEN-LAST:event_jLabel9MouseClicked
-
-    private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
-        IMat.getWindow().setContent(new PanelFAQ());// TODO add your handling code here:
-    }//GEN-LAST:event_jLabel11MouseClicked
-
-    private void jLabel12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel12MouseClicked
-        IMat.getWindow().setContent(new PanelSearchResult("a"));// TODO add your handling code here:
-    }//GEN-LAST:event_jLabel12MouseClicked
-
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
+    private void onGoingPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_onGoingPanelMouseClicked
+        // TODO add your handling code here:
+        onGoingPanel.setBackground(blackStripe);
         IMat.getWindow().setContent(new PanelLastCart());
-    }//GEN-LAST:event_jLabel7MouseClicked
+    }//GEN-LAST:event_onGoingPanelMouseClicked
+
+    private void earlierPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_earlierPanelMouseClicked
+        // TODO add your handling code here:
+        earlierPanel.setBackground(blackStripe);
+        IMat.getWindow().setContent(new PanelEarlierCarts());
+    }//GEN-LAST:event_earlierPanelMouseClicked
+
+    private void profilePanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_profilePanelMouseClicked
+        // TODO add your handling code here:
+        profilePanel.setBackground(blackStripe);
+        IMat.getWindow().setContent(new MyProfilePanelHolder());
+    }//GEN-LAST:event_profilePanelMouseClicked
+
+    private void faqPanelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_faqPanelMouseClicked
+        // TODO add your handling code here:
+        faqPanel.setBackground(blackStripe);
+        IMat.getWindow().setContent(new PanelFAQ());
+    }//GEN-LAST:event_faqPanelMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel earlierPanel;
+    private javax.swing.JPanel faqPanel;
     private javax.swing.JPanel holder;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel6;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JPanel howToPanel;
+    private javax.swing.JPanel offerPanel;
+    private javax.swing.JPanel onGoingPanel;
+    private javax.swing.JPanel profilePanel;
     // End of variables declaration//GEN-END:variables
 }

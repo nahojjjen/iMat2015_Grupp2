@@ -8,16 +8,23 @@ package imat.models.navPanelActionListeners.categories;
 import imat.IMat;
 import imat.models.navPanelActionListeners.ActionCommand;
 import imat.panels.contentPanels.PanelSearchResult;
+import java.util.ArrayList;
+import java.util.List;
 import se.chalmers.ait.dat215.project.ProductCategory;
 
 /**
  *
- * @author Johan Swanberg
+ * @author Morpheus
  */
-public class GoToFish implements ActionCommand{
+public class GoToDrinks implements ActionCommand{
 
     @Override
     public void doCommand() {
-        IMat.getWindow().setContent(new PanelSearchResult(ProductCategory.FISH));
+        List<ProductCategory> categoryList = new ArrayList();
+        categoryList.add(ProductCategory.HOT_DRINKS);
+        categoryList.add(ProductCategory.COLD_DRINKS);
+        
+        IMat.getWindow().setContent(new PanelSearchResult(categoryList, 1));
+        
     }
 }

@@ -16,7 +16,11 @@ import imat.models.navPanelActionListeners.GoToLastOrder;
 import imat.models.navPanelActionListeners.GoToProfile;
 import imat.models.navPanelActionListeners.GoToShowAll;
 import imat.models.navPanelActionListeners.categories.GoToCategorySweets;
-import imat.models.navPanelActionListeners.categories.GoToFish;
+import imat.models.navPanelActionListeners.categories.GoToDrinks;
+import imat.models.navPanelActionListeners.categories.GoToDryProducts;
+import imat.models.navPanelActionListeners.categories.GoToFruktOGront;
+import imat.models.navPanelActionListeners.categories.GoToMeat;
+import imat.models.navPanelActionListeners.categories.GoToMejeri;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
@@ -111,11 +115,19 @@ public class PanelNavigation2 extends javax.swing.JPanel {
         
     private void addShowingCategoryButtons(){
         if (expanded) {
+            CustomButton2 fruitNGreenButton = new CustomButton2(new GoToFruktOGront(), fav, "Frukt & Grönt",true);
             CustomButton2 candyButton = new CustomButton2(new GoToCategorySweets(), fav, "Godis",true);
-            CustomButton2 btn12 = new CustomButton2(new GoToFish(), fav, "Fisk",true);
+            CustomButton2 btn12 = new CustomButton2(new GoToMeat(), fav, "Fisk & Kött",true);
+            CustomButton2 btnTorrVaror = new CustomButton2(new GoToDryProducts(), fav, "Torrvaror", true);
+            CustomButton2 btnDrycker = new CustomButton2(new GoToDrinks(), fav, "Drycker", true);
+            CustomButton2 btnMejeri = new CustomButton2(new GoToMejeri(), fav, "Mejeri", true);
             
             holder.add(candyButton);
             holder.add(btn12);
+            holder.add(fruitNGreenButton);
+            holder.add(btnTorrVaror);
+            holder.add(btnDrycker);
+            holder.add(btnMejeri);
         }
     }
     
