@@ -32,6 +32,9 @@ public class PanelNavigation2 extends javax.swing.JPanel {
     private static boolean expanded = false;
     
     //all icon declerations will be here:
+    private ImageIcon fisk = new ImageIcon("src/resources/fisk.jpg");
+     private ImageIcon godis = new ImageIcon("src/resources/godis.jpg");
+      private ImageIcon order = new ImageIcon("src/resources/order.jpg");
     private ImageIcon test1 = new ImageIcon("src/resources/1.png");
     private ImageIcon test2 = new ImageIcon("src/resources/1.png");
     private ImageIcon test3 = new ImageIcon("src/resources/1.png");
@@ -109,8 +112,8 @@ public class PanelNavigation2 extends javax.swing.JPanel {
         
     private void addShowingCategoryButtons(){
         if (expanded) {
-            CustomButton btn11 = new CustomButton(tt1, tt2, test1, new GoToCategorySweets());
-            CustomButton btn12 = new CustomButton(tt1, tt2, test1, new GoToFish());
+            CustomButton btn11 = new CustomButton(godis, godis, godis, new GoToCategorySweets());
+            CustomButton btn12 = new CustomButton(fisk, fisk, fisk, new GoToFish());
             CustomButton btn13 = new CustomButton(tt1, tt2, test1, new Debug2());
             CustomButton btn14 = new CustomButton(tt1, tt2, test1, new Debug2());
             CustomButton btn15 = new CustomButton(tt1, tt2, test1, new Debug2());
@@ -124,7 +127,7 @@ public class PanelNavigation2 extends javax.swing.JPanel {
     private void addStaticButtons2(){
          CustomButton favoritesButton = new CustomButton(favorites, favoritesH, favoritesP, new GoToFavorites());
          CustomButton profileButton = new CustomButton(profile, profileH, profileP, new GoToProfile());
-         CustomButton lastOrderButton = new CustomButton(tt1,tt1,tt1,new GoToLastOrder());
+         CustomButton lastOrderButton = new CustomButton(order,order,order,new GoToLastOrder());
         CustomButton historyButton = new CustomButton(earlier, earlierH, earlierP, new GoToHistory());
         CustomButton faqButton = new CustomButton(faq, faqh, faqp, new GoToFaq());
        
