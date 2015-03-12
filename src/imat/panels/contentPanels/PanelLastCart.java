@@ -13,6 +13,7 @@ import imat.panels.subItems.BoughtItem;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.List;
+import javax.swing.JLabel;
 import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.ShoppingItem;
 
@@ -23,6 +24,7 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
 public class PanelLastCart extends javax.swing.JPanel {
 
     private Order lastOrder;
+
     /**
      * Creates new form PanelLastCart
      */
@@ -30,18 +32,19 @@ public class PanelLastCart extends javax.swing.JPanel {
         initComponents();
         List<Order> orders = Model.getOrders();
         Collections.sort(orders, new OrderByDateSort());
+     
         try {
-             lastOrder = orders.get(0);
-        } catch (NullPointerException e) {
-            System.out.println("no previous order");
-             lastOrder = new Order();
+            lastOrder = orders.get(0);
+            List<ShoppingItem> items = lastOrder.getItems();
+
+            for (ShoppingItem item : items) {
+                holder.add(new BoughtItem(item));
+            }
+        } catch (IndexOutOfBoundsException e) {
+            holder.add(new JLabel("Ingen pågående beställning."));
+            editButton.setEnabled(false);
         }
-        List<ShoppingItem> items = lastOrder.getItems();
-        
-        for (ShoppingItem item : items){
-            holder.add(new BoughtItem(item));
-        }
-        
+
     }
 
     /**
@@ -59,7 +62,7 @@ public class PanelLastCart extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         holder = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
+        editButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -97,10 +100,10 @@ public class PanelLastCart extends javax.swing.JPanel {
         jPanel3.setBackground(new java.awt.Color(153, 153, 153));
         jPanel3.setPreferredSize(new java.awt.Dimension(400, 70));
 
-        jButton1.setText("Redigera köp");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        editButton.setText("Redigera köp");
+        editButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                editButtonActionPerformed(evt);
             }
         });
 
@@ -130,7 +133,7 @@ public class PanelLastCart extends javax.swing.JPanel {
                         .addComponent(jLabel4))
                     .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 449, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1)
+                .addComponent(editButton)
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -138,7 +141,7 @@ public class PanelLastCart extends javax.swing.JPanel {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editButton, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -152,21 +155,21 @@ public class PanelLastCart extends javax.swing.JPanel {
         add(jPanel3, java.awt.BorderLayout.SOUTH);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void editButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editButtonActionPerformed
         System.out.println("backend cannot remove order, pretend that it does!");
-         
+
         List<ShoppingItem> items = lastOrder.getItems();
         Model.getShoppingcart().clear();
-        for (ShoppingItem item : items){
+        for (ShoppingItem item : items) {
             ModelAux.add(item);
         }
         IMat.getWindow().setContent(new PanelHome());
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_editButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton editButton;
     private javax.swing.JPanel holder;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

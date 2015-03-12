@@ -6,10 +6,8 @@
 package imat.panels.contentPanels;
 
 import imat.IMat;
-import imat.MainWindow;
-import imat.models.navPanelActionListeners.Debug2;
+import imat.models.customPanelLogic.CustomButton2;
 import imat.models.navPanelActionListeners.ExpandCategories;
-import imat.models.navPanelActionListeners.GoToCategorySearch;
 import imat.models.navPanelActionListeners.GoToFaq;
 import imat.models.navPanelActionListeners.GoToFavorites;
 import imat.models.navPanelActionListeners.GoToHistory;
@@ -19,9 +17,8 @@ import imat.models.navPanelActionListeners.GoToProfile;
 import imat.models.navPanelActionListeners.GoToShowAll;
 import imat.models.navPanelActionListeners.categories.GoToCategorySweets;
 import imat.models.navPanelActionListeners.categories.GoToFish;
-import imat.panels.contentPanels.AccountMixes.MyProfilePanel;
-import imat.panels.subItems.CustomButton;
 import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 /**
  *
@@ -73,6 +70,7 @@ public class PanelNavigation2 extends javax.swing.JPanel {
      private ImageIcon showAll = new ImageIcon("src/resources/navButtons/showall.jpg");
     private ImageIcon showAllH = new ImageIcon("src/resources/navButtons/showallH.jpg");
     private ImageIcon showAllP = new ImageIcon("src/resources/navButtons/showallP.jpg");
+    private ImageIcon fav = new ImageIcon("src/resources/fav.png");
     
     
     /**
@@ -99,9 +97,10 @@ public class PanelNavigation2 extends javax.swing.JPanel {
          addStaticButtons2();
     }
         private void addStaticButtons1(){
-         CustomButton homebutton = new CustomButton(home, homeH, homeP, new GoToHome());
-        CustomButton showAllButton = new CustomButton(showAll, showAllH, showAllP, new GoToShowAll());
-        CustomButton categoryButton = new CustomButton(category, categoryH, categoryP, new ExpandCategories());
+         //CustomButton homebutton = new CustomButton(home, homeH, homeP, new GoToHome());
+        CustomButton2 homebutton = new CustomButton2(new GoToHome(), fav, "Hem");
+        CustomButton2 showAllButton = new CustomButton2(new GoToShowAll(), fav, "Visa Alla Varor");
+        CustomButton2 categoryButton = new CustomButton2(new ExpandCategories(), fav, "Kategorier");
         
         
         holder.add(homebutton);
@@ -112,29 +111,29 @@ public class PanelNavigation2 extends javax.swing.JPanel {
         
     private void addShowingCategoryButtons(){
         if (expanded) {
-            CustomButton btn11 = new CustomButton(godis, godis, godis, new GoToCategorySweets());
-            CustomButton btn12 = new CustomButton(fisk, fisk, fisk, new GoToFish());
-            CustomButton btn13 = new CustomButton(tt1, tt2, test1, new Debug2());
-            CustomButton btn14 = new CustomButton(tt1, tt2, test1, new Debug2());
-            CustomButton btn15 = new CustomButton(tt1, tt2, test1, new Debug2());
-            CustomButton btn16 = new CustomButton(tt1, tt2, test1, new Debug2());
-            holder.add(btn11);
+            CustomButton2 candyButton = new CustomButton2(new GoToCategorySweets(), fav, "Godis",true);
+            CustomButton2 btn12 = new CustomButton2(new GoToFish(), fav, "Fisk",true);
+            
+            holder.add(candyButton);
             holder.add(btn12);
         }
     }
     
 
     private void addStaticButtons2(){
-         CustomButton favoritesButton = new CustomButton(favorites, favoritesH, favoritesP, new GoToFavorites());
-         CustomButton profileButton = new CustomButton(profile, profileH, profileP, new GoToProfile());
-         CustomButton lastOrderButton = new CustomButton(order,order,order,new GoToLastOrder());
-        CustomButton historyButton = new CustomButton(earlier, earlierH, earlierP, new GoToHistory());
-        CustomButton faqButton = new CustomButton(faq, faqh, faqp, new GoToFaq());
-       
+           holder.add(new JLabel(""));
+         CustomButton2 favoritesButton = new CustomButton2(new GoToFavorites(), fav, "Favoriter");
+         CustomButton2 profileButton = new CustomButton2(new GoToProfile(), fav, "Profil");
+         CustomButton2 lastOrderButton = new CustomButton2(new GoToLastOrder(), fav, "Min beställning");
+        CustomButton2 historyButton = new CustomButton2(new GoToHistory(), fav, "Historik");
+        CustomButton2 faqButton = new CustomButton2(new GoToFaq(), fav, "F.A.Q.");
+     
+        holder.add(profileButton);
         holder.add(historyButton);  
         holder.add(favoritesButton);
-        holder.add(profileButton);
-        holder.add(lastOrderButton);
+           holder.add(lastOrderButton);
+     
+           holder.add(new JLabel(""));
         holder.add(faqButton);
         
     }
@@ -169,6 +168,7 @@ public class PanelNavigation2 extends javax.swing.JPanel {
         setOpaque(false);
         setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
 
+        holder.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 0, 0, 0));
         holder.setOpaque(false);
         holder.setLayout(new java.awt.GridLayout(16, 1));
         add(holder);
