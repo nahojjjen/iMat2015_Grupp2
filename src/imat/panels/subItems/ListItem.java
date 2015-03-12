@@ -222,17 +222,7 @@ public class ListItem extends javax.swing.JPanel {
     }//GEN-LAST:event_mouseExitedHandler
 
     private void mouseClickedHandler(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_mouseClickedHandler
-         JDialog popup = new JDialog(IMat.getWindow());
-        
-        int width = IMat.getWindow().getWidth();
-        int height =IMat.getWindow().getHeight();
-        popup.setLocation((width/2)-400, height/2 - 350);
-        popup.setUndecorated(true);
-          
-        popup.setSize(766, 850);
-      
-        popup.add(new ProductDetailPopUp(product, popup));
-        popup.setVisible(true);
+         IMat.getWindow().openProductPopup(product);
     }//GEN-LAST:event_mouseClickedHandler
 
     private void favoriteLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_favoriteLabelMouseClicked

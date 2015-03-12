@@ -111,17 +111,7 @@ public class CartItem extends javax.swing.JPanel {
     }//GEN-LAST:event_imageLabelMouseClicked
 
     private void nameLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nameLabelMouseClicked
-         JDialog popup = new JDialog(IMat.getWindow());
-        
-        int width = IMat.getWindow().getWidth();
-        int height =IMat.getWindow().getHeight();
-        popup.setLocation((width/2)-400, height/2 - 350);
-        popup.setUndecorated(true);
-          
-        popup.setSize(766, 850);
-      
-        popup.add(new ProductDetailPopUp(item.getProduct(), popup));
-        popup.setVisible(true);
+       IMat.getWindow().openProductPopup(item.getProduct());
     }//GEN-LAST:event_nameLabelMouseClicked
 
 

@@ -11,9 +11,9 @@ import imat.models.Model;
 import imat.models.ModelAux;
 import imat.panels.ProductDetailPopUp;
 import java.awt.Color;
+import java.awt.Dimension;
 import javax.swing.ImageIcon;
 import javax.swing.JDialog;
-import javax.swing.JLabel;
 import javax.swing.SwingConstants;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingItem;
@@ -38,7 +38,7 @@ public class GridItem extends javax.swing.JPanel {
         initComponents();
         this.product = product;
         productName.setText(product.getName());
-        imageLabel.setIcon(Model.getImage(product, 200, 200));
+        imageLabel.setIcon(Model.getImage(product, 230,250));
         imageLabel.setHorizontalAlignment(SwingConstants.CENTER);
         priceLabel.setText(String.valueOf(product.getPrice())+ " " + product.getUnit());
         //fixZebra();
@@ -81,6 +81,9 @@ public class GridItem extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        zebraColorPane = new javax.swing.JPanel();
+        productName = new javax.swing.JLabel();
         imageLabel = new javax.swing.JLabel();
         holderPanel = new javax.swing.JPanel();
         priceLabel = new javax.swing.JLabel();
@@ -88,10 +91,25 @@ public class GridItem extends javax.swing.JPanel {
         fav = new javax.swing.JLabel();
         removeButton = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
-        zebraColorPane = new javax.swing.JPanel();
-        productName = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 30, 0));
+        setOpaque(false);
+
+        jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 2, true));
+        jPanel1.setPreferredSize(new java.awt.Dimension(260, 290));
+
+        zebraColorPane.setBackground(new java.awt.Color(102, 102, 102));
+        zebraColorPane.setLayout(new java.awt.BorderLayout());
+
+        productName.setForeground(new java.awt.Color(230, 230, 230));
+        productName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        productName.setText("productName");
+        productName.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                productNameMouseClicked(evt);
+            }
+        });
+        zebraColorPane.add(productName, java.awt.BorderLayout.CENTER);
 
         imageLabel.setText("  ");
         imageLabel.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -100,6 +118,7 @@ public class GridItem extends javax.swing.JPanel {
             }
         });
 
+        holderPanel.setBackground(new java.awt.Color(200, 200, 200));
         holderPanel.setOpaque(false);
 
         priceLabel.setText("Pris kr/kg");
@@ -134,22 +153,19 @@ public class GridItem extends javax.swing.JPanel {
         holderPanelLayout.setHorizontalGroup(
             holderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(holderPanelLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(holderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(holderPanelLayout.createSequentialGroup()
-                        .addComponent(removeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(amountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, holderPanelLayout.createSequentialGroup()
-                        .addComponent(fav)
-                        .addGap(15, 15, 15)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addContainerGap()
+                        .addComponent(fav))
+                    .addGroup(holderPanelLayout.createSequentialGroup()
+                        .addComponent(removeButton)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(amountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(holderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, holderPanelLayout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(priceLabel)))
-                .addContainerGap())
+                    .addComponent(priceLabel)
+                    .addComponent(jButton1))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         holderPanelLayout.setVerticalGroup(
             holderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -158,46 +174,53 @@ public class GridItem extends javax.swing.JPanel {
                 .addGroup(holderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(priceLabel)
                     .addComponent(fav))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(holderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(removeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(holderPanelLayout.createSequentialGroup()
-                        .addGroup(holderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(amountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(1, 1, 1))))
+                .addGap(6, 6, 6)
+                .addGroup(holderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(amountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(removeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(1, 1, 1))
         );
 
-        zebraColorPane.setBackground(new java.awt.Color(102, 102, 102));
-        zebraColorPane.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 5, 5, 5));
-        zebraColorPane.setLayout(new java.awt.BorderLayout());
-
-        productName.setForeground(new java.awt.Color(230, 230, 230));
-        productName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        productName.setText("productName");
-        productName.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                productNameMouseClicked(evt);
-            }
-        });
-        zebraColorPane.add(productName, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(holderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(zebraColorPane, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(47, Short.MAX_VALUE)
+                .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(holderPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addComponent(zebraColorPane, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 251, Short.MAX_VALUE)))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(zebraColorPane, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(holderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(zebraColorPane, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(imageLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(holderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -216,17 +239,7 @@ public class GridItem extends javax.swing.JPanel {
     }//GEN-LAST:event_removeButtonActionPerformed
 
     private void productNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_productNameMouseClicked
-        JDialog popup = new JDialog(IMat.getWindow());
-        
-        int width = IMat.getWindow().getWidth();
-        int height =IMat.getWindow().getHeight();
-        popup.setLocation((width/2)-400, height/2 - 350);
-        popup.setUndecorated(true);
-          
-        popup.setSize(766, 850);
-      
-        popup.add(new ProductDetailPopUp(product, popup));
-        popup.setVisible(true);
+        IMat.getWindow().openProductPopup(product);
     }//GEN-LAST:event_productNameMouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -256,6 +269,7 @@ private void toggleFavorite(){
     private javax.swing.JPanel holderPanel;
     private javax.swing.JLabel imageLabel;
     private javax.swing.JButton jButton1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel priceLabel;
     private javax.swing.JLabel productName;
     private javax.swing.JButton removeButton;

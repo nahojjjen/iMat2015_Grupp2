@@ -352,6 +352,14 @@ public class PanelSearchResult extends javax.swing.JPanel {
     public PanelSearchResult() {
         initComponents();
     }
+    
+    private void reSetColumns(){
+        int columns = gridViewWrapper.getWidth()/(270);
+        if (columns < 1){columns = 1;}
+        gridView.setLayout(new GridLayout(0, columns));
+        revalidate();
+        repaint();
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -499,7 +507,17 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
         gridViewWrapper.setBorder(null);
         gridViewWrapper.setOpaque(false);
+        gridViewWrapper.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                gridViewWrapperComponentResized(evt);
+            }
+        });
 
+        gridView.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                gridViewComponentResized(evt);
+            }
+        });
         gridView.setLayout(new java.awt.GridLayout(0, 4));
         gridViewWrapper.setViewportView(gridView);
 
@@ -538,6 +556,14 @@ public class PanelSearchResult extends javax.swing.JPanel {
         clearPreviousItems();
         loadResult(loadWay);
     }//GEN-LAST:event_sortingComboboxActionPerformed
+
+    private void gridViewComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_gridViewComponentResized
+       
+    }//GEN-LAST:event_gridViewComponentResized
+
+    private void gridViewWrapperComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_gridViewWrapperComponentResized
+       reSetColumns(); // TODO add your handling code here:
+    }//GEN-LAST:event_gridViewWrapperComponentResized
 
  
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -45,10 +45,9 @@ public class ProductDetailPopUp extends javax.swing.JPanel {
         productImage.setIcon(Model.getImage(product,294,294));
         productName.setText(product.getName());
         priceLabel.setText(String.valueOf(product.getPrice())+ " " + product.getUnit());
-        //productList = Model.doSearch("");
-        relatedItemsPane.add(new GridItem(Model.getProduct( (int)(Math.random()*140) )));
-        relatedItemsPane.add(new GridItem(Model.getProduct( (int)(Math.random()*140) )));
-        relatedItemsPane.add(new GridItem(Model.getProduct((int)(Math.random()*140)  )));
+        relatedItemsPane.add(new GridItem(Model.getProduct( (int)(Math.random()*120)+1 )));
+        relatedItemsPane.add(new GridItem(Model.getProduct( (int)(Math.random()*120)+1 )));
+        relatedItemsPane.add(new GridItem(Model.getProduct((int)(Math.random()*120)+1  )));
         
     }
     
@@ -99,7 +98,7 @@ public class ProductDetailPopUp extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         relatedItemsPane = new javax.swing.JPanel();
 
-        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(0, 0, 0), 2, true));
+        setBorder(new javax.swing.border.LineBorder(new java.awt.Color(153, 153, 153), 2, true));
         setPreferredSize(new java.awt.Dimension(750, 590));
 
         jPanel2.setBackground(imat.IMat.getAccentColor());
@@ -109,6 +108,7 @@ public class ProductDetailPopUp extends javax.swing.JPanel {
         productName.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         productName.setText("productName");
 
+        disposeLabel.setBackground(new java.awt.Color(204, 255, 204));
         disposeLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/removeIcon.png"))); // NOI18N
         disposeLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -123,17 +123,19 @@ public class ProductDetailPopUp extends javax.swing.JPanel {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(productName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(18, 18, 18)
-                .addComponent(disposeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(disposeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(productName, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addComponent(disposeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(productName, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(disposeLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -292,18 +294,17 @@ public class ProductDetailPopUp extends javax.swing.JPanel {
         jPanel1.add(jPanel4, java.awt.BorderLayout.NORTH);
 
         relatedItemsPane.setOpaque(false);
-        relatedItemsPane.setLayout(new java.awt.GridLayout(1, 3));
         jPanel1.add(relatedItemsPane, java.awt.BorderLayout.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

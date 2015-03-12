@@ -6,7 +6,7 @@
 package imat;
 
 import imat.models.Model;
-import imat.panels.contentPanels.PanelAccountInfo;
+import imat.panels.ProductDetailPopUp;
 import imat.panels.contentPanels.PanelHome;
 import imat.panels.contentPanels.PanelNavigation2;
 import imat.panels.contentPanels.PanelSearchResult;
@@ -14,6 +14,7 @@ import imat.panels.modulePanels.PanelCart;
 import imat.panels.modulePanels.PanelSearch;
 import imat.panels.modulePanels.loginDefault;
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -23,6 +24,7 @@ import java.io.IOException;
 import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -38,6 +40,7 @@ public class MainWindow extends javax.swing.JFrame {
     private ImageIcon logo;
     private ImageIcon logoH;
     private PanelCart cartModule = new PanelCart();
+    private JDialog currentDialog;
     /**
      * Creates new form MainWindow
      */
@@ -146,6 +149,29 @@ public class MainWindow extends javax.swing.JFrame {
         logoPanel.add(imageLabel);
     }
 
+    public void openProductPopup(Product product){
+        closeCurrentPopup();
+        
+        JDialog popup = new JDialog(IMat.getWindow());
+        popup.setAlwaysOnTop(true);
+        currentDialog = popup;
+        
+        int width = IMat.getWindow().getWidth();
+        int height =IMat.getWindow().getHeight();
+        popup.setLocation((width/2)-400, height/2 - 350);
+        popup.setUndecorated(true);
+          
+        popup.setSize(780, 780);
+      
+        popup.add(new ProductDetailPopUp(product, popup));
+        popup.setVisible(true);
+    }
+
+    private void closeCurrentPopup(){
+        if (currentDialog != null){
+            currentDialog.dispose();
+        }
+    }
     /**
      * show the updated cart content by removing and creating a new cart
      */
