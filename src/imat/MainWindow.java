@@ -76,9 +76,9 @@ public class MainWindow extends javax.swing.JFrame {
      */
     private void fixColors(){
         //header
-        headerPanel.setBackground(IMat.getHeaderColor());
-        bodyPanel.setBackground(IMat.getBackgroundColor());
-        contentPanel.setBackground(IMat.getAverageColor());
+        //headerPanel.setBackground(IMat.getHeaderColor());
+        //bodyPanel.setBackground(IMat.getBackgroundColor());
+        //contentPanel.setBackground(IMat.getAverageColor());
     }
     
     

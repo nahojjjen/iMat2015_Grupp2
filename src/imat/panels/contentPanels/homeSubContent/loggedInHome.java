@@ -83,6 +83,7 @@ public class loggedInHome extends javax.swing.JPanel {
 
         setOpaque(false);
 
+        holder.setOpaque(false);
         holder.setLayout(new java.awt.GridLayout(2, 3, 5, 5));
 
         onGoingPanel.setBackground(new java.awt.Color(0, 0, 0));
