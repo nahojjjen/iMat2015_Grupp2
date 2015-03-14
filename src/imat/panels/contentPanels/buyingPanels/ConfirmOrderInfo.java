@@ -34,7 +34,7 @@ public class ConfirmOrderInfo extends javax.swing.JPanel {
         }
          cardHolderLabel.setText(CustomerModel.getCardHolderName());
         acceptedTimeLabel.setText(CustomerModel.getCardYear() + " / " + CustomerModel.getCardMonth());
-        cvv2Label.setText(String.valueOf(CustomerModel.getCardVerification()));
+        cvv2Label.setText((CustomerModel.getCardVerification()));
         emailLabel.setText(CustomerModel.getEmail());
         nameLabel.setText(CustomerModel.getLastName().toUpperCase() + " "  + CustomerModel.getFirstName().toUpperCase());
         adressLabel.setText(CustomerModel.getAddress());
