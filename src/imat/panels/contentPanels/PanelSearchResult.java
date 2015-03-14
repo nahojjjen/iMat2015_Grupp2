@@ -640,9 +640,9 @@ public class PanelSearchResult extends javax.swing.JPanel {
     private void detailsViewWrapperComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_detailsViewWrapperComponentResized
         sortingWay = sortingCombobox.getSelectedIndex();
         if (loadWay == 0 && groupCheckbox.isSelected()){
-            System.out.println("asd");
             showDetailsResultsGrouped(products);
         }
+        repaint();
     }//GEN-LAST:event_detailsViewWrapperComponentResized
 
  
