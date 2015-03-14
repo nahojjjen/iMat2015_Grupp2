@@ -116,8 +116,6 @@ public class DetailItem extends javax.swing.JPanel {
         favoriteLabel = new javax.swing.JLabel();
         removeButton = new javax.swing.JButton();
 
-        setLayout(new java.awt.BorderLayout());
-
         jSplitPane1.setBorder(null);
         jSplitPane1.setDividerLocation(90);
         jSplitPane1.setDividerSize(0);
@@ -208,7 +206,16 @@ public class DetailItem extends javax.swing.JPanel {
 
         jSplitPane1.setRightComponent(colorBackground);
 
-        add(jSplitPane1, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
     }// </editor-fold>//GEN-END:initComponents
 
     private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed

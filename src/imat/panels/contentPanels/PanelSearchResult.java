@@ -5,6 +5,7 @@
  */
 package imat.panels.contentPanels;
 
+import imat.IMat;
 import imat.models.CategoryImageLibrary;
 import imat.models.Model;
 import imat.models.sorters.Alphabetical;
@@ -18,12 +19,12 @@ import imat.panels.subItems.ListItem;
 import imat.panels.subItems.NoResultsPanel;
 import java.awt.CardLayout;
 import java.awt.Color;
-import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.util.Collections;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
+import javax.swing.SwingConstants;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ProductCategory;
 
@@ -44,6 +45,8 @@ public class PanelSearchResult extends javax.swing.JPanel {
     private ImageIcon list2= new ImageIcon("src/resources/views/list2.png");
     private ImageIcon details1= new ImageIcon("src/resources/views/details1.png");
     private ImageIcon details2= new ImageIcon("src/resources/views/details2.png");
+    
+    private int lastSize = 0;
     
     ////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////
@@ -204,24 +207,79 @@ public class PanelSearchResult extends javax.swing.JPanel {
      * @param products what products to show
      */
     private void showDetailsResultsGrouped(List<Product> products) {
-        clearPreviousItems();
+       clearPreviousItems();
+       
+        try {
+            System.out.println(IMat.getWindow().getWidth() + "is the width of the window panelsearchresult");
+             if( IMat.getWindow().getWidth() > 1500){
+            showTwoColumnSearch();
+        }else{
+            showOneColumnSearch();
+        }
+            
+        } catch (Exception e) {
+        }
+        revalidate();
+    }
+    
+    private void showTwoColumnSearch(){
+        
+        ProductCategory category = null;
+        boolean oddColumn = false;
+       
+        for (Product product : products) {
+            if (!(category == product.getCategory())) {
+                oddColumn =  !oddColumn;  
+                addNewCategory(product, oddColumn);
+                
+                category = product.getCategory();
+            }
+            addDetailItem(product, oddColumn);
+        }
+        detailsView.add(new JLabel("                                                                                                                                                                       "));
+       detailsView2.add(new JLabel("                                                                                                                                                                       "));
+        
+    }
+    
+    private void showOneColumnSearch(){
+        
         ProductCategory category = null;
         for (Product product : products) {
             if (!(category == product.getCategory())) {
                 detailsView.add(new JLabel(""));
                 category = product.getCategory();
                 JLabel tmpLabel = new JLabel(CategoryImageLibrary.getPicture(category));
+                tmpLabel.setHorizontalAlignment(SwingConstants.LEFT);
                 tmpLabel.setToolTipText(category.toString());
                 detailsView.add(tmpLabel);
                 
             }
             detailsView.add(new DetailItem(product));
         }
-        
-                detailsView.add(new JLabel());
-        detailsView.add(new JLabel("                                                                                                                                                                       "));
-        this.revalidate();
     }
+    private void addNewCategory(Product product,boolean oddColumn ){
+                ProductCategory category = null;
+                category = product.getCategory();
+                JLabel tmpLabel = new JLabel(CategoryImageLibrary.getPicture(category));
+                tmpLabel.setHorizontalAlignment(SwingConstants.LEFT);
+                tmpLabel.setToolTipText(category.toString());
+                 if (oddColumn){
+                    detailsView.add(new JLabel());
+                    detailsView.add(tmpLabel);
+                }else{
+                    detailsView2.add(new JLabel());
+                detailsView2.add(tmpLabel);
+                }
+    }
+    private void addDetailItem(Product product, boolean oddColumn){
+         if (oddColumn){
+            detailsView.add(new DetailItem(product));
+            }else{
+            detailsView2.add(new DetailItem(product));
+            }
+    }
+   
+    
         /**
      * create a list of listresultitems and put them in resultview
      *
@@ -269,6 +327,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         gridView.removeAll();
         listView.removeAll();
         detailsView.removeAll();
+        detailsView2.removeAll();
     }
     
        /**
@@ -382,6 +441,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         detailsViewWrapper = new javax.swing.JScrollPane();
         detailsPanelHolder = new javax.swing.JPanel();
         detailsView = new javax.swing.JPanel();
+        detailsView2 = new javax.swing.JPanel();
         listViewWrapper = new javax.swing.JScrollPane();
         jPanel3 = new javax.swing.JPanel();
         listView = new javax.swing.JPanel();
@@ -483,13 +543,25 @@ public class PanelSearchResult extends javax.swing.JPanel {
         cardPanel.setLayout(new java.awt.CardLayout());
 
         detailsViewWrapper.setBorder(null);
+        detailsViewWrapper.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         detailsViewWrapper.setOpaque(false);
+        detailsViewWrapper.addComponentListener(new java.awt.event.ComponentAdapter() {
+            public void componentResized(java.awt.event.ComponentEvent evt) {
+                detailsViewWrapperComponentResized(evt);
+            }
+        });
 
         detailsPanelHolder.setOpaque(false);
+        detailsPanelHolder.setLayout(new java.awt.GridLayout(0, 2));
 
         detailsView.setOpaque(false);
         detailsView.setLayout(new java.awt.GridLayout(0, 1));
         detailsPanelHolder.add(detailsView);
+
+        detailsView2.setOpaque(false);
+        detailsView2.setPreferredSize(new java.awt.Dimension(0, 0));
+        detailsView2.setLayout(new java.awt.GridLayout(0, 1));
+        detailsPanelHolder.add(detailsView2);
 
         detailsViewWrapper.setViewportView(detailsPanelHolder);
 
@@ -565,12 +637,21 @@ public class PanelSearchResult extends javax.swing.JPanel {
        reSetColumns(); // TODO add your handling code here:
     }//GEN-LAST:event_gridViewWrapperComponentResized
 
+    private void detailsViewWrapperComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_detailsViewWrapperComponentResized
+        sortingWay = sortingCombobox.getSelectedIndex();
+        if (loadWay == 0 && groupCheckbox.isSelected()){
+            System.out.println("asd");
+            showDetailsResultsGrouped(products);
+        }
+    }//GEN-LAST:event_detailsViewWrapperComponentResized
+
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel cardPanel;
     private javax.swing.JLabel detailsLabel;
     private javax.swing.JPanel detailsPanelHolder;
     private javax.swing.JPanel detailsView;
+    private javax.swing.JPanel detailsView2;
     private javax.swing.JScrollPane detailsViewWrapper;
     private javax.swing.JLabel gridLabel;
     private javax.swing.JPanel gridView;
