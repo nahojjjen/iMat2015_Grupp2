@@ -28,7 +28,10 @@ public class PanelEarlierCarts extends javax.swing.JPanel {
         List<Order> orders = Model.getOrders();
         Collections.sort(orders, new OrderByDateSort());
         for (Order order : orders) {
-            cartList.add(new CartHistory(order));
+            if (order.getItems().size() > 0){
+                cartList.add(new CartHistory(order));
+            }
+            
         }
         if (orders.isEmpty() ){
             cartList.add(new JLabel("Du har inga tidigare beställningar."));
