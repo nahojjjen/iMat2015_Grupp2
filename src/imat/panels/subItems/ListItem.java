@@ -104,8 +104,6 @@ public class ListItem extends javax.swing.JPanel {
         productPrice = new javax.swing.JLabel();
         ammountSpinner = new javax.swing.JSpinner();
         buyButton = new javax.swing.JButton();
-        jSeparator2 = new javax.swing.JSeparator();
-        jSeparator3 = new javax.swing.JSeparator();
         favoriteLabel = new javax.swing.JLabel();
         removeButton = new javax.swing.JButton();
 
@@ -115,11 +113,11 @@ public class ListItem extends javax.swing.JPanel {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 mouseClickedHandler(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                mouseExitedHandler(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 mouseEnteredHandler(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                mouseExitedHandler(evt);
             }
         });
 
@@ -136,10 +134,6 @@ public class ListItem extends javax.swing.JPanel {
                 buyButtonActionPerformed(evt);
             }
         });
-
-        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
-
-        jSeparator3.setOrientation(javax.swing.SwingConstants.VERTICAL);
 
         favoriteLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/unfav.png"))); // NOI18N
         favoriteLabel.setToolTipText("Favorite");
@@ -165,37 +159,33 @@ public class ListItem extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(productName)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 154, Short.MAX_VALUE)
-                .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(35, 35, 35)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 121, Short.MAX_VALUE)
                 .addComponent(favoriteLabel)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
                 .addComponent(productPrice)
-                .addGap(8, 8, 8)
+                .addGap(18, 18, 18)
                 .addComponent(ammountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(removeButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(buyButton)
-                .addGap(1, 1, 1))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(3, 3, 3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(ammountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(removeButton)
                         .addComponent(buyButton)
                         .addComponent(productPrice))
-                    .addComponent(favoriteLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(productName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                .addGap(3, 3, 3))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(favoriteLabel)
+                .addGap(3, 3, 3))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -244,8 +234,6 @@ public class ListItem extends javax.swing.JPanel {
     private javax.swing.JSpinner ammountSpinner;
     private javax.swing.JButton buyButton;
     private javax.swing.JLabel favoriteLabel;
-    private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JSeparator jSeparator3;
     private javax.swing.JLabel productName;
     private javax.swing.JLabel productPrice;
     private javax.swing.JButton removeButton;

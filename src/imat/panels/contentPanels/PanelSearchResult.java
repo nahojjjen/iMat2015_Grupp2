@@ -38,7 +38,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
     private CardLayout card;
     private static boolean grouped = true;
     private static int sortingWay = 0;
-    private static int loadWay = 0;
+    private static int loadWay = 2;
     private ImageIcon grid1= new ImageIcon("src/resources/views/grid1.png");
     private ImageIcon grid2= new ImageIcon("src/resources/views/grid2.png");
     private ImageIcon list1= new ImageIcon("src/resources/views/list1.png");
@@ -210,8 +210,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
        clearPreviousItems();
        
         try {
-            System.out.println(IMat.getWindow().getWidth() + "is the width of the window panelsearchresult");
-             if( IMat.getWindow().getWidth() > 1500){
+             if( IMat.getWindow().getWidth() > 1500 && products.size() > 5){
             showTwoColumnSearch();
         }else{
             showOneColumnSearch();
@@ -309,6 +308,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
     //////////////////////////    Helper methods   ////////////////////
     ///////////////////////////////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////
+ 
     /**
      * increase the scroll speed in all scrollpanels
      */
@@ -369,8 +369,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
             detailsView.add(new NoResultsPanel());
             listView.add(new NoResultsPanel());
             gridView.add(new NoResultsPanel());
-            revalidate();
-            repaint();
+            
         }
         revalidate();
         repaint();
@@ -471,6 +470,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
         jLabel1.setText("Sortera på");
 
         detailsLabel.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/views/details1.png"))); // NOI18N
@@ -504,16 +504,16 @@ public class PanelSearchResult extends javax.swing.JPanel {
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(headerPanelLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(searchLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 237, Short.MAX_VALUE)
-                .addGap(40, 40, 40)
-                .addComponent(groupCheckbox)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(searchLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 117, Short.MAX_VALUE)
+                .addGap(135, 135, 135)
                 .addComponent(detailsLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(listLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(gridLabel)
                 .addGap(18, 18, 18)
+                .addComponent(groupCheckbox)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(sortingCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -521,24 +521,23 @@ public class PanelSearchResult extends javax.swing.JPanel {
         );
         headerPanelLayout.setVerticalGroup(
             headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(headerPanelLayout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sortingCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel1))
-                .addGap(0, 2, Short.MAX_VALUE))
-            .addComponent(searchLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(searchLabel, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, headerPanelLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
+                .addGap(0, 13, Short.MAX_VALUE)
                 .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(groupCheckbox, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(listLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(detailsLabel, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(gridLabel, javax.swing.GroupLayout.Alignment.TRAILING)))
+                    .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(sortingCombobox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(groupCheckbox))
+                    .addGroup(headerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(listLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(detailsLabel, javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(gridLabel, javax.swing.GroupLayout.Alignment.TRAILING))))
         );
 
         add(headerPanel, java.awt.BorderLayout.PAGE_START);
 
+        cardPanel.setBackground(new java.awt.Color(0, 0, 0));
         cardPanel.setOpaque(false);
         cardPanel.setLayout(new java.awt.CardLayout());
 
@@ -551,9 +550,10 @@ public class PanelSearchResult extends javax.swing.JPanel {
             }
         });
 
-        detailsPanelHolder.setOpaque(false);
+        detailsPanelHolder.setBackground(imat.IMat.getAverageColor());
         detailsPanelHolder.setLayout(new java.awt.GridLayout(0, 2));
 
+        detailsView.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 15, 0, 0));
         detailsView.setOpaque(false);
         detailsView.setLayout(new java.awt.GridLayout(0, 1));
         detailsPanelHolder.add(detailsView);
@@ -570,6 +570,9 @@ public class PanelSearchResult extends javax.swing.JPanel {
         listViewWrapper.setBorder(null);
         listViewWrapper.setOpaque(false);
 
+        jPanel3.setBackground(imat.IMat.getAverageColor());
+
+        listView.setOpaque(false);
         listView.setLayout(new java.awt.GridLayout(0, 1));
         jPanel3.add(listView);
 
@@ -585,6 +588,8 @@ public class PanelSearchResult extends javax.swing.JPanel {
             }
         });
 
+        gridView.setBackground(imat.IMat.getAverageColor());
+        gridView.setOpaque(false);
         gridView.addComponentListener(new java.awt.event.ComponentAdapter() {
             public void componentResized(java.awt.event.ComponentEvent evt) {
                 gridViewComponentResized(evt);
@@ -627,6 +632,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
         setSortingMethod();
         clearPreviousItems();
         loadResult(loadWay);
+       
     }//GEN-LAST:event_sortingComboboxActionPerformed
 
     private void gridViewComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_gridViewComponentResized
@@ -639,7 +645,7 @@ public class PanelSearchResult extends javax.swing.JPanel {
 
     private void detailsViewWrapperComponentResized(java.awt.event.ComponentEvent evt) {//GEN-FIRST:event_detailsViewWrapperComponentResized
         sortingWay = sortingCombobox.getSelectedIndex();
-        if (loadWay == 0 && groupCheckbox.isSelected()){
+        if (loadWay == 0 && groupCheckbox.isSelected() && products.size() !=0){
             showDetailsResultsGrouped(products);
         }
         repaint();

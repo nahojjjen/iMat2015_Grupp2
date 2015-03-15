@@ -95,7 +95,7 @@ public class ConfirmOrderInfo extends javax.swing.JPanel {
         jTextArea1 = new javax.swing.JTextArea();
         jPanel4 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        confirmEverything = new javax.swing.JButton();
 
         setLayout(new java.awt.BorderLayout());
 
@@ -366,13 +366,13 @@ public class ConfirmOrderInfo extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setBackground(new java.awt.Color(201, 80, 148));
-        jButton1.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Bekräfta köp");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        confirmEverything.setBackground(new java.awt.Color(201, 80, 148));
+        confirmEverything.setFont(new java.awt.Font("Verdana", 1, 14)); // NOI18N
+        confirmEverything.setForeground(new java.awt.Color(255, 255, 255));
+        confirmEverything.setText("Bekräfta köp");
+        confirmEverything.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                confirmEverythingActionPerformed(evt);
             }
         });
 
@@ -384,7 +384,7 @@ public class ConfirmOrderInfo extends javax.swing.JPanel {
                 .addContainerGap()
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 539, Short.MAX_VALUE)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(confirmEverything, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
         jPanel4Layout.setVerticalGroup(
@@ -393,14 +393,14 @@ public class ConfirmOrderInfo extends javax.swing.JPanel {
                 .addContainerGap(51, Short.MAX_VALUE)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(confirmEverything, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
 
         add(jPanel4, java.awt.BorderLayout.SOUTH);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void confirmEverythingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmEverythingActionPerformed
         if (Model.getShoppingcart().getItems().size() > 0) {
            Model.placeOrder();        
            IMat.getWindow().setContent(new PanelDoneShopping());
@@ -408,7 +408,7 @@ public class ConfirmOrderInfo extends javax.swing.JPanel {
             System.out.println("trying to buy with cart less than 0 items");
         }
         
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_confirmEverythingActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
           
@@ -423,9 +423,9 @@ public class ConfirmOrderInfo extends javax.swing.JPanel {
     private javax.swing.JLabel cardHolderLabel;
     private javax.swing.JLabel cardNumberLabel;
     private javax.swing.JLabel coLabel;
+    private javax.swing.JButton confirmEverything;
     private javax.swing.JLabel cvv2Label;
     private javax.swing.JLabel emailLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;

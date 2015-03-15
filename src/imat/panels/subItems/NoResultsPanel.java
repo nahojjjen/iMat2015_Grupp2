@@ -53,6 +53,7 @@ public class NoResultsPanel extends javax.swing.JPanel {
         noResults = new javax.swing.JLabel();
         jokeLabel = new javax.swing.JLabel();
 
+        setOpaque(false);
         setLayout(new java.awt.BorderLayout());
 
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);

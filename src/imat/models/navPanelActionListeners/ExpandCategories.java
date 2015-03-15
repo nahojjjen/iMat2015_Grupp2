@@ -5,7 +5,7 @@
  */
 package imat.models.navPanelActionListeners;
 
-import imat.panels.contentPanels.PanelNavigation2;
+import imat.panels.modulePanels.PanelNavigation2;
 
 /**
  *

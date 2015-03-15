@@ -8,7 +8,7 @@ package imat;
 import imat.models.Model;
 import imat.panels.ProductDetailPopUp;
 import imat.panels.contentPanels.PanelHome;
-import imat.panels.contentPanels.PanelNavigation2;
+import imat.panels.modulePanels.PanelNavigation2;
 import imat.panels.contentPanels.PanelSearchResult;
 import imat.panels.modulePanels.PanelCart;
 import imat.panels.modulePanels.PanelSearch;
@@ -277,11 +277,12 @@ public class MainWindow extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jSplitPane1.setBorder(null);
         jSplitPane1.setDividerLocation(120);
         jSplitPane1.setDividerSize(0);
         jSplitPane1.setOrientation(javax.swing.JSplitPane.VERTICAL_SPLIT);
 
-        headerPanel.setBackground(new java.awt.Color(102, 153, 255));
+        headerPanel.setBackground(new java.awt.Color(102, 255, 51));
         headerPanel.setMinimumSize(new java.awt.Dimension(100, 120));
         headerPanel.setPreferredSize(new java.awt.Dimension(733, 120));
         headerPanel.setLayout(new java.awt.BorderLayout());
@@ -298,7 +299,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
         accountPanelLayout.setVerticalGroup(
             accountPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 119, Short.MAX_VALUE)
+            .addGap(0, 120, Short.MAX_VALUE)
         );
 
         headerPanel.add(accountPanel, java.awt.BorderLayout.EAST);
@@ -319,17 +320,18 @@ public class MainWindow extends javax.swing.JFrame {
         searchPanel.setLayout(searchPanelLayout);
         searchPanelLayout.setHorizontalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 898, Short.MAX_VALUE)
+            .addGap(0, 900, Short.MAX_VALUE)
         );
         searchPanelLayout.setVerticalGroup(
             searchPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 119, Short.MAX_VALUE)
+            .addGap(0, 120, Short.MAX_VALUE)
         );
 
         headerPanel.add(searchPanel, java.awt.BorderLayout.CENTER);
 
         jSplitPane1.setTopComponent(headerPanel);
 
+        bodyPanel.setBackground(imat.IMat.getBackgroundColor());
         bodyPanel.setLayout(new java.awt.BorderLayout());
 
         cartPanel.setMinimumSize(new java.awt.Dimension(220, 100));
@@ -343,7 +345,7 @@ public class MainWindow extends javax.swing.JFrame {
         );
         cartPanelLayout.setVerticalGroup(
             cartPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 879, Short.MAX_VALUE)
+            .addGap(0, 880, Short.MAX_VALUE)
         );
 
         bodyPanel.add(cartPanel, java.awt.BorderLayout.EAST);
@@ -359,26 +361,27 @@ public class MainWindow extends javax.swing.JFrame {
         );
         navigationPanelLayout.setVerticalGroup(
             navigationPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 879, Short.MAX_VALUE)
+            .addGap(0, 880, Short.MAX_VALUE)
         );
 
         bodyPanel.add(navigationPanel, java.awt.BorderLayout.WEST);
 
-        spacec.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 10, 10, 10));
+        spacec.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 25, 10, 25));
         spacec.setOpaque(false);
         spacec.setLayout(new java.awt.BorderLayout());
 
         contentPanel.setBackground(new java.awt.Color(250, 250, 250));
+        contentPanel.setOpaque(false);
 
         javax.swing.GroupLayout contentPanelLayout = new javax.swing.GroupLayout(contentPanel);
         contentPanel.setLayout(contentPanelLayout);
         contentPanelLayout.setHorizontalGroup(
             contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1138, Short.MAX_VALUE)
+            .addGap(0, 1110, Short.MAX_VALUE)
         );
         contentPanelLayout.setVerticalGroup(
             contentPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 859, Short.MAX_VALUE)
+            .addGap(0, 860, Short.MAX_VALUE)
         );
 
         spacec.add(contentPanel, java.awt.BorderLayout.CENTER);

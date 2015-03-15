@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package imat.panels.contentPanels;
+package imat.panels.modulePanels;
 
 import imat.IMat;
 import imat.models.customPanelLogic.CustomButton2;
@@ -175,19 +175,35 @@ public class PanelNavigation2 extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
         holder = new javax.swing.JPanel();
 
+        setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 0, 0, 0));
         setOpaque(false);
-        setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.CENTER, 0, 0));
+        setLayout(new java.awt.BorderLayout());
 
-        holder.setBorder(javax.swing.BorderFactory.createEmptyBorder(10, 0, 0, 0));
+        jPanel1.setBackground(imat.IMat.getAccentColor());
+        jPanel1.setPreferredSize(new java.awt.Dimension(71, 42));
+        jPanel1.setLayout(new java.awt.BorderLayout());
+
+        jLabel1.setFont(new java.awt.Font("Verdana", 1, 12)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Navigation");
+        jPanel1.add(jLabel1, java.awt.BorderLayout.CENTER);
+
+        add(jPanel1, java.awt.BorderLayout.NORTH);
+
         holder.setOpaque(false);
         holder.setLayout(new java.awt.GridLayout(16, 1));
-        add(holder);
+        add(holder, java.awt.BorderLayout.CENTER);
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel holder;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

@@ -46,10 +46,10 @@ public class DetailItem extends javax.swing.JPanel {
     private void fixZebra(){
         if (zebra) {
             zebra=!zebra;
-            colorBackground.setBackground(new Color(250,250,250));
+            colorBackground.setBackground(new Color(245,245,245));
         }else{
             zebra=!zebra;
-            colorBackground.setBackground(new Color(245,245,245));
+            colorBackground.setBackground(new Color(235,235,235));
         }
     }
 
@@ -116,6 +116,8 @@ public class DetailItem extends javax.swing.JPanel {
         favoriteLabel = new javax.swing.JLabel();
         removeButton = new javax.swing.JButton();
 
+        setOpaque(false);
+
         jSplitPane1.setBorder(null);
         jSplitPane1.setDividerLocation(90);
         jSplitPane1.setDividerSize(0);
@@ -147,7 +149,7 @@ public class DetailItem extends javax.swing.JPanel {
         priceLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         priceLabel.setText("jLabel1");
         colorBackground.add(priceLabel);
-        priceLabel.setBounds(260, 10, 130, 14);
+        priceLabel.setBounds(270, 10, 130, 14);
 
         nameLabel.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         nameLabel.setText("jLabel1");
@@ -166,7 +168,7 @@ public class DetailItem extends javax.swing.JPanel {
         nameLabel.setBounds(10, 10, 190, 17);
 
         descriptionLabel.setForeground(new java.awt.Color(102, 102, 102));
-        descriptionLabel.setText("Produktens beskrivning ...");
+        descriptionLabel.setText("Innehållsförteckning: ");
         colorBackground.add(descriptionLabel);
         descriptionLabel.setBounds(10, 33, 157, 24);
 
@@ -178,9 +180,11 @@ public class DetailItem extends javax.swing.JPanel {
             }
         });
         colorBackground.add(addButton);
-        addButton.setBounds(310, 50, 90, 33);
+        addButton.setBounds(310, 50, 90, 30);
 
         inputField.setModel(new javax.swing.SpinnerNumberModel(1, 1, 99, 1));
+        inputField.setMinimumSize(new java.awt.Dimension(39, 23));
+        inputField.setPreferredSize(new java.awt.Dimension(39, 23));
         colorBackground.add(inputField);
         inputField.setBounds(260, 50, 39, 30);
 
@@ -192,7 +196,7 @@ public class DetailItem extends javax.swing.JPanel {
             }
         });
         colorBackground.add(favoriteLabel);
-        favoriteLabel.setBounds(10, 64, 15, 20);
+        favoriteLabel.setBounds(10, 60, 15, 20);
 
         removeButton.setText("Ta Bort");
         removeButton.setPreferredSize(new java.awt.Dimension(70, 20));
