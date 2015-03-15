@@ -21,7 +21,7 @@ public class IMat {
     private static final Color redAccent = new Color(80,200,80);
     
     private static final Color backgroundColor = new Color(200,200,200);
-    private static final Color averageColor = new Color(210,210,210);
+    private static final Color averageColor = new Color(220,220,220);
     private static final Color foregroundColor = new Color(240,240,240);
     
     private static boolean loggedIn = false;

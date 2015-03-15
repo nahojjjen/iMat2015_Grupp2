@@ -370,8 +370,7 @@ public class MainWindow extends javax.swing.JFrame {
         spacec.setOpaque(false);
         spacec.setLayout(new java.awt.BorderLayout());
 
-        contentPanel.setBackground(new java.awt.Color(250, 250, 250));
-        contentPanel.setOpaque(false);
+        contentPanel.setBackground(imat.IMat.getAverageColor());
 
         javax.swing.GroupLayout contentPanelLayout = new javax.swing.GroupLayout(contentPanel);
         contentPanel.setLayout(contentPanelLayout);
