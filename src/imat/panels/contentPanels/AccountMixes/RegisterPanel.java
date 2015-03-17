@@ -22,6 +22,7 @@ public class RegisterPanel extends javax.swing.JPanel {
      */
     public RegisterPanel() {
         initComponents();
+        accPanel.clearFields();
         holderPanel.add(accPanel);
     }
     
@@ -95,6 +96,7 @@ public class RegisterPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         CustomerModel.resetUser();
+        System.out.println("Previous user reset");
         registerPressed(); // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 

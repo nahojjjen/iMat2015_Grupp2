@@ -5,12 +5,12 @@
  */
 package imat.models.customPanelLogic;
 
+import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 /**
@@ -19,11 +19,14 @@ import javax.swing.JPanel;
  */
 public class HeaderPanel extends JPanel{
     
-        BufferedImage image;
+        BufferedImage leftImage;
+        BufferedImage rightImage;
+        
 
     public HeaderPanel() {
          try {                
-          image = ImageIO.read(new File("src/resources/header7.jpg"));
+          leftImage = ImageIO.read(new File("src/resources/headerleft.png"));
+          rightImage = ImageIO.read(new File("src/resources/headerright.png"));
        } catch (IOException ex) {
              System.out.println("cannot find header image");
        }
@@ -33,6 +36,16 @@ public class HeaderPanel extends JPanel{
     @Override
     public  void paintComponent(Graphics g){
         super.paintComponent(g);
-        g.drawImage(image, 0, 0, this);
+        int screenWidth = this.getWidth();
+        int screenHeight = this.getHeight();
+        int rightImageWidth = rightImage.getWidth();
+        int rightImageHeight = rightImage.getHeight();
+        g.setColor(new Color(120,150,80));
+        g.fillRect(0, 0, screenWidth, 120);
+        
+        g.drawImage(leftImage, 0, 0, this);
+        g.drawImage(rightImage, screenWidth-rightImageWidth, screenHeight-rightImageHeight, this);
+        
+        
     }
 }

@@ -30,6 +30,7 @@ public class CustomerModel {
         customer.setFirstName("");
         customer.setLastName("");
         customer.setMobilePhoneNumber("");
+        customer.setPhoneNumber("");
         customer.setPostAddress("");
         customer.setPostCode("");
         creditCard.setCardNumber("");
@@ -159,6 +160,21 @@ public class CustomerModel {
             return phoneNumber;
         }
     }
+    
+       /**
+     * get the mobile phone number of the user
+     *
+     * @return a string of the users phone number
+     */
+    public static String getMobilePhoneNumber() {
+        String phoneNumber = "";
+        try {
+            phoneNumber = customer.getMobilePhoneNumber();
+            return phoneNumber;
+        } catch (NullPointerException e) {
+            return phoneNumber;
+        }
+    }
 
     /**
      * get the email of the user
@@ -210,6 +226,10 @@ public class CustomerModel {
 
     public static void setPhoneNumber(String input) {
         customer.setPhoneNumber(input);
+    }
+    
+    public static void setMobilePhoneNumber(String input){
+        customer.setMobilePhoneNumber(input);
     }
 
     public static void setCardNumber(String input) {
@@ -304,7 +324,10 @@ public class CustomerModel {
 
     public static boolean cardNumberTest(String str) {
         String cardType = getCardType();
-        return (str.length() > 12);
+        
+            return (str.length() > 14);
+       
+        
         /**
         return (cardType.equals("American Express") && str.length() == 15
                 || cardType.equals("VISA/MasterCard") && str.length() == 16);**/

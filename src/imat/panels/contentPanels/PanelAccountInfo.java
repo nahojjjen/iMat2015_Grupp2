@@ -161,6 +161,12 @@ public class PanelAccountInfo extends javax.swing.JPanel {
         newPasswordTextField.setText(CustomerModel.getPassword());
     }
 
+    public  void clearFields(){
+        emailTextField.setText("");
+        repeatEmailTextField.setText("");
+        newPasswordTextField.setText("");
+        repeatPasswordTextField.setText("");
+    }
     /**
      * Saves both fields
      */

@@ -89,7 +89,7 @@ public class GridItem extends javax.swing.JPanel {
         priceLabel = new javax.swing.JLabel();
         amountSpinner = new javax.swing.JSpinner();
         removeButton = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        addButton = new javax.swing.JButton();
         fav = new javax.swing.JLabel();
 
         setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 30, 0));
@@ -98,6 +98,14 @@ public class GridItem extends javax.swing.JPanel {
         jPanel1.setBackground(new java.awt.Color(250, 250, 250));
         jPanel1.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(204, 204, 204), 1, true));
         jPanel1.setPreferredSize(new java.awt.Dimension(260, 290));
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                jPanel1MouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                jPanel1MouseExited(evt);
+            }
+        });
 
         zebraColorPane.setBackground(new java.awt.Color(102, 102, 102));
         zebraColorPane.setLayout(new java.awt.BorderLayout());
@@ -121,6 +129,11 @@ public class GridItem extends javax.swing.JPanel {
 
         holderPanel.setBackground(new java.awt.Color(200, 200, 200));
         holderPanel.setOpaque(false);
+        holderPanel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                holderPanelMouseEntered(evt);
+            }
+        });
 
         priceLabel.setFont(new java.awt.Font("Verdana", 0, 12)); // NOI18N
         priceLabel.setText("Pris kr/kg");
@@ -135,10 +148,10 @@ public class GridItem extends javax.swing.JPanel {
             }
         });
 
-        jButton1.setText("Lägg till");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        addButton.setText("Lägg till");
+        addButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                addButtonActionPerformed(evt);
             }
         });
 
@@ -154,7 +167,7 @@ public class GridItem extends javax.swing.JPanel {
                     .addGroup(holderPanelLayout.createSequentialGroup()
                         .addComponent(amountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1)))
+                        .addComponent(addButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         holderPanelLayout.setVerticalGroup(
@@ -163,7 +176,7 @@ public class GridItem extends javax.swing.JPanel {
                 .addComponent(priceLabel)
                 .addGap(12, 12, 12)
                 .addGroup(holderPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(addButton, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(amountSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(removeButton, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -243,7 +256,7 @@ public class GridItem extends javax.swing.JPanel {
         IMat.getWindow().openProductPopup(product);
     }//GEN-LAST:event_productNameMouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void addButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addButtonActionPerformed
           int amount;
         amount = (int)amountSpinner.getValue();
         if (amount > 0){
@@ -253,7 +266,19 @@ public class GridItem extends javax.swing.JPanel {
             //Lämpligt felmeddelande. Men vi ska inte behöva komma då spinner bara tar ints mellan 1-99
         }
         refreshRemoveButton();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_addButtonActionPerformed
+
+    private void jPanel1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseEntered
+  
+    }//GEN-LAST:event_jPanel1MouseEntered
+
+    private void jPanel1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseExited
+    
+    }//GEN-LAST:event_jPanel1MouseExited
+
+    private void holderPanelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_holderPanelMouseEntered
+
+    }//GEN-LAST:event_holderPanelMouseEntered
 
 private void toggleFavorite(){
         if (Model.isFavorited(product)) {
@@ -265,11 +290,11 @@ private void toggleFavorite(){
         }
 }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addButton;
     private javax.swing.JSpinner amountSpinner;
     private javax.swing.JLabel fav;
     private javax.swing.JPanel holderPanel;
     private javax.swing.JLabel imageLabel;
-    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel priceLabel;
     private javax.swing.JLabel productName;

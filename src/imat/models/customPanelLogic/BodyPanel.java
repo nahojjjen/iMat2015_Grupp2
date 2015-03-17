@@ -8,6 +8,10 @@ package imat.models.customPanelLogic;
 import imat.IMat;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 /**
@@ -16,14 +20,34 @@ import javax.swing.JPanel;
  */
 public class BodyPanel extends JPanel{
     
+        BufferedImage leftImage;
+        BufferedImage rightImage;
     
-    
+    public BodyPanel(){
+           try {                
+          leftImage = ImageIO.read(new File("src/resources/bodyleft.png"));
+          rightImage = ImageIO.read(new File("src/resources/bodyright.png"));
+       } catch (IOException ex) {
+             System.out.println("cannot find header image");
+    }
+    }
     @Override
     public void paintComponent(Graphics g){
         super.paintComponent(g);
         g.setColor(IMat.getBackgroundColor());
-        g.fillRect(0, 0, 2000, 2000);
-         Color lineColor = IMat.getAverageColor();
+        int screenWidth = this.getWidth();
+        int screenHeight = this.getHeight();
+        g.fillRect(0, 0, screenWidth, screenHeight);
+        
+        int rightImageWidth = rightImage.getWidth();
+        int rightImageHeight = rightImage.getHeight();
+        int leftImageHeight = leftImage.getHeight();
+        
+        
+        g.drawImage(leftImage, 0, screenHeight-leftImageHeight, this);
+        g.drawImage(rightImage, screenWidth-rightImageWidth, screenHeight-rightImageHeight, this);
+        
+         //Color lineColor = IMat.getAverageColor();
        
         //drawStripes(g, lineColor, 4);
          //drawTopGradient( g);

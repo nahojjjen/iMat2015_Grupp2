@@ -342,6 +342,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jSplitPane1.setBackground(imat.IMat.getBackgroundColor());
         jSplitPane1.setBorder(null);
         jSplitPane1.setDividerLocation(120);
         jSplitPane1.setDividerSize(0);
@@ -349,6 +350,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         headerPanel.setBackground(new java.awt.Color(102, 255, 51));
         headerPanel.setMinimumSize(new java.awt.Dimension(100, 120));
+        headerPanel.setOpaque(false);
         headerPanel.setPreferredSize(new java.awt.Dimension(733, 120));
         headerPanel.setLayout(new java.awt.BorderLayout());
 
@@ -396,7 +398,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         jSplitPane1.setTopComponent(headerPanel);
 
-        bodyPanel.setBackground(imat.IMat.getBackgroundColor());
+        bodyPanel.setOpaque(false);
         bodyPanel.setLayout(new java.awt.BorderLayout());
 
         cartPanel.setMinimumSize(new java.awt.Dimension(220, 100));
@@ -466,7 +468,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         iMat.add(menuLogout);
 
-        loginMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, 0));
+        loginMenu.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         loginMenu.setText("Logga ut");
         loginMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -499,7 +501,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         redigera.add(jMenuItem3);
 
-        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Z, java.awt.event.InputEvent.CTRL_MASK));
+        jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem4.setText("Ångra rensa");
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -632,6 +634,7 @@ public class MainWindow extends javax.swing.JFrame {
         visa.add(jMenuItem14);
         visa.add(jSeparator4);
 
+        jMenuItem16.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.ALT_MASK));
         jMenuItem16.setText("Visa alla varor");
         jMenuItem16.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -640,6 +643,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         visa.add(jMenuItem16);
 
+        jMenuItem1.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_M, java.awt.event.InputEvent.ALT_MASK));
         jMenuItem1.setText("Min nuvarande kundvagn");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -649,6 +653,7 @@ public class MainWindow extends javax.swing.JFrame {
         visa.add(jMenuItem1);
         visa.add(jSeparator6);
 
+        jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem5.setText("Gå till köp");
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -657,6 +662,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         visa.add(jMenuItem5);
 
+        jMenuItem6.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_N, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem6.setText("Nästa köpsteg");
         jMenuItem6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -665,6 +671,7 @@ public class MainWindow extends javax.swing.JFrame {
         });
         visa.add(jMenuItem6);
 
+        jMenuItem9.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_B, java.awt.event.InputEvent.SHIFT_MASK | java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem9.setText("Tidigare köpsteg");
         jMenuItem9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -677,6 +684,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         Om.setText("Hjälp");
 
+        jMenuItem15.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_T, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem15.setText("F.A.Q");
         jMenuItem15.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
