@@ -65,6 +65,8 @@ public class MainWindow extends javax.swing.JFrame {
         setIcons();
         this.setTitle("iMat");
         refreshLoggedin();
+        imageLabel.requestFocusInWindow(); //makes sure "search" prompt is active when program first started
+        
 
     }
     

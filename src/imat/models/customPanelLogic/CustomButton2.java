@@ -20,6 +20,8 @@ public class CustomButton2 extends javax.swing.JPanel {
     private Color hoverColor = new Color(220,255,220);
     private Color pressedColor = new Color(100,150,100);
     private ActionCommand doThing;
+    
+    
 
     public CustomButton2(ActionCommand strategy, ImageIcon icon, String text) {
         initComponents();
@@ -105,7 +107,9 @@ public class CustomButton2 extends javax.swing.JPanel {
     }//GEN-LAST:event_formMouseExited
 
     private void formMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMousePressed
-        setBackground(pressedColor);        // TODO add your handling code here:
+        setBackground(pressedColor); 
+        doThing.doCommand();        // TODO add your handling code here:
+        IMat.getWindow().requestFocus();// TODO add your handling code here:
     }//GEN-LAST:event_formMousePressed
 
     private void formMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseReleased
@@ -113,7 +117,8 @@ public class CustomButton2 extends javax.swing.JPanel {
     }//GEN-LAST:event_formMouseReleased
 
     private void formMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_formMouseClicked
-        doThing.doCommand();        // TODO add your handling code here:
+        //doThing.doCommand();        // TODO add your handling code here:
+        //IMat.getWindow().requestFocus();
     }//GEN-LAST:event_formMouseClicked
 
 
