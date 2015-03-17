@@ -154,11 +154,13 @@ public class MainWindow extends javax.swing.JFrame {
 
             @Override
             public void mouseClicked(MouseEvent e) {
-                IMat.getWindow().setContent(new PanelHome());
             }
 
             @Override
             public void mousePressed(MouseEvent e) {
+                IMat.getWindow().setContent(new PanelHome());
+                
+        IMat.getWindow().requestFocus();
             }
 
             @Override

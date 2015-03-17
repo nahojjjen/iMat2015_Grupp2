@@ -20,18 +20,18 @@ import javax.swing.ImageIcon;
 public class loginDefault extends javax.swing.JPanel {
 
     private boolean visible = true;
-    private ImageIcon joinB = new ImageIcon("src/resources/loginButtons/join.jpg");
-    private ImageIcon loginB = new ImageIcon("src/resources/loginButtons/login.jpg");
-    private ImageIcon profileB = new ImageIcon("src/resources/loginButtons/profil.jpg");
-    private ImageIcon logoutB = new ImageIcon("src/resources/loginButtons/logout.jpg");
-    private ImageIcon joinHov = new ImageIcon("src/resources/loginButtons/joinHov.jpg");
-    private ImageIcon loginHov = new ImageIcon("src/resources/loginButtons/loginHov.jpg");
-    private ImageIcon profileHov = new ImageIcon("src/resources/loginButtons/profilHov.jpg");
-    private ImageIcon logoutHov = new ImageIcon("src/resources/loginButtons/logoutHov.jpg");
-    private ImageIcon joinPressed = new ImageIcon("src/resources/loginButtons/joinPressed.jpg");
-    private ImageIcon loginPressed = new ImageIcon("src/resources/loginButtons/loginPressed.jpg");
-    private ImageIcon profilePressed = new ImageIcon("src/resources/loginButtons/profilPressed.jpg");
-    private ImageIcon logoutPressed = new ImageIcon("src/resources/loginButtons/logoutPressed.jpg");
+    private ImageIcon joinB = new ImageIcon("src/resources/loginButtons/join.png");
+    private ImageIcon loginB = new ImageIcon("src/resources/loginButtons/login.png");
+    private ImageIcon profileB = new ImageIcon("src/resources/loginButtons/profile.png");
+    private ImageIcon logoutB = new ImageIcon("src/resources/loginButtons/logout.png");
+    private ImageIcon joinHov = new ImageIcon("src/resources/loginButtons/joinH.png");
+    private ImageIcon loginHov = new ImageIcon("src/resources/loginButtons/loginH.png");
+    private ImageIcon profileHov = new ImageIcon("src/resources/loginButtons/profileH.png");
+    private ImageIcon logoutHov = new ImageIcon("src/resources/loginButtons/logoutH.png");
+    private ImageIcon joinPressed = new ImageIcon("src/resources/loginButtons/joinP.png");
+    private ImageIcon loginPressed = new ImageIcon("src/resources/loginButtons/loginP.png");
+    private ImageIcon profilePressed = new ImageIcon("src/resources/loginButtons/profilP.png");
+    private ImageIcon logoutPressed = new ImageIcon("src/resources/loginButtons/logoutP.png");
 
     /**
      * Creates new form loginDefault
@@ -91,42 +91,42 @@ public class loginDefault extends javax.swing.JPanel {
         buttonPanel.setBorder(javax.swing.BorderFactory.createEmptyBorder(5, 20, 0, 20));
         buttonPanel.setOpaque(false);
         buttonPanel.setPreferredSize(new java.awt.Dimension(300, 40));
-        buttonPanel.setLayout(new java.awt.GridLayout(1, 2, 20, 10));
+        buttonPanel.setLayout(new java.awt.GridLayout());
 
         joinButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                joinButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                joinButtonEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                joinButtonExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 joinButtonMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 joinButtonMouseReleased(evt);
             }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                joinButtonMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                joinButtonExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                joinButtonEntered(evt);
-            }
         });
         buttonPanel.add(joinButton);
 
         loginButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                loginButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                loginButtonEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                loginButtonExited(evt);
+            }
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 loginButtonMousePressed(evt);
             }
             public void mouseReleased(java.awt.event.MouseEvent evt) {
                 loginButtonMouseReleased(evt);
-            }
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                loginButtonMouseClicked(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                loginButtonExited(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                loginButtonEntered(evt);
             }
         });
         buttonPanel.add(loginButton);
@@ -219,24 +219,11 @@ public class loginDefault extends javax.swing.JPanel {
     }//GEN-LAST:event_passwordInputFocusGained
 
     private void joinButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_joinButtonMouseClicked
-        // TODO add your handling code here:
-        if(!IMat.isLoggedin()){
-            IMat.getWindow().setContent(new RegisterPanel());
-        }else{
-            IMat.getWindow().setContent(new MyProfilePanelHolder());
-        }
+    
     }//GEN-LAST:event_joinButtonMouseClicked
 
     private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMouseClicked
-        // TODO add your handling code here:
-        if (IMat.isLoggedin()){
-            IMat.setLoggedin(false);
-            dynamicTextChange();
-            IMat.getWindow().revalidate();
-            IMat.getWindow().repaint();
-        }else{
-           toggleVisibleButtons();
-        }
+    
     }//GEN-LAST:event_loginButtonMouseClicked
 
     private void joinButtonEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_joinButtonEntered
@@ -287,8 +274,16 @@ public class loginDefault extends javax.swing.JPanel {
             joinButton.setIcon(joinPressed);
         }
         this.revalidate();
+     joinPressed();
     }//GEN-LAST:event_joinButtonMousePressed
-
+ private void joinPressed(){
+            // TODO add your handling code here:
+        if(!IMat.isLoggedin()){
+            IMat.getWindow().setContent(new RegisterPanel());
+        }else{
+            IMat.getWindow().setContent(new MyProfilePanelHolder());
+        }
+ }
     private void joinButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_joinButtonMouseReleased
         // TODO add your handling code here:
         if(IMat.isLoggedin()){
@@ -307,8 +302,20 @@ public class loginDefault extends javax.swing.JPanel {
             loginButton.setIcon(loginPressed);
         }
         this.revalidate();
+            // TODO add your handling code here:
+        loginPressed();
+      
     }//GEN-LAST:event_loginButtonMousePressed
-
+private void loginPressed(){
+      if (IMat.isLoggedin()){
+            IMat.setLoggedin(false);
+            dynamicTextChange();
+            IMat.getWindow().revalidate();
+            IMat.getWindow().repaint();
+        }else{
+           toggleVisibleButtons();
+        }
+}
     private void loginButtonMouseReleased(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_loginButtonMouseReleased
         // TODO add your handling code here:
         if(IMat.isLoggedin()){
