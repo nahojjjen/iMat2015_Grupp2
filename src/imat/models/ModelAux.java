@@ -5,8 +5,10 @@
  */
 package imat.models;
 
+import imat.IMat;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JMenuItem;
 import se.chalmers.ait.dat215.project.Order;
 import se.chalmers.ait.dat215.project.Product;
 import se.chalmers.ait.dat215.project.ShoppingCart;
@@ -18,6 +20,8 @@ import se.chalmers.ait.dat215.project.ShoppingItem;
  */
 public class ModelAux {
 
+    private static List<Product> removedItems = new ArrayList();
+    
     public static double getPrice(Order order){
         double total = 0;
         List<ShoppingItem> items = order.getItems();
@@ -100,6 +104,8 @@ public class ModelAux {
           return 0;
     }
     
+    
+    
     /**
      * removes all of a specified product from the shoppingcart
      * the default backend already knows how to do this well, 
@@ -109,6 +115,14 @@ public class ModelAux {
     public static void removeAllOfProductFromCart(ShoppingItem product){
         //remove(product.getProduct(), getAmountInCart(product.getProduct()));
         Model.getShoppingcart().removeItem(product);
+        
+        if (!removedItems.contains(product.getProduct())){
+           JMenuItem deletedItem = new JMenuItem(product.getProduct().getName());
+            deletedItem.addActionListener(new productListener(product.getProduct()));
+            IMat.getWindow().getRecentlyDeletedMenu().add(deletedItem); 
+            }
+        
+        removedItems.add(product.getProduct());
     }
     /**
      * remove an amount of items from the cart
@@ -136,6 +150,13 @@ public class ModelAux {
                     cart.addItem(new ShoppingItem(item, resultAmount));
                 }
 
+                if (!removedItems.contains(item)){
+           JMenuItem deletedItem = new JMenuItem(item.getName());
+            deletedItem.addActionListener(new productListener(item));
+            IMat.getWindow().getRecentlyDeletedMenu().add(deletedItem); 
+            }
+        
+        removedItems.add(item);
     }
     
     public static void setCart(List<ShoppingItem> newCart){

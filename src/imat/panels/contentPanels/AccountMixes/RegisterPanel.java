@@ -6,9 +6,9 @@
 package imat.panels.contentPanels.AccountMixes;
 
 import imat.IMat;
+import imat.models.CustomerModel;
 import imat.panels.contentPanels.PanelAccountInfo;
 import imat.panels.contentPanels.PanelHome;
-import javax.swing.KeyStroke;
 
 /**
  *
@@ -94,7 +94,8 @@ public class RegisterPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       registerPressed(); // TODO add your handling code here:
+        CustomerModel.resetUser();
+        registerPressed(); // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

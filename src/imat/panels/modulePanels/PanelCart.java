@@ -220,8 +220,9 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         IMat.getWindow().showSearch(cart, "Din nuvarande kundvagn");
     }//GEN-LAST:event_detailButtonActionPerformed
 
-    private void clearCartLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearCartLabelMouseClicked
-        if (Model.getShoppingcart().getItems().size()>0){
+    
+    public void clearCart(){
+         if (Model.getShoppingcart().getItems().size()>0){
         previousCart = new ArrayList<ShoppingItem>();
         
         List<ShoppingItem> currentCart = Model.getShoppingcart().getItems();
@@ -231,11 +232,17 @@ public class PanelCart extends javax.swing.JPanel implements ShoppingCartListene
         Model.getShoppingcart().clear();
         regretLabel.setVisible(true);
         }
+    }
+    private void clearCartLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_clearCartLabelMouseClicked
+       clearCart();
     }//GEN-LAST:event_clearCartLabelMouseClicked
 
-    private void regretLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_regretLabelMouseClicked
+    public void regretClear(){
         regretLabel.setVisible(false);
         ModelAux.setCart(previousCart);
+    }
+    private void regretLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_regretLabelMouseClicked
+        regretClear();
     }//GEN-LAST:event_regretLabelMouseClicked
 
 

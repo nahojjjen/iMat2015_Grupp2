@@ -383,7 +383,7 @@ public class ConfirmOrderInfo extends javax.swing.JPanel {
             .addGroup(jPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 539, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 284, Short.MAX_VALUE)
                 .addComponent(confirmEverything, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
         );
@@ -404,6 +404,7 @@ public class ConfirmOrderInfo extends javax.swing.JPanel {
         if (Model.getShoppingcart().getItems().size() > 0) {
            Model.placeOrder();        
            IMat.getWindow().setContent(new PanelDoneShopping());
+           IMat.getWindow().setWizardStep(4);
         } else{
             System.out.println("trying to buy with cart less than 0 items");
         }
@@ -413,6 +414,7 @@ public class ConfirmOrderInfo extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
           
             IMat.getWindow().setContent(new PanelInfoFill());
+            IMat.getWindow().setWizardStep(2);
         
     }//GEN-LAST:event_jButton2ActionPerformed
 

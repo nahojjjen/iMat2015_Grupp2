@@ -21,6 +21,25 @@ public class CustomerModel {
     public static Customer customer = data.getCustomer();
     public static CreditCard creditCard = data.getCreditCard();
 
+    
+    public static void resetUser(){
+        user.setPassword("");
+        user.setUserName("");
+        customer.setAddress("");
+        customer.setEmail("");
+        customer.setFirstName("");
+        customer.setLastName("");
+        customer.setMobilePhoneNumber("");
+        customer.setPostAddress("");
+        customer.setPostCode("");
+        creditCard.setCardNumber("");
+        creditCard.setCardType("VISA");
+        creditCard.setHoldersName("");
+        creditCard.setValidMonth(1);
+        creditCard.setValidYear(2013);
+        creditCard.setVerificationCode(000);
+       
+    }
     /**
      * returns the current user
      *

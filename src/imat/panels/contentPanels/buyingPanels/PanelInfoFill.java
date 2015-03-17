@@ -133,6 +133,7 @@ public class PanelInfoFill extends javax.swing.JPanel {
 
         registerCheckbox.setFont(new java.awt.Font("Lucida Grande", 0, 11)); // NOI18N
         registerCheckbox.setText("Spara mina uppgifter");
+        registerCheckbox.setOpaque(false);
         registerCheckbox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 registerCheckboxActionPerformed(evt);
@@ -192,13 +193,16 @@ public class PanelInfoFill extends javax.swing.JPanel {
             if (card.isAllCorrect() && delivery.isAllCorrect()) {
                 unloggedinCheckout();
                 buyPanel.setFirstVisit(false);
+                IMat.getWindow().setWizardStep(3);
             }
         } else if (registerCheckbox.isSelected()==false){
             if (card.isAllCorrect() && delivery.isAllCorrect()) {
                 loggedinCheckout();
                 buyPanel.setFirstVisit(false);
+                IMat.getWindow().setWizardStep(3);
             }
         }
+          
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -225,6 +229,7 @@ public class PanelInfoFill extends javax.swing.JPanel {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         IMat.getWindow().setContent(new PanelConfirm());
         buyPanel.setFirstVisit(true);
+        IMat.getWindow().setWizardStep(1);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void goToNext() {

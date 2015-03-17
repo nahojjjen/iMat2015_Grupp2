@@ -396,6 +396,10 @@ public class PanelSearchResult extends javax.swing.JPanel {
         clearPreviousItems();
         loadResult(loadWay);
     }
+    
+    public static void setGrouped(boolean isGrouped){
+        grouped = isGrouped;
+    }
     private void resetViewIcons(){
         listLabel.setIcon(list1);
         gridLabel.setIcon(grid1);
@@ -419,6 +423,16 @@ public class PanelSearchResult extends javax.swing.JPanel {
         repaint();
     }
 
+    public static void setLoadWay(int i){
+        loadWay = i;
+    }
+    public static void setSortWay(int i){
+        sortingWay = i;
+    }
+    
+    public  void refreshLoader(){
+        loadResult(loadWay);
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
