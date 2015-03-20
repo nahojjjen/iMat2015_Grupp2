@@ -18,8 +18,6 @@ public class PanelCreditCard extends javax.swing.JPanel {
     ///// setOkLabel(isCardNumberCorrect(), cardNumberOkLabel);////
     private ImageIcon ok = new ImageIcon("src/resources/ok.png");
     private ImageIcon notOk = new ImageIcon("src/resources/notOk.png");
-    private String tempRealCardNbr;
-    private String tempFakeCardNbr;
     /**
      * Creates new form PanelCreditCard
      */
@@ -335,7 +333,6 @@ public class PanelCreditCard extends javax.swing.JPanel {
     }//GEN-LAST:event_cardInput3KeyReleased
     private void setCardInfo() {        
         cardHolderTextField.setText(CustomerModel.getCardHolderName());
-        //securityNumberTextField.setText("" + CustomerModel.getCardVerification());
         monthComboBox.setSelectedIndex(CustomerModel.getCardMonth());
         yearComboBox.setSelectedIndex(CustomerModel.getCardYear());
         cardTypeButtonGroup.add(americanRadioButton);
@@ -344,14 +341,14 @@ public class PanelCreditCard extends javax.swing.JPanel {
         securityNumberTextField.setText(CustomerModel.getCardVerification());
               
               
-       cardInput1.setText("");
-       cardInput2.setText("");
-       cardInput3.setText("");
-       if(CustomerModel.getCardNumber().length()>12){
+        cardInput1.setText("");
+        cardInput2.setText("");
+        cardInput3.setText("");
+        if(CustomerModel.getCardNumber().length()>12){
             cardInput1.setText("****");
-       cardInput2.setText("****");
-       cardInput3.setText("****");
-           cardInput4.setText(CustomerModel.getCardNumber().substring(12));
+            cardInput2.setText("****");
+            cardInput3.setText("****");
+            cardInput4.setText(CustomerModel.getCardNumber().substring(12));
        }
             
     }
@@ -362,7 +359,6 @@ public class PanelCreditCard extends javax.swing.JPanel {
         yearComboBox.setSelectedIndex(0);
         cardTypeButtonGroup.add(americanRadioButton);
         cardTypeButtonGroup.add(visaMasterRadioButton);
-        //setSelectedCardType(CustomerModel.getCardType());
         cardInput1.setText(""); 
         cardInput2.setText(""); 
         cardInput3.setText(""); 
