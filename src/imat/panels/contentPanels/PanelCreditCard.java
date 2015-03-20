@@ -14,14 +14,12 @@ import javax.swing.JLabel;
  * @author Viktor
  */
 public class PanelCreditCard extends javax.swing.JPanel {
-
     
     ///// setOkLabel(isCardNumberCorrect(), cardNumberOkLabel);////
     private ImageIcon ok = new ImageIcon("src/resources/ok.png");
     private ImageIcon notOk = new ImageIcon("src/resources/notOk.png");
     private String tempRealCardNbr;
     private String tempFakeCardNbr;
-
     /**
      * Creates new form PanelCreditCard
      */
@@ -30,7 +28,6 @@ public class PanelCreditCard extends javax.swing.JPanel {
         setCardInfo();
         setLabels();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -300,8 +297,7 @@ public class PanelCreditCard extends javax.swing.JPanel {
     }//GEN-LAST:event_americanRadioButtonActionPerformed
 
     private void securityNumberTextFieldKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_securityNumberTextFieldKeyReleased
-        
-             setOkLabel(isSecNumberCorrect(), secNumberOkLabel);
+        setOkLabel(isSecNumberCorrect(), secNumberOkLabel);
       
     }//GEN-LAST:event_securityNumberTextFieldKeyReleased
 
@@ -337,29 +333,22 @@ public class PanelCreditCard extends javax.swing.JPanel {
         }
         setOkLabel(isCardNumberCorrect(), cardNumberOkLabel);
     }//GEN-LAST:event_cardInput3KeyReleased
-    private void setCardInfo() {
-        
+    private void setCardInfo() {        
         cardHolderTextField.setText(CustomerModel.getCardHolderName());
         //securityNumberTextField.setText("" + CustomerModel.getCardVerification());
         monthComboBox.setSelectedIndex(CustomerModel.getCardMonth());
         yearComboBox.setSelectedIndex(CustomerModel.getCardYear());
         cardTypeButtonGroup.add(americanRadioButton);
         cardTypeButtonGroup.add(visaMasterRadioButton);
-        setSelectedCardType(CustomerModel.getCardType());
-        
+        setSelectedCardType(CustomerModel.getCardType());        
         securityNumberTextField.setText(CustomerModel.getCardVerification());
-
               
-       cardInput1.setText("****");
-       cardInput2.setText("****");
-       cardInput3.setText("****");
-       if(CustomerModel.getCardNumber().length()>12){
-           cardInput4.setText(CustomerModel.getCardNumber().substring(12));
-       }
-       
-               
-        
-        
+        cardInput1.setText("****");
+        cardInput2.setText("****");
+        cardInput3.setText("****");
+        if(CustomerModel.getCardNumber().length()>12){
+            cardInput4.setText(CustomerModel.getCardNumber().substring(12));
+       }        
     }
     public void clearCardInfo() {        
         cardHolderTextField.setText("");
@@ -372,8 +361,7 @@ public class PanelCreditCard extends javax.swing.JPanel {
         cardInput1.setText(""); 
         cardInput2.setText(""); 
         cardInput3.setText(""); 
-        cardInput4.setText(""); 
-        
+        cardInput4.setText("");         
     }
 
     public void setLabels() {
@@ -408,28 +396,23 @@ public class PanelCreditCard extends javax.swing.JPanel {
     /**
      * saves all field data
      */
-    public void save() {
-        
+    public void save() {        
         CustomerModel.setCardVerification(Integer.parseInt(securityNumberTextField.getText()));
         CustomerModel.setCardHolderName(cardHolderTextField.getText());
         CustomerModel.setCardMonth(monthComboBox.getSelectedIndex());
-        CustomerModel.setCardYear(yearComboBox.getSelectedIndex());
-        
-            CustomerModel.setCardNumber(getCardText());
+        CustomerModel.setCardYear(yearComboBox.getSelectedIndex());        
+        CustomerModel.setCardNumber(getCardText());
         
     }
 
-    private String getCardText(){
-        
+    private String getCardText(){        
         return cardInput1.getText()+ cardInput2.getText()+ cardInput3.getText()+ cardInput4.getText();
     }
     /**
      * @return true if card number is filled correctly
      */
     public boolean isCardNumberCorrect() {
-       
-        String cardNumber = getCardText();
-        return (CustomerModel.cardNumberTest(cardNumber));
+        return (CustomerModel.cardNumberTest(getCardText()));
     }
 
     /**
@@ -447,11 +430,9 @@ public class PanelCreditCard extends javax.swing.JPanel {
     }
 
     public boolean isAllCorrect(){
-        if(isSecNumberCorrect() && isCardHolderNameCorrect() && isCardNumberCorrect()){
-            return true;
-        }
-        return false;
+        return(isSecNumberCorrect() && isCardHolderNameCorrect() && isCardNumberCorrect());            
     }
+    
     private void setOkLabel(Boolean bool, JLabel label) {
         if (bool) {
             label.setIcon(ok);

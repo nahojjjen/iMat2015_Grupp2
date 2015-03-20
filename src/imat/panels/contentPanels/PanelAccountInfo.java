@@ -174,7 +174,6 @@ public class PanelAccountInfo extends javax.swing.JPanel {
         CustomerModel.setPassword(new String(newPasswordTextField.getPassword()));
         CustomerModel.setEmail(emailTextField.getText());
     }
-
     /**
      * check if email is filled in correctly
      *
@@ -183,7 +182,6 @@ public class PanelAccountInfo extends javax.swing.JPanel {
     public boolean isEmailCorrect() {
         return (CustomerModel.emailTest(emailTextField.getText()));
     }
-
     /**
      * check if both email addresses is filled in correctly
      *
@@ -192,7 +190,6 @@ public class PanelAccountInfo extends javax.swing.JPanel {
     public boolean isBothEmailCorrect() {
         return (isEmailCorrect() && emailTextField.getText().equals(repeatEmailTextField.getText()));
     }
-
     /**
      * check if passwordfield is correct
      *
@@ -201,7 +198,6 @@ public class PanelAccountInfo extends javax.swing.JPanel {
     public boolean isPasswordCorrect() {
         return (CustomerModel.passwordTest(new String(newPasswordTextField.getPassword())));
     }
-
     /**
      * check if both passwordfields are correct
      *
@@ -209,7 +205,7 @@ public class PanelAccountInfo extends javax.swing.JPanel {
      */
     public boolean isBothPasswordCorrect() {        
         String pass1 = new String(newPasswordTextField.getPassword());
-        String pass2 = new String(repeatPasswordTextField.getPassword());        
+        String pass2 = new String(repeatPasswordTextField.getPassword());     
         
         return (pass1.equals(pass2) && isPasswordCorrect());
     }

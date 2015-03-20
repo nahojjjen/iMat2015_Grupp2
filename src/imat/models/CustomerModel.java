@@ -20,7 +20,6 @@ public class CustomerModel {
     public static User user = Model.getUser();
     public static Customer customer = data.getCustomer();
     public static CreditCard creditCard = data.getCreditCard();
-
     
     public static void resetUser(){
         user.setPassword("");
@@ -63,8 +62,7 @@ public class CustomerModel {
             System.out.println("couldnt get password from user");
         } finally {
             return password;
-        }
-      
+        }      
     }
 
     //todo
@@ -323,11 +321,8 @@ public class CustomerModel {
     }
 
     public static boolean cardNumberTest(String str) {
-        String cardType = getCardType();
-        
-            return (str.length() > 14);
-       
-        
+        String cardType = getCardType();        
+        return (str.length() > 14);
         /**
         return (cardType.equals("American Express") && str.length() == 15
                 || cardType.equals("VISA/MasterCard") && str.length() == 16);**/
@@ -335,7 +330,6 @@ public class CustomerModel {
 
     public static boolean cardHolderNameTest(String str) {
         return (str.length() > 1);
-
     }
 
     public static boolean cardVerificationTest(String str) {
@@ -384,11 +378,7 @@ public class CustomerModel {
      * @return true if something, unknown
      */
     public static boolean emailTest(String str) {
-        if (str.contains("@") && str.contains(".") && str.length() > 5) {
-            return true;
-        }
-        return false;
-
+        return (str.contains("@") && str.contains(".") && str.length() > 5);  
     }
 
     /**

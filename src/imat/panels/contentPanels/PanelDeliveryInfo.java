@@ -24,11 +24,7 @@ public class PanelDeliveryInfo extends javax.swing.JPanel {
     public PanelDeliveryInfo() {
         initComponents();
         setTextFields();
-        setLabels();
-        
-        //careOfTextField.setVisible(false);
-      //  jLabel2.setVisible(false);
-       // careOfLabel.setVisible(false);
+        setLabels();        
     }
 
     /**
