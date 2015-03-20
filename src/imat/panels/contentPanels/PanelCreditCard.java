@@ -343,12 +343,17 @@ public class PanelCreditCard extends javax.swing.JPanel {
         setSelectedCardType(CustomerModel.getCardType());        
         securityNumberTextField.setText(CustomerModel.getCardVerification());
               
-        cardInput1.setText("****");
-        cardInput2.setText("****");
-        cardInput3.setText("****");
-        if(CustomerModel.getCardNumber().length()>12){
-            cardInput4.setText(CustomerModel.getCardNumber().substring(12));
-       }        
+              
+       cardInput1.setText("");
+       cardInput2.setText("");
+       cardInput3.setText("");
+       if(CustomerModel.getCardNumber().length()>12){
+            cardInput1.setText("****");
+       cardInput2.setText("****");
+       cardInput3.setText("****");
+           cardInput4.setText(CustomerModel.getCardNumber().substring(12));
+       }
+            
     }
     public void clearCardInfo() {        
         cardHolderTextField.setText("");
