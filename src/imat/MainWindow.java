@@ -332,6 +332,7 @@ public class MainWindow extends javax.swing.JFrame {
         jMenuItem11 = new javax.swing.JMenuItem();
         jSeparator7 = new javax.swing.JPopupMenu.Separator();
         jMenuItem12 = new javax.swing.JMenuItem();
+        jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem13 = new javax.swing.JMenuItem();
         jMenuItem14 = new javax.swing.JMenuItem();
         jSeparator4 = new javax.swing.JPopupMenu.Separator();
@@ -619,6 +620,14 @@ public class MainWindow extends javax.swing.JFrame {
         });
         visa.add(jMenuItem12);
 
+        jMenuItem2.setText("Favoriter");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        visa.add(jMenuItem2);
+
         jMenuItem13.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_MASK));
         jMenuItem13.setText("Historik");
         jMenuItem13.addActionListener(new java.awt.event.ActionListener() {
@@ -819,6 +828,10 @@ public class MainWindow extends javax.swing.JFrame {
         IMat.getWindow().showSearch(products, "Min kundvagn");
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        IMat.getWindow().setContent(new PanelSearchResult("Favoriter"));
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
     
     private void openWizardStep(int i){
         switch (i){
@@ -883,6 +896,7 @@ public class MainWindow extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem14;
     private javax.swing.JMenuItem jMenuItem15;
     private javax.swing.JMenuItem jMenuItem16;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JMenuItem jMenuItem5;
