@@ -19,6 +19,7 @@ import javax.swing.JPanel;
  */
 public class MyProfilePanelHolder extends javax.swing.JPanel {
 
+    private static Color darkGreen = new Color (0, 153, 0);
     private static Color hoverStripe = new Color(160, 160, 160);
     private static Color blackStripe = new Color(120,120,120);
     private static Color whiteStripe = new Color(80,80,80);
@@ -70,17 +71,17 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
     private void cardPanelConfirm(){
         if(cardCard.isAllCorrect()){
             cardCard.save();
-            feedbackLabel.setForeground(Color.green);
+            feedbackLabel.setForeground(darkGreen);
             feedbackLabel.setText("Kort sparat!");
         }else{
-           feedbackLabel.setForeground(Color.red);
+           feedbackLabel.setForeground(Color.RED);
             feedbackLabel.setText("Kort ej sparat!");
         }
     }
     private void deliveryPanelConfirm(){
         if (deliveryCard.isAllCorrect()){
             deliveryCard.save();
-            feedbackLabel.setForeground(Color.green);
+            feedbackLabel.setForeground(darkGreen);
             feedbackLabel.setText("Leveransupg sparat!");
         }else{
             feedbackLabel.setForeground(Color.red);
@@ -90,7 +91,7 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
     private void accountPanelConfirm(){
         if (accountCard.isBothEmailCorrect()&& accountCard.isBothPasswordCorrect()){
             accountCard.save();
-            feedbackLabel.setForeground(Color.green);
+            feedbackLabel.setForeground(darkGreen);
             feedbackLabel.setText("Kontoupg sparat!");
         }else{ 
             feedbackLabel.setForeground(Color.red);
@@ -225,8 +226,8 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
 
         holderPanel.setOpaque(false);
 
-        feedbackLabel.setBackground(new java.awt.Color(0, 204, 0));
-        feedbackLabel.setForeground(new java.awt.Color(0, 204, 0));
+        feedbackLabel.setBackground(new java.awt.Color(0, 153, 0));
+        feedbackLabel.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         feedbackLabel.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -240,7 +241,7 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(feedbackLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(feedbackLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(saveButton, javax.swing.GroupLayout.PREFERRED_SIZE, 208, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(holderPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -257,7 +258,7 @@ public class MyProfilePanelHolder extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 17, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(saveButton, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(feedbackLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(feedbackLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
