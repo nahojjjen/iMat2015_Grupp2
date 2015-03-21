@@ -74,7 +74,15 @@ public class PanelNavigation2 extends javax.swing.JPanel {
      private ImageIcon showAll = new ImageIcon("src/resources/navButtons/showall.jpg");
     private ImageIcon showAllH = new ImageIcon("src/resources/navButtons/showallH.jpg");
     private ImageIcon showAllP = new ImageIcon("src/resources/navButtons/showallP.jpg");
-    private ImageIcon fav = new ImageIcon("src/resources/fav.png");
+    
+    private ImageIcon homePic = new ImageIcon("src/resources/menyPictures/home.png");
+    private ImageIcon showAllPic = new ImageIcon("src/resources/menyPictures/search.png");
+    private ImageIcon productsPic = new ImageIcon("src/resources/menyPictures/list.png");
+    private ImageIcon profilePic = new ImageIcon("src/resources/menyPictures/profile.png");
+    private ImageIcon historyPic = new ImageIcon("src/resources/menyPictures/previousCart.png");
+    private ImageIcon favPic = new ImageIcon("src/resources/menyPictures/favPicOnMeny.png");
+    private ImageIcon orderPic = new ImageIcon("src/resources/menyPictures/cart4.png");
+    private ImageIcon faqPic = new ImageIcon("src/resources/menyPictures/questionMark.png");
     
     
     /**
@@ -102,9 +110,9 @@ public class PanelNavigation2 extends javax.swing.JPanel {
     }
         private void addStaticButtons1(){
          //CustomButton homebutton = new CustomButton(home, homeH, homeP, new GoToHome());
-        CustomButton2 homebutton = new CustomButton2(new GoToHome(), fav, "Hem");
-        CustomButton2 showAllButton = new CustomButton2(new GoToShowAll(), fav, "Visa Alla Varor");
-        CustomButton2 categoryButton = new CustomButton2(new ExpandCategories(), fav, "Kategorier");
+        CustomButton2 homebutton = new CustomButton2(new GoToHome(), homePic, "Hem");
+        CustomButton2 showAllButton = new CustomButton2(new GoToShowAll(), showAllPic, "Visa Alla Varor");
+        CustomButton2 categoryButton = new CustomButton2(new ExpandCategories(), productsPic, "Produkter");
         
         
         holder.add(homebutton);
@@ -115,12 +123,12 @@ public class PanelNavigation2 extends javax.swing.JPanel {
         
     private void addShowingCategoryButtons(){
         if (expanded) {
-            CustomButton2 fruitNGreenButton = new CustomButton2(new GoToFruktOGront(), fav, "Frukt & Grönt",true);
-            CustomButton2 candyButton = new CustomButton2(new GoToCategorySweets(), fav, "Godis",true);
-            CustomButton2 btn12 = new CustomButton2(new GoToMeat(), fav, "Fisk & Kött",true);
-            CustomButton2 btnTorrVaror = new CustomButton2(new GoToDryProducts(), fav, "Torrvaror", true);
-            CustomButton2 btnDrycker = new CustomButton2(new GoToDrinks(), fav, "Drycker", true);
-            CustomButton2 btnMejeri = new CustomButton2(new GoToMejeri(), fav, "Mejeri", true);
+            CustomButton2 fruitNGreenButton = new CustomButton2(new GoToFruktOGront(), null, "Frukt & Grönt",true);
+            CustomButton2 candyButton = new CustomButton2(new GoToCategorySweets(), null, "Godis",true);
+            CustomButton2 btn12 = new CustomButton2(new GoToMeat(), null, "Fisk & Kött",true);
+            CustomButton2 btnTorrVaror = new CustomButton2(new GoToDryProducts(), null, "Torrvaror", true);
+            CustomButton2 btnDrycker = new CustomButton2(new GoToDrinks(), null, "Drycker", true);
+            CustomButton2 btnMejeri = new CustomButton2(new GoToMejeri(), null, "Mejeri", true);
             
             holder.add(candyButton);
             holder.add(btn12);
@@ -134,11 +142,11 @@ public class PanelNavigation2 extends javax.swing.JPanel {
 
     private void addStaticButtons2(){
            holder.add(new JLabel(""));
-         CustomButton2 favoritesButton = new CustomButton2(new GoToFavorites(), fav, "Favoriter");
-         CustomButton2 profileButton = new CustomButton2(new GoToProfile(), fav, "Profil");
-         CustomButton2 lastOrderButton = new CustomButton2(new GoToLastOrder(), fav, "Min beställning");
-        CustomButton2 historyButton = new CustomButton2(new GoToHistory(), fav, "Historik");
-        CustomButton2 faqButton = new CustomButton2(new GoToFaq(), fav, "F.A.Q.");
+         CustomButton2 favoritesButton = new CustomButton2(new GoToFavorites(), favPic, "Favoriter");
+         CustomButton2 profileButton = new CustomButton2(new GoToProfile(), profilePic, "Profil");
+         CustomButton2 lastOrderButton = new CustomButton2(new GoToLastOrder(), orderPic, "Min beställning");
+        CustomButton2 historyButton = new CustomButton2(new GoToHistory(), historyPic, "Historik");
+        CustomButton2 faqButton = new CustomButton2(new GoToFaq(), faqPic, "F.A.Q.");
      
         holder.add(profileButton);
         holder.add(historyButton);  
